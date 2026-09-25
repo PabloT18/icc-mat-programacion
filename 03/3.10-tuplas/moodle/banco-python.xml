@@ -1,0 +1,444 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.10 Tuplas y registros de datos/Conceptos</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-T01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Crear tupla de un elemento en Python.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La coma forma la tupla.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;(5,)&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>La coma forma la tupla.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;(5)&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;[5]&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;{5}&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-T02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Interpretar inmutabilidad de tupla con una lista.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La inmutabilidad del contenedor es superficial.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;La lista interna todavía puede cambiar&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>La inmutabilidad del contenedor es superficial.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Todos los objetos internos quedan congelados&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;La tupla se convierte en lista&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Solo se puede cambiar la primera posición&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-T03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Elegir equivalente idiomático de registro en Java.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>record expresa nombres y tipos de componentes.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;record con componentes nombrados&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>record expresa nombres y tipos de componentes.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Object[] sin esquema obligatorio&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Una tupla incorporada idéntica a Python&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Un String concatenado como única opción&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-T04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Desempaquetar dos campos desde tres valores.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>El número de elementos debe coincidir sin un destino extendido.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Producir ValueError en Python&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>El número de elementos debe coincidir sin un destino extendido.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Ignorar siempre el tercero&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Repetir el segundo&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Retornar None&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.10 Tuplas y registros de datos/Python - trazas</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-C01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;producto=(&amp;quot;A&amp;quot;,3)
+print(*producto)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: A 3</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;A 3&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: A 3</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-C02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;dato=(5,)
+print(len(dato))
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 1</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;1&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 1</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-C03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;nombre,edad=(&amp;quot;Ana&amp;quot;,20)
+print(f&amp;quot;{nombre}: {edad}&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Ana: 20</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Ana: 20&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Ana: 20</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-C04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;original=(&amp;quot;A&amp;quot;,3)
+nueva=(original[0],4)
+print(*original)
+print(*nueva)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: A 3
+A 4</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;A 3
+A 4&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: A 3
+A 4</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-C05</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;for codigo,cantidad in [(&amp;quot;A&amp;quot;,0),(&amp;quot;B&amp;quot;,4),(&amp;quot;C&amp;quot;,2)]:
+    if cantidad&amp;gt;0: print(codigo)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: B
+C</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;B
+C&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: B
+C</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.10-C06</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;total=0
+for codigo,cantidad in [(&amp;quot;A&amp;quot;,3),(&amp;quot;B&amp;quot;,5)]: total+=cantidad
+print(total)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 8</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;8&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 8</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>

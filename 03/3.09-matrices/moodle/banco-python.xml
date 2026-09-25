@@ -1,0 +1,449 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.09 Matrices y recorridos anidados/Conceptos</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-T01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Identificar el riesgo de [[0]*3]*2.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La repetición reutiliza referencias a la lista interna.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Compartir la misma fila&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>La repetición reutiliza referencias a la lista interna.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Crear seis filas distintas&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Cambiar enteros a texto&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Crear una matriz inmutable&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-T02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Ubicar contador por fila.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Cada fila necesita comenzar con su contador en cero.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Al comenzar cada iteración externa&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Cada fila necesita comenzar con su contador en cero.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Antes de todos los ciclos únicamente&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Después de imprimir todas las filas&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Dentro de cada celda sin acumular&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-T03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Transformar sin modificar matriz.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Las filas también deben ser independientes.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Crear contenedor externo y filas nuevas&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Las filas también deben ser independientes.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Asignar otro nombre a la matriz&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Copiar solo el contenedor externo y modificar filas&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Reutilizar una sola fila de salida&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-T04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Validar rectangularidad.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Una matriz rectangular no necesita ser cuadrada.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Comprobar igual longitud en todas las filas&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Una matriz rectangular no necesita ser cuadrada.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Comprobar solo número de filas&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Exigir siempre una matriz cuadrada&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Leer matriz[0] sin validar vacío&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.09 Matrices y recorridos anidados/Python - trazas</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-C01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;m=[[1,2,3],[4,5,6]]
+print(len(m),len(m[0]) if m else 0)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 2 3</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;2 3&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 2 3</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-C02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;for fila in [[1,2],[3,4]]: print(&amp;quot; &amp;quot;.join(str(x) for x in fila))
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 1 2
+3 4</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;1 2
+3 4&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 1 2
+3 4</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-C03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;total=0
+for fila in [[1,2],[3,4]]:
+    for n in fila: total+=n
+print(total)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 10</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;10&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 10</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-C04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;resultado=[]
+for fila in [[2,3],[4,7]]:
+    suma=0
+    for n in fila: suma+=n
+    resultado.append(suma)
+print(*resultado)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 5 11</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;5 11&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 5 11</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-C05</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;m=[[1,2,3],[4,5,6]]
+resultado=[0]*len(m[0])
+for fila in m:
+    for j,n in enumerate(fila): resultado[j]+=n
+print(*resultado)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 5 7 9</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;5 7 9&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 5 7 9</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.09-C06</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;m=[[1,2,3],[4,5,6],[7,8,9]]
+if any(len(fila)!=len(m) for fila in m): raise ValueError(&amp;quot;No cuadrada&amp;quot;)
+suma=0
+for i in range(len(m)): suma+=m[i][i]
+print(suma)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 15</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;15&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 15</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>

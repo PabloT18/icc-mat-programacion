@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.12 Punto de entrada y módulos/Conceptos</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-T01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Interpretar el guard __name__.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Solo protege las instrucciones dentro del bloque.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Ejecutar su bloque cuando el archivo es entrada directa&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Solo protege las instrucciones dentro del bloque.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Evitar toda ejecución de nivel superior&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Instalar automáticamente módulos&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Compilar Java&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-T02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Elegir responsabilidad de main.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La entrada coordina operaciones reutilizables.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Coordinar llamadas y presentación&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>La entrada coordina operaciones reutilizables.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Ocultar todas las variables globales&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Contener obligatoriamente todo el cálculo&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Ser importado desde cada utilidad&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-T03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Evitar una importación circular.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Las utilidades no deberían depender de la entrada.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Reorganizar dependencias y pasar datos como argumentos&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Las utilidades no deberían depender de la entrada.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Agregar import * en ambos archivos&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Duplicar nombres al azar&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Eliminar todos los contratos&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-T04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Validar importación de utilidades.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Importar debe permitir reutilización sin interacción inesperada.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Comprobar que no solicita entrada ni imprime&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Importar debe permitir reutilización sin interacción inesperada.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Comprobar solo extensión del archivo&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Ejecutar únicamente el editor&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Revisar que tenga muchos comentarios&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.12 Punto de entrada y módulos/Python - trazas</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-C01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;def main(): print(&amp;quot;Inicio&amp;quot;)
+if __name__==&amp;quot;__main__&amp;quot;: main()
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Inicio</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Inicio&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Inicio</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-C02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;def sumar(a,b): return a+b
+def main(): print(sumar(4,6))
+if __name__==&amp;quot;__main__&amp;quot;: main()
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 10</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;10&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 10</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-C03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;def calcular_doble(n): return n*2
+def mostrar(valor): print(f&amp;quot;Resultado: {valor}&amp;quot;)
+def main(): mostrar(calcular_doble(7))
+if __name__==&amp;quot;__main__&amp;quot;: main()
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Resultado: 14</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Resultado: 14&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Resultado: 14</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-C04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;def total(datos): return sum(datos)
+def main():
+    datos=[2,5,8]
+    print(total(datos))
+if __name__==&amp;quot;__main__&amp;quot;: main()
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 15</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;15&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 15</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-C05</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;def normalizar(texto): return texto.strip().upper()
+def main(): print(normalizar(&amp;quot; sol &amp;quot;))
+if __name__==&amp;quot;__main__&amp;quot;: main()
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: SOL</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;SOL&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: SOL</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.12-C06</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;def dividir(a,b):
+    if b==0: raise ValueError(&amp;quot;Divisor cero&amp;quot;)
+    return a/b
+def main():
+    try: print(dividir(4,0))
+    except ValueError as error: print(error)
+if __name__==&amp;quot;__main__&amp;quot;: main()
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Divisor cero</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Divisor cero&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Divisor cero</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>

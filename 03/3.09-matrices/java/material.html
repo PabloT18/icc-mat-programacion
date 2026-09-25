@@ -1,0 +1,202 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.09 · Matrices y recorridos anidados · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.08-listas-recorridos/java/index.html">Anterior</a><a href="../../3.10-tuplas/java/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.09 · Matrices y recorridos anidados · Java</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.08-listas-recorridos/java/material.html">Anterior</a> · <a href="../../3.10-tuplas/java/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Procesar mediciones organizadas por días y estaciones requiere conservar filas y columnas. Una transformación puede producir etiquetas sin modificar los datos numéricos originales, y un resumen por fila necesita reiniciar su estado en el lugar correcto.</p>
+<p><strong>Prerrequisitos.</strong> Listas, recorridos y funciones.</p>
+<p><strong>Versión complementaria.</strong> Estudiar el mismo problema y los mismos casos de Python mediante construcciones idiomáticas de Java. La presentación compartida corresponde a Python.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Forma, dimensiones y acceso</h3>
+<p>Una matriz rectangular tiene el mismo número de columnas en cada fila. Una colección de filas puede ser irregular; no asumir rectangularidad sin comprobarla. Distinguir número de filas, columnas por fila y cantidad total de elementos. Una matriz vacía no tiene primera fila, por lo que acceder a ella para obtener columnas genera un error.</p>
+<p><strong>Aplicar en Java.</strong> Usar int[][] para números y String[][] para etiquetas. Un arreglo bidimensional es un arreglo de referencias a arreglos y puede tener filas de distinto tamaño. Comprobar cada fila y no dar por hecho que todas tienen matriz[0].length.</p>
+<pre><code class="language-java">int[][] matriz = new int[2][3];
+matriz[0][0] = 7;
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Recorrido y acumuladores por nivel</h3>
+<p>El ciclo externo selecciona una fila y el interno recorre sus elementos. Un acumulador global se inicializa antes de ambos; uno por fila al comenzar cada iteración externa. Una suma por columna requiere mantener un resultado por columna. Usar una matriz pequeña no cuadrada para comprobar que no se intercambian límites.</p>
+<p><strong>Aplicar en Java.</strong> El for-each anidado permite recorrer filas y elementos. Usar índices cuando se requiera posición o escritura. Cada fila tiene su propia longitud y el arreglo externo no representa el total de celdas.</p>
+<pre><code class="language-java">for (int[] fila : new int[][]{{1,2},{3,4}}) {
+    int total = 0;
+    for (int valor : fila) total += valor;
+    System.out.println(total);
+}
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Transformación sin mutación</h3>
+<p>Construir una matriz nueva exige un contenedor externo nuevo y filas nuevas. Copiar solo el contenedor externo comparte filas. Definir una regla local para cada celda y conservar la forma original. Separar transformar de mostrar: la primera función retorna estructura y la segunda la presenta. Comprobar la entrada después de llamar a la función para detectar mutación accidental.</p>
+<p><strong>Aplicar en Java.</strong> Crear cada arreglo de salida o una lista nueva por fila. matriz.clone() copia solo el arreglo exterior. Una transformación de int a String necesita un contenedor de tipo String; no forzar valores heterogéneos en Object[][].</p>
+<pre><code class="language-java">int[][] datos = {{1,2},{3,4}};
+int[][] resultado = new int[datos.length][];
+for (int i=0;i&lt;datos.length;i++) {
+    resultado[i] = new int[datos[i].length];
+    for (int j=0;j&lt;datos[i].length;j++) resultado[i][j]=datos[i][j]*2;
+}
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Presentación y condiciones de fila</h3>
+<p>Una salida de matriz es un formato, no la representación interna de una lista. Definir separador de celdas y mensaje de cierre por fila. Para una mayoría, comparar conteos y decidir explícitamente los empates. Verificar que una categoría pueda realmente aparecer después de la transformación: contar minúsculas después de convertir todo a mayúsculas produce una condición incoherente.</p>
+<p><strong>Aplicar en Java.</strong> Usar String.join para arreglos de cadenas. Para números, construir con StringBuilder o imprimir separadores solo entre celdas. Comprobar orden, número de filas y ausencia de separador sobrante.</p>
+<pre><code class="language-java">System.out.println(String.join(&quot; | &quot;, new String[]{&quot;BAJA&quot;, &quot;ALTA&quot;}));
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Clasificar cada medición de [[18,22,20],[25,15,19]] como ALTA desde 20 y BAJA en otro caso.</p>
+<p><strong>Contrato de esta demostración.</strong> Aceptar filas de enteros; la demostración admite filas de distintas longitudes porque recorre cada fila. Construir contenedor externo y filas nuevos, conservando forma y original. La PC posterior añade rectangularidad como requisito propio. Mostrar cada fila con separador | y comprobar la primera celda original.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/Demo.java">ejemplos/Demo.java</a>.</p>
+<!-- example: Demo.java -->
+<pre><code class="language-java">public class Demo {
+    static String[][] clasificar(int[][] matriz) {
+        String[][] resultado = new String[matriz.length][];
+        for (int i=0; i&lt;matriz.length; i++) {
+            resultado[i] = new String[matriz[i].length];
+            for (int j=0; j&lt;matriz[i].length; j++) {
+                resultado[i][j] = matriz[i][j] &gt;= 20 ? &quot;ALTA&quot; : &quot;BAJA&quot;;
+            }
+        }
+        return resultado;
+    }
+    public static void main(String[] args) {
+        int[][] original = {{18,22,20},{25,15,19}};
+        for (String[] fila : clasificar(original)) System.out.println(String.join(&quot; | &quot;, fila));
+        System.out.println(&quot;Original: &quot; + original[0][0]);
+    }
+}
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.09-matrices/java/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">javac -encoding UTF-8 -d build *.java
+java -cp build Demo
+</code></pre>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">BAJA | ALTA | ALTA
+ALTA | BAJA | BAJA
+Original: 18
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<p>Adaptar los mismos datos y resultados a Java. Usar <code>record</code> para registros y bibliotecas estándar para archivos y procesos. Para resultados booleanos, aceptar <code>true/false</code> en Java frente a <code>True/False</code> en Python. Los ejercicios que inspeccionan el intérprete deben inspeccionar la JVM y el JDK equivalentes.</p>
+<h4>Ejercicio 01. Dimensiones</h4>
+<p>Obtener filas y columnas de [[1,2,3],[4,5,6]], asumiendo rectangularidad validada. Para [] definir cero columnas.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 3
+</code></pre>
+<h4>Ejercicio 02. Recorrido por filas</h4>
+<p>Mostrar [[1,2],[3,4]] sin corchetes ni comas y con un espacio entre elementos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1 2
+3 4
+</code></pre>
+<h4>Ejercicio 03. Suma total</h4>
+<p>Sumar todas las celdas de [[1,2],[3,4]] con ciclos anidados.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">10
+</code></pre>
+<h4>Ejercicio 04. Sumas por fila</h4>
+<p>Producir una suma por fila de [[2,3],[4,7]].</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5 11
+</code></pre>
+<h4>Ejercicio 05. Sumas por columna</h4>
+<p>Sumar columnas de [[1,2,3],[4,5,6]], con rectangularidad como precondición.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5 7 9
+</code></pre>
+<h4>Ejercicio 06. Diagonal principal</h4>
+<p>Sumar diagonal de [[1,2,3],[4,5,6],[7,8,9]]. Exigir matriz cuadrada.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">15
+</code></pre>
+<h4>Ejercicio 07. Transposición rectangular</h4>
+<p>Transponer [[1,2,3],[4,5,6]] a tres filas de dos elementos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1 4
+2 5
+3 6
+</code></pre>
+<h4>Ejercicio 08. Copia con umbral</h4>
+<p>Reemplazar por cero valores menores que 5 de [[2,8],[5,1]], devolviendo nueva matriz. Comprobar original intacto.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">0 8
+5 0
+</code></pre>
+<h4>Ejercicio 09. Transformar palabras</h4>
+<p>Convertir a mayúsculas palabras con longitud al menos cuatro y conservar las otras en [[&quot;sol&quot;,&quot;luna&quot;],[&quot;mar&quot;,&quot;cielo&quot;]]. Crear filas independientes.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">sol | LUNA
+mar | CIELO
+</code></pre>
+<h4>Ejercicio 10. Mayoría por fila</h4>
+<p>Para [[2,3,4],[1,3,2],[2,1]] mostrar cantidad de pares y clasificación “Mayoría par”, “Mayoría impar” o “Empate”. Admitir filas de distinto tamaño para este ejercicio.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 Mayoría par
+1 Mayoría impar
+1 Empate
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.09 · Práctica de clase</h2>
+<p>Transformar una matriz rectangular de enteros en etiquetas NEGATIVO, CERO o POSITIVO. Retornar una matriz nueva y conservar la entrada. Mostrar cada fila separada por “ / ” y agregar el conteo de POSITIVO. Aceptar matriz vacía como cero filas, rechazar matrices irregulares y definir filas vacías como válidas solo si todas tienen longitud cero.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[-1,0,2],[3,4,-2]]</td>
+<td>dos filas; conteos positivos 1 y 2</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>cero filas</td>
+</tr>
+<tr>
+<td>[[1],[2,3]]</td>
+<td>matriz irregular</td>
+</tr>
+<tr>
+<td>[[],[]]</td>
+<td>dos filas vacías; conteos 0</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.09</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Compilar <code>javac -encoding UTF-8 -d build *.java</code> y ejecutar <code>java -cp build Solucion</code>; usar <code>Solucion.java</code> como entrada personal. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.09.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.09): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Validar forma antes de usar dimensiones.</li>
+<li>Crear cada fila de salida por separado.</li>
+<li>Separar transformación y presentación.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://dev.java/learn/">Aprender Java, sitio oficial</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/27/docs/api/">API de Java SE 27</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.08-listas-recorridos/java/material.html">Anterior</a> · <a href="../../3.10-tuplas/java/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.08-listas-recorridos/java/index.html">Anterior</a><a href="../../3.10-tuplas/java/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.09-java"},'*');</script></body></html>

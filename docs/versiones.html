@@ -1,0 +1,35 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>versiones · Programación</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body><main class="page"><nav class="article-nav"><a href="../index.html" target="_top">Índice del curso</a><a href="versiones.md" download>Descargar MD</a></nav><h1>Versiones y entorno</h1>
+<p>Fecha de consulta: 25 de septiembre de 2026.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Objetivo del material</th>
+<th>Fuente oficial</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python</td>
+<td>CPython 3.14.7, versión estable de referencia</td>
+<td><a href="https://www.python.org/downloads/release/python-3147/">https://www.python.org/downloads/release/python-3147/</a></td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Java SE / JDK 27, sin características preview</td>
+<td><a href="https://docs.oracle.com/en/java/javase/27/docs/specs/jvms27.pdf">https://docs.oracle.com/en/java/javase/27/docs/specs/jvms27.pdf</a></td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>&gt;=22, módulos ESM</td>
+<td>Requisito heredado del generador del paquete base</td>
+</tr>
+</tbody></table></div>
+<p>La página oficial de Python 3.14.7 identifica una publicación de mantenimiento del 5 de agosto de 2026. La documentación Java SE 27 consultada identifica edición final de septiembre de 2026. Fijar estas versiones objetivo en lugar de cambiar silenciosamente a versiones preliminares. Para instalaciones Java reproducibles, registrar además proveedor y build real mediante <code>java --version</code>.</p>
+<h2>Entorno realmente ejecutado</h2>
+<p>Las demostraciones se comprobaron con CPython 3.12.14 y OpenJDK 17.0.20, disponibles en el entorno de producción del material. El código utiliza un subconjunto compatible sin características exclusivas recientes. Esto no equivale a haber ejecutado las pruebas en CPython 3.14.7 o JDK 27. Repetir <code>python3 scripts/verify-material.py</code> en las instalaciones objetivo para cerrar esa comprobación.</p>
+<p>El compilador Java disponible se invocó con <code>java com.sun.tools.javac.Main</code>; es el compilador del JDK, aunque el ejecutable <code>javac</code> no estaba expuesto en PATH. En una instalación normal, utilizar <code>javac</code> como indican las lecturas. Node.js de verificación: 24.19.0.</p>
+<h2>Dependencias</h2>
+<p>No instalar librerías externas para demostraciones Python o Java. No usar Maven, Gradle, bases de datos ni hardware. Crear un entorno virtual Python solo como ejercicio de aislamiento. El generador HTML incluye su parser Markdown y licencia. Las presentaciones editables no se regeneran mediante ese parser.</p>
+<h2>Instalación mínima</h2>
+<p>Instalar Python desde python.org o un JDK desde un proveedor oficial. Comprobar <code>python3 --version</code>, <code>java --version</code> y <code>javac --version</code>. Elegir el mismo runtime en el editor. No copiar rutas privadas entre equipos. Consultar 3.01 para la primera ejecución y 3.13 para reproducibilidad.</p>
+</main></body></html>

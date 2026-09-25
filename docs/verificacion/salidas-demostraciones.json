@@ -1,0 +1,272 @@
+[
+  {
+    "id": "1.1",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "0 0 0\n0 1 0\n1 0 0\n1 1 1\n",
+    "stderr": "",
+    "expected": "0 0 0\n0 1 0\n1 0 0\n1 1 1\n"
+  },
+  {
+    "id": "1.1",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "0 0 0\n0 1 0\n1 0 0\n1 1 1\n",
+    "stderr": "",
+    "expected": "0 0 0\n0 1 0\n1 0 0\n1 1 1\n"
+  },
+  {
+    "id": "2.1",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Horas: 3\nCosto: 6\n",
+    "stderr": "",
+    "expected": "Horas: 3\nCosto: 6\n"
+  },
+  {
+    "id": "2.1",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Horas: 3\nCosto: 6\n",
+    "stderr": "",
+    "expected": "Horas: 3\nCosto: 6\n"
+  },
+  {
+    "id": "3.01",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Cantidad: 4\nTotal: 7.00\n",
+    "stderr": "",
+    "expected": "Cantidad: 4\nTotal: 7.00\n"
+  },
+  {
+    "id": "3.01",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Cantidad: 4\nTotal: 7.00\n",
+    "stderr": "",
+    "expected": "Cantidad: 4\nTotal: 7.00\n"
+  },
+  {
+    "id": "3.02",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Producto: Cuaderno\nTotal: 7.00\n",
+    "stderr": "",
+    "expected": "Producto: Cuaderno\nTotal: 7.00\n"
+  },
+  {
+    "id": "3.02",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Producto: Cuaderno\nTotal: 7.00\n",
+    "stderr": "",
+    "expected": "Producto: Cuaderno\nTotal: 7.00\n"
+  },
+  {
+    "id": "3.03",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Adecuada\n",
+    "stderr": "",
+    "expected": "Adecuada\n"
+  },
+  {
+    "id": "3.03",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Adecuada\n",
+    "stderr": "",
+    "expected": "Adecuada\n"
+  },
+  {
+    "id": "3.04",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Cantidad: 5\nSuma: 30\n",
+    "stderr": "",
+    "expected": "Cantidad: 5\nSuma: 30\n"
+  },
+  {
+    "id": "3.04",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Cantidad: 5\nSuma: 30\n",
+    "stderr": "",
+    "expected": "Cantidad: 5\nSuma: 30\n"
+  },
+  {
+    "id": "3.05",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Costo: 7.50\nValores negativos\n",
+    "stderr": "",
+    "expected": "Costo: 7.50\nValores negativos\n"
+  },
+  {
+    "id": "3.05",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Costo: 7.50\nValores negativos\n",
+    "stderr": "",
+    "expected": "Costo: 7.50\nValores negativos\n"
+  },
+  {
+    "id": "3.06",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Cuenca\nVocales: 3\n",
+    "stderr": "",
+    "expected": "Cuenca\nVocales: 3\n"
+  },
+  {
+    "id": "3.06",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Cuenca\nVocales: 3\n",
+    "stderr": "",
+    "expected": "Cuenca\nVocales: 3\n"
+  },
+  {
+    "id": "3.07",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Original: 18 21 19\nCopia: 18 21 19 22\n",
+    "stderr": "",
+    "expected": "Original: 18 21 19\nCopia: 18 21 19 22\n"
+  },
+  {
+    "id": "3.07",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Original: 18 21 19\nCopia: 18 21 19 22\n",
+    "stderr": "",
+    "expected": "Original: 18 21 19\nCopia: 18 21 19 22\n"
+  },
+  {
+    "id": "3.08",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "5 8 5\nSuma: 18\n",
+    "stderr": "",
+    "expected": "5 8 5\nSuma: 18\n"
+  },
+  {
+    "id": "3.08",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "5 8 5\nSuma: 18\n",
+    "stderr": "",
+    "expected": "5 8 5\nSuma: 18\n"
+  },
+  {
+    "id": "3.09",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "BAJA | ALTA | ALTA\nALTA | BAJA | BAJA\nOriginal: 18\n",
+    "stderr": "",
+    "expected": "BAJA | ALTA | ALTA\nALTA | BAJA | BAJA\nOriginal: 18\n"
+  },
+  {
+    "id": "3.09",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "BAJA | ALTA | ALTA\nALTA | BAJA | BAJA\nOriginal: 18\n",
+    "stderr": "",
+    "expected": "BAJA | ALTA | ALTA\nALTA | BAJA | BAJA\nOriginal: 18\n"
+  },
+  {
+    "id": "3.10",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "P01: 8\nP03: 4\n",
+    "stderr": "",
+    "expected": "P01: 8\nP03: 4\n"
+  },
+  {
+    "id": "3.10",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "P01: 8\nP03: 4\n",
+    "stderr": "",
+    "expected": "P01: 8\nP03: 4\n"
+  },
+  {
+    "id": "3.11",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Total: 35\n",
+    "stderr": "",
+    "expected": "Total: 35\n"
+  },
+  {
+    "id": "3.11",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Total: 35\n",
+    "stderr": "",
+    "expected": "Total: 35\n"
+  },
+  {
+    "id": "3.12",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Total: 13\n",
+    "stderr": "",
+    "expected": "Total: 13\n"
+  },
+  {
+    "id": "3.12",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Total: 13\n",
+    "stderr": "",
+    "expected": "Total: 13\n"
+  },
+  {
+    "id": "3.13",
+    "language": "python",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Entorno listo\n",
+    "stderr": "",
+    "expected": "Entorno listo\n"
+  },
+  {
+    "id": "3.13",
+    "language": "java",
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "Entorno listo\n",
+    "stderr": "",
+    "expected": "Entorno listo\n"
+  }
+]

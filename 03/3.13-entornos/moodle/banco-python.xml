@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.13 Entornos, ejecución y reproducibilidad/Conceptos</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-T01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Interpretar un entorno virtual Python.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>El aislamiento no sustituye versiones ni datos.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Aislar instalación de paquetes para un proyecto&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>El aislamiento no sustituye versiones ni datos.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Crear una máquina virtual completa&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Instalar Java&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Garantizar resultados sin datos de prueba&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-T02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Distinguir script de cuaderno.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Reiniciar y ejecutar en orden detecta dependencias ocultas.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;El kernel del cuaderno puede conservar estado entre celdas&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Reiniciar y ejecutar en orden detecta dependencias ocultas.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Ambos reinician siempre antes de cada línea&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Un script requiere siempre Jupyter&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Un cuaderno no contiene código&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-T03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Seleccionar una entrega limpia.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Las dependencias reconstruibles y cachés no son fuentes.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Fuentes, datos de prueba e instrucciones&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Las dependencias reconstruibles y cachés no son fuentes.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;.venv completa y cachés&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Solo captura del editor&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Solo archivos compilados&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-T04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Interpretar comprobación sintáctica.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La sintaxis es una condición necesaria pero insuficiente.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;No demuestra corrección de resultados&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>La sintaxis es una condición necesaria pero insuficiente.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Garantiza todos los casos de aceptación&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Reemplaza la ejecución&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Valida automáticamente el dominio&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.13 Entornos, ejecución y reproducibilidad/Python - trazas</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-C01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;import sys
+assert sys.version_info.major==3
+print(&amp;quot;Python 3&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Python 3</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Python 3&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Python 3</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-C02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;import sys
+from pathlib import Path
+assert Path(sys.executable).is_file()
+print(&amp;quot;Intérprete localizado&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Intérprete localizado</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Intérprete localizado&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Intérprete localizado</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-C03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from pathlib import Path
+assert Path.cwd().is_dir()
+print(&amp;quot;Directorio válido&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Directorio válido</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Directorio válido&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Directorio válido</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-C04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from pathlib import Path
+print((Path(&amp;quot;datos&amp;quot;)/&amp;quot;entrada.txt&amp;quot;).as_posix())
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: datos/entrada.txt</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;datos/entrada.txt&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: datos/entrada.txt</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-C05</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from pathlib import Path
+from tempfile import TemporaryDirectory
+
+with TemporaryDirectory() as carpeta:
+    base = Path(carpeta)
+    import py_compile
+    ruta=base/&amp;quot;demo.py&amp;quot;
+    ruta.write_text(&amp;quot;print(2+3)\n&amp;quot;,encoding=&amp;quot;utf-8&amp;quot;)
+    py_compile.compile(str(ruta),cfile=str(base/&amp;quot;demo.pyc&amp;quot;),doraise=True)
+    print(&amp;quot;Sintaxis válida&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Sintaxis válida</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Sintaxis válida&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Sintaxis válida</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.13-C06</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from pathlib import Path
+from tempfile import TemporaryDirectory
+
+with TemporaryDirectory() as carpeta:
+    base = Path(carpeta)
+    import subprocess,sys
+    ruta=base/&amp;quot;demo.py&amp;quot;
+    ruta.write_text(&amp;quot;print(2+3)\n&amp;quot;,encoding=&amp;quot;utf-8&amp;quot;)
+    r=subprocess.run([sys.executable,str(ruta)],capture_output=True,text=True,check=True)
+    print(r.stdout,end=&amp;quot;&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 5</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;5&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 5</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>

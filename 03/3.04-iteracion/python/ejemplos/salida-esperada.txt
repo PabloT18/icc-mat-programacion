@@ -1,0 +1,2 @@
+Cantidad: 5
+Suma: 30

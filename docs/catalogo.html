@@ -1,0 +1,60 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>catalogo · Programación</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body><main class="page"><nav class="article-nav"><a href="../index.html" target="_top">Índice del curso</a><a href="catalogo.md" download>Descargar MD</a></nav><h1>Catálogo y fuentes de verdad</h1>
+<h2>Esquema versión 2</h2>
+<p>Conservar <code>units</code>, <code>topics</code> y <code>labs</code>. Agregar <code>course</code>, <code>schema_version</code>, <code>protection</code> y campos de versión a cada tema.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>Identidad única: código editorial más lenguaje, por ejemplo 3.09-python</td>
+</tr>
+<tr>
+<td><code>curricular_code</code></td>
+<td>Código común usado por compatibilidad del esquema; en este programa es editorial</td>
+</tr>
+<tr>
+<td><code>code_kind</code></td>
+<td>Valor editorial para no atribuir numeración oficial inexistente</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>python o java</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td>Carpeta de versión relativa a la raíz</td>
+</tr>
+<tr>
+<td><code>prev</code>, <code>next</code></td>
+<td>Carpetas anterior y siguiente del mismo lenguaje</td>
+</tr>
+<tr>
+<td><code>pptx</code></td>
+<td>Ruta explícita a la presentación compartida o específica</td>
+</tr>
+<tr>
+<td><code>deck_language</code></td>
+<td>Lenguaje de la presentación, visible antes de descargar</td>
+</tr>
+<tr>
+<td><code>scope</code></td>
+<td>Resumen de correspondencia y clasificación editorial</td>
+</tr>
+</tbody></table></div>
+<p>Las PL incluyen ruta explícita, lenguaje Python, objetivos, requisitos, fases, pruebas, entregables, defensa y rúbrica. Cada criterio de rúbrica tiene puntaje máximo y descriptores completo, parcial y no logrado.</p>
+<h2>Archivo que editar</h2>
+<ul>
+<li>Editar el cuerpo de lectura y los bloques de demostración en <code>material.md</code>.</li>
+<li>Ejecutar <code>sync-examples.mjs</code> para copiar bloques marcados hacia <code>ejemplos/</code>; usar <code>--check</code> para comparar sin modificar.</li>
+<li>Editar el catálogo para títulos del listado, orden, rutas y contenido estructurado de las PL.</li>
+<li>No duplicar teoría ni código de demostraciones dentro del catálogo.</li>
+<li>Generar <code>course-data.js</code> y los HTML con <code>build-site.mjs</code>; no editarlos manualmente.</li>
+<li>Editar PPTX por separado y conservar correspondencia con la lectura.</li>
+<li>Revisar <code>doc.md</code> al cambiar títulos, anclas o alcance.</li>
+</ul>
+<p>El generador crea <code>index.html</code> como lectura canónica y <code>material.html</code> como copia para navegación documental. Las dos se generan desde el mismo MD. Cada segmento tiene una portada local para escoger lenguaje.</p>
+</main></body></html>

@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.02 Entradas, salidas y conversiones/Conceptos</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-T01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Identificar el tipo retornado por input.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La conversión numérica debe ser explícita.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;str&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>La conversión numérica debe ser explícita.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;int&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;float&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Depende del texto&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-T02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Evaluar int(&amp;quot;3.5&amp;quot;).&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>El texto no representa un entero válido para int.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Lanzar ValueError&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>El texto no representa un entero válido para int.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Retornar 3&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Retornar 4&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Retornar 3.5&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-T03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Interpretar :.2f en una f-string.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>El formato modifica la presentación.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Mostrar dos decimales&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>El formato modifica la presentación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Cambiar el número almacenado&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Multiplicar por cien&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Truncar a entero&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-T04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Conservar ceros de un identificador.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Un código no es necesariamente una cantidad.</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Mantenerlo como cadena&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Un código no es necesariamente una cantidad.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Convertirlo a int&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Convertirlo a float&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Aplicar bool&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category>
+      <text>$course$/top/Unidad 3 - Lenguaje de Programación/3.02 Entradas, salidas y conversiones/Python - trazas</text>
+    </category>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-C01</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from io import StringIO
+entrada = StringIO(&amp;quot;Ana\n&amp;quot;)
+nombre = entrada.readline().rstrip(&amp;quot;\n&amp;quot;)
+print(f&amp;quot;Hola, {nombre}&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Hola, Ana</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Hola, Ana&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Hola, Ana</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-C02</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from io import StringIO
+entrada = StringIO(&amp;quot;12\n8\n&amp;quot;)
+a = int(entrada.readline())
+b = int(entrada.readline())
+print(a+b)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 20</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;20&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 20</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-C03</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from io import StringIO
+entrada = StringIO(&amp;quot;Luis\n19\n&amp;quot;)
+nombre = entrada.readline().strip()
+edad = int(entrada.readline())
+print(f&amp;quot;{nombre}: {edad} años&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: Luis: 19 años</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;Luis: 19 años&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: Luis: 19 años</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-C04</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from io import StringIO
+entrada = StringIO(&amp;quot;10.5\n4\n&amp;quot;)
+base = float(entrada.readline())
+altura = float(entrada.readline())
+print(f&amp;quot;{base*altura/2:.2f}&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 21.00</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;21.00&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 21.00</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-C05</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from io import StringIO
+entrada = StringIO(&amp;quot;25\n&amp;quot;)
+celsius = float(entrada.readline())
+print(f&amp;quot;{celsius*9/5+32:.1f}&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 77.0</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;77.0&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 77.0</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>3.02-C06</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Determinar la salida del siguiente código Python, con los datos incluidos.&lt;/p&gt;&lt;pre&gt;from io import StringIO
+entrada = StringIO(&amp;quot;007\n3\n&amp;quot;)
+codigo = entrada.readline().strip()
+cantidad = int(entrada.readline())
+print(f&amp;quot;{codigo}: {cantidad}&amp;quot;)
+&lt;/pre&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Seguir el código en orden. Salida comprobada: 007: 3</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;pre&gt;007: 3&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Seguir el código en orden. Salida comprobada: 007: 3</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;No producir salida.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Lanzar un error antes de mostrar el resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;pre&gt;Mostrar None como único resultado.&lt;/pre&gt;</text>
+      <feedback format="html">
+        <text>Revisar el contrato, la operación y el orden de evaluación.</text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>

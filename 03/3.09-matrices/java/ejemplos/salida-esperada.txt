@@ -1,0 +1,3 @@
+BAJA | ALTA | ALTA
+ALTA | BAJA | BAJA
+Original: 18

@@ -1,0 +1,187 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.12 · Punto de entrada y módulos · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.11-archivos/python/index.html">Anterior</a><a href="../../3.13-entornos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.12 · Punto de entrada y módulos · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.11-archivos/python/material.html">Anterior</a> · <a href="../../3.13-entornos/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Separar cálculo, presentación y punto de entrada permite reutilizar operaciones sin ejecutar automáticamente una sesión interactiva. Organizar responsabilidades debe reducir acoplamiento, no solo aumentar el número de archivos.</p>
+<p><strong>Prerrequisitos.</strong> Funciones, registros, archivos y manejo de errores.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Módulos y dependencias</h3>
+<p>Un módulo agrupa definiciones relacionadas. Una dependencia aparece cuando un archivo utiliza operaciones definidas en otro. Definir una dirección clara: la entrada llama a operaciones, y las operaciones no importan la entrada para pedir datos. Evitar nombres de archivo que oculten bibliotecas estándar. Mantener interfaces pequeñas y documentadas.</p>
+<p><strong>Aplicar en Python.</strong> Cada archivo .py puede importarse como módulo. import operaciones conserva el prefijo del módulo; from operaciones import sumar importa un nombre concreto. Evitar import * porque oculta el origen de los nombres. Un archivo llamado random.py puede ocultar el módulo estándar random.</p>
+<pre><code class="language-python">from operaciones import sumar
+print(sumar([2, 3]))
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Punto de entrada y ejecución al importar</h3>
+<p>Definir un punto de entrada identifica dónde comienza una ejecución intencional. Importar utilidades no debería pedir datos ni imprimir informes. Mantener datos de ejemplo y coordinación en la entrada. Esta separación permite probar funciones y reutilizarlas sin efectos inesperados.</p>
+<p><strong>Aplicar en Python.</strong> Usar def main() y el guard if <strong>name</strong> == &quot;<strong>main</strong>&quot;: main(). Al importar, <strong>name</strong> toma el nombre del módulo. El guard protege únicamente su bloque; otras instrucciones en el nivel superior todavía se ejecutan.</p>
+<pre><code class="language-python">def main():
+    print(&quot;Inicio&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Contratos entre archivos</h3>
+<p>Una interfaz establece nombres, parámetros, retornos y errores. Cambiarla afecta a quienes la utilizan. Si transformar retorna una lista, mostrar debe recibir esa lista; no llamar a mostrar con el resultado de otra función que solo imprime. Mantener datos en un lugar y pasar argumentos para evitar variables globales compartidas.</p>
+<p><strong>Aplicar en Python.</strong> No depender de variables del módulo main desde una función utilitaria. Recibirlas como parámetros. Las importaciones circulares pueden dejar módulos parcialmente inicializados. Reorganizar responsabilidades en lugar de agregar importaciones dentro de todo el código.</p>
+<pre><code class="language-python">def total(datos):
+    return sum(datos)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Pruebas de integración</h3>
+<p>Una prueba de integración comprueba cómo se conectan funciones y archivos. Ejecutar desde una carpeta limpia detecta dependencias ocultas de archivos o estado. Probar la importación sin salida y luego ejecutar la entrada con datos conocidos. Registrar versiones y comandos exactos para repetir el resultado.</p>
+<p><strong>Aplicar en Python.</strong> Usar python3 -c &quot;import operaciones&quot; para comprobar que importar utilidades no imprime ni solicita datos. Las pruebas con unittest forman parte de la biblioteca estándar. No entregar <strong>pycache</strong> como fuente.</p>
+<pre><code class="language-python">import operaciones
+assert operaciones.sumar([2, 3]) == 5
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Separar la función sumar en un archivo utilitario y llamarla desde el punto de entrada con [4,7,2].</p>
+<p><strong>Contrato de esta demostración.</strong> La utilidad recibe una secuencia de enteros y retorna su suma, con cero para la secuencia vacía. No leer ni imprimir al importar la utilidad. Definir datos y presentación en la entrada. Incluir ambos fuentes para ejecutar.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">from operaciones import sumar
+
+def main():
+    datos = [4, 7, 2]
+    print(f&quot;Total: {sumar(datos)}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p><strong>Archivo complementario:</strong> <a href="ejemplos/operaciones.py">ejemplos/operaciones.py</a>.</p>
+<!-- example: operaciones.py -->
+<pre><code class="language-python">def sumar(datos):
+    total = 0
+    for valor in datos:
+        total += valor
+    return total
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.12-main-modulos/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Total: 13
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Entrada explícita</h4>
+<p>Definir main que muestre “Inicio” y llamarla mediante el guard de ejecución. En Java utilizar main estático.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Inicio
+</code></pre>
+<h4>Ejercicio 02. Cálculo separado</h4>
+<p>Definir sumar(a,b) y utilizarla desde main para sumar 4 y 6.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">10
+</code></pre>
+<h4>Ejercicio 03. Presentación separada</h4>
+<p>Definir calcular_doble y mostrar. Coordinar desde main para 7.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Resultado: 14
+</code></pre>
+<h4>Ejercicio 04. Sin globales</h4>
+<p>Calcular total de [2,5,8] mediante una función que reciba los datos. Definir los datos exclusivamente en main.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">15
+</code></pre>
+<h4>Ejercicio 05. Cadena de procesamiento</h4>
+<p>Normalizar “ sol ” y mostrar el resultado desde main, sin imprimir dentro de normalizar.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">SOL
+</code></pre>
+<h4>Ejercicio 06. Error en la frontera</h4>
+<p>Definir dividir que lance error para divisor cero. Gestionarlo en main con datos 4 y 0.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Divisor cero
+</code></pre>
+<h4>Ejercicio 07. Módulo utilitario real</h4>
+<p>Crear temporalmente operaciones.py con suma(a,b), importarlo sin salida y utilizar suma(3,4). En Java crear Operaciones.java y compilar ambos fuentes.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">7
+</code></pre>
+<h4>Ejercicio 08. Importación sin interacción</h4>
+<p>Crear un módulo con main protegido. Importarlo y comprobar que no produjo salida. Mostrar “Importación limpia” al terminar.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Importación limpia
+</code></pre>
+<h4>Ejercicio 09. Integración de funciones</h4>
+<p>Filtrar pares, elevarlos al cuadrado y mostrarlos desde main para [1,2,3,4]. Separar tres responsabilidades.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">4 16
+</code></pre>
+<h4>Ejercicio 10. Ejecución en proceso nuevo</h4>
+<p>Crear temporalmente util.py y main.py. Ejecutar main.py en un proceso nuevo y obtener “Total: 6” para [1,2,3]. En Java compilar utilidades y entrada juntas.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Total: 6
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.12 · Práctica de clase</h2>
+<p>Crear main.py, texto_utils.py y datos_utils.py. Implementar funciones para normalizar nombres, filtrar registros por cantidad mínima y presentar resultados desde main. No leer ni imprimir al importar utilidades. En Java, crear Demo.java, TextoUtils.java y DatosUtils.java con responsabilidades equivalentes. Entregar una versión y comprobar los mismos casos.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[(&quot;  sol &quot;,3),(&quot;LUNA&quot;,1)], mínimo=2</td>
+<td>SOL</td>
+</tr>
+<tr>
+<td>[], mínimo=2</td>
+<td>Sin datos</td>
+</tr>
+<tr>
+<td>importar utilidades</td>
+<td>sin salida ni solicitud de entrada</td>
+</tr>
+<tr>
+<td>mínimo negativo</td>
+<td>error de argumento</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.12</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.12.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.12): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Mantener utilidades sin interacción al importar.</li>
+<li>Pasar datos mediante argumentos.</li>
+<li>Probar archivos juntos desde una carpeta limpia.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.11-archivos/python/material.html">Anterior</a> · <a href="../../3.13-entornos/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.11-archivos/python/index.html">Anterior</a><a href="../../3.13-entornos/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.12-python"},'*');</script></body></html>

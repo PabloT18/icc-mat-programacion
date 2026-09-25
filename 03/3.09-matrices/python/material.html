@@ -1,0 +1,197 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.09 · Matrices y recorridos anidados · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.08-listas-recorridos/python/index.html">Anterior</a><a href="../../3.10-tuplas/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.09 · Matrices y recorridos anidados · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.08-listas-recorridos/python/material.html">Anterior</a> · <a href="../../3.10-tuplas/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Procesar mediciones organizadas por días y estaciones requiere conservar filas y columnas. Una transformación puede producir etiquetas sin modificar los datos numéricos originales, y un resumen por fila necesita reiniciar su estado en el lugar correcto.</p>
+<p><strong>Prerrequisitos.</strong> Listas, recorridos y funciones.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Forma, dimensiones y acceso</h3>
+<p>Una matriz rectangular tiene el mismo número de columnas en cada fila. Una colección de filas puede ser irregular; no asumir rectangularidad sin comprobarla. Distinguir número de filas, columnas por fila y cantidad total de elementos. Una matriz vacía no tiene primera fila, por lo que acceder a ella para obtener columnas genera un error.</p>
+<p><strong>Aplicar en Python.</strong> Representar con lista de listas. matriz[fila][columna] accede a un elemento. Crear filas independientes con una comprensión o un ciclo; [[0]*c]*f comparte la misma fila y causa cambios inesperados.</p>
+<pre><code class="language-python">matriz = [[0 for _ in range(3)] for _ in range(2)]
+matriz[0][0] = 7
+print(matriz)
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Recorrido y acumuladores por nivel</h3>
+<p>El ciclo externo selecciona una fila y el interno recorre sus elementos. Un acumulador global se inicializa antes de ambos; uno por fila al comenzar cada iteración externa. Una suma por columna requiere mantener un resultado por columna. Usar una matriz pequeña no cuadrada para comprobar que no se intercambian límites.</p>
+<p><strong>Aplicar en Python.</strong> Recorrer filas directamente cuando no se necesita posición. Usar enumerate para conservar coordenadas. No fijar el número de columnas con una constante si los datos forman parte de la entrada.</p>
+<pre><code class="language-python">for fila in [[1, 2], [3, 4]]:
+    total = 0
+    for valor in fila:
+        total += valor
+    print(total)
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Transformación sin mutación</h3>
+<p>Construir una matriz nueva exige un contenedor externo nuevo y filas nuevas. Copiar solo el contenedor externo comparte filas. Definir una regla local para cada celda y conservar la forma original. Separar transformar de mostrar: la primera función retorna estructura y la segunda la presenta. Comprobar la entrada después de llamar a la función para detectar mutación accidental.</p>
+<p><strong>Aplicar en Python.</strong> Crear nueva_fila=[] dentro del ciclo externo, agregar resultados y finalmente agregar la fila a resultado. No reutilizar la misma lista para todas las filas. Para copiar números sin transformar, copiar cada fila es suficiente.</p>
+<pre><code class="language-python">resultado = []
+for fila in [[1, 2], [3, 4]]:
+    nueva = []
+    for valor in fila:
+        nueva.append(valor * 2)
+    resultado.append(nueva)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Presentación y condiciones de fila</h3>
+<p>Una salida de matriz es un formato, no la representación interna de una lista. Definir separador de celdas y mensaje de cierre por fila. Para una mayoría, comparar conteos y decidir explícitamente los empates. Verificar que una categoría pueda realmente aparecer después de la transformación: contar minúsculas después de convertir todo a mayúsculas produce una condición incoherente.</p>
+<p><strong>Aplicar en Python.</strong> Usar &quot; | &quot;.join(fila) para cadenas, o convertir cada valor cuando sea numérico. Reiniciar conteos al entrar a cada fila. Una fila vacía requiere una salida definida si el contrato la admite.</p>
+<pre><code class="language-python">print(&quot; | &quot;.join([&quot;BAJA&quot;, &quot;ALTA&quot;]))
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Clasificar cada medición de [[18,22,20],[25,15,19]] como ALTA desde 20 y BAJA en otro caso.</p>
+<p><strong>Contrato de esta demostración.</strong> Aceptar filas de enteros; la demostración admite filas de distintas longitudes porque recorre cada fila. Construir contenedor externo y filas nuevos, conservando forma y original. La PC posterior añade rectangularidad como requisito propio. Mostrar cada fila con separador | y comprobar la primera celda original.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">def clasificar(matriz):
+    resultado = []
+    for fila in matriz:
+        nueva = []
+        for valor in fila:
+            nueva.append(&quot;ALTA&quot; if valor &gt;= 20 else &quot;BAJA&quot;)
+        resultado.append(nueva)
+    return resultado
+
+original = [[18, 22, 20], [25, 15, 19]]
+for fila in clasificar(original):
+    print(&quot; | &quot;.join(fila))
+print(f&quot;Original: {original[0][0]}&quot;)
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.09-matrices/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">BAJA | ALTA | ALTA
+ALTA | BAJA | BAJA
+Original: 18
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Dimensiones</h4>
+<p>Obtener filas y columnas de [[1,2,3],[4,5,6]], asumiendo rectangularidad validada. Para [] definir cero columnas.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 3
+</code></pre>
+<h4>Ejercicio 02. Recorrido por filas</h4>
+<p>Mostrar [[1,2],[3,4]] sin corchetes ni comas y con un espacio entre elementos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1 2
+3 4
+</code></pre>
+<h4>Ejercicio 03. Suma total</h4>
+<p>Sumar todas las celdas de [[1,2],[3,4]] con ciclos anidados.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">10
+</code></pre>
+<h4>Ejercicio 04. Sumas por fila</h4>
+<p>Producir una suma por fila de [[2,3],[4,7]].</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5 11
+</code></pre>
+<h4>Ejercicio 05. Sumas por columna</h4>
+<p>Sumar columnas de [[1,2,3],[4,5,6]], con rectangularidad como precondición.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5 7 9
+</code></pre>
+<h4>Ejercicio 06. Diagonal principal</h4>
+<p>Sumar diagonal de [[1,2,3],[4,5,6],[7,8,9]]. Exigir matriz cuadrada.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">15
+</code></pre>
+<h4>Ejercicio 07. Transposición rectangular</h4>
+<p>Transponer [[1,2,3],[4,5,6]] a tres filas de dos elementos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1 4
+2 5
+3 6
+</code></pre>
+<h4>Ejercicio 08. Copia con umbral</h4>
+<p>Reemplazar por cero valores menores que 5 de [[2,8],[5,1]], devolviendo nueva matriz. Comprobar original intacto.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">0 8
+5 0
+</code></pre>
+<h4>Ejercicio 09. Transformar palabras</h4>
+<p>Convertir a mayúsculas palabras con longitud al menos cuatro y conservar las otras en [[&quot;sol&quot;,&quot;luna&quot;],[&quot;mar&quot;,&quot;cielo&quot;]]. Crear filas independientes.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">sol | LUNA
+mar | CIELO
+</code></pre>
+<h4>Ejercicio 10. Mayoría por fila</h4>
+<p>Para [[2,3,4],[1,3,2],[2,1]] mostrar cantidad de pares y clasificación “Mayoría par”, “Mayoría impar” o “Empate”. Admitir filas de distinto tamaño para este ejercicio.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 Mayoría par
+1 Mayoría impar
+1 Empate
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.09 · Práctica de clase</h2>
+<p>Transformar una matriz rectangular de enteros en etiquetas NEGATIVO, CERO o POSITIVO. Retornar una matriz nueva y conservar la entrada. Mostrar cada fila separada por “ / ” y agregar el conteo de POSITIVO. Aceptar matriz vacía como cero filas, rechazar matrices irregulares y definir filas vacías como válidas solo si todas tienen longitud cero.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[-1,0,2],[3,4,-2]]</td>
+<td>dos filas; conteos positivos 1 y 2</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>cero filas</td>
+</tr>
+<tr>
+<td>[[1],[2,3]]</td>
+<td>matriz irregular</td>
+</tr>
+<tr>
+<td>[[],[]]</td>
+<td>dos filas vacías; conteos 0</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.09</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.09.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.09): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Validar forma antes de usar dimensiones.</li>
+<li>Crear cada fila de salida por separado.</li>
+<li>Separar transformación y presentación.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.08-listas-recorridos/python/material.html">Anterior</a> · <a href="../../3.10-tuplas/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.08-listas-recorridos/python/index.html">Anterior</a><a href="../../3.10-tuplas/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.09-python"},'*');</script></body></html>

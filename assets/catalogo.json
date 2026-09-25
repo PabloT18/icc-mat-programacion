@@ -1,0 +1,1132 @@
+{
+  "schema_version": 2,
+  "course": {
+    "name": "Programación",
+    "code": "C-CT-ICO-101",
+    "author": "Ing. Pablo Torres, Mgtr.",
+    "institution": "Universidad Politécnica Salesiana",
+    "career": "Computación",
+    "campus": "Cuenca",
+    "default_language": "python"
+  },
+  "units": {
+    "1": [
+      "Lógica Matemática"
+    ],
+    "2": [
+      "Algoritmos"
+    ],
+    "3": [
+      "Lenguaje de Programación"
+    ]
+  },
+  "topics": [
+    {
+      "unit": 1,
+      "id": "1.1-python",
+      "curricular_code": "1.1",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "01/1.1-algebra-boole/python",
+      "title": "Álgebra de Boole",
+      "prev": null,
+      "next": "02/2.1-algoritmos/python",
+      "pptx": "01/1.1-algebra-boole/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Álgebra de Boole; proposiciones como fundamento integrado"
+    },
+    {
+      "unit": 1,
+      "id": "1.1-java",
+      "curricular_code": "1.1",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "01/1.1-algebra-boole/java",
+      "title": "Álgebra de Boole",
+      "prev": null,
+      "next": "02/2.1-algoritmos/java",
+      "pptx": "01/1.1-algebra-boole/presentacion-java.pptx",
+      "deck_language": "java",
+      "scope": "Álgebra de Boole; proposiciones como fundamento integrado"
+    },
+    {
+      "unit": 2,
+      "id": "2.1-python",
+      "curricular_code": "2.1",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "02/2.1-algoritmos/python",
+      "title": "Representación y estructuras de algoritmos",
+      "prev": "01/1.1-algebra-boole/python",
+      "next": "03/3.01-introduccion/python",
+      "pptx": "02/2.1-algoritmos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Formas de representar algoritmos; Estructuras de Control (Decisión, Repetitivas)"
+    },
+    {
+      "unit": 2,
+      "id": "2.1-java",
+      "curricular_code": "2.1",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "02/2.1-algoritmos/java",
+      "title": "Representación y estructuras de algoritmos",
+      "prev": "01/1.1-algebra-boole/java",
+      "next": "03/3.01-introduccion/java",
+      "pptx": "02/2.1-algoritmos/presentacion-java.pptx",
+      "deck_language": "java",
+      "scope": "Formas de representar algoritmos; Estructuras de Control (Decisión, Repetitivas)"
+    },
+    {
+      "unit": 3,
+      "id": "3.01-python",
+      "curricular_code": "3.01",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.01-introduccion/python",
+      "title": "Fundamentos del lenguaje",
+      "prev": "02/2.1-algoritmos/python",
+      "next": "03/3.02-entradas-salidas/python",
+      "pptx": "03/3.01-introduccion/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Fundamentos: generalidades, tipos de datos, operadores, expresiones y variables"
+    },
+    {
+      "unit": 3,
+      "id": "3.01-java",
+      "curricular_code": "3.01",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.01-introduccion/java",
+      "title": "Fundamentos del lenguaje",
+      "prev": "02/2.1-algoritmos/java",
+      "next": "03/3.02-entradas-salidas/java",
+      "pptx": "03/3.01-introduccion/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Fundamentos: generalidades, tipos de datos, operadores, expresiones y variables"
+    },
+    {
+      "unit": 3,
+      "id": "3.02-python",
+      "curricular_code": "3.02",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.02-entradas-salidas/python",
+      "title": "Entradas, salidas y conversiones",
+      "prev": "03/3.01-introduccion/python",
+      "next": "03/3.03-estructuras-control/python",
+      "pptx": "03/3.02-entradas-salidas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Fundamentos: datos, expresiones y variables aplicados a entrada/salida"
+    },
+    {
+      "unit": 3,
+      "id": "3.02-java",
+      "curricular_code": "3.02",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.02-entradas-salidas/java",
+      "title": "Entradas, salidas y conversiones",
+      "prev": "03/3.01-introduccion/java",
+      "next": "03/3.03-estructuras-control/java",
+      "pptx": "03/3.02-entradas-salidas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Fundamentos: datos, expresiones y variables aplicados a entrada/salida"
+    },
+    {
+      "unit": 3,
+      "id": "3.03-python",
+      "curricular_code": "3.03",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.03-estructuras-control/python",
+      "title": "Decisiones y operadores lógicos",
+      "prev": "03/3.02-entradas-salidas/python",
+      "next": "03/3.04-iteracion/python",
+      "pptx": "03/3.03-estructuras-control/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Aplicación de estructuras de control a fundamentos del lenguaje"
+    },
+    {
+      "unit": 3,
+      "id": "3.03-java",
+      "curricular_code": "3.03",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.03-estructuras-control/java",
+      "title": "Decisiones y operadores lógicos",
+      "prev": "03/3.02-entradas-salidas/java",
+      "next": "03/3.04-iteracion/java",
+      "pptx": "03/3.03-estructuras-control/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Aplicación de estructuras de control a fundamentos del lenguaje"
+    },
+    {
+      "unit": 3,
+      "id": "3.04-python",
+      "curricular_code": "3.04",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.04-iteracion/python",
+      "title": "Repetición, contadores y acumuladores",
+      "prev": "03/3.03-estructuras-control/python",
+      "next": "03/3.05-funciones/python",
+      "pptx": "03/3.04-iteracion/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Aplicación de estructuras repetitivas al lenguaje"
+    },
+    {
+      "unit": 3,
+      "id": "3.04-java",
+      "curricular_code": "3.04",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.04-iteracion/java",
+      "title": "Repetición, contadores y acumuladores",
+      "prev": "03/3.03-estructuras-control/java",
+      "next": "03/3.05-funciones/java",
+      "pptx": "03/3.04-iteracion/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Aplicación de estructuras repetitivas al lenguaje"
+    },
+    {
+      "unit": 3,
+      "id": "3.05-python",
+      "curricular_code": "3.05",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.05-funciones/python",
+      "title": "Funciones, contratos y descomposición",
+      "prev": "03/3.04-iteracion/python",
+      "next": "03/3.06-cadenas/python",
+      "pptx": "03/3.05-funciones/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.05-java",
+      "curricular_code": "3.05",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.05-funciones/java",
+      "title": "Funciones, contratos y descomposición",
+      "prev": "03/3.04-iteracion/java",
+      "next": "03/3.06-cadenas/java",
+      "pptx": "03/3.05-funciones/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.06-python",
+      "curricular_code": "3.06",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.06-cadenas/python",
+      "title": "Cadenas y procesamiento de texto",
+      "prev": "03/3.05-funciones/python",
+      "next": "03/3.07-listas/python",
+      "pptx": "03/3.06-cadenas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento para fundamentos, funciones y vectores"
+    },
+    {
+      "unit": 3,
+      "id": "3.06-java",
+      "curricular_code": "3.06",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.06-cadenas/java",
+      "title": "Cadenas y procesamiento de texto",
+      "prev": "03/3.05-funciones/java",
+      "next": "03/3.07-listas/java",
+      "pptx": "03/3.06-cadenas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento para fundamentos, funciones y vectores"
+    },
+    {
+      "unit": 3,
+      "id": "3.07-python",
+      "curricular_code": "3.07",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.07-listas/python",
+      "title": "Vectores y listas",
+      "prev": "03/3.06-cadenas/python",
+      "next": "03/3.08-listas-recorridos/python",
+      "pptx": "03/3.07-listas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Vectores"
+    },
+    {
+      "unit": 3,
+      "id": "3.07-java",
+      "curricular_code": "3.07",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.07-listas/java",
+      "title": "Vectores y listas",
+      "prev": "03/3.06-cadenas/java",
+      "next": "03/3.08-listas-recorridos/java",
+      "pptx": "03/3.07-listas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Vectores"
+    },
+    {
+      "unit": 3,
+      "id": "3.08-python",
+      "curricular_code": "3.08",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.08-listas-recorridos/python",
+      "title": "Recorridos, búsqueda y transformación",
+      "prev": "03/3.07-listas/python",
+      "next": "03/3.09-matrices/python",
+      "pptx": "03/3.08-listas-recorridos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Vectores; Funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.08-java",
+      "curricular_code": "3.08",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.08-listas-recorridos/java",
+      "title": "Recorridos, búsqueda y transformación",
+      "prev": "03/3.07-listas/java",
+      "next": "03/3.09-matrices/java",
+      "pptx": "03/3.08-listas-recorridos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Vectores; Funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.09-python",
+      "curricular_code": "3.09",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.09-matrices/python",
+      "title": "Matrices y recorridos anidados",
+      "prev": "03/3.08-listas-recorridos/python",
+      "next": "03/3.10-tuplas/python",
+      "pptx": "03/3.09-matrices/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Matrices; Funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.09-java",
+      "curricular_code": "3.09",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.09-matrices/java",
+      "title": "Matrices y recorridos anidados",
+      "prev": "03/3.08-listas-recorridos/java",
+      "next": "03/3.10-tuplas/java",
+      "pptx": "03/3.09-matrices/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Matrices; Funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.10-python",
+      "curricular_code": "3.10",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.10-tuplas/python",
+      "title": "Tuplas y registros de datos",
+      "prev": "03/3.09-matrices/python",
+      "next": "03/3.11-archivos/python",
+      "pptx": "03/3.10-tuplas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento para vectores y funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.10-java",
+      "curricular_code": "3.10",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.10-tuplas/java",
+      "title": "Tuplas y registros de datos",
+      "prev": "03/3.09-matrices/java",
+      "next": "03/3.11-archivos/java",
+      "pptx": "03/3.10-tuplas/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento para vectores y funciones"
+    },
+    {
+      "unit": 3,
+      "id": "3.11-python",
+      "curricular_code": "3.11",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.11-archivos/python",
+      "title": "Archivos de texto y persistencia",
+      "prev": "03/3.10-tuplas/python",
+      "next": "03/3.12-main-modulos/python",
+      "pptx": "03/3.11-archivos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento de aplicación de funciones y vectores"
+    },
+    {
+      "unit": 3,
+      "id": "3.11-java",
+      "curricular_code": "3.11",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.11-archivos/java",
+      "title": "Archivos de texto y persistencia",
+      "prev": "03/3.10-tuplas/java",
+      "next": "03/3.12-main-modulos/java",
+      "pptx": "03/3.11-archivos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento de aplicación de funciones y vectores"
+    },
+    {
+      "unit": 3,
+      "id": "3.12-python",
+      "curricular_code": "3.12",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.12-main-modulos/python",
+      "title": "Punto de entrada y módulos",
+      "prev": "03/3.11-archivos/python",
+      "next": "03/3.13-entornos/python",
+      "pptx": "03/3.12-main-modulos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Funciones; integración de fundamentos, vectores y matrices"
+    },
+    {
+      "unit": 3,
+      "id": "3.12-java",
+      "curricular_code": "3.12",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.12-main-modulos/java",
+      "title": "Punto de entrada y módulos",
+      "prev": "03/3.11-archivos/java",
+      "next": "03/3.13-entornos/java",
+      "pptx": "03/3.12-main-modulos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Funciones; integración de fundamentos, vectores y matrices"
+    },
+    {
+      "unit": 3,
+      "id": "3.13-python",
+      "curricular_code": "3.13",
+      "code_kind": "editorial",
+      "language": "python",
+      "path": "03/3.13-entornos/python",
+      "title": "Entornos, ejecución y reproducibilidad",
+      "prev": "03/3.12-main-modulos/python",
+      "next": null,
+      "pptx": "03/3.13-entornos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento de integración y trabajo autónomo"
+    },
+    {
+      "unit": 3,
+      "id": "3.13-java",
+      "curricular_code": "3.13",
+      "code_kind": "editorial",
+      "language": "java",
+      "path": "03/3.13-entornos/java",
+      "title": "Entornos, ejecución y reproducibilidad",
+      "prev": "03/3.12-main-modulos/java",
+      "next": null,
+      "pptx": "03/3.13-entornos/presentacion.pptx",
+      "deck_language": "python",
+      "scope": "Complemento de integración y trabajo autónomo"
+    }
+  ],
+  "labs": [
+    {
+      "unit": 1,
+      "id": "PL1.1",
+      "title": "Reglas de acceso y tablas de verdad",
+      "hours": 2,
+      "problem": "Una sala permite ingresar cuando existe credencial vigente y reserva, o autorización del responsable. Si existe bloqueo de seguridad, denegar siempre. Diseñar y comprobar la política con cuatro variables booleanas.",
+      "objectives": [
+        "Formalizar una política mediante expresiones booleanas.",
+        "Verificar equivalencias y explicar casos límite."
+      ],
+      "requirements": [
+        "Usar únicamente valores booleanos para las cuatro condiciones.",
+        "Entregar tabla manual de 16 filas y expresión original y simplificada.",
+        "Usar Python para contrastar cada fila. Se permite escribir casos explícitos sin ciclos.",
+        "No conectar la solución con servicios de acceso reales."
+      ],
+      "phases": [
+        [
+          "1. Analizar",
+          "Definir proposiciones, prioridad del bloqueo y salida. Escribir dos casos que suelen confundirse."
+        ],
+        [
+          "2. Diseñar",
+          "Construir tabla completa y una expresión equivalente utilizando De Morgan para la denegación."
+        ],
+        [
+          "3. Implementar",
+          "Codificar la expresión en Python y contrastar las 16 filas con la tabla manual."
+        ],
+        [
+          "4. Verificar y defender",
+          "Explicar discrepancias, corregir y demostrar el efecto de cambiar la regla de autorización."
+        ]
+      ],
+      "tests": [
+        [
+          "credencial=0,reserva=0,autorización=0,bloqueo=0",
+          "denegar"
+        ],
+        [
+          "1,1,0,0",
+          "permitir"
+        ],
+        [
+          "0,0,1,0",
+          "permitir"
+        ],
+        [
+          "1,1,1,1",
+          "denegar"
+        ],
+        [
+          "0,0,1,1",
+          "denegar"
+        ],
+        [
+          "todas las combinaciones",
+          "coincidencia de 16 filas"
+        ]
+      ],
+      "deliverables": [
+        "reglas.py",
+        "tabla-verdad.csv con 16 filas",
+        "informe.md y evidencias/PL1.1.md",
+        "presentación de la solución con tabla y dos casos explicados"
+      ],
+      "defense": [
+        "Explicar por qué el bloqueo afecta a toda la expresión.",
+        "Negar la autorización sin cambiar el significado de las otras condiciones.",
+        "Justificar una equivalencia con todas las filas."
+      ],
+      "topics": [
+        "1.1"
+      ],
+      "language": "python",
+      "path": "01/PLs/python/PL1.1",
+      "rubric": [
+        {
+          "criterion": "Correctitud y casos de aceptación",
+          "points": 4,
+          "full": "Superar todos los casos acordados, incluidos fronteras y errores, y explicar las salidas.",
+          "partial": "Resolver los casos normales, pero fallar al menos una frontera o un error.",
+          "none": "No obtener resultados válidos en los casos normales."
+        },
+        {
+          "criterion": "Diseño y organización",
+          "points": 2,
+          "full": "Separar responsabilidades y respetar contratos, estructuras y restricciones de la guía.",
+          "partial": "Presentar una solución comprensible con responsabilidades mezcladas o un contrato incompleto.",
+          "none": "Omitir el diseño o incumplir la estructura requerida de forma que impida revisarlo."
+        },
+        {
+          "criterion": "Evidencia reproducible",
+          "points": 2,
+          "full": "Incluir entradas, resultados reales, comandos, versión y referencias a commits que permitan repetir las pruebas.",
+          "partial": "Incluir pruebas reales, pero omitir comandos, entradas o identificación del cambio.",
+          "none": "No aportar evidencia ejecutable o presentar resultados que no corresponden al programa."
+        },
+        {
+          "criterion": "Defensa técnica",
+          "points": 1,
+          "full": "Explicar el flujo y realizar una modificación pequeña con una prueba nueva.",
+          "partial": "Explicar parcialmente el flujo o necesitar ayuda para completar la modificación.",
+          "none": "No explicar las decisiones ni relacionarlas con el código presentado."
+        },
+        {
+          "criterion": "Informe y conclusiones",
+          "points": 1,
+          "full": "Registrar resultados, limitaciones, conclusiones ligadas a pruebas y una recomendación concreta.",
+          "partial": "Entregar informe con resultados pero conclusiones o recomendaciones genéricas.",
+          "none": "Omitir el informe o no relacionarlo con la práctica."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "id": "PL2.1",
+      "title": "Diseño de un registro de consumos",
+      "hours": 3,
+      "problem": "Diseñar un registro de consumos enteros entre 0 y 100. Procesar entradas hasta -1, rechazar otros valores y producir cantidad, suma y promedio de los aceptados.",
+      "objectives": [
+        "Representar un algoritmo mediante pseudocódigo y diagrama.",
+        "Comprobar selección y repetición con una prueba de escritorio."
+      ],
+      "requirements": [
+        "Entregar pseudocódigo y diagrama antes de implementar.",
+        "Excluir centinela y rechazos de cantidad y suma.",
+        "Mostrar Sin datos cuando no existan consumos válidos.",
+        "Implementar la comprobación en Python; no usar listas para acumular datos."
+      ],
+      "phases": [
+        [
+          "1. Contrato",
+          "Definir dominio, centinela, formato de salida y política de rechazo."
+        ],
+        [
+          "2. Representación",
+          "Escribir pseudocódigo y dibujar el retorno del ciclo y las ramas de validación."
+        ],
+        [
+          "3. Prueba de escritorio",
+          "Registrar estados para secuencias normal, vacía e inválida, sin ejecutar primero."
+        ],
+        [
+          "4. Comprobación",
+          "Implementar en Python, comparar con trazas y corregir diferencias."
+        ]
+      ],
+      "tests": [
+        [
+          "10,20,-1",
+          "cantidad 2; suma 30; promedio 15.00"
+        ],
+        [
+          "-1",
+          "Sin datos"
+        ],
+        [
+          "-2,101,4,-1",
+          "dos rechazos; cantidad 1; suma 4"
+        ],
+        [
+          "0,100,-1",
+          "cantidad 2; suma 100; promedio 50.00"
+        ]
+      ],
+      "deliverables": [
+        "registro.py",
+        "diseno.md con pseudocódigo y diagrama legible",
+        "trazas.csv",
+        "informe.md y evidencias/PL2.1.md",
+        "presentación breve del algoritmo"
+      ],
+      "defense": [
+        "Explicar la condición de terminación.",
+        "Cambiar el máximo permitido y actualizar los casos.",
+        "Distinguir contador de acumulador en una traza."
+      ],
+      "topics": [
+        "2.1"
+      ],
+      "language": "python",
+      "path": "02/PLs/python/PL2.1",
+      "rubric": [
+        {
+          "criterion": "Correctitud y casos de aceptación",
+          "points": 4,
+          "full": "Superar todos los casos acordados, incluidos fronteras y errores, y explicar las salidas.",
+          "partial": "Resolver los casos normales, pero fallar al menos una frontera o un error.",
+          "none": "No obtener resultados válidos en los casos normales."
+        },
+        {
+          "criterion": "Diseño y organización",
+          "points": 2,
+          "full": "Separar responsabilidades y respetar contratos, estructuras y restricciones de la guía.",
+          "partial": "Presentar una solución comprensible con responsabilidades mezcladas o un contrato incompleto.",
+          "none": "Omitir el diseño o incumplir la estructura requerida de forma que impida revisarlo."
+        },
+        {
+          "criterion": "Evidencia reproducible",
+          "points": 2,
+          "full": "Incluir entradas, resultados reales, comandos, versión y referencias a commits que permitan repetir las pruebas.",
+          "partial": "Incluir pruebas reales, pero omitir comandos, entradas o identificación del cambio.",
+          "none": "No aportar evidencia ejecutable o presentar resultados que no corresponden al programa."
+        },
+        {
+          "criterion": "Defensa técnica",
+          "points": 1,
+          "full": "Explicar el flujo y realizar una modificación pequeña con una prueba nueva.",
+          "partial": "Explicar parcialmente el flujo o necesitar ayuda para completar la modificación.",
+          "none": "No explicar las decisiones ni relacionarlas con el código presentado."
+        },
+        {
+          "criterion": "Informe y conclusiones",
+          "points": 1,
+          "full": "Registrar resultados, limitaciones, conclusiones ligadas a pruebas y una recomendación concreta.",
+          "partial": "Entregar informe con resultados pero conclusiones o recomendaciones genéricas.",
+          "none": "Omitir el informe o no relacionarlo con la práctica."
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "id": "PL3.1",
+      "title": "Analizador de mediciones por consola",
+      "hours": 4,
+      "problem": "Crear una aplicación de consola para procesar mediciones enteras entre -50 y 150 hasta recibir FIN. Mostrar cantidad, mínimo, máximo, promedio y cantidad fuera del intervalo de referencia [0,100].",
+      "objectives": [
+        "Integrar entrada, conversión, decisiones y ciclos.",
+        "Validar datos y producir un resumen sin almacenar todas las observaciones."
+      ],
+      "requirements": [
+        "Aceptar FIN sin distinguir mayúsculas y quitando espacios externos.",
+        "Rechazar formato no entero y valores fuera de [-50,150].",
+        "No usar listas ni funciones propias todavía.",
+        "Mostrar Sin datos si no hay mediciones válidas y dos decimales en el promedio."
+      ],
+      "phases": [
+        [
+          "1. Contrato y ejemplos",
+          "Acordar formato de cada mensaje y calcular manualmente al menos cuatro casos."
+        ],
+        [
+          "2. Lectura y validación",
+          "Construir el ciclo, recuperar errores de conversión y excluir FIN de los cálculos."
+        ],
+        [
+          "3. Resumen",
+          "Actualizar acumuladores y extremos solo para valores válidos."
+        ],
+        [
+          "4. Verificación",
+          "Ejecutar entradas desde archivos, comparar stdout y documentar correcciones."
+        ]
+      ],
+      "tests": [
+        [
+          "10,20,FIN",
+          "cantidad 2; mínimo 10; máximo 20; promedio 15.00; fuera 0"
+        ],
+        [
+          "FIN",
+          "Sin datos"
+        ],
+        [
+          "-50,150,FIN",
+          "cantidad 2; promedio 50.00; fuera 2"
+        ],
+        [
+          "abc,151,0,fin",
+          "dos rechazos; cantidad 1; promedio 0.00"
+        ],
+        [
+          "0,100,FIN",
+          "fuera 0"
+        ]
+      ],
+      "deliverables": [
+        "mediciones.py",
+        "casos/ con entradas y salidas esperadas",
+        "informe.md y evidencias/PL3.1.md",
+        "presentación de la solución"
+      ],
+      "defense": [
+        "Explicar por qué mínimo no se inicializa en cero.",
+        "Cambiar el intervalo de referencia sin alterar el de validación.",
+        "Demostrar una entrada inválida en vivo."
+      ],
+      "topics": [
+        "3.01",
+        "3.02",
+        "3.03",
+        "3.04"
+      ],
+      "language": "python",
+      "path": "03/PLs/python/PL3.1",
+      "rubric": [
+        {
+          "criterion": "Correctitud y casos de aceptación",
+          "points": 4,
+          "full": "Superar todos los casos acordados, incluidos fronteras y errores, y explicar las salidas.",
+          "partial": "Resolver los casos normales, pero fallar al menos una frontera o un error.",
+          "none": "No obtener resultados válidos en los casos normales."
+        },
+        {
+          "criterion": "Diseño y organización",
+          "points": 2,
+          "full": "Separar responsabilidades y respetar contratos, estructuras y restricciones de la guía.",
+          "partial": "Presentar una solución comprensible con responsabilidades mezcladas o un contrato incompleto.",
+          "none": "Omitir el diseño o incumplir la estructura requerida de forma que impida revisarlo."
+        },
+        {
+          "criterion": "Evidencia reproducible",
+          "points": 2,
+          "full": "Incluir entradas, resultados reales, comandos, versión y referencias a commits que permitan repetir las pruebas.",
+          "partial": "Incluir pruebas reales, pero omitir comandos, entradas o identificación del cambio.",
+          "none": "No aportar evidencia ejecutable o presentar resultados que no corresponden al programa."
+        },
+        {
+          "criterion": "Defensa técnica",
+          "points": 1,
+          "full": "Explicar el flujo y realizar una modificación pequeña con una prueba nueva.",
+          "partial": "Explicar parcialmente el flujo o necesitar ayuda para completar la modificación.",
+          "none": "No explicar las decisiones ni relacionarlas con el código presentado."
+        },
+        {
+          "criterion": "Informe y conclusiones",
+          "points": 1,
+          "full": "Registrar resultados, limitaciones, conclusiones ligadas a pruebas y una recomendación concreta.",
+          "partial": "Entregar informe con resultados pero conclusiones o recomendaciones genéricas.",
+          "none": "Omitir el informe o no relacionarlo con la práctica."
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "id": "PL3.2",
+      "title": "Catálogo y análisis de textos",
+      "hours": 5,
+      "problem": "Procesar una lista de nombres de recursos de biblioteca. Normalizar espacios, seleccionar nombres por longitud y presencia de vocales, generar resúmenes y conservar los datos originales.",
+      "objectives": [
+        "Descomponer procesamiento en funciones con contratos.",
+        "Aplicar filtrado, transformación y búsqueda sobre cadenas y listas."
+      ],
+      "requirements": [
+        "Crear normalizar, seleccionar, buscar_primera y resumir como funciones separadas.",
+        "Usar vocales ASCII aeiou sin distinguir mayúsculas.",
+        "Conservar orden y duplicados en selección.",
+        "No modificar la lista original.",
+        "Rechazar longitud mínima negativa. Mostrar resultados desde una función de presentación."
+      ],
+      "phases": [
+        [
+          "1. Contratos",
+          "Definir parámetros, retornos, tratamiento de cadenas vacías y duplicados."
+        ],
+        [
+          "2. Transformación",
+          "Normalizar espacios y construir colecciones nuevas."
+        ],
+        [
+          "3. Selección y resumen",
+          "Aplicar longitud mínima, vocales, búsqueda de primera coincidencia y suma de longitudes."
+        ],
+        [
+          "4. Pruebas y defensa",
+          "Comprobar original intacto, ausencia, vacío y coincidencias repetidas."
+        ]
+      ],
+      "tests": [
+        [
+          "[\" sol \",\"LUNA\",\"rhythm\",\"a\"], mínimo=3",
+          "selección [\"sol\",\"LUNA\"]; suma longitudes 7"
+        ],
+        [
+          "[], mínimo=3",
+          "selección []; suma 0; búsqueda -1"
+        ],
+        [
+          "[\"sol\",\"sol\"], mínimo=3",
+          "conservar dos elementos"
+        ],
+        [
+          "mínimo=-1",
+          "error de argumento"
+        ],
+        [
+          "buscar luna tras normalizar, sin distinguir mayúsculas",
+          "primera posición correspondiente"
+        ]
+      ],
+      "deliverables": [
+        "catalogo.py",
+        "pruebas.py o casos reproducibles",
+        "informe.md y evidencias/PL3.2.md",
+        "presentación con contratos y prueba de no mutación"
+      ],
+      "defense": [
+        "Explicar diferencia entre filtrar y transformar.",
+        "Modificar la regla para exigir dos vocales.",
+        "Demostrar que una función retorna y otra imprime."
+      ],
+      "topics": [
+        "3.05",
+        "3.06",
+        "3.07",
+        "3.08"
+      ],
+      "language": "python",
+      "path": "03/PLs/python/PL3.2",
+      "rubric": [
+        {
+          "criterion": "Correctitud y casos de aceptación",
+          "points": 4,
+          "full": "Superar todos los casos acordados, incluidos fronteras y errores, y explicar las salidas.",
+          "partial": "Resolver los casos normales, pero fallar al menos una frontera o un error.",
+          "none": "No obtener resultados válidos en los casos normales."
+        },
+        {
+          "criterion": "Diseño y organización",
+          "points": 2,
+          "full": "Separar responsabilidades y respetar contratos, estructuras y restricciones de la guía.",
+          "partial": "Presentar una solución comprensible con responsabilidades mezcladas o un contrato incompleto.",
+          "none": "Omitir el diseño o incumplir la estructura requerida de forma que impida revisarlo."
+        },
+        {
+          "criterion": "Evidencia reproducible",
+          "points": 2,
+          "full": "Incluir entradas, resultados reales, comandos, versión y referencias a commits que permitan repetir las pruebas.",
+          "partial": "Incluir pruebas reales, pero omitir comandos, entradas o identificación del cambio.",
+          "none": "No aportar evidencia ejecutable o presentar resultados que no corresponden al programa."
+        },
+        {
+          "criterion": "Defensa técnica",
+          "points": 1,
+          "full": "Explicar el flujo y realizar una modificación pequeña con una prueba nueva.",
+          "partial": "Explicar parcialmente el flujo o necesitar ayuda para completar la modificación.",
+          "none": "No explicar las decisiones ni relacionarlas con el código presentado."
+        },
+        {
+          "criterion": "Informe y conclusiones",
+          "points": 1,
+          "full": "Registrar resultados, limitaciones, conclusiones ligadas a pruebas y una recomendación concreta.",
+          "partial": "Entregar informe con resultados pero conclusiones o recomendaciones genéricas.",
+          "none": "Omitir el informe o no relacionarlo con la práctica."
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "id": "PL3.3",
+      "title": "Informe de mediciones y registros",
+      "hours": 6,
+      "problem": "Procesar una matriz rectangular de mediciones y una lista de tuplas (codigo, nombre) para identificar sus filas. Clasificar mediciones, resumir cada fila y generar un informe sin modificar las entradas.",
+      "objectives": [
+        "Transformar matrices mediante funciones y ciclos anidados.",
+        "Relacionar filas con registros y validar dimensiones."
+      ],
+      "requirements": [
+        "Exigir una tupla identificadora por fila.",
+        "Clasificar <10 como BAJA, de 10 a 20 inclusive como NORMAL y >20 como ALTA.",
+        "Retornar una matriz nueva de etiquetas.",
+        "Mostrar código, nombre y etiquetas separadas por |.",
+        "Informar cantidad de ALTA por fila; no confundir mayoría con existencia.",
+        "Aceptar matriz vacía con lista de identificadores vacía; rechazar irregularidad y filas sin mediciones."
+      ],
+      "phases": [
+        [
+          "1. Modelo",
+          "Definir esquemas de matriz y registros, validación y contratos."
+        ],
+        [
+          "2. Transformación",
+          "Crear filas nuevas y comprobar que las originales permanecen iguales."
+        ],
+        [
+          "3. Resumen",
+          "Contar ALTA por fila y asociar la tupla correspondiente."
+        ],
+        [
+          "4. Integración",
+          "Presentar el informe, comprobar límites y defender una modificación de umbrales."
+        ]
+      ],
+      "tests": [
+        [
+          "[[5,10,21],[20,22,9]], ids [(\"A\",\"Norte\"),(\"B\",\"Sur\")]",
+          "A: BAJA|NORMAL|ALTA, altas 1; B: NORMAL|ALTA|BAJA, altas 1"
+        ],
+        [
+          "[], []",
+          "Sin datos"
+        ],
+        [
+          "[[1],[2,3]]",
+          "rechazar matriz irregular"
+        ],
+        [
+          "dos filas y un identificador",
+          "rechazar correspondencia"
+        ],
+        [
+          "[[10,20]], un identificador",
+          "NORMAL|NORMAL; altas 0"
+        ],
+        [
+          "[[]], un identificador",
+          "rechazar fila vacía"
+        ]
+      ],
+      "deliverables": [
+        "informe_matriz.py",
+        "casos de entrada y resultados",
+        "informe.md y evidencias/PL3.3.md",
+        "presentación con recorrido y no mutación"
+      ],
+      "defense": [
+        "Ubicar inicialización del contador por fila.",
+        "Mostrar qué falla al copiar solo la lista externa.",
+        "Agregar una categoría sin modificar la matriz original."
+      ],
+      "topics": [
+        "3.09",
+        "3.10"
+      ],
+      "language": "python",
+      "path": "03/PLs/python/PL3.3",
+      "rubric": [
+        {
+          "criterion": "Correctitud y casos de aceptación",
+          "points": 4,
+          "full": "Superar todos los casos acordados, incluidos fronteras y errores, y explicar las salidas.",
+          "partial": "Resolver los casos normales, pero fallar al menos una frontera o un error.",
+          "none": "No obtener resultados válidos en los casos normales."
+        },
+        {
+          "criterion": "Diseño y organización",
+          "points": 2,
+          "full": "Separar responsabilidades y respetar contratos, estructuras y restricciones de la guía.",
+          "partial": "Presentar una solución comprensible con responsabilidades mezcladas o un contrato incompleto.",
+          "none": "Omitir el diseño o incumplir la estructura requerida de forma que impida revisarlo."
+        },
+        {
+          "criterion": "Evidencia reproducible",
+          "points": 2,
+          "full": "Incluir entradas, resultados reales, comandos, versión y referencias a commits que permitan repetir las pruebas.",
+          "partial": "Incluir pruebas reales, pero omitir comandos, entradas o identificación del cambio.",
+          "none": "No aportar evidencia ejecutable o presentar resultados que no corresponden al programa."
+        },
+        {
+          "criterion": "Defensa técnica",
+          "points": 1,
+          "full": "Explicar el flujo y realizar una modificación pequeña con una prueba nueva.",
+          "partial": "Explicar parcialmente el flujo o necesitar ayuda para completar la modificación.",
+          "none": "No explicar las decisiones ni relacionarlas con el código presentado."
+        },
+        {
+          "criterion": "Informe y conclusiones",
+          "points": 1,
+          "full": "Registrar resultados, limitaciones, conclusiones ligadas a pruebas y una recomendación concreta.",
+          "partial": "Entregar informe con resultados pero conclusiones o recomendaciones genéricas.",
+          "none": "Omitir el informe o no relacionarlo con la práctica."
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "id": "PL3.4",
+      "title": "Procesamiento reproducible de archivos",
+      "hours": 6,
+      "problem": "Crear una herramienta que lea registros codigo;cantidad desde UTF-8, valide cada línea y genere un reporte en otro archivo. Separar lectura, procesamiento y entrada del programa.",
+      "objectives": [
+        "Integrar archivos, funciones, registros y módulos.",
+        "Entregar una ejecución reproducible con diagnóstico de errores."
+      ],
+      "requirements": [
+        "Crear main.py, lectura.py y analisis.py.",
+        "Aceptar códigos no vacíos y cantidades enteras no negativas. No permitir ; dentro del código.",
+        "Ignorar líneas vacías y registrar número de línea para rechazos.",
+        "Conservar duplicados y orden de registros válidos.",
+        "Generar cantidad de registros, suma de cantidades y promedio con dos decimales.",
+        "No sobrescribir el archivo de entrada y no producir interacción al importar utilidades."
+      ],
+      "phases": [
+        [
+          "1. Contratos y datos",
+          "Definir formato y preparar archivos normales, vacíos e inválidos."
+        ],
+        [
+          "2. Lectura",
+          "Gestionar ruta inexistente, UTF-8 y errores de registros con número de línea."
+        ],
+        [
+          "3. Procesamiento y reporte",
+          "Retornar datos desde utilidades y escribir el informe desde la capa de entrada."
+        ],
+        [
+          "4. Reproducción",
+          "Ejecutar desde una copia limpia, registrar versión real y comparar archivos esperados."
+        ]
+      ],
+      "tests": [
+        [
+          "A;3\nB;5\n",
+          "registros 2; suma 8; promedio 4.00"
+        ],
+        [
+          "A;3\nX;abc\nB;-1\nC;2\n",
+          "rechazos líneas 2 y 3; registros 2; suma 5; promedio 2.50"
+        ],
+        [
+          "archivo vacío",
+          "Sin datos"
+        ],
+        [
+          "ruta inexistente",
+          "diagnóstico controlado"
+        ],
+        [
+          "misma ruta para entrada y salida",
+          "rechazar operación"
+        ],
+        [
+          "import lectura; import analisis",
+          "sin salida ni solicitudes"
+        ]
+      ],
+      "deliverables": [
+        "main.py, lectura.py y analisis.py",
+        "casos/ y README con comandos",
+        "reporte de ejemplo generado por ejecución real",
+        "informe.md y evidencias/PL3.4.md",
+        "presentación y entrega sin cachés ni entornos"
+      ],
+      "defense": [
+        "Explicar diferencia entre error de archivo y error de dato.",
+        "Repetir una prueba desde otra carpeta.",
+        "Cambiar un contrato y localizar los módulos afectados."
+      ],
+      "topics": [
+        "3.11",
+        "3.12",
+        "3.13"
+      ],
+      "language": "python",
+      "path": "03/PLs/python/PL3.4",
+      "rubric": [
+        {
+          "criterion": "Correctitud y casos de aceptación",
+          "points": 4,
+          "full": "Superar todos los casos acordados, incluidos fronteras y errores, y explicar las salidas.",
+          "partial": "Resolver los casos normales, pero fallar al menos una frontera o un error.",
+          "none": "No obtener resultados válidos en los casos normales."
+        },
+        {
+          "criterion": "Diseño y organización",
+          "points": 2,
+          "full": "Separar responsabilidades y respetar contratos, estructuras y restricciones de la guía.",
+          "partial": "Presentar una solución comprensible con responsabilidades mezcladas o un contrato incompleto.",
+          "none": "Omitir el diseño o incumplir la estructura requerida de forma que impida revisarlo."
+        },
+        {
+          "criterion": "Evidencia reproducible",
+          "points": 2,
+          "full": "Incluir entradas, resultados reales, comandos, versión y referencias a commits que permitan repetir las pruebas.",
+          "partial": "Incluir pruebas reales, pero omitir comandos, entradas o identificación del cambio.",
+          "none": "No aportar evidencia ejecutable o presentar resultados que no corresponden al programa."
+        },
+        {
+          "criterion": "Defensa técnica",
+          "points": 1,
+          "full": "Explicar el flujo y realizar una modificación pequeña con una prueba nueva.",
+          "partial": "Explicar parcialmente el flujo o necesitar ayuda para completar la modificación.",
+          "none": "No explicar las decisiones ni relacionarlas con el código presentado."
+        },
+        {
+          "criterion": "Informe y conclusiones",
+          "points": 1,
+          "full": "Registrar resultados, limitaciones, conclusiones ligadas a pruebas y una recomendación concreta.",
+          "partial": "Entregar informe con resultados pero conclusiones o recomendaciones genéricas.",
+          "none": "Omitir el informe o no relacionarlo con la práctica."
+        }
+      ]
+    }
+  ],
+  "protection": true
+}

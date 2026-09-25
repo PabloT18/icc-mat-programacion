@@ -1,0 +1,4 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const data=JSON.parse(await fs.readFile(path.join(root,'assets/catalogo.json'),'utf8'));let count=0;const check=process.argv.includes('--check');
+for(const t of data.topics){const md=await fs.readFile(path.join(root,t.path,'material.md'),'utf8');for(const m of md.matchAll(/<!-- example: ([\w.-]+) -->\s*```\w+\n([\s\S]*?)\n```/g)){const dest=path.join(root,t.path,'ejemplos',m[1]),code=m[2]+'\n';if(check){if(await fs.readFile(dest,'utf8')!==code)throw Error('Código desincronizado: '+dest);}else await fs.writeFile(dest,code);count++;}}
+console.log(`${count} archivos ${check?'comparados':'sincronizados'} desde material.md.`);

@@ -1,0 +1,186 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.02 · Entradas, salidas y conversiones · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.01-introduccion/java/index.html">Anterior</a><a href="../../3.03-estructuras-control/java/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.02 · Entradas, salidas y conversiones · Java</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.01-introduccion/java/material.html">Anterior</a> · <a href="../../3.03-estructuras-control/java/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Generar un recibo a partir del nombre de un producto, su cantidad y su precio. Separar el texto ingresado del valor numérico que el cálculo requiere y especificar el formato exacto de la salida.</p>
+<p><strong>Prerrequisitos.</strong> Variables, tipos numéricos y operaciones.</p>
+<p><strong>Versión complementaria.</strong> Estudiar el mismo problema y los mismos casos de Python mediante construcciones idiomáticas de Java. La presentación compartida corresponde a Python.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Entrada como texto</h3>
+<p>La entrada de teclado contiene caracteres. Antes de operar, determinar qué campos son texto y cuáles deben convertirse. Conservar códigos y teléfonos como cadenas si no representan cantidades. Definir el separador decimal y el dominio de cada campo. En esta sección el contrato exige texto numérico válido; la recuperación de entradas inválidas se implementará después de estudiar decisiones.</p>
+<p><strong>Aplicar en Java.</strong> Usar Scanner y nextLine para leer una línea completa. Convertir con Integer.parseInt o Double.parseDouble. Esta estrategia evita el salto de línea pendiente al alternar nextInt con nextLine. Los textos no numéricos producen NumberFormatException.</p>
+<pre><code class="language-java">Scanner entrada = new Scanner(System.in);
+int cantidad = Integer.parseInt(entrada.nextLine());
+double precio = Double.parseDouble(entrada.nextLine());
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Salida y contrato de formato</h3>
+<p>La salida debe responder al problema con unidades, precisión y orden definidos. Separar mensajes de interacción de datos utilizados por una prueba automática. Acordar si se permiten espacios extra. Mostrar dos decimales mejora una presentación, pero no modifica el valor numérico almacenado ni corrige errores de precisión.</p>
+<p><strong>Aplicar en Java.</strong> System.out.println agrega un salto de línea. printf permite especificadores como %s, %d y %.2f. Usar Locale.ROOT para que las pruebas utilicen punto decimal con independencia de la configuración local. %n representa el salto de línea de la plataforma.</p>
+<pre><code class="language-java">System.out.printf(Locale.ROOT, &quot;%s: %.2f%n&quot;, &quot;Lápiz&quot;, 1.5);
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Conversión y pérdida de información</h3>
+<p>Convertir no es cambiar una etiqueta sin consecuencias. El texto &quot;007&quot; convertido a entero pierde los ceros de presentación. Un número real convertido a entero pierde su parte fraccionaria. Distinguir transformación necesaria para calcular de transformación necesaria para mostrar. Guardar datos originales cuando el contrato exija conservar su representación.</p>
+<p><strong>Aplicar en Java.</strong> String.valueOf convierte valores a texto. Un cast a int de un double finito dentro de rango elimina la fracción hacia cero. Boolean.parseBoolean solo reconoce true sin distinguir mayúsculas; no interpreta “sí”. Diseñar un validador explícito cuando corresponda.</p>
+<pre><code class="language-java">String codigo = &quot;007&quot;;
+System.out.println(codigo + &quot; &quot; + Integer.parseInt(codigo));
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Casos de entrada y pruebas reproducibles</h3>
+<p>Una sesión interactiva es difícil de repetir si no se registra qué se escribió. Guardar un archivo de entrada con un dato por línea permite ejecutar la misma prueba varias veces. Calcular la salida esperada de forma independiente y compararla completa. Registrar también el comportamiento de un dato inválido como diagnóstico, sin afirmar que ya existe un manejo amigable del error.</p>
+<p><strong>Aplicar en Java.</strong> Compilar con javac Demo.java y ejecutar java Demo &lt; entrada.txt. Mantener el mismo orden de campos que Python. Scanner utiliza la entrada estándar, que puede venir del teclado o de un archivo redirigido.</p>
+<pre><code class="language-java">String producto = entrada.nextLine();
+System.out.println(&quot;Producto: &quot; + producto);
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Leer producto, cantidad y precio, y producir el total de una compra.</p>
+<p><strong>Contrato de esta demostración.</strong> Leer tres líneas: texto de producto, cantidad entera no negativa y precio decimal no negativo con punto. Exigir formato numérico válido. Mostrar nombre e importe con dos decimales. Una entrada de formato inválido produce el error de conversión del lenguaje; aún no se recupera.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/Demo.java">ejemplos/Demo.java</a>.</p>
+<!-- example: Demo.java -->
+<pre><code class="language-java">import java.util.Locale;
+import java.util.Scanner;
+public class Demo {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        String producto = entrada.nextLine();
+        int cantidad = Integer.parseInt(entrada.nextLine());
+        double precio = Double.parseDouble(entrada.nextLine());
+        System.out.println(&quot;Producto: &quot; + producto);
+        System.out.printf(Locale.ROOT, &quot;Total: %.2f%n&quot;, cantidad * precio);
+    }
+}
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.02-entradas-salidas/java/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">javac -encoding UTF-8 -d build *.java
+java -cp build Demo &lt; entrada.txt
+</code></pre>
+<p><strong>Contenido de entrada.txt:</strong></p>
+<pre><code class="language-text">Cuaderno
+4
+1.75
+</code></pre>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Producto: Cuaderno
+Total: 7.00
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<p>Adaptar los mismos datos y resultados a Java. Usar <code>record</code> para registros y bibliotecas estándar para archivos y procesos. Para resultados booleanos, aceptar <code>true/false</code> en Java frente a <code>True/False</code> en Python. Los ejercicios que inspeccionan el intérprete deben inspeccionar la JVM y el JDK equivalentes.</p>
+<h4>Ejercicio 01. Saludo</h4>
+<p>Leer un nombre y mostrar “Hola, Ana” para la entrada Ana. Conservar los espacios interiores del nombre.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Hola, Ana
+</code></pre>
+<h4>Ejercicio 02. Suma de enteros</h4>
+<p>Leer dos enteros, uno por línea. Para 12 y 8 mostrar su suma.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">20
+</code></pre>
+<h4>Ejercicio 03. Nombre y edad</h4>
+<p>Leer nombre y edad. Para Luis y 19 mostrar “Luis: 19 años”. Convertir edad a entero.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Luis: 19 años
+</code></pre>
+<h4>Ejercicio 04. Área de triángulo</h4>
+<p>Leer base y altura positivas. Para 10.5 y 4 mostrar área con dos decimales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">21.00
+</code></pre>
+<h4>Ejercicio 05. Temperatura</h4>
+<p>Leer grados Celsius y convertir a Fahrenheit. Para 25 mostrar 77.0.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">77.0
+</code></pre>
+<h4>Ejercicio 06. Identificador</h4>
+<p>Leer código 007 y cantidad 3. Conservar los ceros del código y mostrar “007: 3”.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">007: 3
+</code></pre>
+<h4>Ejercicio 07. Cociente decimal</h4>
+<p>Leer dividendo 7 y divisor 2, con divisor distinto de cero como precondición. Mostrar el cociente con tres decimales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">3.500
+</code></pre>
+<h4>Ejercicio 08. Promedio de mediciones</h4>
+<p>Leer tres decimales 8.5, 7.8 y 9.2. Mostrar promedio con dos decimales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">8.50
+</code></pre>
+<h4>Ejercicio 09. Total de servicio</h4>
+<p>Leer horas 3.5, tarifa 8 y recargo porcentual 10. Calcular base, recargo y total, cada uno con dos decimales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">28.00 2.80 30.80
+</code></pre>
+<h4>Ejercicio 10. Factura de dos productos</h4>
+<p>Leer nombre, cantidad y precio de dos productos. Para A, 2, 3.5 y B, 3, 2 mostrar un subtotal por línea y luego el total. No usar ciclos todavía.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">A: 7.00
+B: 6.00
+Total: 13.00
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.02 · Práctica de clase</h2>
+<p>Leer nombre de un servicio, cantidad de horas y tarifa por hora. Calcular subtotal, descuento porcentual y total. Solicitar el descuento como cuarto dato numérico. Definir horas y tarifa no negativas y descuento entre 0 y 100 como precondiciones. Mostrar importes con dos decimales. Documentar el error obtenido al ingresar texto donde se requiere un número, sin añadir todavía recuperación mediante excepciones.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tutoría, 4, 10, 25</td>
+<td>subtotal 40.00; descuento 10.00; total 30.00</td>
+</tr>
+<tr>
+<td>Tutoría, 0, 10, 0</td>
+<td>total 0.00</td>
+</tr>
+<tr>
+<td>horas=abc</td>
+<td>error de conversión documentado</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.02</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Compilar <code>javac -encoding UTF-8 -d build *.java</code> y ejecutar <code>java -cp build Solucion</code>; usar <code>Solucion.java</code> como entrada personal. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.02.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.02): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Convertir solo los campos numéricos.</li>
+<li>Distinguir precisión de cálculo y formato.</li>
+<li>Repetir pruebas con entrada redirigida.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://dev.java/learn/">Aprender Java, sitio oficial</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/27/docs/api/">API de Java SE 27</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.01-introduccion/java/material.html">Anterior</a> · <a href="../../3.03-estructuras-control/java/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.01-introduccion/java/index.html">Anterior</a><a href="../../3.03-estructuras-control/java/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.02-java"},'*');</script></body></html>

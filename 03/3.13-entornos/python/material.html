@@ -1,0 +1,175 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.13 · Entornos, ejecución y reproducibilidad · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.12-main-modulos/python/index.html">Anterior</a></nav><h1>Programación</h1>
+<h2>3.13 · Entornos, ejecución y reproducibilidad · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.12-main-modulos/python/material.html">Anterior</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Un programa debe ejecutarse fuera de la sesión donde fue escrito. Identificar intérprete, directorio de trabajo y dependencias evita que el resultado dependa accidentalmente de un editor o de celdas ejecutadas en otro orden.</p>
+<p><strong>Prerrequisitos.</strong> Módulos, punto de entrada y terminal.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Herramientas y versiones</h3>
+<p>Separar editor, runtime y terminal. El editor no garantiza qué intérprete ejecuta. Registrar versión del lenguaje y comandos de ejecución. En este curso, los programas solo utilizan bibliotecas estándar. La configuración debe ser suficiente para repetir ejemplos y no añadir servicios, bases de datos o gestores que no intervienen en el problema.</p>
+<p><strong>Aplicar en Python.</strong> Comprobar python3 --version y python3 -c &quot;import sys; print(sys.executable)&quot;. En Windows usar py --version y py -c. Elegir ese mismo intérprete en el editor. La versión objetivo se fija en .python-version como dato para herramientas compatibles, no como instalación automática.</p>
+<pre><code class="language-python">import sys
+print(sys.version_info.major)
+print(sys.executable)
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Aislamiento y dependencias</h3>
+<p>Aislar un entorno evita mezclar dependencias de proyectos distintos. Un entorno no es una máquina virtual ni garantiza reproducibilidad por sí solo: también se necesitan fuentes, versiones y datos. No distribuir binarios del entorno como parte del repositorio. Crear de nuevo desde instrucciones documentadas.</p>
+<p><strong>Aplicar en Python.</strong> Crear con python3 -m venv .venv. Activar en POSIX con source .venv/bin/activate y en PowerShell con .venv\Scripts\Activate.ps1 si la política local lo permite. También ejecutar directamente .venv/bin/python sin activar. No instalar paquetes para los ejemplos .py del curso.</p>
+<pre><code class="language-python">import pathlib
+print(pathlib.Path.cwd())
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Scripts y cuadernos</h3>
+<p>Un script ejecuta instrucciones desde el inicio en un proceso nuevo. Un cuaderno conserva estado en el kernel entre celdas y puede aparentar funcionar gracias a variables definidas antes. Reiniciar y ejecutar todas las celdas en orden comprueba dependencias. Guardar código reutilizable en módulos y reservar el cuaderno para exploración.</p>
+<p><strong>Aplicar en Python.</strong> Un .ipynb es un documento JSON con celdas, metadatos y salidas. Su ejecución requiere un entorno compatible con Jupyter y un kernel Python, herramientas opcionales para el docente. Los ejercicios .py y las demostraciones no dependen de Jupyter.</p>
+<pre><code class="language-python">valor = 5
+print(valor + 1)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Diagnóstico y entrega limpia</h3>
+<p>Ante un fallo, comprobar primero comando, carpeta, archivo y versión. Separar error de instalación de error de sintaxis o de datos. Registrar stdout, stderr y código de salida cuando sea relevante. Una entrega reproducible incluye fuentes, datos autorizados e instrucciones, y excluye cachés, entornos y archivos personales.</p>
+<p><strong>Aplicar en Python.</strong> Usar python3 -m py_compile demo.py para comprobar sintaxis, sabiendo que no prueba el comportamiento. Agregar .venv y <strong>pycache</strong> a .gitignore. Ejecutar desde una copia limpia con entradas conocidas.</p>
+<pre><code class="language-python">print(&quot;Entorno listo&quot;)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Comprobar escritura y lectura UTF-8 en una ubicación temporal mediante la biblioteca estándar.</p>
+<p><strong>Contrato de esta demostración.</strong> Crear un archivo temporal, guardar Entorno listo, leer exactamente ese contenido y eliminarlo al finalizar. Esta prueba comprueba una capacidad concreta del entorno, no toda la instalación ni sus versiones.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">from pathlib import Path
+from tempfile import TemporaryDirectory
+
+with TemporaryDirectory() as carpeta:
+    ruta = Path(carpeta) / &quot;prueba.txt&quot;
+    ruta.write_text(&quot;Entorno listo&quot;, encoding=&quot;utf-8&quot;)
+    print(ruta.read_text(encoding=&quot;utf-8&quot;))
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.13-entornos/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Entorno listo
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Versión principal</h4>
+<p>Consultar el runtime desde código y comprobar que se ejecuta Python 3. En Java consultar java.version y comprobar la versión configurada sin codificar una ruta.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Python 3
+</code></pre>
+<h4>Ejercicio 02. Ruta de intérprete</h4>
+<p>Obtener la ruta del intérprete y comprobar que existe. Mostrar únicamente “Intérprete localizado” para mantener portable la prueba.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Intérprete localizado
+</code></pre>
+<h4>Ejercicio 03. Directorio de trabajo</h4>
+<p>Consultar el directorio de trabajo y verificar que es una carpeta. Mostrar “Directorio válido”.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Directorio válido
+</code></pre>
+<h4>Ejercicio 04. Ruta relativa</h4>
+<p>Construir datos/entrada.txt con la biblioteca de rutas y mostrar su forma con barras /. No crear el archivo.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">datos/entrada.txt
+</code></pre>
+<h4>Ejercicio 05. Comprobación sintáctica</h4>
+<p>Compilar sintácticamente un script que muestra 2+3, sin ejecutarlo. Guardar cualquier compilado en carpeta temporal.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Sintaxis válida
+</code></pre>
+<h4>Ejercicio 06. Proceso independiente</h4>
+<p>Ejecutar un programa temporal que muestre 2+3. Capturar y mostrar su salida.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5
+</code></pre>
+<h4>Ejercicio 07. Entrada automatizada</h4>
+<p>Ejecutar un programa nuevo que lea un entero y muestre su doble. Enviar 9 por entrada estándar y capturar la salida.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">18
+</code></pre>
+<h4>Ejercicio 08. Código de error</h4>
+<p>Ejecutar un programa que termine con código 2. Detectar el código sin presentar la ejecución como exitosa.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Código: 2
+</code></pre>
+<h4>Ejercicio 09. Comparación exacta</h4>
+<p>Ejecutar un programa que muestre “Total: 12”. Comparar stdout con “Total: 12” seguido de salto de línea y mostrar “Coincide”.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Coincide
+</code></pre>
+<h4>Ejercicio 10. Entrega limpia</h4>
+<p>Simular una carpeta con main.py, README.md, .venv y <strong>pycache</strong>. Obtener solo los archivos entregables y mostrar sus nombres ordenados. No borrar carpetas reales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">README.md main.py
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.13 · Práctica de clase</h2>
+<p>Preparar una entrega reproducible de un programa propio de clasificación de datos. Incluir fuentes, entrada.txt, salida-esperada.txt, README y evidencia. Ejecutar desde una copia nueva fuera de la carpeta original. Verificar un caso normal y uno inválido. Excluir entornos, cachés y compilados. Registrar la versión real, sin copiar una versión supuesta.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>copia limpia con entrada válida</td>
+<td>salida idéntica a salida-esperada.txt</td>
+</tr>
+<tr>
+<td>entrada inválida</td>
+<td>diagnóstico documentado</td>
+</tr>
+<tr>
+<td>sin editor abierto</td>
+<td>ejecución mediante terminal</td>
+</tr>
+<tr>
+<td>inventario de entrega</td>
+<td>sin .venv, <strong>pycache</strong> ni .class</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.13</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.13.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.13): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Identificar el runtime realmente ejecutado.</li>
+<li>Reconstruir el entorno desde instrucciones.</li>
+<li>Validar desde una copia limpia.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.12-main-modulos/python/material.html">Anterior</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.12-main-modulos/python/index.html">Anterior</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.13-python"},'*');</script></body></html>

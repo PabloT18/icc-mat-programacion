@@ -1,0 +1,353 @@
+{
+  "presentations": [
+    {
+      "path": "01/1.1-algebra-boole/presentacion-java.pptx",
+      "slides": 12
+    },
+    {
+      "path": "01/1.1-algebra-boole/presentacion.pptx",
+      "slides": 12
+    },
+    {
+      "path": "01/PLs/python/PL1.1.pptx",
+      "slides": 11
+    },
+    {
+      "path": "02/2.1-algoritmos/presentacion-java.pptx",
+      "slides": 12
+    },
+    {
+      "path": "02/2.1-algoritmos/presentacion.pptx",
+      "slides": 12
+    },
+    {
+      "path": "02/PLs/python/PL2.1.pptx",
+      "slides": 11
+    },
+    {
+      "path": "03/3.01-introduccion/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.02-entradas-salidas/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.03-estructuras-control/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.04-iteracion/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.05-funciones/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.06-cadenas/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.07-listas/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.08-listas-recorridos/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.09-matrices/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.10-tuplas/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.11-archivos/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.12-main-modulos/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/3.13-entornos/presentacion.pptx",
+      "slides": 13
+    },
+    {
+      "path": "03/PLs/python/PL3.1.pptx",
+      "slides": 11
+    },
+    {
+      "path": "03/PLs/python/PL3.2.pptx",
+      "slides": 11
+    },
+    {
+      "path": "03/PLs/python/PL3.3.pptx",
+      "slides": 11
+    },
+    {
+      "path": "03/PLs/python/PL3.4.pptx",
+      "slides": 11
+    }
+  ],
+  "presentation_count": 23,
+  "slide_count": 283,
+  "checks": [
+    {
+      "command": "node scripts/sync-examples.mjs --check",
+      "exit_code": 0,
+      "stdout": "32 archivos comparados desde material.md."
+    },
+    {
+      "command": "npm run build:site",
+      "exit_code": 0,
+      "stdout": "> icc-pro-material@1.0.0 build:site\n> node scripts/build-site.mjs\n\nGeneradas 30 lecturas, 15 portadas de segmento y 6 PL."
+    },
+    {
+      "command": "npm run check:links",
+      "exit_code": 0,
+      "stdout": "> icc-pro-material@1.0.0 check:links\n> node scripts/check-links.mjs\n\nDestinos locales: 2909; anclas explícitas: 607; errores: 0. No se consultan enlaces externos."
+    },
+    {
+      "context": "clean_copy",
+      "command": "node scripts/build-site.mjs",
+      "exit_code": 0,
+      "stdout": "Generadas 30 lecturas, 15 portadas de segmento y 6 PL."
+    },
+    {
+      "context": "clean_copy",
+      "command": "node scripts/check-links.mjs",
+      "exit_code": 0,
+      "stdout": "Destinos locales: 2909; anclas explícitas: 607; errores: 0. No se consultan enlaces externos."
+    },
+    {
+      "context": "clean_copy",
+      "command": "node scripts/stage-pages.mjs",
+      "exit_code": 0,
+      "stdout": "Preparado build/pages; excluidos soluciones docentes y bancos de evaluación."
+    }
+  ],
+  "staging_exclusions_passed": true,
+  "counts": {
+    "units": 3,
+    "segments": 15,
+    "language_versions": 30,
+    "labs": 6,
+    "infographics_png": 15,
+    "moodle_questions": 150,
+    "exercises_u3": 130
+  },
+  "presentation_checks": [
+    {
+      "path": "01/1.1-algebra-boole/presentacion-java.pptx",
+      "sha256": "f55c262b5bb48c3b58c5dea25acee454d9dcff7d1d06c63c03c86fa7d6d005e9",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 12
+    },
+    {
+      "path": "01/1.1-algebra-boole/presentacion.pptx",
+      "sha256": "c7addd045a423adb467710cac3a0111af802e7d720040b9831cdd9dba70b7703",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 12
+    },
+    {
+      "path": "01/PLs/python/PL1.1.pptx",
+      "sha256": "5df538a46328039b0caad35890c7dd70afbfd77f7bbb21eacc6ad88e6e551f0b",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 11
+    },
+    {
+      "path": "02/2.1-algoritmos/presentacion-java.pptx",
+      "sha256": "e9f805ec31dc1ffb254c0310b4c34462d6dbbac4f3a93a700e1267035590e2d5",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 12
+    },
+    {
+      "path": "02/2.1-algoritmos/presentacion.pptx",
+      "sha256": "745d470492c263049aa431a9e02d0019c7766bf1af8c54e3696e90971db9c3f4",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 12
+    },
+    {
+      "path": "02/PLs/python/PL2.1.pptx",
+      "sha256": "cbdaeffa72847d19555b7f3cb0573559ae876425289ddb979d952854d618ece7",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 11
+    },
+    {
+      "path": "03/3.01-introduccion/presentacion.pptx",
+      "sha256": "a12d512f5b189373ba8a501c0640a8d1ce332b2c226516b64ffbb9126da05bba",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.02-entradas-salidas/presentacion.pptx",
+      "sha256": "21aef6df6547d707370e639690e28172a8f2085410ea130cf1c915e025be8d82",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.03-estructuras-control/presentacion.pptx",
+      "sha256": "0e066f573158e42d5ff48aaf9632a9eed0705723e15d24e2322b07320be3f818",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.04-iteracion/presentacion.pptx",
+      "sha256": "ee823da488a423f14ec691170c6348e2f9fbb15fbee7b1f058ed0149744a8a89",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.05-funciones/presentacion.pptx",
+      "sha256": "5bae52ab0011db586f0e02bce288bdd01032d560973d1c38b3399388c311141b",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.06-cadenas/presentacion.pptx",
+      "sha256": "e975b31ed12bdad683c149fb9878a63c381b50b6749556bfb4adbaa1e5fc505e",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.07-listas/presentacion.pptx",
+      "sha256": "ed17541592683231e2bd094bd62980ca09843a6a0d7d436fd180323492428cc2",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.08-listas-recorridos/presentacion.pptx",
+      "sha256": "9980566edbcdd8666b2171e24b38f800804bc153148684519ade81ff183e93cd",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.09-matrices/presentacion.pptx",
+      "sha256": "6ebdde8de613d0833ba807860a5cc444bad7c60f73228e5508ef32a2e5628cf6",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.10-tuplas/presentacion.pptx",
+      "sha256": "2173be8993244422557aae2f171bd9379e3bbd2ae86b518bdee7b527408bb4ba",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.11-archivos/presentacion.pptx",
+      "sha256": "e4f428c74ea28ef9dadd6e4597fc7eb86d5f68d61e7d8094e26488802c2f9a55",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.12-main-modulos/presentacion.pptx",
+      "sha256": "83d9c24f69ef8767986cec59dd6217c3eb7cca7890f7ac8ae52d4601e11b25d5",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/3.13-entornos/presentacion.pptx",
+      "sha256": "874b33ee4cc67596505d1ab7fed6c197323f1694d2306657c12db5a6f411977f",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 13
+    },
+    {
+      "path": "03/PLs/python/PL3.1.pptx",
+      "sha256": "d55c668106816dd99f3ed323d19f81908eff2e1699bcfd2faf4f3906bb916978",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 11
+    },
+    {
+      "path": "03/PLs/python/PL3.2.pptx",
+      "sha256": "af804044ce1f1c4299666ae9c3124a5f43d862fb3fa2dbef3d32a6f05363edc8",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 11
+    },
+    {
+      "path": "03/PLs/python/PL3.3.pptx",
+      "sha256": "822c6e3be8309a9d8b849ca1db249bb7ed0227a2d0396604c813087df9bd2cc4",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 11
+    },
+    {
+      "path": "03/PLs/python/PL3.4.pptx",
+      "sha256": "cf53be792ea7377f12ed641c7b056e783eef02a6c44c3f94911f3a2c414bdd53",
+      "package": "pass",
+      "layout": "pass",
+      "font": "DejaVu Sans",
+      "reimport": "pass",
+      "rendered_slides": 11
+    }
+  ],
+  "javascript_syntax_check": "passed: app.js, protection.js"
+}

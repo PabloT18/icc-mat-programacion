@@ -1,0 +1,196 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.06 · Cadenas y procesamiento de texto · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.05-funciones/java/index.html">Anterior</a><a href="../../3.07-listas/java/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.06 · Cadenas y procesamiento de texto · Java</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.05-funciones/java/material.html">Anterior</a> · <a href="../../3.07-listas/java/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Normalizar nombres y extraer información de mensajes requiere tratar el texto como una secuencia. Definir qué cuenta como letra, vocal o palabra evita que dos programas aparentemente correctos resuelvan problemas diferentes.</p>
+<p><strong>Prerrequisitos.</strong> Funciones, ciclos y decisiones.</p>
+<p><strong>Versión complementaria.</strong> Estudiar el mismo problema y los mismos casos de Python mediante construcciones idiomáticas de Java. La presentación compartida corresponde a Python.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Secuencias e inmutabilidad</h3>
+<p>Una cadena es una secuencia de elementos de texto. Su longitud, índices y reglas de comparación dependen del lenguaje. Las cadenas son inmutables: una transformación produce otro valor. Definir si espacios, tildes y mayúsculas son significativos. Un carácter visible puede requerir varios puntos de código, por lo que “cantidad de letras” no siempre coincide con una longitud técnica.</p>
+<p><strong>Aplicar en Java.</strong> String usa unidades UTF-16. length y charAt operan sobre unidades de código, por lo que ciertos caracteres requieren dos posiciones. Para ejercicios equivalentes usar texto del alfabeto definido en el contrato; para Unicode general, recorrer codePoints.</p>
+<pre><code class="language-java">String texto = &quot;Cuenca&quot;;
+System.out.println(texto.length() + &quot; &quot; + texto.charAt(0) + &quot; &quot; + texto.charAt(texto.length()-1));
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Recorte, búsqueda y normalización</h3>
+<p>Normalizar significa aplicar transformaciones acordadas, no eliminar arbitrariamente información. Quitar espacios externos no quita todos los espacios interiores. Buscar una subcadena puede servir para clasificar, pero no demuestra que un texto cumpla un formato completo. Conservar el original cuando se necesite mostrar exactamente lo recibido.</p>
+<p><strong>Aplicar en Java.</strong> strip elimina espacios externos según reglas Unicode. toLowerCase(Locale.ROOT) evita depender de la configuración regional. contains busca subcadenas y substring(inicio, fin) excluye fin. equals compara contenido; == compara referencias.</p>
+<pre><code class="language-java">String limpio = &quot;  Aula A  &quot;.strip().toLowerCase(Locale.ROOT);
+System.out.println(limpio + &quot; &quot; + limpio.contains(&quot;aula&quot;));
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Recorrido y conteo</h3>
+<p>Procesar texto carácter por carácter permite contar vocales, detectar símbolos o construir una versión transformada. Inicializar un acumulador, evaluar cada elemento y definir qué hacer con los no reconocidos. Si el problema cuenta solo a, e, i, o, u, las vocales acentuadas no se incluyen a menos que el contrato lo indique. Probar cadena vacía y texto compuesto únicamente por separadores.</p>
+<p><strong>Aplicar en Java.</strong> Recorrer índices para texto básico o codePoints para Unicode. StringBuilder permite construir texto sin concatenar un objeto nuevo por cada cambio. No presentar StringBuilder como una cadena inmutable.</p>
+<pre><code class="language-java">int cantidad = 0;
+for (char letra : &quot;Aula&quot;.toLowerCase(Locale.ROOT).toCharArray()) {
+    if (&quot;aeiou&quot;.indexOf(letra) &gt;= 0) cantidad++;
+}
+System.out.println(cantidad);
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Separación, unión y contratos de formato</h3>
+<p>Dividir un texto en palabras y volver a unirlo son operaciones distintas. Definir qué ocurre con separadores repetidos, espacios vacíos y signos. Una salida sin corchetes ni comas debe construirse desde los elementos, no desde la representación de una colección. Estas operaciones preparan el procesamiento de filas y archivos.</p>
+<p><strong>Aplicar en Java.</strong> split interpreta una expresión regular y puede descartar vacíos finales por defecto. Usar split(&quot;,&quot;, -1) para conservarlos. String.join combina elementos con un separador explícito. Explicar estas diferencias antes de comparar salidas.</p>
+<pre><code class="language-java">System.out.println(String.join(&quot; | &quot;, &quot;rojo azul&quot;.split(&quot; &quot;)));
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Quitar espacios externos del nombre Cuenca y contar sus vocales ASCII sin distinguir mayúsculas.</p>
+<p><strong>Contrato de esta demostración.</strong> Recibir una cadena no nula. Contar únicamente a, e, i, o, u después de normalizar mayúsculas. Retornar cero para la cadena vacía. No contar vocales con tilde en este contrato. Mostrar nombre normalizado y conteo.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/Demo.java">ejemplos/Demo.java</a>.</p>
+<!-- example: Demo.java -->
+<pre><code class="language-java">import java.util.Locale;
+public class Demo {
+    static int contarVocales(String texto) {
+        int cantidad = 0;
+        for (char letra : texto.toLowerCase(Locale.ROOT).toCharArray()) {
+            if (&quot;aeiou&quot;.indexOf(letra) &gt;= 0) cantidad++;
+        }
+        return cantidad;
+    }
+    public static void main(String[] args) {
+        String nombre = &quot;  Cuenca  &quot;.strip();
+        System.out.println(nombre);
+        System.out.println(&quot;Vocales: &quot; + contarVocales(nombre));
+    }
+}
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.06-cadenas/java/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">javac -encoding UTF-8 -d build *.java
+java -cp build Demo
+</code></pre>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Cuenca
+Vocales: 3
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<p>Adaptar los mismos datos y resultados a Java. Usar <code>record</code> para registros y bibliotecas estándar para archivos y procesos. Para resultados booleanos, aceptar <code>true/false</code> en Java frente a <code>True/False</code> en Python. Los ejercicios que inspeccionan el intérprete deben inspeccionar la JVM y el JDK equivalentes.</p>
+<h4>Ejercicio 01. Longitud y extremos</h4>
+<p>Para “Cuenca” mostrar longitud, primer y último carácter. Definir cómo evitar acceso a extremos de cadena vacía.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">6 C a
+</code></pre>
+<h4>Ejercicio 02. Normalización básica</h4>
+<p>Quitar espacios externos de “  Aula  ” y convertir a mayúsculas.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">AULA
+</code></pre>
+<h4>Ejercicio 03. Conteo de vocales</h4>
+<p>Contar vocales aeiou sin distinguir mayúsculas en “Educacion”.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5
+</code></pre>
+<h4>Ejercicio 04. Conteo de dígitos ASCII</h4>
+<p>Contar caracteres 0 a 9 en “A2B45”. No aceptar dígitos de otros alfabetos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">3
+</code></pre>
+<h4>Ejercicio 05. Inversión</h4>
+<p>Invertir “sol” mediante recorrido, sin slicing inverso.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">los
+</code></pre>
+<h4>Ejercicio 06. Palíndromo</h4>
+<p>Comprobar “Anita lava la tina” ignorando espacios ASCII y mayúsculas. No eliminar otros símbolos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">true
+</code></pre>
+<h4>Ejercicio 07. Comprimir espacios</h4>
+<p>Convertir “  uno   dos  tres ” en “uno dos tres”.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">uno dos tres
+</code></pre>
+<h4>Ejercicio 08. Máscara selectiva</h4>
+<p>Reemplazar cada vocal ASCII de “programar” por * y conservar los demás caracteres.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">pr*gr*m*r
+</code></pre>
+<h4>Ejercicio 09. Iniciales</h4>
+<p>Obtener iniciales en mayúsculas de “  ana maria torres ”, ignorando espacios repetidos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">AMT
+</code></pre>
+<h4>Ejercicio 10. Contraseña básica</h4>
+<p>Validar longitud mínima de ocho, al menos una mayúscula ASCII, una minúscula ASCII y un dígito. Rechazar espacios. Probar “Clave123”. No presentar estas reglas como una política de seguridad completa.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">true
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.06 · Práctica de clase</h2>
+<p>Definir analizar_codigo(texto): quitar espacios externos, aceptar de 3 a 8 caracteres ASCII alfanuméricos y exigir al menos una letra y un dígito. Retornar una versión en mayúsculas cuando sea válido; lanzar un error concreto cuando no lo sea. No aceptar espacios internos, tildes ni símbolos. Separar validación y presentación.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ab3</td>
+<td>AB3</td>
+</tr>
+<tr>
+<td>abc</td>
+<td>falta dígito</td>
+</tr>
+<tr>
+<td>123</td>
+<td>falta letra</td>
+</tr>
+<tr>
+<td>a 1</td>
+<td>carácter inválido</td>
+</tr>
+<tr>
+<td>a1</td>
+<td>longitud inválida</td>
+</tr>
+<tr>
+<td>á12</td>
+<td>carácter inválido</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.06</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Compilar <code>javac -encoding UTF-8 -d build *.java</code> y ejecutar <code>java -cp build Solucion</code>; usar <code>Solucion.java</code> como entrada personal. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.06.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.06): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Acordar qué caracteres se aceptan.</li>
+<li>Conservar el original cuando importe.</li>
+<li>Separar transformación, validación y salida.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://dev.java/learn/">Aprender Java, sitio oficial</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/27/docs/api/">API de Java SE 27</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.05-funciones/java/material.html">Anterior</a> · <a href="../../3.07-listas/java/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.05-funciones/java/index.html">Anterior</a><a href="../../3.07-listas/java/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.06-java"},'*');</script></body></html>

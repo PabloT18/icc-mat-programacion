@@ -1,0 +1,202 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.03 · Decisiones y operadores lógicos · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.02-entradas-salidas/java/index.html">Anterior</a><a href="../../3.04-iteracion/java/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.03 · Decisiones y operadores lógicos · Java</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.02-entradas-salidas/java/material.html">Anterior</a> · <a href="../../3.04-iteracion/java/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Clasificar una medición como inválida, baja, adecuada o alta. El orden de las decisiones determina si los límites se interpretan correctamente y si una medición obtiene una sola categoría.</p>
+<p><strong>Prerrequisitos.</strong> Conversiones, operadores y valores booleanos.</p>
+<p><strong>Versión complementaria.</strong> Estudiar el mismo problema y los mismos casos de Python mediante construcciones idiomáticas de Java. La presentación compartida corresponde a Python.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Selección simple y alternativa</h3>
+<p>Una selección simple ejecuta un bloque solo cuando se cumple una condición. Una alternativa completa define qué hacer también cuando no se cumple. La condición se evalúa antes del bloque. Escribir la regla en palabras y probar valores a ambos lados del umbral, incluido el propio umbral. No confundir “mayor que” con “mayor o igual que”.</p>
+<p><strong>Aplicar en Java.</strong> Usar if y else con paréntesis para la condición y llaves para el bloque. Incluir llaves aun para una sola instrucción reduce errores cuando se agrega una segunda.</p>
+<pre><code class="language-java">int edad = 18;
+if (edad &gt;= 18) {
+    System.out.println(&quot;Mayor de edad&quot;);
+} else {
+    System.out.println(&quot;Menor de edad&quot;);
+}
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Cadena de condiciones y cobertura</h3>
+<p>Una clasificación mutuamente excluyente requiere una cadena que detenga la búsqueda al encontrar la primera condición verdadera. Varios if independientes pueden ejecutar más de una rama. Ordenar umbrales de forma coherente. Definir intervalos sin huecos ni solapamientos y establecer qué hacer con valores fuera del dominio antes de clasificarlos.</p>
+<p><strong>Aplicar en Java.</strong> Usar if, else if y else. Una comparación encadenada como 0 &lt;= nota &lt;= 10 no es válida: escribir nota &gt;= 0 &amp;&amp; nota &lt;= 10. Mantener idénticos límites a la versión Python.</p>
+<pre><code class="language-java">int nota = 8;
+if (nota &gt;= 9) {
+    System.out.println(&quot;Excelente&quot;);
+} else if (nota &gt;= 7) {
+    System.out.println(&quot;Aprobado&quot;);
+} else {
+    System.out.println(&quot;Refuerzo&quot;);
+}
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Condiciones compuestas y cortocircuito</h3>
+<p>Combinar condiciones con conjunción, disyunción y negación permite expresar reglas de elegibilidad. El cortocircuito omite la evaluación derecha cuando la izquierda ya decide el resultado. Esto permite proteger una operación, pero el orden debe ser intencional. Aplicar De Morgan al negar rangos completos y no solo a una parte.</p>
+<p><strong>Aplicar en Java.</strong> Usar divisor != 0 &amp;&amp; dividendo / divisor &gt; 2.0. &amp;&amp; y || realizan cortocircuito. Comparar texto con equals en lugar de ==, que compara identidad de referencias.</p>
+<pre><code class="language-java">int divisor = 0;
+System.out.println(divisor != 0 &amp;&amp; 10.0 / divisor &gt; 2);
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Validación y errores de conversión</h3>
+<p>La validación de dominio revisa valores ya convertidos; la validación de formato detecta texto que no se puede convertir. Son controles distintos. Una excepción no debe ocultarse como si el dato fuera válido. Capturar el error esperado, producir un mensaje concreto y mantener el contrato. Comprobar todas las ramas y las fronteras de cada intervalo.</p>
+<p><strong>Aplicar en Java.</strong> Introducir try/catch NumberFormatException. No capturar Exception como sustituto de comprender el error. Después de convertir, comprobar rangos con if.</p>
+<pre><code class="language-java">try {
+    Integer.parseInt(&quot;abc&quot;);
+} catch (NumberFormatException e) {
+    System.out.println(&quot;Ingresar un entero&quot;);
+}
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Clasificar una medición entera de 0 a 100 como Baja si es menor que 40, Adecuada entre 40 y 75 inclusive y Alta por encima de 75.</p>
+<p><strong>Contrato de esta demostración.</strong> Aceptar la medición ya convertida. Mostrar Inválida fuera de [0,100]. Producir exactamente una categoría. La demostración usa 72; probar también -1, 0, 39, 40, 75, 76, 100 y 101.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/Demo.java">ejemplos/Demo.java</a>.</p>
+<!-- example: Demo.java -->
+<pre><code class="language-java">public class Demo {
+    public static void main(String[] args) {
+        int medicion = 72;
+        String categoria;
+        if (medicion &lt; 0 || medicion &gt; 100) categoria = &quot;Inválida&quot;;
+        else if (medicion &lt; 40) categoria = &quot;Baja&quot;;
+        else if (medicion &lt;= 75) categoria = &quot;Adecuada&quot;;
+        else categoria = &quot;Alta&quot;;
+        System.out.println(categoria);
+    }
+}
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.03-estructuras-control/java/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">javac -encoding UTF-8 -d build *.java
+java -cp build Demo
+</code></pre>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Adecuada
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<p>Adaptar los mismos datos y resultados a Java. Usar <code>record</code> para registros y bibliotecas estándar para archivos y procesos. Para resultados booleanos, aceptar <code>true/false</code> en Java frente a <code>True/False</code> en Python. Los ejercicios que inspeccionan el intérprete deben inspeccionar la JVM y el JDK equivalentes.</p>
+<h4>Ejercicio 01. Signo</h4>
+<p>Clasificar -4 como positivo, negativo o cero.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Negativo
+</code></pre>
+<h4>Ejercicio 02. Paridad</h4>
+<p>Indicar si 18 es par o impar.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Par
+</code></pre>
+<h4>Ejercicio 03. Mayor de dos</h4>
+<p>Comparar 7 y 7. Mostrar el mayor o “Iguales” cuando coincidan.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Iguales
+</code></pre>
+<h4>Ejercicio 04. Intervalo cerrado</h4>
+<p>Indicar si 10 pertenece al intervalo [5,10].</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Dentro
+</code></pre>
+<h4>Ejercicio 05. Descuento por cantidad</h4>
+<p>Aplicar 10% de descuento desde 10 unidades. Para 12 unidades a 5 mostrar total con dos decimales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">54.00
+</code></pre>
+<h4>Ejercicio 06. División protegida</h4>
+<p>Para dividendo 8 y divisor 0 mostrar “Divisor inválido” sin intentar dividir.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Divisor inválido
+</code></pre>
+<h4>Ejercicio 07. Clasificación de edad</h4>
+<p>Clasificar 31 en menor de 18, de 18 a 30, de 31 a 50 o mayor de 50. Rechazar negativos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">31 a 50
+</code></pre>
+<h4>Ejercicio 08. Año bisiesto</h4>
+<p>Determinar si 1900 es bisiesto: divisible por 400 o divisible por 4 y no por 100.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">No bisiesto
+</code></pre>
+<h4>Ejercicio 09. Triángulo válido</h4>
+<p>Recibir lados 3, 4 y 5. Rechazar lados no positivos o que incumplan desigualdad triangular. Clasificar equilátero, isósceles o escaleno.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Escaleno
+</code></pre>
+<h4>Ejercicio 10. Entrada y rango</h4>
+<p>Convertir el texto “abc” a nota entera entre 0 y 10. Distinguir formato inválido, rango inválido y valor aceptado.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Formato inválido
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.03 · Práctica de clase</h2>
+<p>Leer peso de un paquete y tipo de entrega. Aceptar peso entero entre 1 y 20 y modalidad normal o urgente. Cobrar 3 hasta 5 kg, 6 hasta 10 kg y 10 hasta 20 kg. Agregar 4 por urgencia. Rechazar textos no numéricos, modalidades desconocidas y pesos fuera de rango. Mostrar una única tarifa o un mensaje de error.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5, normal</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6, urgente</td>
+<td>10</td>
+</tr>
+<tr>
+<td>20, urgente</td>
+<td>14</td>
+</tr>
+<tr>
+<td>0, normal</td>
+<td>peso inválido</td>
+</tr>
+<tr>
+<td>abc, normal</td>
+<td>formato inválido</td>
+</tr>
+<tr>
+<td>5, exprés</td>
+<td>modalidad inválida</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.03</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Compilar <code>javac -encoding UTF-8 -d build *.java</code> y ejecutar <code>java -cp build Solucion</code>; usar <code>Solucion.java</code> como entrada personal. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.03.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.03): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Definir intervalos sin huecos.</li>
+<li>Validar formato y dominio por separado.</li>
+<li>Cubrir cada rama y sus fronteras.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://dev.java/learn/">Aprender Java, sitio oficial</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/27/docs/api/">API de Java SE 27</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> · <a href="../presentacion.pptx">Presentación Python</a> · <a href="../../3.02-entradas-salidas/java/material.html">Anterior</a> · <a href="../../3.04-iteracion/java/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.02-entradas-salidas/java/index.html">Anterior</a><a href="../../3.04-iteracion/java/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.03-java"},'*');</script></body></html>

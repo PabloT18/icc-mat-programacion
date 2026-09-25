@@ -1,0 +1,196 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>1.1 · Álgebra de Boole · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../../02/2.1-algoritmos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>1.1 · Álgebra de Boole · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 1:</strong> Lógica Matemática<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../../02/2.1-algoritmos/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Determinar cuándo permitir el acceso a una sala: disponer de credencial y reserva, o tener autorización del responsable. Convertir una regla verbal en una expresión permite revisar todos los casos, incluidos los que parecen excepcionales.</p>
+<p><strong>Prerrequisitos.</strong> Operaciones aritméticas y lectura de condiciones.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Proposiciones y valores de verdad</h3>
+<p>Una proposición es un enunciado al que se puede asignar verdadero o falso dentro de un contexto definido. “La reserva está vigente” requiere especificar fecha y hora; una pregunta o una orden no es una proposición. Representar cada condición mediante una letra y escribir su significado antes de operar. Una variable booleana solo modela dos estados, por lo que un dato desconocido exige una decisión explícita del problema. No confundir falso con información ausente.</p>
+<p><strong>Aplicar en Python.</strong> Usar bool y los literales True y False. Aunque Python acepta otros objetos como condiciones, emplear booleanos explícitos al construir tablas. La cadena &quot;False&quot; no es el valor False: cualquier cadena no vacía tiene valor de verdad verdadero.</p>
+<pre><code class="language-python">reserva = True
+credencial = False
+print(reserva)
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Negación, conjunción y disyunción</h3>
+<p>La negación invierte un valor. La conjunción exige que ambas proposiciones sean verdaderas. La disyunción inclusiva permite que una o ambas sean verdaderas. Interpretar “o” en lenguaje cotidiano puede ser ambiguo: si exactamente una opción es válida, se necesita disyunción exclusiva. Construir una tabla con 2 elevado al número de variables para enumerar todas las combinaciones sin omisiones.</p>
+<p><strong>Aplicar en Python.</strong> Escribir not, and y or. Con operandos booleanos producen los resultados esperados de la tabla. and y or pueden devolver operandos cuando se aplican a otros tipos; por eso mantener bool en este segmento.</p>
+<pre><code class="language-python">p, q = True, False
+print(p and q, p or q, not p)
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Equivalencia y leyes de De Morgan</h3>
+<p>Dos expresiones son equivalentes cuando coinciden para todas las asignaciones de sus variables. Una coincidencia aislada no demuestra equivalencia. Las leyes de De Morgan establecen que negar una conjunción equivale a disyuntar las negaciones, y negar una disyunción equivale a conjuntarlas. También se cumplen identidad, idempotencia, absorción y distributividad. Simplificar conserva el significado, no los pasos concretos de evaluación.</p>
+<p><strong>Aplicar en Python.</strong> Comparar not (p and q) con (not p) or (not q). Encerrar las condiciones compuestas entre paréntesis al enseñar su traducción. La igualdad == compara resultados y no debe confundirse con la asignación =.</p>
+<pre><code class="language-python">p, q = True, False
+print(not (p and q) == ((not p) or (not q)))
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Reglas, implicación y comprobación</h3>
+<p>La implicación p implica q solo es falsa cuando p es verdadera y q falsa. No expresa por sí misma una causa. Se puede reescribir como no p o q. Una tautología siempre es verdadera; una contradicción siempre es falsa; una contingencia depende de los valores. Para validar una regla de acceso, comprobar cada fila y explicar las filas que autorizan. Diferenciar la especificación de la política y su traducción al programa.</p>
+<p><strong>Aplicar en Python.</strong> Expresar una implicación como (not p) or q. En la demostración, observar los bucles únicamente como herramienta para enumerar casos; su construcción se desarrollará en las unidades siguientes.</p>
+<pre><code class="language-python">p, q = True, False
+print((not p) or q)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Tabla de operadores</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p AND q</th>
+<th>p OR q</th>
+<th>NOT p</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table></div>
+<h3>Leyes para simplificar</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Equivalencia</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Identidad</td>
+<td>p AND 1 = p; p OR 0 = p</td>
+</tr>
+<tr>
+<td>Idempotencia</td>
+<td>p AND p = p; p OR p = p</td>
+</tr>
+<tr>
+<td>Complemento</td>
+<td>p AND NOT p = 0; p OR NOT p = 1</td>
+</tr>
+<tr>
+<td>Absorción</td>
+<td>p OR (p AND q) = p</td>
+</tr>
+<tr>
+<td>Distributiva</td>
+<td>p AND (q OR r) = (p AND q) OR (p AND r)</td>
+</tr>
+<tr>
+<td>De Morgan</td>
+<td>NOT (p OR q) = NOT p AND NOT q</td>
+</tr>
+</tbody></table></div>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Enumerar las cuatro combinaciones de credencial y reserva y autorizar únicamente cuando ambas sean verdaderas.</p>
+<p><strong>Contrato de esta demostración.</strong> Dos valores booleanos. No incluir todavía la autorización excepcional del contexto inicial; incorporarla en la PC. Mostrar credencial, reserva y permiso como 0 o 1. La tabla debe contener cuatro filas.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">for credencial in (False, True):
+    for reserva in (False, True):
+        permitido = credencial and reserva
+        print(int(credencial), int(reserva), int(permitido))
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>01/1.1-algebra-boole/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">0 0 0
+0 1 0
+1 0 0
+1 1 1
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="pc"></a></p>
+<h2>3. PC1.1 · Práctica de clase</h2>
+<p>Formalizar la regla “permitir acceso con credencial y reserva, o con autorización del responsable”. Definir las tres proposiciones, completar las ocho filas de su tabla y expresar la negación mediante De Morgan. Usar Python o Java solo para contrastar la tabla manual, sin exigir todavía escribir bucles desde cero.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0, 0, 0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1, 1, 0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0, 0, 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1, 0, 0</td>
+<td>0</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC1.1</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC1.1.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc1.1): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Definir cada proposición antes de operar.</li>
+<li>Distinguir OR inclusivo de OR exclusivo.</li>
+<li>Probar equivalencia sobre todas las combinaciones.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../../02/2.1-algoritmos/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../../02/2.1-algoritmos/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"1.1-python"},'*');</script></body></html>

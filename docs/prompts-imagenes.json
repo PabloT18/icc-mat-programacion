@@ -1,0 +1,122 @@
+[
+  {
+    "path": "01/1.1-algebra-boole/assets/infografia.svg",
+    "png": "01/1.1-algebra-boole/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Álgebra de Boole",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "02/2.1-algoritmos/assets/infografia.svg",
+    "png": "02/2.1-algoritmos/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Representación y estructuras de algoritmos",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.01-introduccion/assets/infografia.svg",
+    "png": "03/3.01-introduccion/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Fundamentos del lenguaje",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.02-entradas-salidas/assets/infografia.svg",
+    "png": "03/3.02-entradas-salidas/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Entradas, salidas y conversiones",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.03-estructuras-control/assets/infografia.svg",
+    "png": "03/3.03-estructuras-control/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Decisiones y operadores lógicos",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.04-iteracion/assets/infografia.svg",
+    "png": "03/3.04-iteracion/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Repetición, contadores y acumuladores",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.05-funciones/assets/infografia.svg",
+    "png": "03/3.05-funciones/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Funciones, contratos y descomposición",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.06-cadenas/assets/infografia.svg",
+    "png": "03/3.06-cadenas/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Cadenas y procesamiento de texto",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.07-listas/assets/infografia.svg",
+    "png": "03/3.07-listas/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Vectores y listas",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.08-listas-recorridos/assets/infografia.svg",
+    "png": "03/3.08-listas-recorridos/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Recorridos, búsqueda y transformación",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.09-matrices/assets/infografia.svg",
+    "png": "03/3.09-matrices/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Matrices y recorridos anidados",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.10-tuplas/assets/infografia.svg",
+    "png": "03/3.10-tuplas/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Tuplas y registros de datos",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.11-archivos/assets/infografia.svg",
+    "png": "03/3.11-archivos/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Archivos de texto y persistencia",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.12-main-modulos/assets/infografia.svg",
+    "png": "03/3.12-main-modulos/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Punto de entrada y módulos",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  },
+  {
+    "path": "03/3.13-entornos/assets/infografia.svg",
+    "png": "03/3.13-entornos/assets/infografia.png",
+    "purpose": "Sintetizar conceptos, ejemplos y comprobaciones de Entornos, ejecución y reproducibilidad",
+    "method": "Diagrama técnico SVG y rasterización exacta; no imagen generativa",
+    "prompt": null,
+    "source": "Contenido desarrollado en python/material.md"
+  }
+]

@@ -1,0 +1,172 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.01 · Fundamentos del lenguaje · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../../02/2.1-algoritmos/python/index.html">Anterior</a><a href="../../3.02-entradas-salidas/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.01 · Fundamentos del lenguaje · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../../02/2.1-algoritmos/python/material.html">Anterior</a> · <a href="../../3.02-entradas-salidas/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Modelar una compra de cuadernos permite distinguir datos, nombres, expresiones y resultados. El mismo cálculo sirve para contrastar cómo Python y Java representan números y ejecutan instrucciones.</p>
+<p><strong>Prerrequisitos.</strong> Diseño de algoritmos y manejo básico de archivos.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Programa, intérprete y compilación</h3>
+<p>Un programa expresa un algoritmo con la sintaxis de un lenguaje. La sintaxis determina las construcciones válidas y la semántica su significado. Distinguir errores de escritura, errores detectados durante la ejecución y resultados lógicamente incorrectos. Guardar los fuentes como texto y ejecutar desde una terminal ubicada en la carpeta correcta. Un editor permite escribir; el intérprete o el JDK permiten ejecutar.</p>
+<p><strong>Aplicar en Python.</strong> Guardar demo.py y ejecutar python3 demo.py o py demo.py en Windows. CPython compila internamente a bytecode y lo ejecuta: describirlo solo como “leer línea por línea” oculta parte de su funcionamiento. Instalar Python 3.14.7 desde python.org; comprobar python3 --version antes de empezar.</p>
+<pre><code class="language-python">print(&quot;Programación&quot;)
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Variables, asignación y tipos</h3>
+<p>Una variable permite asociar un nombre con un valor y usarlo en expresiones posteriores. La asignación evalúa primero la expresión derecha. Usar nombres que expresen el significado y las unidades. Un entero representa cantidades discretas, un real aproximado representa mediciones, una cadena representa texto y un booleano una condición. No confundir apariencia numérica con tipo: un identificador con ceros iniciales puede requerir texto.</p>
+<p><strong>Aplicar en Python.</strong> Python tiene tipado dinámico: los objetos tienen tipo y un nombre puede volver a asociarse. int permite enteros de precisión arbitraria limitada por memoria. float suele usar doble precisión binaria. Evitar cambiar el significado de una variable durante un mismo algoritmo.</p>
+<pre><code class="language-python">cantidad = 4
+precio = 1.75
+producto = &quot;Cuaderno&quot;
+disponible = True
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Operadores y evaluación</h3>
+<p>Los operadores combinan operandos para construir expresiones. Multiplicación y división tienen mayor precedencia que suma y resta; usar paréntesis cuando una agrupación sea esencial. El residuo ayuda a comprobar divisibilidad. La división por cero requiere un contrato que la excluya o una validación. Los decimales binarios no representan exactamente todos los decimales habituales, por lo que no basar cálculos monetarios exigentes en igualdad exacta entre aproximaciones.</p>
+<p><strong>Aplicar en Python.</strong> / produce división real, // división hacia menos infinito, % residuo y ** potencia. Para positivos, 7 // 2 es 3. Con negativos, -7 // 2 es -4. En este curso, los primeros casos de reparto usan enteros no negativos para evitar equivalencias falsas con Java.</p>
+<pre><code class="language-python">print(7 / 2, 7 // 2, 7 % 2, 2 ** 3)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Estado, trazas y errores</h3>
+<p>El estado reúne los valores observables en un instante de ejecución. Una traza explica por qué una expresión utiliza un valor anterior o uno actualizado. Distinguir asignación de comparación, nombre de variable de cadena literal y comentario de instrucción. Elegir casos que permitan calcular la respuesta manualmente antes de confiar en el resultado del programa.</p>
+<p><strong>Aplicar en Python.</strong> Usar # para comentarios y cuatro espacios por nivel cuando aparezcan bloques. Una variable no definida produce NameError. IndentationError describe problemas de bloques. Leer la última línea del traceback y localizar el archivo y línea, sin ocultar el error con un except general.</p>
+<pre><code class="language-python">cantidad = 2
+cantidad = cantidad + 1
+print(cantidad)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Calcular el importe de cuatro cuadernos a 1.75 cada uno y mostrar cantidad e importe.</p>
+<p><strong>Contrato de esta demostración.</strong> Cantidad entera no negativa y precio no negativo. Multiplicar ambos sin entrada de teclado. Mostrar el total con dos decimales. Esta versión supone datos dentro del dominio y no implementa validación.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">cantidad = 4
+precio = 1.75
+total = cantidad * precio
+print(f&quot;Cantidad: {cantidad}&quot;)
+print(f&quot;Total: {total:.2f}&quot;)
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.01-introduccion/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Cantidad: 4
+Total: 7.00
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Mensaje inicial</h4>
+<p>Mostrar el nombre de la asignatura y la sede, una línea por dato.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Programación
+Cuenca
+</code></pre>
+<h4>Ejercicio 02. Ficha de producto</h4>
+<p>Definir producto=&quot;Lápiz&quot; y cantidad=6. Mostrar el nombre y la cantidad separados por un espacio.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Lápiz 6
+</code></pre>
+<h4>Ejercicio 03. Área rectangular</h4>
+<p>Definir base=8 y altura=3. Calcular el área sin escribir el resultado como constante.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">24
+</code></pre>
+<h4>Ejercicio 04. Conversión de minutos</h4>
+<p>Convertir 135 minutos en horas completas y minutos sobrantes. Trabajar con enteros no negativos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 15
+</code></pre>
+<h4>Ejercicio 05. Promedio aritmético</h4>
+<p>Calcular el promedio de 7, 8 y 9 y mostrar dos decimales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">8.00
+</code></pre>
+<h4>Ejercicio 06. Cambio de unidades</h4>
+<p>Convertir 2.5 kilómetros a metros y centímetros. Mostrar ambos con un decimal.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2500.0 250000.0
+</code></pre>
+<h4>Ejercicio 07. Compra con descuento</h4>
+<p>Definir 5 artículos a 4.0 cada uno y descuento del 15%. Calcular subtotal y total con dos decimales.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">20.00 17.00
+</code></pre>
+<h4>Ejercicio 08. Intercambio de valores</h4>
+<p>Intercambiar a=12 y b=5 usando una variable auxiliar. No sustituir directamente por constantes.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5 12
+</code></pre>
+<h4>Ejercicio 09. Descomposición de segundos</h4>
+<p>Descomponer 7384 segundos en horas, minutos y segundos. Usar cocientes y residuos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 3 4
+</code></pre>
+<h4>Ejercicio 10. Recibo ponderado</h4>
+<p>Calcular la nota ponderada de 8, 6 y 9 con pesos 20%, 30% y 50%. Mostrar dos decimales y comprobar que los pesos suman uno.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">7.90
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.01 · Práctica de clase</h2>
+<p>Calcular paquetes completos y unidades sobrantes al distribuir materiales. Definir unidades y capacidad como enteros, sin leer teclado todavía. Exigir unidades &gt;= 0 y capacidad &gt; 0 como precondiciones; documentar qué dato viola el contrato. Mostrar también el costo de los paquetes completos a una tarifa dada. No utilizar decisiones todavía.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>unidades=23, capacidad=5, tarifa=2.5</td>
+<td>4 paquetes; 3 sobrantes; costo 10.00</td>
+</tr>
+<tr>
+<td>unidades=0, capacidad=5</td>
+<td>0 paquetes; 0 sobrantes</td>
+</tr>
+<tr>
+<td>capacidad=0</td>
+<td>fuera de contrato; no ejecutar división</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.01</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.01.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.01): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Distinguir tipo, valor y nombre.</li>
+<li>Evaluar expresiones respetando precedencia.</li>
+<li>Verificar división y formato según el lenguaje.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../../02/2.1-algoritmos/python/material.html">Anterior</a> · <a href="../../3.02-entradas-salidas/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../../02/2.1-algoritmos/python/index.html">Anterior</a><a href="../../3.02-entradas-salidas/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.01-python"},'*');</script></body></html>

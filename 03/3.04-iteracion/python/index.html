@@ -1,0 +1,190 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.04 · Repetición, contadores y acumuladores · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.03-estructuras-control/python/index.html">Anterior</a><a href="../../3.05-funciones/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.04 · Repetición, contadores y acumuladores · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.03-estructuras-control/python/material.html">Anterior</a> · <a href="../../3.05-funciones/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Resumir varias mediciones requiere repetir la misma regla sin duplicar instrucciones. Diseñar el estado que debe conservarse entre iteraciones y demostrar que el ciclo termina.</p>
+<p><strong>Prerrequisitos.</strong> Decisiones, booleanos y validación.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Repetición contada con for</h3>
+<p>Usar una repetición contada cuando el número de pasos se conoce o cuando se recorre una secuencia finita. Separar el número de iteraciones de los valores que toma el contador. Para sumar desde 1 hasta n, incluir n es una decisión del contrato. Probar n igual a cero y a uno para descubrir límites incorrectos.</p>
+<p><strong>Aplicar en Python.</strong> range(inicio, fin, paso) excluye fin. range(1, 6) produce 1 a 5. Un paso negativo permite descender y cero es inválido. for toma sucesivamente valores del iterable; modificar su variable no altera la secuencia de range.</p>
+<pre><code class="language-python">for numero in range(1, 6):
+    print(numero)
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Repetición condicionada con while</h3>
+<p>Usar while cuando la continuidad depende del estado. El cuerpo puede ejecutarse cero veces. Identificar una cantidad que progrese hacia la terminación. Un centinela termina la lectura y no debe procesarse como dato. Un menú repite hasta una opción de salida, pero cada opción inválida también debe permitir una nueva entrada.</p>
+<p><strong>Aplicar en Python.</strong> Actualizar el estado antes de regresar a la condición. break termina el ciclo más interno. continue salta a la siguiente iteración y puede omitir una actualización si se coloca mal. Preferir una estructura clara antes de introducir saltos.</p>
+<pre><code class="language-python">restantes = 3
+while restantes &gt; 0:
+    print(restantes)
+    restantes -= 1
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Contar, acumular y mantener invariantes</h3>
+<p>Un contador aumenta por cada dato que cumple una condición. Un acumulador combina magnitudes. Definir qué representa después de k iteraciones: por ejemplo, total es la suma de los primeros k datos. Esta afirmación es un invariante útil para revisar el algoritmo. Calcular un promedio solo si la cantidad es positiva. No reiniciar el acumulador dentro del ciclo si debe conservar el historial.</p>
+<p><strong>Aplicar en Python.</strong> Inicializar cantidad=0 y total=0 antes del ciclo. Para máximos con datos negativos, no inicializar máximo en cero sin justificación: usar el primer dato válido o un estado que indique ausencia de datos.</p>
+<pre><code class="language-python">total = 0
+for numero in range(1, 5):
+    total += numero
+print(total)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Anidamiento, costo y pruebas</h3>
+<p>En ciclos anidados, cada iteración externa inicia un recorrido interno. Si existen f filas y c columnas, se realizan f por c visitas cuando ambos límites son fijos. Restablecer los acumuladores por fila dentro del ciclo externo y los globales antes de ambos. Una traza pequeña de dos por tres elementos revela el orden de recorrido sin producir una salida excesiva.</p>
+<p><strong>Aplicar en Python.</strong> Indentar cada bloque y usar nombres como fila y columna. Evitar reutilizar la misma variable para ambos for. Una comprensión no sustituye la necesidad de comprender el recorrido explícito.</p>
+<pre><code class="language-python">for fila in range(2):
+    for columna in range(3):
+        print(fila, columna)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Contar y sumar los enteros pares del intervalo de 1 a 10 inclusive.</p>
+<p><strong>Contrato de esta demostración.</strong> Recorrer los diez enteros una vez, iniciar cantidad y total en cero y actualizar solo ante paridad. Producir cantidad 5 y suma 30. No almacenar los valores en una lista.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">total = 0
+cantidad = 0
+for numero in range(1, 11):
+    if numero % 2 == 0:
+        total += numero
+        cantidad += 1
+print(f&quot;Cantidad: {cantidad}&quot;)
+print(f&quot;Suma: {total}&quot;)
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.04-iteracion/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Cantidad: 5
+Suma: 30
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Secuencia ascendente</h4>
+<p>Mostrar enteros de 1 a 5, uno por línea.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1
+2
+3
+4
+5
+</code></pre>
+<h4>Ejercicio 02. Secuencia descendente</h4>
+<p>Mostrar 5, 3 y 1 mediante un ciclo.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5
+3
+1
+</code></pre>
+<h4>Ejercicio 03. Suma hasta n</h4>
+<p>Sumar enteros de 1 a n para n=10. Admitir n=0 con suma cero.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">55
+</code></pre>
+<h4>Ejercicio 04. Contar múltiplos</h4>
+<p>Contar múltiplos de 3 entre 1 y 20 inclusive.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">6
+</code></pre>
+<h4>Ejercicio 05. Factorial</h4>
+<p>Calcular 5! mediante ciclo. Definir 0!=1 y rechazar negativos en el diseño.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">120
+</code></pre>
+<h4>Ejercicio 06. Suma de dígitos</h4>
+<p>Sumar los dígitos del entero no negativo 4072 utilizando división entera y residuo.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">13
+</code></pre>
+<h4>Ejercicio 07. Potencia por repetición</h4>
+<p>Calcular 3 elevado a 4 sin operador de potencia ni bibliotecas. Aceptar exponente no negativo.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">81
+</code></pre>
+<h4>Ejercicio 08. Número primo</h4>
+<p>Determinar si 29 es primo mediante divisores. Tratar n&lt;2 como no primo.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Primo
+</code></pre>
+<h4>Ejercicio 09. Patrón triangular</h4>
+<p>Mostrar tres filas de asteriscos: uno, dos y tres, usando ciclos anidados.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">*
+**
+***
+</code></pre>
+<h4>Ejercicio 10. Lectura con centinela</h4>
+<p>Procesar 4, -2, 6 y -1. Finalizar con -1, rechazar otros negativos y mostrar cantidad y suma de los aceptados. Usar while y lectura simulada.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 10
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.04 · Práctica de clase</h2>
+<p>Leer temperaturas enteras entre -20 y 50 hasta recibir 999. Rechazar datos fuera de rango sin contarlos. Mostrar cantidad, mínimo, máximo y promedio con dos decimales. Si no existen datos, mostrar “Sin datos”. Recuperarse de entradas no numéricas y no usar listas para resolver este ejercicio.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10, 20, 999</td>
+<td>cantidad 2; mínimo 10; máximo 20; promedio 15.00</td>
+</tr>
+<tr>
+<td>999</td>
+<td>Sin datos</td>
+</tr>
+<tr>
+<td>-30, -10, 999</td>
+<td>rechazar -30; promedio -10.00</td>
+</tr>
+<tr>
+<td>abc, 0, 999</td>
+<td>rechazar abc; promedio 0.00</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.04</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.04.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.04): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Inicializar estado antes del ciclo.</li>
+<li>Excluir el centinela del procesamiento.</li>
+<li>Justificar terminación y límites.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.03-estructuras-control/python/material.html">Anterior</a> · <a href="../../3.05-funciones/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.03-estructuras-control/python/index.html">Anterior</a><a href="../../3.05-funciones/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.04-python"},'*');</script></body></html>

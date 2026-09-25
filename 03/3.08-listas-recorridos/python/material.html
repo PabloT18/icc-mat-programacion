@@ -1,0 +1,187 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.08 · Recorridos, búsqueda y transformación · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.07-listas/python/index.html">Anterior</a><a href="../../3.09-matrices/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.08 · Recorridos, búsqueda y transformación · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.07-listas/python/material.html">Anterior</a> · <a href="../../3.09-matrices/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Revisar un conjunto de consumos permite practicar búsqueda, filtrado, transformación y reducción. Cada patrón produce un tipo de resultado diferente y requiere un estado distinto.</p>
+<p><strong>Prerrequisitos.</strong> Listas, funciones y ciclos.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Recorrido por valor y por posición</h3>
+<p>Recorrer por valor basta para consultar elementos. Recorrer por posición es útil cuando se necesita relacionar índices o actualizar lugares concretos. Mantener la colección estable durante una lectura simplifica el razonamiento. Si se elimina un elemento durante un recorrido por índice, el siguiente puede desplazarse y quedar sin visitar.</p>
+<p><strong>Aplicar en Python.</strong> Usar for valor in datos y enumerate(datos) cuando se necesita índice y valor. Evitar range(len(datos)) si no se usa realmente la posición. Para eliminar por criterio, construir una lista nueva.</p>
+<pre><code class="language-python">for indice, valor in enumerate([4, 7]):
+    print(indice, valor)
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Búsqueda y terminación temprana</h3>
+<p>La búsqueda lineal compara elementos hasta encontrar una coincidencia o agotar los datos. Definir si se necesita primera posición, todas las posiciones o solo existencia. Usar -1 como ausencia es una convención válida si los índices aceptados son no negativos. Para todas las coincidencias, no detenerse tras la primera.</p>
+<p><strong>Aplicar en Python.</strong> Implementar primero el ciclo y después contrastar con in o index. index lanza ValueError cuando no encuentra el elemento; no equivale directamente a devolver -1. break termina la búsqueda de la primera coincidencia.</p>
+<pre><code class="language-python">posicion = -1
+for i, valor in enumerate([4, 7, 4]):
+    if valor == 7:
+        posicion = i
+        break
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Filtrar y transformar</h3>
+<p>Filtrar conserva solo los elementos que cumplen una condición. Transformar produce un resultado por cada elemento. Una combinación puede cambiar tanto contenido como cantidad. Establecer si se conservan orden y duplicados. No usar un conjunto para eliminar duplicados cuando el contrato también exige conservar el primer orden sin una estrategia explícita.</p>
+<p><strong>Aplicar en Python.</strong> Construir resultado=[] y agregar según condición. Luego comparar con una comprensión de lista sencilla. Una comprensión con demasiadas condiciones puede dificultar explicar la regla; mantener el ciclo explícito cuando el proceso tenga varias fases.</p>
+<pre><code class="language-python">resultado = []
+for valor in [2, -1, 3]:
+    if valor &gt;= 0:
+        resultado.append(valor * 2)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Reducir y comprobar invariantes</h3>
+<p>Reducir combina una secuencia en un resumen: suma, máximo, cantidad o condición global. Para “alguno” basta una coincidencia; para “todos” basta un contraejemplo para refutar. Definir el caso vacío de acuerdo con la lógica y el dominio. Comparar invariantes antes y después de cada iteración ayuda a detectar acumuladores reiniciados o resultados incompletos.</p>
+<p><strong>Aplicar en Python.</strong> any([]) es False y all([]) es True. Explicar la verdad vacía antes de usar all para validar un archivo vacío. No llamar a una función de impresión esperando una lista para la siguiente fase.</p>
+<pre><code class="language-python">total = 0
+for valor in [2, 3, 4]:
+    total += valor
+print(total)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Seleccionar positivos de [-2,5,0,8,5] y mostrar su suma.</p>
+<p><strong>Contrato de esta demostración.</strong> Aceptar una secuencia de enteros. Retornar una secuencia nueva con valores estrictamente positivos, conservar orden y duplicados y no modificar la entrada. La selección vacía suma cero. Mostrar la selección y la suma por separado.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">def filtrar_positivos(datos):
+    resultado = []
+    for valor in datos:
+        if valor &gt; 0:
+            resultado.append(valor)
+    return resultado
+
+datos = [-2, 5, 0, 8, 5]
+resultado = filtrar_positivos(datos)
+print(&quot; &quot;.join(str(x) for x in resultado))
+print(f&quot;Suma: {sum(resultado)}&quot;)
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.08-listas-recorridos/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">5 8 5
+Suma: 18
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Suma explícita</h4>
+<p>Sumar [3,5,2] con un ciclo, sin sum.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">10
+</code></pre>
+<h4>Ejercicio 02. Cantidad de negativos</h4>
+<p>Contar negativos de [-2,0,4,-1].</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2
+</code></pre>
+<h4>Ejercicio 03. Máximo sin cero artificial</h4>
+<p>Calcular máximo de [-8,-2,-5]. Rechazar lista vacía.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">-2
+</code></pre>
+<h4>Ejercicio 04. Primera posición</h4>
+<p>Retornar primera posición de 7 en [4,7,7], o -1 si no existe.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1
+</code></pre>
+<h4>Ejercicio 05. Todas las posiciones</h4>
+<p>Obtener índices de 4 en [4,1,4,4].</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">0 2 3
+</code></pre>
+<h4>Ejercicio 06. Filtrado de pares</h4>
+<p>Seleccionar pares de [3,2,4,2,5] conservando orden y duplicados.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 4 2
+</code></pre>
+<h4>Ejercicio 07. Transformar por signo</h4>
+<p>Transformar negativos a cero y duplicar los demás en [-2,0,3]. Conservar la entrada.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">0 0 6
+</code></pre>
+<h4>Ejercicio 08. Eliminar duplicados estables</h4>
+<p>Eliminar repetidos de [3,1,3,2,1], conservando primera aparición. No usar conjuntos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">3 1 2
+</code></pre>
+<h4>Ejercicio 09. Acumulados parciales</h4>
+<p>Producir [2,7,8] desde [2,5,1], donde cada posición contiene la suma hasta ese lugar.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 7 8
+</code></pre>
+<h4>Ejercicio 10. Mezcla ordenada</h4>
+<p>Mezclar [1,4,7] y [2,4,8] en orden, conservando duplicados, sin ordenar el resultado después.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1 2 4 4 7 8
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.08 · Práctica de clase</h2>
+<p>Definir seleccionar_palabras(datos, minimo): devolver palabras cuya longitud sea al menos minimo y que contengan una vocal ASCII. Conservar orden, duplicados y lista original. Ignorar diferencias de mayúsculas al buscar vocales. Rechazar minimo negativo. Agregar una función que retorne la suma de longitudes seleccionadas.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[&quot;SOL&quot;, &quot;rhythm&quot;, &quot;luz&quot;, &quot;a&quot;], 3</td>
+<td>[&quot;SOL&quot;, &quot;luz&quot;]; suma 6</td>
+</tr>
+<tr>
+<td>[], 2</td>
+<td>[]; suma 0</td>
+</tr>
+<tr>
+<td>[&quot;sol&quot;, &quot;sol&quot;], 3</td>
+<td>conservar ambas</td>
+</tr>
+<tr>
+<td>minimo=-1</td>
+<td>error de argumento</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.08</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.08.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.08): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Elegir el patrón según el resultado requerido.</li>
+<li>Conservar orden y duplicados cuando se exija.</li>
+<li>Probar vacío, ausencia y coincidencias repetidas.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.07-listas/python/material.html">Anterior</a> · <a href="../../3.09-matrices/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.07-listas/python/index.html">Anterior</a><a href="../../3.09-matrices/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.08-python"},'*');</script></body></html>

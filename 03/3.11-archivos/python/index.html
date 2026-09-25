@@ -1,0 +1,186 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.11 · Archivos de texto y persistencia · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.10-tuplas/python/index.html">Anterior</a><a href="../../3.12-main-modulos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.11 · Archivos de texto y persistencia · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.10-tuplas/python/material.html">Anterior</a> · <a href="../../3.12-main-modulos/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Guardar mediciones permite continuar el análisis después de terminar el programa. Un archivo agrega decisiones sobre ruta, codificación, formato, errores y cierre de recursos.</p>
+<p><strong>Prerrequisitos.</strong> Funciones, cadenas, listas y excepciones.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Ruta, formato y codificación</h3>
+<p>Una ruta relativa se interpreta desde el directorio de trabajo del proceso, que no siempre coincide con la carpeta del código. Especificar cómo localizar los datos y usar UTF-8 para intercambiar texto con tildes. El formato describe cómo se separan registros y campos. Una extensión .txt no garantiza contenido válido. No confundir bytes con caracteres.</p>
+<p><strong>Aplicar en Python.</strong> pathlib.Path representa rutas de manera portable. Path(<strong>file</strong>).resolve().parent localiza la carpeta del script; <strong>file</strong> no está disponible en una celda de notebook. Definir una ruta base explícita para cada contexto.</p>
+<pre><code class="language-python">from pathlib import Path
+ruta = Path(&quot;mediciones.txt&quot;)
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Lectura y cierre de recursos</h3>
+<p>Abrir un archivo adquiere un recurso que debe cerrarse aunque ocurra un error. Leer línea por línea permite procesar sin cargar todo el archivo. Una línea vacía requiere una política: ignorar, aceptar como dato o rechazar. Validar cada conversión y conservar número de línea para producir diagnósticos útiles.</p>
+<p><strong>Aplicar en Python.</strong> Usar with ruta.open(encoding=&quot;utf-8&quot;) as archivo. strip elimina espacios de extremos y el salto final, pero también espacios que podrían ser datos significativos. Usarlo solo si el formato permite ignorarlos.</p>
+<pre><code class="language-python">with open(&quot;mediciones.txt&quot;, encoding=&quot;utf-8&quot;) as archivo:
+    for linea in archivo:
+        print(linea.rstrip(&quot;\n&quot;))
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Escritura, anexado y seguridad del resultado</h3>
+<p>Escribir puede reemplazar datos existentes. Distinguir crear, sobrescribir y anexar. Decidir si la nueva salida debe construirse completamente antes de sustituir la anterior. Nunca escribir sobre el archivo de entrada por accidente. En ejercicios reproducibles, utilizar una carpeta temporal o una ruta de salida controlada y comparar el contenido final.</p>
+<p><strong>Aplicar en Python.</strong> El modo w trunca, a agrega y x falla si el archivo ya existe. Escribir saltos de línea explícitos. with garantiza cierre, no una transacción atómica. Una actualización robusta puede escribir temporalmente y reemplazar al finalizar.</p>
+<pre><code class="language-python">with open(&quot;salida.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as archivo:
+    archivo.write(&quot;Total: 12\n&quot;)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Validación de registros y errores</h3>
+<p>Separar errores del sistema de errores del contenido. Un archivo inexistente no equivale a un archivo vacío; una línea inválida no equivale a cero. Registrar qué filas se rechazaron y por qué. Para un CSV real, las comas entre comillas requieren un parser; split(&quot;,&quot;) solo sirve cuando el formato restringe explícitamente las comas dentro de campos.</p>
+<p><strong>Aplicar en Python.</strong> Capturar FileNotFoundError u OSError donde se pueda responder. La biblioteca estándar csv procesa CSV con comillas. No usar except: pass porque elimina evidencia de pérdida de datos.</p>
+<pre><code class="language-python">try:
+    valor = int(&quot;dato&quot;)
+except ValueError:
+    print(&quot;Línea inválida&quot;)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Crear un archivo temporal con mediciones 12, 8 y 15, leerlo y sumar sus valores.</p>
+<p><strong>Contrato de esta demostración.</strong> Usar UTF-8 y un entero válido por línea. Escribir y leer dentro de una carpeta temporal controlada, cerrar recursos y eliminar temporales al terminar. No modificar archivos del usuario. Mostrar Total: 35. La PC añade validación de líneas externas.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">from pathlib import Path
+from tempfile import TemporaryDirectory
+
+with TemporaryDirectory() as carpeta:
+    ruta = Path(carpeta) / &quot;mediciones.txt&quot;
+    ruta.write_text(&quot;12\n8\n15\n&quot;, encoding=&quot;utf-8&quot;)
+    total = 0
+    with ruta.open(encoding=&quot;utf-8&quot;) as archivo:
+        for linea in archivo:
+            total += int(linea.strip())
+    print(f&quot;Total: {total}&quot;)
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.11-archivos/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Total: 35
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Escritura UTF-8</h4>
+<p>Escribir “Cuenca” en un archivo temporal UTF-8 y leerlo de nuevo.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Cuenca
+</code></pre>
+<h4>Ejercicio 02. Dos líneas</h4>
+<p>Guardar y leer dos líneas: sol y luna. Conservar un salto final.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">sol
+luna
+</code></pre>
+<h4>Ejercicio 03. Anexado</h4>
+<p>Crear una línea A y anexar B sin eliminar A.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">A
+B
+</code></pre>
+<h4>Ejercicio 04. Contar líneas no vacías</h4>
+<p>Contar líneas con texto en “a”, vacía y “b”. Ignorar espacios externos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2
+</code></pre>
+<h4>Ejercicio 05. Suma de archivo</h4>
+<p>Leer enteros 4, 8 y 3, uno por línea, y mostrar suma.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">15
+</code></pre>
+<h4>Ejercicio 06. Archivo inexistente</h4>
+<p>Intentar leer ausente.txt dentro de una carpeta temporal y producir mensaje controlado.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Archivo no encontrado
+</code></pre>
+<h4>Ejercicio 07. Errores por línea</h4>
+<p>Leer 4, x y 6. Sumar válidos y registrar número de línea inválida.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Línea 2: inválida
+Total: 10
+</code></pre>
+<h4>Ejercicio 08. Filtrar a otro archivo</h4>
+<p>Leer 2, 7, 4 y escribir solo valores mayores que 3 en un archivo nuevo. Conservar entrada.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">7
+4
+</code></pre>
+<h4>Ejercicio 09. Promedio sin datos</h4>
+<p>Leer archivo vacío y mostrar “Sin datos” sin dividir por cero.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Sin datos
+</code></pre>
+<h4>Ejercicio 10. Registros delimitados</h4>
+<p>Leer A;3 y B;5. Exigir exactamente dos campos, código no vacío y cantidad entera no negativa. Mostrar suma y conservar número de línea en errores. El formato no permite ; dentro de campos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">8
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.11 · Práctica de clase</h2>
+<p>Leer un archivo UTF-8 con un entero por línea. Ignorar líneas vacías, aceptar valores de 0 a 100 y registrar número de línea y causa de cada rechazo. Escribir un informe nuevo con cantidad válida y promedio; usar “Sin datos” cuando no haya valores válidos. Conservar el archivo de entrada y gestionar archivo inexistente.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10<br>20<br></td>
+<td>cantidad 2; promedio 15.00</td>
+</tr>
+<tr>
+<td>abc<br>120<br>5<br></td>
+<td>rechazos en líneas 1 y 2; promedio 5.00</td>
+</tr>
+<tr>
+<td>archivo vacío</td>
+<td>Sin datos</td>
+</tr>
+<tr>
+<td>ruta inexistente</td>
+<td>mensaje de archivo no encontrado</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.11</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.11.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.11): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Fijar ruta, codificación y formato.</li>
+<li>Cerrar recursos incluso ante errores.</li>
+<li>Distinguir dato inválido de fallo de archivo.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.10-tuplas/python/material.html">Anterior</a> · <a href="../../3.12-main-modulos/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.10-tuplas/python/index.html">Anterior</a><a href="../../3.12-main-modulos/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.11-python"},'*');</script></body></html>

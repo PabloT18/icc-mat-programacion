@@ -1,0 +1,218 @@
+{
+  "python": "3.12.14",
+  "demonstrations": [
+    {
+      "id": "1.1-python",
+      "ok": true,
+      "stdout": "0 0 0\n0 1 0\n1 0 0\n1 1 1\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "1.1-java",
+      "ok": true,
+      "stdout": "0 0 0\n0 1 0\n1 0 0\n1 1 1\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "2.1-python",
+      "ok": true,
+      "stdout": "Horas: 3\nCosto: 6\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "2.1-java",
+      "ok": true,
+      "stdout": "Horas: 3\nCosto: 6\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.01-python",
+      "ok": true,
+      "stdout": "Cantidad: 4\nTotal: 7.00\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.01-java",
+      "ok": true,
+      "stdout": "Cantidad: 4\nTotal: 7.00\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.02-python",
+      "ok": true,
+      "stdout": "Producto: Cuaderno\nTotal: 7.00\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.02-java",
+      "ok": true,
+      "stdout": "Producto: Cuaderno\nTotal: 7.00\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.03-python",
+      "ok": true,
+      "stdout": "Adecuada\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.03-java",
+      "ok": true,
+      "stdout": "Adecuada\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.04-python",
+      "ok": true,
+      "stdout": "Cantidad: 5\nSuma: 30\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.04-java",
+      "ok": true,
+      "stdout": "Cantidad: 5\nSuma: 30\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.05-python",
+      "ok": true,
+      "stdout": "Costo: 7.50\nValores negativos\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.05-java",
+      "ok": true,
+      "stdout": "Costo: 7.50\nValores negativos\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.06-python",
+      "ok": true,
+      "stdout": "Cuenca\nVocales: 3\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.06-java",
+      "ok": true,
+      "stdout": "Cuenca\nVocales: 3\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.07-python",
+      "ok": true,
+      "stdout": "Original: 18 21 19\nCopia: 18 21 19 22\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.07-java",
+      "ok": true,
+      "stdout": "Original: 18 21 19\nCopia: 18 21 19 22\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.08-python",
+      "ok": true,
+      "stdout": "5 8 5\nSuma: 18\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.08-java",
+      "ok": true,
+      "stdout": "5 8 5\nSuma: 18\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.09-python",
+      "ok": true,
+      "stdout": "BAJA | ALTA | ALTA\nALTA | BAJA | BAJA\nOriginal: 18\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.09-java",
+      "ok": true,
+      "stdout": "BAJA | ALTA | ALTA\nALTA | BAJA | BAJA\nOriginal: 18\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.10-python",
+      "ok": true,
+      "stdout": "P01: 8\nP03: 4\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.10-java",
+      "ok": true,
+      "stdout": "P01: 8\nP03: 4\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.11-python",
+      "ok": true,
+      "stdout": "Total: 35\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.11-java",
+      "ok": true,
+      "stdout": "Total: 35\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.12-python",
+      "ok": true,
+      "stdout": "Total: 13\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.12-java",
+      "ok": true,
+      "stdout": "Total: 13\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.13-python",
+      "ok": true,
+      "stdout": "Entorno listo\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "id": "3.13-java",
+      "ok": true,
+      "stdout": "Entorno listo\n",
+      "stderr": "",
+      "exit_code": 0
+    }
+  ],
+  "moodle_questions": 150,
+  "executed_solution_cells": 130,
+  "rubrics": 6
+}

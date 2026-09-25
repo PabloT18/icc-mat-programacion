@@ -1,0 +1,18 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>guia-git · Programación</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body><main class="page"><nav class="article-nav"><a href="../index.html" target="_top">Índice del curso</a><a href="guia-git.md" download>Descargar MD</a></nav><h1>Commits y evidencias</h1>
+<p>Crear un repositorio personal para actividades independientes, sin modificar las demostraciones del material.</p>
+<pre><code class="language-bash">git init
+git add README.md
+git commit -m &quot;docs: definir-organizacion-del-trabajo&quot;
+</code></pre>
+<p>Configurar identidad Git local si todavía no existe. No copiar identidad de otra persona. Crear un directorio por PC o PL, desarrollar un cambio funcional, ejecutar los casos y registrar evidencia.</p>
+<pre><code class="language-bash">git add actividades/PC3.05 evidencias/PC3.05.md
+git commit -m &quot;feat(pc3.05): implementar-funciones-y-casos&quot;
+git rev-parse HEAD
+git log --oneline -- actividades/PC3.05
+git show HASH_REAL
+git diff HASH_ANTERIOR HASH_ACTUAL -- actividades/PC3.05
+</code></pre>
+<p>Sustituir los marcadores por hashes reales. Revisar que el commit incluya tanto la implementación como las pruebas relacionadas. Registrar el hash después de crear el commit y añadir la evidencia de identificación en un commit posterior si hace falta evitar autorreferencia.</p>
+<h2>Evidencia mínima</h2>
+<p>Registrar problema, versión, comando exacto, entrada, resultado esperado, resultado real, explicación de errores y enlace o hash. No simular capturas, resultados ni historial. Excluir credenciales, datos personales, entornos virtuales, cachés y compilados.</p>
+</main></body></html>

@@ -1,0 +1,182 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.07 · Vectores y listas · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.06-cadenas/python/index.html">Anterior</a><a href="../../3.08-listas-recorridos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.07 · Vectores y listas · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.06-cadenas/python/material.html">Anterior</a> · <a href="../../3.08-listas-recorridos/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Guardar varias mediciones permite consultarlas y transformarlas sin crear una variable por observación. Elegir una estructura según su tamaño y mutabilidad, y distinguir una copia de otro nombre para la misma colección.</p>
+<p><strong>Prerrequisitos.</strong> Cadenas, funciones y ciclos.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Modelo de secuencia e índices</h3>
+<p>Un vector organiza elementos mediante posiciones. Una lista ofrece una secuencia cuyo tamaño puede cambiar. El primer índice suele ser cero y el último válido es longitud menos uno. Separar posición y valor: buscar la medición 20 no equivale a consultar la posición 20. Antes de acceder, comprobar que la colección tenga elementos y que el índice pertenezca al dominio.</p>
+<p><strong>Aplicar en Python.</strong> list es una secuencia mutable y dinámica de referencias. Puede contener tipos distintos, pero usar elementos homogéneos simplifica el contrato de estos ejercicios. Los índices negativos cuentan desde el final; los positivos fuera de rango producen IndexError.</p>
+<pre><code class="language-python">notas = [7, 9, 8]
+print(notas[0], len(notas))
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Agregar, consultar y eliminar</h3>
+<p>Cada operación tiene efectos diferentes. Agregar aumenta el tamaño, reemplazar conserva el tamaño y eliminar desplaza las posiciones posteriores. Al borrar por valor puede haber duplicados y solo eliminarse la primera aparición. Definir si ausencia de un elemento es error o resultado normal. No modificar mientras se recorre hasta comprender cómo cambian los índices.</p>
+<p><strong>Aplicar en Python.</strong> append agrega al final, insert inserta, pop elimina y devuelve por índice, remove elimina la primera coincidencia. Estos métodos mutadores generalmente no devuelven la lista. No escribir lista = lista.append(x), porque append devuelve None.</p>
+<pre><code class="language-python">datos = [2, 4]
+datos.append(6)
+datos[0] = 3
+print(datos.pop())
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Alias, copia y mutabilidad</h3>
+<p>Asignar una colección a otra variable puede compartir el mismo objeto. Una copia superficial crea un contenedor nuevo, pero puede compartir elementos internos. Con números inmutables basta para muchas transformaciones. Con listas anidadas, copiar solo el contenedor externo no aísla las filas. Definir expresamente si una función puede modificar la entrada.</p>
+<p><strong>Aplicar en Python.</strong> copia = datos.copy() o datos[:] crea una copia superficial. alias = datos comparte la misma lista. is compara identidad y == compara valores de listas. En matrices será necesario copiar cada fila para independizar su estructura.</p>
+<pre><code class="language-python">original = [2, 4]
+copia = original.copy()
+copia[0] = 9
+print(original, copia)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Operaciones y casos vacíos</h3>
+<p>Una colección vacía es una entrada legítima en muchos problemas. La suma vacía puede definirse como cero, mientras que un mínimo sin datos requiere un error o un resultado de ausencia. El ordenamiento cambia el orden, por lo que puede destruir una correspondencia con posiciones originales. Decidir si el algoritmo debe conservar orden, duplicados y valores de entrada.</p>
+<p><strong>Aplicar en Python.</strong> sorted devuelve una lista nueva; sort ordena la existente y devuelve None. min y max fallan sobre una secuencia vacía sin valor predeterminado. Slices permiten seleccionar rangos sin lanzar IndexError por un extremo superior grande.</p>
+<pre><code class="language-python">datos = [9, 2, 5]
+print(sorted(datos))
+print(datos)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Copiar las mediciones [18,21,19], agregar 22 a la copia y mostrar ambas colecciones.</p>
+<p><strong>Contrato de esta demostración.</strong> Construir un contenedor nuevo. Conservar los tres elementos originales y su orden. Agregar el cuarto elemento solo a la copia. Mostrar elementos separados por espacios y distinguir Original de Copia.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">mediciones = [18, 21, 19]
+copia = mediciones.copy()
+copia.append(22)
+print(&quot;Original:&quot;, &quot; &quot;.join(str(x) for x in mediciones))
+print(&quot;Copia:&quot;, &quot; &quot;.join(str(x) for x in copia))
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.07-listas/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">Original: 18 21 19
+Copia: 18 21 19 22
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Consulta inicial</h4>
+<p>Crear [4,7,9] y mostrar su longitud y primer elemento.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">3 4
+</code></pre>
+<h4>Ejercicio 02. Agregar al final</h4>
+<p>Agregar 8 a [2,4] y mostrar elementos separados por espacios.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 4 8
+</code></pre>
+<h4>Ejercicio 03. Reemplazo</h4>
+<p>Reemplazar la posición 1 de [5,6,7] por 20.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">5 20 7
+</code></pre>
+<h4>Ejercicio 04. Eliminar por posición</h4>
+<p>Eliminar posición 1 de [5,6,7] y mostrar elemento eliminado y lista final.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">6
+5 7
+</code></pre>
+<h4>Ejercicio 05. Copia independiente</h4>
+<p>Copiar [1,2], agregar 3 solo a la copia y mostrar ambas.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1 2
+1 2 3
+</code></pre>
+<h4>Ejercicio 06. Selección de rango</h4>
+<p>Extraer posiciones 1, 2 y 3 de [10,20,30,40,50] sin modificarla.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">20 30 40
+</code></pre>
+<h4>Ejercicio 07. Orden conservado</h4>
+<p>Obtener una versión ordenada de [8,2,5] conservando el original.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">2 5 8
+8 2 5
+</code></pre>
+<h4>Ejercicio 08. Rotación simple</h4>
+<p>Mover el último elemento de [1,2,3,4] al inicio. Admitir vacía sin error y devolver una colección nueva.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">4 1 2 3
+</code></pre>
+<h4>Ejercicio 09. Inserción validada</h4>
+<p>Insertar 9 en posición 2 de [1,2,3]. Exigir índice entre 0 y longitud inclusive, sin usar tolerancia automática de insert.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1 2 9 3
+</code></pre>
+<h4>Ejercicio 10. Intercambio de extremos</h4>
+<p>Devolver una copia con extremos intercambiados para [8,2,3,4]. Mantener vacías y unitarias sin cambios.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">4 2 3 8
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.07 · Práctica de clase</h2>
+<p>Implementar actualizar_copia(datos, posicion, valor): devolver una colección nueva con un elemento reemplazado. Conservar tamaño y original. Exigir 0 &lt;= posicion &lt; longitud, incluso en Python. Rechazar índice inválido y colección vacía. Mostrar ambos valores desde una función separada.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[4, 8, 2], 1, 9</td>
+<td>[4, 9, 2]; original [4, 8, 2]</td>
+</tr>
+<tr>
+<td>[4], 0, 0</td>
+<td>[0]</td>
+</tr>
+<tr>
+<td>[], 0, 1</td>
+<td>índice inválido</td>
+</tr>
+<tr>
+<td>[4], -1, 3</td>
+<td>índice inválido</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.07</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.07.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.07): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Distinguir índice y valor.</li>
+<li>Diferenciar alias de copia.</li>
+<li>Definir comportamiento para colección vacía.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.06-cadenas/python/material.html">Anterior</a> · <a href="../../3.08-listas-recorridos/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.06-cadenas/python/index.html">Anterior</a><a href="../../3.08-listas-recorridos/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.07-python"},'*');</script></body></html>

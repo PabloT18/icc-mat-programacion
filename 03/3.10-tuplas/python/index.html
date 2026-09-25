@@ -1,0 +1,178 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3.10 · Tuplas y registros de datos · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.09-matrices/python/index.html">Anterior</a><a href="../../3.11-archivos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>3.10 · Tuplas y registros de datos · Python</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 3:</strong> Lenguaje de Programación<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.09-matrices/python/material.html">Anterior</a> · <a href="../../3.11-archivos/python/material.html">Siguiente</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Representar un producto mediante código, nombre y cantidad. Agrupar campos evita mantener varias listas paralelas y obliga a definir el significado de cada posición o componente.</p>
+<p><strong>Prerrequisitos.</strong> Listas, funciones y cadenas.</p>
+<h2>1. Conceptos y ejemplos</h2>
+<p><a id="concepto-1"></a></p>
+<h3>1.1. Registro y estructura</h3>
+<p>Un registro reúne campos que describen una entidad. A diferencia de una lista de mediciones, cada campo puede tener un significado y tipo diferente. Definir un esquema antes de procesar varios registros. No intercambiar cantidad y precio solo porque ambos son números. Un nombre de campo reduce ambigüedad cuando la estructura crece.</p>
+<p><strong>Aplicar en Python.</strong> Una tupla ordena valores y no permite reemplazar sus posiciones. La coma construye la tupla: (5,) tiene un elemento y (5) es solo un entero entre paréntesis. Para este tema, usar tuplas pequeñas con esquema documentado.</p>
+<pre><code class="language-python">producto = (&quot;P01&quot;, 8)
+print(producto[0])
+</code></pre>
+<p><a id="concepto-2"></a></p>
+<h3>1.2. Desempaquetado y acceso</h3>
+<p>Extraer campos debe respetar el esquema. Una cantidad de campos distinta puede indicar datos mal formados. Validar en el límite de entrada y mantener estructuras consistentes en el procesamiento. Cuando existan muchos campos, preferir acceso por nombre para reducir dependencia de posiciones.</p>
+<p><strong>Aplicar en Python.</strong> codigo, cantidad = producto desempaqueta dos elementos. Una cantidad diferente produce ValueError. Puede usarse desempaquetado directamente en for. No mezclar tuplas de dos y tres campos en una colección que espera un esquema uniforme.</p>
+<pre><code class="language-python">for codigo, cantidad in [(&quot;A&quot;, 3), (&quot;B&quot;, 0)]:
+    print(codigo, cantidad)
+</code></pre>
+<p><a id="concepto-3"></a></p>
+<h3>1.3. Inmutabilidad superficial</h3>
+<p>Un contenedor inmutable impide reemplazar sus campos o posiciones, pero no necesariamente impide modificar objetos contenidos. Una tupla con una lista puede observar cambios en esa lista. Un record con un componente ArrayList también puede observar mutaciones. Usar componentes inmutables o copias defensivas cuando se requiera un valor realmente estable.</p>
+<p><strong>Aplicar en Python.</strong> Para actualizar un dato escalar, construir una nueva tupla. tuple no garantiza que todos sus componentes sean inmutables ni que siempre sea utilizable como clave de diccionario.</p>
+<pre><code class="language-python">original = (&quot;A&quot;, 3)
+actualizado = (original[0], 4)
+print(original, actualizado)
+</code></pre>
+<p><a id="concepto-4"></a></p>
+<h3>1.4. Filtrar registros y validar dominio</h3>
+<p>Procesar registros combina lectura de campos y condiciones. Mantener orden y duplicados según el contrato. Un esquema correcto no garantiza datos válidos: una edad negativa tiene tipo entero, pero puede violar el dominio. Definir si un registro inválido detiene todo el proceso o se reporta y se omite.</p>
+<p><strong>Aplicar en Python.</strong> Usar funciones con parámetros claros y devolver una lista nueva. No cambiar silenciosamente tuplas de entrada. Validar longitudes antes de desempaquetar si los datos provienen de una fuente no confiable.</p>
+<pre><code class="language-python">seleccionados = []
+for codigo, cantidad in [(&quot;A&quot;, 3), (&quot;B&quot;, 0)]:
+    if cantidad &gt; 0:
+        seleccionados.append(codigo)
+</code></pre>
+<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
+<h3>Síntesis visual</h3>
+<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostración guiada</h2>
+<p><strong>Problema.</strong> Mostrar códigos y cantidades de productos con existencias estrictamente positivas.</p>
+<p><strong>Contrato de esta demostración.</strong> Aceptar registros de dos campos: código de texto y cantidad entera no negativa. La demostración presupone esquema y dominio válidos. Conservar orden y omitir cantidad cero. Utilizar tuplas en Python y record Producto en Java.</p>
+<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">productos = [(&quot;P01&quot;, 8), (&quot;P02&quot;, 0), (&quot;P03&quot;, 4)]
+for codigo, cantidad in productos:
+    if cantidad &gt; 0:
+        print(f&quot;{codigo}: {cantidad}&quot;)
+</code></pre>
+<h3>Ejecutar</h3>
+<p>Abrir una terminal dentro de <code>03/3.10-tuplas/python/ejemplos/</code> y ejecutar:</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
+<h3>Salida esperada</h3>
+<pre><code class="language-text">P01: 8
+P03: 4
+</code></pre>
+<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
+<p><a id="ejercicios"></a></p>
+<h3>Ejercicios prácticos progresivos</h3>
+<p>Resolver los siguientes ejercicios en orden. Entregar enunciado, fuente y resultado propio. Los casos mostrados permiten comprobar el contrato y no sustituyen una prueba adicional de frontera.</p>
+<h4>Ejercicio 01. Registro simple</h4>
+<p>Crear el registro de código A y cantidad 3. Mostrar ambos campos. En Java usar record.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">A 3
+</code></pre>
+<h4>Ejercicio 02. Registro unitario</h4>
+<p>Crear una tupla Python de un elemento con valor 5 y mostrar su longitud. En Java contrastar con un record de un componente.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">1
+</code></pre>
+<h4>Ejercicio 03. Desempaquetado</h4>
+<p>Desempaquetar nombre Ana y edad 20 y mostrar “Ana: 20”. En Java utilizar accesores.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Ana: 20
+</code></pre>
+<h4>Ejercicio 04. Actualización por reemplazo</h4>
+<p>Crear una nueva tupla desde (&quot;A&quot;,3) con cantidad 4. Conservar y mostrar original y nueva.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">A 3
+A 4
+</code></pre>
+<h4>Ejercicio 05. Recorrer registros</h4>
+<p>Mostrar códigos con cantidad positiva en [(&quot;A&quot;,0),(&quot;B&quot;,4),(&quot;C&quot;,2)].</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">B
+C
+</code></pre>
+<h4>Ejercicio 06. Suma de cantidades</h4>
+<p>Sumar cantidades en [(&quot;A&quot;,3),(&quot;B&quot;,5)] mediante un ciclo.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">8
+</code></pre>
+<h4>Ejercicio 07. Filtrar por edad</h4>
+<p>Devolver nombres con edad estrictamente mayor que 18 en [(&quot;Ana&quot;,18),(&quot;Luis&quot;,21),(&quot;Eva&quot;,30)].</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Luis Eva
+</code></pre>
+<h4>Ejercicio 08. Registro máximo</h4>
+<p>Encontrar el código con mayor cantidad de [(&quot;A&quot;,4),(&quot;B&quot;,9),(&quot;C&quot;,9)]. Conservar la primera aparición en empate y rechazar vacío.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">B
+</code></pre>
+<h4>Ejercicio 09. Costo de registros</h4>
+<p>Calcular costo total desde (código,cantidad,precio) para [(&quot;A&quot;,2,3.5),(&quot;B&quot;,4,2)]. Rechazar cantidades o precios negativos.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">15.00
+</code></pre>
+<h4>Ejercicio 10. Filtro combinado</h4>
+<p>Seleccionar nombres con edad al menos 20 y dos o más vocales ASCII en [(&quot;Ana&quot;,20),(&quot;Luis&quot;,19),(&quot;Eva&quot;,25),(&quot;Rhys&quot;,30)]. Conservar el orden.</p>
+<p><strong>Caso de comprobación:</strong></p>
+<pre><code class="language-text">Ana Eva
+</code></pre>
+<p><a id="pc"></a></p>
+<h2>3. PC3.10 · Práctica de clase</h2>
+<p>Recibir registros (codigo, horas, tarifa). Retornar códigos cuyo costo horas*tarifa supere estrictamente un umbral. Conservar orden y datos originales. Rechazar horas o tarifas negativas. Definir el equivalente Java mediante un record y exigir el mismo resultado.</p>
+<h3>Requisitos y restricciones</h3>
+<ul>
+<li>Resolver en una sola versión, Python o Java.</li>
+<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
+<li>Aplicar únicamente los conceptos ya introducidos.</li>
+<li>Conservar las entradas cuando el enunciado lo exija.</li>
+<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
+</ul>
+<h3>Casos de aceptación de la PC</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Entrada / escenario</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[(&quot;A&quot;,2,5),(&quot;B&quot;,4,3)], umbral=10</td>
+<td>[&quot;B&quot;]</td>
+</tr>
+<tr>
+<td>[], umbral=10</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>[(&quot;A&quot;,-1,5)]</td>
+<td>registro inválido</td>
+</tr>
+<tr>
+<td>[(&quot;A&quot;,2,5)], umbral=10</td>
+<td>[]</td>
+</tr>
+</tbody></table></div>
+<h3>Probar y registrar evidencia</h3>
+<p>Crear una carpeta personal <code>PC3.10</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
+<ul>
+<li>Registrar <code>evidencias/PC3.10.md</code> con comandos, versión real, salidas y explicación.</li>
+<li>Crear un commit funcional como <code>feat(pc3.10): implementar-regla-principal</code>.</li>
+<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
+<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
+<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
+</ul>
+<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Definir el esquema de cada registro.</li>
+<li>Distinguir inmutabilidad superficial y profunda.</li>
+<li>Usar record como contraste idiomático en Java.</li>
+</ul>
+<h2>Referencias técnicas</h2>
+<ul>
+<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
+<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+</ul>
+<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../3.09-matrices/python/material.html">Anterior</a> · <a href="../../3.11-archivos/python/material.html">Siguiente</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../3.09-matrices/python/index.html">Anterior</a><a href="../../3.11-archivos/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"3.10-python"},'*');</script></body></html>

@@ -1,0 +1,5 @@
+producto = input()
+cantidad = int(input())
+precio = float(input())
+print(f"Producto: {producto}")
+print(f"Total: {cantidad * precio:.2f}")

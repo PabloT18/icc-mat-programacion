@@ -1,0 +1,15 @@
+{
+  "name": "icc-pro-material",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:site": "node scripts/build-site.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:examples": "node scripts/sync-examples.mjs --check",
+    "stage:pages": "node scripts/stage-pages.mjs"
+  }
+}
