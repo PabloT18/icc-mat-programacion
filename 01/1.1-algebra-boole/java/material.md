@@ -1,14 +1,23 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 1.1 · Álgebra de Boole · Java
+
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 
 **Autor:** Ing. Pablo Torres, Mgtr.  
 **Unidad 1:** Lógica Matemática  
 **Institución:** Universidad Politécnica Salesiana · Computación · Cuenca
 
+[1.1 · Álgebra de Boole](../README.md) 
+
 [Versión Python](../python/material.md)
 
-[Índice del tema](../README.md)
+
+
+## Indice de contenidos
 
 
 - [Variables](#concepto-1)

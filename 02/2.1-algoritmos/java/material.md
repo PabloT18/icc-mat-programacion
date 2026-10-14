@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 2.1 · Representación y estructuras de algoritmos · Java
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.06 · Cadenas y procesamiento de texto · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

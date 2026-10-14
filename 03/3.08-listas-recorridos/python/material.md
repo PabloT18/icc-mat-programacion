@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.08 · Recorridos, búsqueda y transformación · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

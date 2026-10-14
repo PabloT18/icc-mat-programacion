@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.02 · Entradas, salidas y conversiones · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

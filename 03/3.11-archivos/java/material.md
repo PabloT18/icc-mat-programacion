@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.11 · Archivos de texto y persistencia · Java
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

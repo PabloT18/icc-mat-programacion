@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.03 · Decisiones y operadores lógicos · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

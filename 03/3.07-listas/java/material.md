@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.07 · Vectores y listas · Java
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

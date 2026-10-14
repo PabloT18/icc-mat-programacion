@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.05 · Funciones, contratos y descomposición · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

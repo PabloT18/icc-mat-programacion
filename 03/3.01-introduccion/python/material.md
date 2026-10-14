@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.01 · Fundamentos del lenguaje · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.12 · Punto de entrada y módulos · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

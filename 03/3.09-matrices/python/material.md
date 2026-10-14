@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.09 · Matrices y recorridos anidados · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

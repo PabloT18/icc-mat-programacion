@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.04 · Repetición, contadores y acumuladores · Java
 
 **Autor:** Ing. Pablo Torres, Mgtr.  

@@ -1,5 +1,7 @@
 # Programación
 
+![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
+
 ## 3.10 · Tuplas y registros de datos · Python
 
 **Autor:** Ing. Pablo Torres, Mgtr.  
