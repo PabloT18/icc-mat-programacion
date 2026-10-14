@@ -647,13 +647,9 @@ Simplificar sin asignar valores específicos a las variables. Cada fila puede re
 
 **26. Alarma.** La alarma se activa si hay humo o temperatura alta, siempre que no esté activo el modo de mantenimiento. Formular activación y desactivación. Aplicar De Morgan a la negación de la función completa y justificar el alcance del mantenimiento.
 
-**27. Selección exclusiva.** Un formulario ofrece modalidad presencial y virtual. La selección es válida si se marca exactamente una. Construir su tabla y expresarla con NOT, AND y OR. Explicar por qué OR inclusivo no cumple el requisito.
+**27. Circuito.** Para F = (A + B)·¬C, describir las operaciones en orden y construir las ocho filas. Identificar qué entradas fuerzan F = 0 sin conocer las restantes.
 
-**28. Coincidencia de sensores.** Dos sensores booleanos deben reportar el mismo estado. Construir una expresión para coincidencia y otra para discrepancia. Justificar cómo se relacionan XNOR y XOR, incluyendo el caso en que ambos sensores reportan falso.
-
-**29. Circuito.** Para F = (A + B)·¬C, describir las operaciones en orden y construir las ocho filas. Identificar qué entradas fuerzan F = 0 sin conocer las restantes.
-
-**30. Filtro de registros.** Un registro se incluye si está vigente y pertenece al grupo A, o si está vigente y pertenece al grupo B. Formular, factorizar y explicar en palabras la expresión resultante. No asumir que los grupos son excluyentes.
+**28. Filtro de registros.** Un registro se incluye si está vigente y pertenece al grupo A, o si está vigente y pertenece al grupo B. Formular, factorizar y explicar en palabras la expresión resultante. No asumir que los grupos son excluyentes.
 
 ### 6.5. Detectar y corregir errores de razonamiento
 
@@ -661,12 +657,12 @@ Para cada afirmación, decidir si es válida. Si es falsa, dar un contraejemplo 
 
 | N.º | Afirmación a revisar |
 |---|---|
-| 31 | A + ¬A·B = 1, porque A + ¬A = 1 |
-| 32 | ¬(A·B) = ¬A·¬B |
-| 33 | A + A·B = A + B |
-| 34 | A XOR B equivale a A OR B para todos los valores |
-| 35 | (A + B)·C = A + B·C, por asociatividad |
-| 36 | Dos expresiones que coinciden en una entrada son equivalentes |
+| 29 | A + ¬A·B = 1, porque A + ¬A = 1 |
+| 30 | ¬(A·B) = ¬A·¬B |
+| 31 | A + A·B = A + B |
+| 32 | A XOR B equivale a A OR B para todos los valores |
+| 33 | (A + B)·C = A + B·C, por asociatividad |
+| 34 | Dos expresiones que coinciden en una entrada son equivalentes |
 
 ### 6.6. PC1.1 · Formalización y comprobación de una política
 
@@ -680,8 +676,7 @@ Definir C = «credencial vigente», R = «reserva activa», A = «autorización 
 2. Construir manualmente las 16 filas de C, R, A y B, indicando la salida.
 3. Derivar la expresión de denegación mediante De Morgan, identificando cada ley.
 4. Proponer una formulación equivalente del permiso y justificar la equivalencia. No asumir que toda expresión admite una reducción con menos variables.
-5. Traducir la formulación al lenguaje de esta lectura y contrastar las 16 filas. Se puede adaptar el enumerador suministrado o escribir casos explícitos; no se exige construir ciclos desde cero.
-6. Explicar un error de agrupación que permitiría entrar estando bloqueado y mostrar una entrada que lo detecte.
+
 
 **Restricciones:** usar valores booleanos, no cadenas de texto como sustitutos; conservar el significado de cada variable; entregar una sola versión; no conectar el ejercicio a un sistema de acceso real. El dominio tiene dos valores por variable: una entrada textual desconocida se rechaza o se convierte explícitamente antes de evaluar, nunca se interpreta automáticamente como falso.
 
@@ -705,7 +700,6 @@ Estos son casos de aceptación de la PC, no su solución ni la tabla completa. A
 python3 solucion.py
 ```
 
-No se requiere proyecto acumulativo ni rúbrica individual para esta PC.
 
 <a id="esencial"></a>
 

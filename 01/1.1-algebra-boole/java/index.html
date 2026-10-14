@@ -1061,10 +1061,8 @@ A B C ORIGINAL REDUCIDA IGUALES
 <h3>6.4. Nivel 3: modelado y aplicación</h3>
 <p><strong>25. Habilitación redundante.</strong> Un botón se habilita si la sesión está activa, o si la sesión está activa y el perfil está completo. Definir variables, formular la regla y simplificarla. Explicar si «perfil completo» influye realmente y qué redacción sería necesaria para exigirlo.</p>
 <p><strong>26. Alarma.</strong> La alarma se activa si hay humo o temperatura alta, siempre que no esté activo el modo de mantenimiento. Formular activación y desactivación. Aplicar De Morgan a la negación de la función completa y justificar el alcance del mantenimiento.</p>
-<p><strong>27. Selección exclusiva.</strong> Un formulario ofrece modalidad presencial y virtual. La selección es válida si se marca exactamente una. Construir su tabla y expresarla con NOT, AND y OR. Explicar por qué OR inclusivo no cumple el requisito.</p>
-<p><strong>28. Coincidencia de sensores.</strong> Dos sensores booleanos deben reportar el mismo estado. Construir una expresión para coincidencia y otra para discrepancia. Justificar cómo se relacionan XNOR y XOR, incluyendo el caso en que ambos sensores reportan falso.</p>
-<p><strong>29. Circuito.</strong> Para F = (A + B)·¬C, describir las operaciones en orden y construir las ocho filas. Identificar qué entradas fuerzan F = 0 sin conocer las restantes.</p>
-<p><strong>30. Filtro de registros.</strong> Un registro se incluye si está vigente y pertenece al grupo A, o si está vigente y pertenece al grupo B. Formular, factorizar y explicar en palabras la expresión resultante. No asumir que los grupos son excluyentes.</p>
+<p><strong>27. Circuito.</strong> Para F = (A + B)·¬C, describir las operaciones en orden y construir las ocho filas. Identificar qué entradas fuerzan F = 0 sin conocer las restantes.</p>
+<p><strong>28. Filtro de registros.</strong> Un registro se incluye si está vigente y pertenece al grupo A, o si está vigente y pertenece al grupo B. Formular, factorizar y explicar en palabras la expresión resultante. No asumir que los grupos son excluyentes.</p>
 <h3>6.5. Detectar y corregir errores de razonamiento</h3>
 <p>Para cada afirmación, decidir si es válida. Si es falsa, dar un contraejemplo con valores concretos y escribir la transformación correcta.</p>
 <div class="table-scroll"><table>
@@ -1075,27 +1073,27 @@ A B C ORIGINAL REDUCIDA IGUALES
 </tr>
 </thead>
 <tbody><tr>
-<td>31</td>
+<td>29</td>
 <td>A + ¬A·B = 1, porque A + ¬A = 1</td>
 </tr>
 <tr>
-<td>32</td>
+<td>30</td>
 <td>¬(A·B) = ¬A·¬B</td>
 </tr>
 <tr>
-<td>33</td>
+<td>31</td>
 <td>A + A·B = A + B</td>
 </tr>
 <tr>
-<td>34</td>
+<td>32</td>
 <td>A XOR B equivale a A OR B para todos los valores</td>
 </tr>
 <tr>
-<td>35</td>
+<td>33</td>
 <td>(A + B)·C = A + B·C, por asociatividad</td>
 </tr>
 <tr>
-<td>36</td>
+<td>34</td>
 <td>Dos expresiones que coinciden en una entrada son equivalentes</td>
 </tr>
 </tbody></table></div>
@@ -1178,7 +1176,6 @@ A B C ORIGINAL REDUCIDA IGUALES
 <pre><code class="language-bash">javac -encoding UTF-8 -d build Solucion.java
 java -cp build Solucion
 </code></pre>
-<p>No se requiere proyecto acumulativo ni rúbrica individual para esta PC.</p>
 <p><a id="esencial"></a></p>
 <h2>7. Lo esencial</h2>
 <ul>

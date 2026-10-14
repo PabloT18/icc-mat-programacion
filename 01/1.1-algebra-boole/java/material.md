@@ -663,13 +663,9 @@ Simplificar sin asignar valores específicos a las variables. Cada fila puede re
 
 **26. Alarma.** La alarma se activa si hay humo o temperatura alta, siempre que no esté activo el modo de mantenimiento. Formular activación y desactivación. Aplicar De Morgan a la negación de la función completa y justificar el alcance del mantenimiento.
 
-**27. Selección exclusiva.** Un formulario ofrece modalidad presencial y virtual. La selección es válida si se marca exactamente una. Construir su tabla y expresarla con NOT, AND y OR. Explicar por qué OR inclusivo no cumple el requisito.
+**27. Circuito.** Para F = (A + B)·¬C, describir las operaciones en orden y construir las ocho filas. Identificar qué entradas fuerzan F = 0 sin conocer las restantes.
 
-**28. Coincidencia de sensores.** Dos sensores booleanos deben reportar el mismo estado. Construir una expresión para coincidencia y otra para discrepancia. Justificar cómo se relacionan XNOR y XOR, incluyendo el caso en que ambos sensores reportan falso.
-
-**29. Circuito.** Para F = (A + B)·¬C, describir las operaciones en orden y construir las ocho filas. Identificar qué entradas fuerzan F = 0 sin conocer las restantes.
-
-**30. Filtro de registros.** Un registro se incluye si está vigente y pertenece al grupo A, o si está vigente y pertenece al grupo B. Formular, factorizar y explicar en palabras la expresión resultante. No asumir que los grupos son excluyentes.
+**28. Filtro de registros.** Un registro se incluye si está vigente y pertenece al grupo A, o si está vigente y pertenece al grupo B. Formular, factorizar y explicar en palabras la expresión resultante. No asumir que los grupos son excluyentes.
 
 ### 6.5. Detectar y corregir errores de razonamiento
 
@@ -677,12 +673,12 @@ Para cada afirmación, decidir si es válida. Si es falsa, dar un contraejemplo 
 
 | N.º | Afirmación a revisar |
 |---|---|
-| 31 | A + ¬A·B = 1, porque A + ¬A = 1 |
-| 32 | ¬(A·B) = ¬A·¬B |
-| 33 | A + A·B = A + B |
-| 34 | A XOR B equivale a A OR B para todos los valores |
-| 35 | (A + B)·C = A + B·C, por asociatividad |
-| 36 | Dos expresiones que coinciden en una entrada son equivalentes |
+| 29 | A + ¬A·B = 1, porque A + ¬A = 1 |
+| 30 | ¬(A·B) = ¬A·¬B |
+| 31 | A + A·B = A + B |
+| 32 | A XOR B equivale a A OR B para todos los valores |
+| 33 | (A + B)·C = A + B·C, por asociatividad |
+| 34 | Dos expresiones que coinciden en una entrada son equivalentes |
 
 ### 6.6. PC1.1 · Formalización y comprobación de una política
 
@@ -722,7 +718,7 @@ javac -encoding UTF-8 -d build Solucion.java
 java -cp build Solucion
 ```
 
-No se requiere proyecto acumulativo ni rúbrica individual para esta PC.
+
 
 <a id="esencial"></a>
 
