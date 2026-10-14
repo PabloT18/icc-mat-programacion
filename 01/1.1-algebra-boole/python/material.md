@@ -716,7 +716,7 @@ python3 solucion.py
 
 ## 8. Referencias y lectura de apoyo
 
-- Pablo Torres P. **Lógica Matemática**, presentación de clase aportada por el docente, 42 páginas. [Consultar PDF](../referencias/01.05-logica-matematica.pdf). Variables y operadores: pp. 4–7; leyes: pp. 8–25; síntesis y aplicaciones: pp. 26–36; simplificación paso a paso: pp. 37–41. Esta lectura amplía la presentación y escribe cada negación y agrupación explícitamente.
+- Pablo Torres P. **Lógica Matemática**, presentación de clase aportada por el docente.
 - Python Software Foundation. [Expresiones y operaciones booleanas](https://docs.python.org/3.14/reference/expressions.html#boolean-operations), secciones 6.10–6.11. Referencia técnica para comparaciones, cortocircuito y precedencia.
 
 [Volver al índice del tema](../README.md)

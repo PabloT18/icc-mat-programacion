@@ -7,7 +7,7 @@
 |---|---|---|
 | Python | [Abrir HTML](python/index.html) | <a href="python/material.md" download>Descargar MD</a> |
 | Java | [Abrir HTML](java/index.html) | <a href="java/material.md" download>Descargar MD</a> |
-| Presentación de referencia del docente | [Consultar PDF](referencias/01.05-logica-matematica.pdf) | Documento proporcionado como referencia |
+
 
 ## Contenido
 
@@ -65,4 +65,4 @@ python3 scripts/verify.py
 
 El primer comando regenera los HTML y sobrescribe los existentes. El segundo comprueba enlaces locales, sincronización del código, leyes, pasos de las simplificaciones y demostraciones. Requiere Python y un JDK. Las fuentes DejaVu Sans y su licencia están en `assets/fonts/`.
 
-[Notas docentes y correspondencia](doc.md) · [Registro de verificación](VERIFICACION.md)
+[Notas docentes y correspondencia](doc.md) 

@@ -735,7 +735,7 @@ java -cp build Solucion
 
 ## 8. Referencias y lectura de apoyo
 
-- Pablo Torres P. **Lógica Matemática**, presentación de clase aportada por el docente, 42 páginas. [Consultar PDF](../referencias/01.05-logica-matematica.pdf). Variables y operadores: pp. 4–7; leyes: pp. 8–25; síntesis y aplicaciones: pp. 26–36; simplificación paso a paso: pp. 37–41. Esta lectura amplía la presentación y escribe cada negación y agrupación explícitamente.
+- Pablo Torres P. **Lógica Matemática**, presentación de clase aportada por el docente, 42 páginas.  Variables y operadores: pp. 4–7; leyes: pp. 8–25; síntesis y aplicaciones: pp. 26–36; simplificación paso a paso: pp. 37–41. Esta lectura amplía la presentación y escribe cada negación y agrupación explícitamente.
 - Oracle. [Java Language Specification, capítulo 15](https://docs.oracle.com/javase/specs/jls/se27/html/jls-15.html), apartados 15.15.6, 15.21.2 y 15.22–15.24: negación, igualdad booleana, XOR y operadores condicionales.
 
 [Volver al índice del tema](../README.md)

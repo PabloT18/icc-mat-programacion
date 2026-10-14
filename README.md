@@ -93,6 +93,6 @@ Consultar [publicación](docs/publicacion.md), [esquema del catálogo](docs/cata
 
 ## Documentación docente
 
-Consultar [análisis de referencias](docs/analisis-referencias.md), [mapa curricular](docs/mapa-curricular.md) y [programa oficial](programa-analitico.pdf). Mantener esta correspondencia al modificar contenidos. Los bancos Moodle están agrupados por unidad, tema, conceptos y trazas; consultar [guía de importación](docs/moodle.md).
+Consultar [análisis de referencias](docs/analisis-referencias.md), [mapa curricular](docs/mapa-curricular.md). Mantener esta correspondencia al modificar contenidos. Los bancos Moodle están agrupados por unidad, tema, conceptos y trazas; consultar [guía de importación](docs/moodle.md).
 
 El inventario real está en `docs/arbol.txt`. Después de modificar y verificar la entrega, ejecutar `python3 scripts/make-manifest.py` para actualizar inventario y `MANIFEST.sha256`. El manifiesto excluye su propio hash y archivos temporales.

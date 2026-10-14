@@ -1,6 +1,6 @@
 # Mapa curricular docente
 
-Fuente: [programa analítico, página 2](../programa-analitico.pdf#page=2). Los códigos RA e IL no se añaden como identificadores oficiales. La tabla usa la redacción original.
+
 
 | Unidad | Horas oficiales | Contenido oficial | Resultado de aprendizaje | Indicadores |
 |---|---:|---|---|---|

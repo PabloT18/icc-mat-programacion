@@ -385,7 +385,6 @@ icc-pro-material/
   plantillas/trabajo-estudiante/actividades/README.md
   plantillas/trabajo-estudiante/evidencias/README.html
   plantillas/trabajo-estudiante/evidencias/README.md
-  programa-analitico.pdf
   scripts/build-site.mjs
   scripts/check-links.mjs
   scripts/make-manifest.py

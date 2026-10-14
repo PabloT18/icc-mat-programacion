@@ -2,7 +2,7 @@
 
 ## Programa oficial
 
-Leer íntegramente las cuatro páginas de `programa-analitico.pdf`, copia del archivo ProgramaAnalitico_pro(1).pdf. Página 1: Programación, C-CT-ICO-101, nivel 1, 160 horas, con 64 de docencia, 32 de prácticas y 64 de trabajo autónomo. No constan prerrequisitos formales. Página 2: tres unidades, contenidos, resultados e indicadores. Página 3: metodología y procedimiento de evaluación. Página 4: bibliografía.
+Leer íntegramente las cuatro páginas de programa-analitico, copia del archivo ProgramaAnalitico_pro(1).pdf. Página 1: Programación, C-CT-ICO-101, nivel 1, 160 horas, con 64 de docencia, 32 de prácticas y 64 de trabajo autónomo. No constan prerrequisitos formales. Página 2: tres unidades, contenidos, resultados e indicadores. Página 3: metodología y procedimiento de evaluación. Página 4: bibliografía.
 
 Conservar los nombres oficiales de unidad. Registrar las horas de 30, 50 y 80 sin utilizarlas como distribución del volumen de material, por instrucción docente. Los identificadores 1.1, 2.1 y 3.01 a 3.13 son editoriales.
 

@@ -8,7 +8,7 @@ Resultado oficial: «Diseña soluciones a problemas de lógica empleando álgebr
 
 Indicador oficial: «Aplica lógica matemática para resolver problemas.»
 
-La referencia de secuencia es la presentación del docente [Lógica Matemática](referencias/01.05-logica-matematica.pdf), 42 páginas. No se considera esta presentación un reemplazo del programa analítico. Las páginas 4–7 introducen álgebra, aplicaciones, variables y operadores; las páginas 10–25 desarrollan identidad, anulación, idempotencia, complemento, distributiva, De Morgan y absorción; las páginas 37–41 detallan una simplificación. Se adelantan las variables al inicio y se agrupan las aplicaciones antes de las leyes, siguiendo la solicitud de actualización.
+
 
 ## Correspondencia docente
 

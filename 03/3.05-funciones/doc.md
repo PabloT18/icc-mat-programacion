@@ -1,8 +1,6 @@
 # Documento docente · 3.05 · Funciones, contratos y descomposición
 
-## Fuente curricular
 
-Consultar [programa analítico](../../programa-analitico.pdf#page=2), página 1 para datos de identificación y página 2 para unidades, contenidos, resultados e indicadores. El programa tiene cuatro páginas. Las páginas 3 y 4 describen metodología, evaluación y bibliografía; no se trasladan aprobaciones ni normativa como validación nueva.
 
 **Asignatura:** Programación, C-CT-ICO-101, nivel 1. No constan prerrequisitos formales.
 
