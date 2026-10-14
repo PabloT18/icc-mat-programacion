@@ -1,6 +1,63 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README · Programación</title><link rel="stylesheet" href="../../assets/css/styles.css"></head><body><main class="page"><nav class="article-nav"><a href="../../index.html" target="_top">Índice del curso</a><a href="README.md" download>Descargar MD</a></nav><h1>1.1 · Álgebra de Boole</h1>
-<p><a href="../../README.html">Curso</a> · <a href="index.html">Abrir lectura</a></p>
-<p>Consultar <a href="python/material.html">Python</a> como versión principal y <a href="java/material.html">Java</a> como versión complementaria. Resolver la PC en una sola versión. Las PL se desarrollan en Python.</p>
-<p><a href="presentacion.pptx">Presentación Python</a></p>
-<p><a href="presentacion-java.pptx">Presentación Java</a></p>
+<p><strong>Programación · Unidad 1: Lógica Matemática</strong><br><strong>Ing. Pablo Torres, Mgtr. · Universidad Politécnica Salesiana · Computación · Cuenca</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Lectura</th>
+<th>Fuente editable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python</td>
+<td><a href="python/index.html">Abrir HTML</a></td>
+<td><a href="python/material.html" download>Descargar MD</a></td>
+</tr>
+<tr>
+<td>Java</td>
+<td><a href="java/index.html">Abrir HTML</a></td>
+<td><a href="java/material.html" download>Descargar MD</a></td>
+</tr>
+<tr>
+<td>Presentación de referencia del docente</td>
+<td><a href="referencias/01.05-logica-matematica.pdf">Consultar PDF</a></td>
+<td>Documento proporcionado como referencia</td>
+</tr>
+</tbody></table></div>
+<h2>Contenido</h2>
+<ol>
+<li>Variables booleanas, asignación, comparaciones y tablas de verdad.</li>
+<li>AND, OR, NOT, XOR, XNOR y contraste con NAND/NOR.</li>
+<li>Aplicaciones: decisiones, circuitos, conjuntos y filtros.</li>
+<li>Siete leyes en el orden de la presentación, más leyes auxiliares y absorción generalizada.</li>
+<li>Dos simplificaciones resueltas, con cada paso justificado y comprobación exhaustiva.</li>
+<li>Treinta y seis ejercicios propuestos y PC1.1.</li>
+</ol>
+<p>Las versiones mantienen los mismos problemas, fórmulas, tablas y casos. Cada lenguaje tiene explicación y código propios. La práctica se entrega en una sola versión. Los ejercicios propuestos y la PC no incluyen soluciones.</p>
+<h2>Consultar y ejecutar</h2>
+<p>Abrir <code>index.html</code> después de descomprimir. Los HTML, estilos y fuentes son locales. Las tablas son texto estructurado y no imágenes. No se incluyen infografías nuevas ni presentaciones PPTX nuevas en esta actualización de lecturas; se conserva el PDF suministrado como referencia de clase.</p>
+<p>Para ejecutar la demostración Python desde la raíz de esta carpeta:</p>
+<pre><code class="language-bash">cd python/ejemplos
+python3 demo.py
+</code></pre>
+<p>Para Java, desde la raíz de esta carpeta:</p>
+<pre><code class="language-bash">cd java/ejemplos
+javac -encoding UTF-8 -d build Demo.java
+java -cp build Demo
+</code></pre>
+<p>Los resultados de ambos deben coincidir con <code>salida-esperada.txt</code>. No se requieren paquetes externos, Maven ni Gradle.</p>
+<h2>Incorporar al repositorio del curso</h2>
+<p>Copiar esta carpeta sobre <code>01/1.1-algebra-boole/</code>, conservando los archivos ajenos a esta actualización. El ZIP no contiene soluciones de prácticas anteriores ni cambia el catálogo global. Los títulos y anclas <code>concepto-1</code> a <code>concepto-4</code>, <code>demostracion</code>, <code>pc</code> y <code>esencial</code> se conservan, aunque ahora remiten a apartados más extensos.</p>
+<p>El HTML incluido permite consultar esta carpeta por separado. Para integrarlo con la plantilla y navegación global del curso, ejecutar el generador del repositorio desde su raíz:</p>
+<pre><code class="language-bash">node scripts/build-site.mjs
+node scripts/check-links.mjs
+</code></pre>
+<p>Revisar la coherencia del banco Moodle y las presentaciones anteriores antes de utilizarlos como evaluación o síntesis de este contenido ampliado. Esta actualización cambia la PC a una política con cuatro variables y prioridad del bloqueo; no modifica las PL.</p>
+<h2>Mantener esta carpeta por separado</h2>
+<p>Editar <code>python/material.md</code> o <code>java/material.md</code>. Los bloques con marcador <code>example</code> corresponden al ejecutable de cada demostración y deben mantenerse sincronizados. Con Node.js 22 o posterior, sin instalar dependencias:</p>
+<pre><code class="language-bash">node scripts/build.mjs
+python3 scripts/verify.py
+</code></pre>
+<p>El primer comando regenera los HTML y sobrescribe los existentes. El segundo comprueba enlaces locales, sincronización del código, leyes, pasos de las simplificaciones y demostraciones. Requiere Python y un JDK. Las fuentes DejaVu Sans y su licencia están en <code>assets/fonts/</code>.</p>
+<p><a href="doc.html">Notas docentes y correspondencia</a> · <a href="VERIFICACION.html">Registro de verificación</a></p>
 </main></body></html>

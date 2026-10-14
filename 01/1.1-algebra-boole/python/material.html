@@ -1,50 +1,169 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>1.1 · Álgebra de Boole · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../../02/2.1-algoritmos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
 <h2>1.1 · Álgebra de Boole · Python</h2>
 <p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 1:</strong> Lógica Matemática<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
-<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../../02/2.1-algoritmos/python/material.html">Siguiente</a></p>
-<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
-<p><strong>Contexto.</strong> Determinar cuándo permitir el acceso a una sala: disponer de credencial y reserva, o tener autorización del responsable. Convertir una regla verbal en una expresión permite revisar todos los casos, incluidos los que parecen excepcionales.</p>
-<p><strong>Prerrequisitos.</strong> Operaciones aritméticas y lectura de condiciones.</p>
-<h2>1. Conceptos y ejemplos</h2>
+<p><a href="../java/material.html">Versión Java</a></p>
+<p><a href="../README.html">Índice del tema</a> </p>
+<ul>
+<li><a href="#concepto-1">Variables</a> </li>
+<li><a href="#concepto-2">Operadores</a> </li>
+<li><a href="#concepto-3">Aplicaciones</a> </li>
+<li><a href="#concepto-4">Leyes</a> </li>
+<li><a href="#demostracion">Simplificaciones resueltas</a> </li>
+<li><a href="#pc">Práctica</a> </li>
+<li><a href="#esencial">Lo esencial</a></li>
+</ul>
+<p>Este material desarrolla la teoría necesaria para estudiar el tema de forma autónoma. La presentación sirve como síntesis para la clase; aquí se explican la formulación, las decisiones de modelado y la justificación de cada transformación. Las aplicaciones iniciales contextualizan las leyes y los ejercicios finales permiten practicarlas.</p>
+<p><strong>Prerrequisitos:</strong> operaciones aritméticas elementales, lectura de expresiones y reconocimiento de relaciones como mayor que o igual a. No se requiere dominar ciclos ni funciones. Los programas completos de comprobación ya incluyen la estructura de ejecución necesaria.</p>
 <p><a id="concepto-1"></a></p>
-<h3>1.1. Proposiciones y valores de verdad</h3>
-<p>Una proposición es un enunciado al que se puede asignar verdadero o falso dentro de un contexto definido. “La reserva está vigente” requiere especificar fecha y hora; una pregunta o una orden no es una proposición. Representar cada condición mediante una letra y escribir su significado antes de operar. Una variable booleana solo modela dos estados, por lo que un dato desconocido exige una decisión explícita del problema. No confundir falso con información ausente.</p>
-<p><strong>Aplicar en Python.</strong> Usar bool y los literales True y False. Aunque Python acepta otros objetos como condiciones, emplear booleanos explícitos al construir tablas. La cadena &quot;False&quot; no es el valor False: cualquier cadena no vacía tiene valor de verdad verdadero.</p>
-<pre><code class="language-python">reserva = True
-credencial = False
-print(reserva)
-</code></pre>
-<p><a id="concepto-2"></a></p>
-<h3>1.2. Negación, conjunción y disyunción</h3>
-<p>La negación invierte un valor. La conjunción exige que ambas proposiciones sean verdaderas. La disyunción inclusiva permite que una o ambas sean verdaderas. Interpretar “o” en lenguaje cotidiano puede ser ambiguo: si exactamente una opción es válida, se necesita disyunción exclusiva. Construir una tabla con 2 elevado al número de variables para enumerar todas las combinaciones sin omisiones.</p>
-<p><strong>Aplicar en Python.</strong> Escribir not, and y or. Con operandos booleanos producen los resultados esperados de la tabla. and y or pueden devolver operandos cuando se aplican a otros tipos; por eso mantener bool en este segmento.</p>
-<pre><code class="language-python">p, q = True, False
-print(p and q, p or q, not p)
-</code></pre>
-<p><a id="concepto-3"></a></p>
-<h3>1.3. Equivalencia y leyes de De Morgan</h3>
-<p>Dos expresiones son equivalentes cuando coinciden para todas las asignaciones de sus variables. Una coincidencia aislada no demuestra equivalencia. Las leyes de De Morgan establecen que negar una conjunción equivale a disyuntar las negaciones, y negar una disyunción equivale a conjuntarlas. También se cumplen identidad, idempotencia, absorción y distributividad. Simplificar conserva el significado, no los pasos concretos de evaluación.</p>
-<p><strong>Aplicar en Python.</strong> Comparar not (p and q) con (not p) or (not q). Encerrar las condiciones compuestas entre paréntesis al enseñar su traducción. La igualdad == compara resultados y no debe confundirse con la asignación =.</p>
-<pre><code class="language-python">p, q = True, False
-print(not (p and q) == ((not p) or (not q)))
-</code></pre>
-<p><a id="concepto-4"></a></p>
-<h3>1.4. Reglas, implicación y comprobación</h3>
-<p>La implicación p implica q solo es falsa cuando p es verdadera y q falsa. No expresa por sí misma una causa. Se puede reescribir como no p o q. Una tautología siempre es verdadera; una contradicción siempre es falsa; una contingencia depende de los valores. Para validar una regla de acceso, comprobar cada fila y explicar las filas que autorizan. Diferenciar la especificación de la política y su traducción al programa.</p>
-<p><strong>Aplicar en Python.</strong> Expresar una implicación como (not p) or q. En la demostración, observar los bucles únicamente como herramienta para enumerar casos; su construcción se desarrollará en las unidades siguientes.</p>
-<pre><code class="language-python">p, q = True, False
-print((not p) or q)
-</code></pre>
-<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
-<h3>Tabla de operadores</h3>
+<h2>1. Variables booleanas y expresiones</h2>
+<h3>1.1. Qué representa una variable booleana</h3>
+<p>Una variable booleana representa una condición con dos valores posibles: <strong>verdadero</strong> o <strong>falso</strong>. En álgebra de Boole se escriben como <strong>1</strong> y <strong>0</strong>. Por ejemplo, A puede significar «la credencial está vigente». A = 1 indica que la condición se cumple; A = 0 indica que no se cumple. Antes de operar, se debe fijar el significado de cada letra.</p>
+<p>Una proposición es un enunciado al que se puede asignar un valor de verdad en un contexto definido. «La temperatura supera 30 °C» es una proposición si se conoce la medición y su unidad. «¿Cuál es la temperatura?» es una pregunta y «registre la temperatura» es una orden: ninguna afirma algo verdadero o falso.</p>
+<p>Un valor desconocido no es automáticamente falso. Si no se ha consultado la vigencia de una credencial, falta información para evaluar A. El problema debe indicar si se espera el dato, se informa un error o se deniega el acceso por una política explícita. El modelo de este tema supone condiciones conocidas y exclusivamente booleanas.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>p</th>
-<th>q</th>
-<th>p AND q</th>
-<th>p OR q</th>
-<th>NOT p</th>
+<th>Representación conceptual</th>
+<th>Interpretación</th>
+<th>Valor que se guarda</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A ← verdadero</td>
+<td>Asignación directa de una constante</td>
+<td>Verdadero</td>
+</tr>
+<tr>
+<td>A ← falso</td>
+<td>Asignación directa de una constante</td>
+<td>Falso</td>
+</tr>
+<tr>
+<td>A ← número &gt; 10</td>
+<td>Evaluar una comparación y guardar su resultado</td>
+<td>Depende de número</td>
+</tr>
+<tr>
+<td>A ← B AND C</td>
+<td>Evaluar una combinación de condiciones</td>
+<td>Verdadero solo si B y C son verdaderas</td>
+</tr>
+</tbody></table></div>
+<h3>1.2. Asignar, comparar y formular una identidad</h3>
+<p>En un programa, <code>=</code> realiza una <strong>asignación</strong>: primero se evalúa la derecha y después se guarda su resultado en la variable de la izquierda. No afirma una igualdad matemática que deba mantenerse para siempre. En cambio, <code>==</code> compara dos valores. En las fórmulas de este material, <code>=</code> indica que dos expresiones booleanas tienen el mismo valor para todas las combinaciones posibles.</p>
+<p>Asignar <code>A = numero &gt; 10</code> guarda un resultado booleano, no el número ni una regla que se actualiza sola. Si después cambia <code>numero</code>, es necesario volver a evaluar la comparación para actualizar A. Para número = 10, «mayor que 10» es falso; no debe confundirse <code>&gt;</code> con <code>&gt;=</code>.</p>
+<p><strong>En Python</strong>, los literales son <code>True</code> y <code>False</code>, con mayúscula inicial. El tipo es <code>bool</code>. El nombre A se utiliza aquí para vincular el código con las fórmulas; en una aplicación convienen nombres descriptivos como <code>credencial_vigente</code>.</p>
+<pre><code class="language-python">A = True
+print(A)              # True
+A = False
+print(A)              # False
+numero = 12
+A = numero &gt; 10
+print(A)              # True
+B = True
+C = False
+A = B and C
+print(A)              # False
+</code></pre>
+<p>La comparación devuelve un booleano. En cambio, asignar el texto <code>&quot;false&quot;</code> o <code>&quot;False&quot;</code> no equivale a guardar el valor lógico falso.</p>
+<h3>1.3. Combinaciones posibles y tablas de verdad</h3>
+<p>Una tabla de verdad enumera todas las asignaciones posibles a las variables y calcula la salida para cada una. Con n variables booleanas independientes hay <strong>2ⁿ combinaciones</strong>, porque cada variable permite dos elecciones. Para tres variables: 2 × 2 × 2 = 8. Independientes significa aquí que no se han impuesto restricciones que excluyan filas; una política del mundo real podría hacer que algunas combinaciones no sean alcanzables, pero la identidad algebraica se estudia sobre todas.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+<p>Este orden coincide con contar en binario de 000 a 111. C cambia en cada fila; B, cada dos; A, cada cuatro. El orden facilita detectar omisiones, aunque otro orden también es válido si incluye todas las combinaciones una sola vez. Una fila aislada comprueba un caso; no demuestra una equivalencia general.</p>
+<h3>1.4. Convención de escritura</h3>
+<p>Usaremos <strong>¬A</strong> para la negación, <strong>A·B</strong> para AND y <strong>A + B</strong> para OR. A′ o una barra sobre A también representan negación; para evitar perder barras al copiar fórmulas, aquí se prefiere ¬. Los paréntesis delimitan el alcance de cada operación: ¬(A + B) niega toda la disyunción, mientras que ¬A + B solo niega A.</p>
+<p>El signo + en estas fórmulas <strong>no representa suma aritmética</strong>: 1 + 1 = 1 en OR. Del mismo modo, simplificar una expresión booleana no permite aplicar reglas aritméticas como A + A = 2A, cancelar sumandos o dividir entre variables. Las leyes se justifican por los dos valores del dominio booleano.</p>
+<p><a id="concepto-2"></a></p>
+<h2>2. Operadores lógicos</h2>
+<h3>2.1. AND: conjunción</h3>
+<p><strong>A·B</strong> es verdadero únicamente si A y B son verdaderas. Modela requisitos simultáneos: «tener credencial vigente <strong>y</strong> reserva activa». Basta un requisito falso para que la conjunción sea falsa. Si uno es verdadero, la decisión queda determinada por el otro.</p>
+<h3>2.2. OR: disyunción inclusiva</h3>
+<p><strong>A + B</strong> es verdadero si al menos un operando es verdadero. También es verdadero cuando ambos lo son. Modela alternativas compatibles: «tener autorización del docente <strong>o</strong> del coordinador». Si la regla dice que no se pueden cumplir ambas opciones, OR inclusivo no expresa esa restricción.</p>
+<h3>2.3. NOT: negación</h3>
+<p><strong>¬A</strong> invierte el valor: verdadero pasa a falso y falso a verdadero. Es un operador unario, porque recibe una sola condición. «No tiene bloqueo» se modela como ¬B si B significa «tiene bloqueo». Definir B como «sin bloqueo» y volver a negarlo expresaría la condición opuesta.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>A</th>
+<th>¬A</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table></div>
+<h3>2.4. XOR: disyunción exclusiva</h3>
+<p><strong>A ⊕ B</strong> es verdadero cuando los dos valores son diferentes: exactamente uno es verdadero. Su formulación con operaciones básicas es <strong>A·¬B + ¬A·B</strong>. Ejemplo: un formulario admite seleccionar exactamente una de dos modalidades; ninguna o ambas seleccionadas son casos inválidos.</p>
+<p>Con dos operandos, XOR significa «exactamente uno». Una cadena de XOR con tres o más operandos determina paridad impar, no necesariamente «solo uno». Por ejemplo, 1 XOR 1 XOR 1 = 1. La exclusividad entre muchas opciones requiere otra formulación.</p>
+<h3>2.5. XNOR: equivalencia booleana</h3>
+<p><strong>¬(A ⊕ B)</strong> es verdadero cuando ambos operandos tienen el mismo valor. También se escribe <strong>A ↔ B</strong> y equivale a <strong>A·B + ¬A·¬B</strong>. Se utiliza para comprobar coincidencia entre dos señales o estados. Coincidir no significa que ambos sean verdaderos: dos valores falsos también coinciden.</p>
+<p>En algunas explicaciones aparece el nombre «XAND». En este material se interpreta como XNOR y se utiliza la denominación <strong>XNOR o equivalencia</strong>, porque «XAND» no es un operador incorporado de Python ni de Java y puede resultar ambiguo. No debe confundirse con NAND, que niega AND.</p>
+<h3>2.6. NAND y NOR como operaciones derivadas</h3>
+<p>NAND es <strong>¬(A·B)</strong>: solo es falso cuando ambos operandos son verdaderos. NOR es <strong>¬(A + B)</strong>: solo es verdadero cuando ambos son falsos. Se obtienen combinando NOT con AND u OR; no requieren agregar nuevas reglas al sistema. En circuitos digitales se implementan como compuertas específicas.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>AND A·B</th>
+<th>OR A + B</th>
+<th>XOR A ⊕ B</th>
+<th>XNOR ¬(A ⊕ B)</th>
+<th>NAND ¬(A·B)</th>
+<th>NOR ¬(A + B)</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -52,6 +171,9 @@ print((not p) or q)
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>1</td>
 </tr>
 <tr>
@@ -60,137 +182,1002 @@ print((not p) or q)
 <td>0</td>
 <td>1</td>
 <td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
 <td>0</td>
 <td>1</td>
 <td>0</td>
 </tr>
 <tr>
 <td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
 <td>1</td>
 <td>1</td>
 <td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
 <td>0</td>
 </tr>
 </tbody></table></div>
-<h3>Leyes para simplificar</h3>
+<h3>2.7. Agrupación y orden de evaluación</h3>
+<p>En fórmulas que usan solo NOT, AND y OR, la prioridad convencional es: paréntesis, negación, conjunción y disyunción. Por eso A + B·C se interpreta como A + (B·C), no como (A + B)·C. Para A = 1, B = 0 y C = 0, las dos agrupaciones producen 1 y 0 respectivamente.</p>
+<p>Al combinar comparaciones, XOR e igualdad, escribir paréntesis explícitos evita depender de diferencias de precedencia entre lenguajes. Una negación debe rodear toda la expresión que se quiere negar. Escribir ¬(A·B) no equivale a ¬A·B.</p>
+<h3>2.8. Traducción de operadores al lenguaje</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Operación</th>
+<th>Python con operandos <code>bool</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AND</td>
+<td><code>A and B</code></td>
+</tr>
+<tr>
+<td>OR</td>
+<td><code>A or B</code></td>
+</tr>
+<tr>
+<td>NOT</td>
+<td><code>not A</code></td>
+</tr>
+<tr>
+<td>XOR</td>
+<td><code>A != B</code>; también <code>A ^ B</code> con booleanos</td>
+</tr>
+<tr>
+<td>XNOR</td>
+<td><code>A == B</code> o <code>not (A != B)</code></td>
+</tr>
+<tr>
+<td>NAND</td>
+<td><code>not (A and B)</code></td>
+</tr>
+<tr>
+<td>NOR</td>
+<td><code>not (A or B)</code></td>
+</tr>
+</tbody></table></div>
+<p>Python no tiene palabras reservadas <code>xor</code> ni <code>xand</code>. Para booleanos, <code>!=</code> indica diferencia de valores y sirve como XOR. Fuera del dominio booleano, una comparación de desigualdad no debe confundirse con el XOR bit a bit de enteros. No usar <code>~</code> como sustituto de <code>not</code>: no es la negación lógica.</p>
+<p><code>and</code> y <code>or</code> cortocircuitan y pueden devolver uno de sus operandos, no necesariamente un <code>bool</code>. En esta lectura ambos operandos son booleanos para que las tablas representen exactamente sus resultados. Una cadena no vacía como <code>&quot;False&quot;</code> tiene valor de verdad verdadero; no debe usarse para representar la condición falsa.</p>
+<pre><code class="language-python">A, B = True, False
+print(A and B)         # False
+print(A or B)          # True
+print(not A)           # False
+print(A != B)          # True: XOR
+print(A == B)          # False: XNOR
+print(not (A and B))   # True: NAND
+</code></pre>
+<p><strong>Cortocircuito:</strong> si el primer operando de AND es falso, no hace falta evaluar el segundo para determinar la salida. Si el primer operando de OR es verdadero, tampoco hace falta evaluar el segundo. Esto permite proteger una división, como muestra el siguiente ejemplo.</p>
+<pre><code class="language-python">divisor = 0
+valido = (divisor != 0) and (10 / divisor &gt; 2)
+print(valido)  # False; no se ejecuta la división
+</code></pre>
+<p>No cambiar arbitrariamente el orden de esa comprobación: ejecutar la división antes de comprobar el divisor introduciría un error. Las leyes describen valores booleanos; sustituir código exige conservar además sus condiciones de evaluación.</p>
+<p><a id="concepto-3"></a></p>
+<h2>3. Aplicaciones generales del álgebra de Boole</h2>
+<p>El álgebra de Boole estudia cómo combinar condiciones y transformar expresiones conservando su resultado. Su utilidad comienza antes de escribir código: permite precisar una regla verbal, detectar casos ambiguos y justificar que una formulación más simple conserva la decisión original.</p>
+<h3>3.1. Reglas de acceso y decisiones de negocio</h3>
+<p>Supongamos que C significa «credencial vigente», R «reserva activa» y A «autorización del responsable». La política «permitir el acceso con credencial y reserva, o con autorización» se expresa como <strong>P = C·R + A</strong>. La autorización es una alternativa suficiente según esa redacción.</p>
+<p>Si se añade «un bloqueo B siempre impide el acceso», la formulación pasa a <strong>P = (C·R + A)·¬B</strong>. El bloqueo afecta a toda la autorización; escribir C·R + A·¬B permitiría entrar con credencial y reserva incluso estando bloqueado. Los paréntesis documentan el alcance de una regla.</p>
+<p>El procedimiento de modelado es: identificar las condiciones, definir cada variable, precisar qué significa «y» u «o», agrupar las reglas y comprobar escenarios representativos. «A o B» no debe interpretarse como XOR salvo que el requisito excluya explícitamente la coincidencia.</p>
+<h3>3.2. Diseño de circuitos digitales</h3>
+<p>Una expresión se puede traducir a conexiones entre compuertas. Para <strong>F = (A + B)·¬C</strong>, primero se calcula A OR B, se niega C y se combinan ambas salidas mediante AND. Con A = 0, B = 1 y C = 0, la salida es 1. Si C cambia a 1, la salida es 0, independientemente de A y B.</p>
+<p>Simplificar una expresión puede reducir operaciones o compuertas en un modelo de implementación. Sin embargo, menos símbolos no garantizan por sí solos menor tiempo de ejecución ni menor retardo físico: influyen el compilador, la tecnología, la profundidad de las conexiones y otras restricciones. En este tema, el objetivo verificable es conservar la función y eliminar redundancias justificadas.</p>
+<h3>3.3. Conjuntos y filtros</h3>
+<p>Para un elemento x de un universo U, A significa «x pertenece al conjunto de estudiantes matriculados» y B «x pertenece al conjunto de estudiantes con reserva». AND corresponde a pertenecer a la intersección; OR, a la unión; NOT, al complemento respecto de U.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Operación lógica</th>
+<th>Lectura como pertenencia</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A·B</td>
+<td>x pertenece a ambos conjuntos</td>
+</tr>
+<tr>
+<td>A + B</td>
+<td>x pertenece al menos a uno</td>
+</tr>
+<tr>
+<td>¬A</td>
+<td>x está en U pero no pertenece al conjunto A</td>
+</tr>
+<tr>
+<td>A ⊕ B</td>
+<td>x pertenece a uno de los conjuntos, pero no a ambos</td>
+</tr>
+</tbody></table></div>
+<p>Esta interpretación se aplica a filtros de registros, criterios de búsqueda y validación de formularios. Definir el universo es indispensable: «no está matriculado» no especifica por sí solo qué personas pueden aparecer en el resultado.</p>
+<h3>3.4. Equivalencia y clasificación de expresiones</h3>
+<p>Dos expresiones son equivalentes si sus columnas de salida coinciden en <strong>todas</strong> las filas. Se escribe F ≡ G para enfatizar la equivalencia lógica. Por ejemplo, A + A·B ≡ A. El hecho de obtener el mismo resultado con A = 1 y B = 0 es una comprobación parcial; la ley afirma algo sobre las cuatro combinaciones.</p>
+<p>Una <strong>tautología</strong> siempre produce 1, como A + ¬A. Una <strong>contradicción</strong> siempre produce 0, como A·¬A. Una <strong>contingencia</strong> puede producir 0 o 1, como A·B. Clasificar una expresión exige considerar todo su dominio, no solo la entrada utilizada en un ejemplo.</p>
+<p>Como complemento conceptual, la implicación A → B equivale a ¬A + B y solo es falsa con A = 1 y B = 0. No expresa automáticamente causalidad ni equivale a A·B. La implicación es una relación entre proposiciones; la asignación de un programa es una operación que guarda un valor.</p>
+<p><a id="concepto-4"></a></p>
+<h2>4. Leyes del álgebra de Boole</h2>
+<p>Una ley es una equivalencia válida para todos los valores booleanos de sus variables. Se puede usar en ambos sentidos: para expandir o para reducir una expresión. Las letras representan también <strong>subexpresiones completas</strong>. Por ejemplo, si X = A + B, la identidad X·1 = X permite escribir (A + B)·1 = A + B.</p>
+<p>Se mantiene el orden de las siete leyes de la presentación. Al final se añaden conmutatividad, asociatividad y doble negación como herramientas de apoyo para justificar los pasos que suelen quedar implícitos. En los ejemplos de código, las variables son booleanas y las expresiones no modifican estado.</p>
+<p><a id="ley-1"></a></p>
+<h3>4.1. Ley de Identidad</h3>
+<p><strong>Concepto.</strong> El elemento neutro de OR es 0 y el de AND es 1. Combinarlos con una condición deja el resultado determinado por esa condición.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Formulación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primera</td>
+<td>A + 0 = A</td>
+</tr>
+<tr>
+<td>Segunda</td>
+<td>A·1 = A</td>
+</tr>
+</tbody></table></div>
+<p><strong>Explicación.</strong> Un OR con falso no agrega una alternativa que pueda habilitar la salida. Un AND con verdadero no agrega una restricción que pueda impedirla. Así, una condición de acceso combinada con una comprobación siempre verdadera conserva exactamente sus casos de aceptación.</p>
+<p><strong>Ejemplo con valores.</strong> Si A = 0: 0 + 0 = 0 y 0·1 = 0. Si A = 1: 1 + 0 = 1 y 1·1 = 1.</p>
+<p><strong>Ejemplo algebraico.</strong> (A + B)·1 = A + B: se aplica identidad a toda la subexpresión A + B.</p>
+<p><strong>En Python.</strong> Las dos impresiones comparan los lados de la identidad. Ambas deben indicar verdadero para los datos utilizados.</p>
+<pre><code class="language-python">A = False
+print((A or False) == A)
+print((A and True) == A)
+</code></pre>
+<p><strong>Error que evitar.</strong> No intercambiar los neutros: OR con 1 y AND con 0 pertenecen a anulación.</p>
+<p><a id="ley-2"></a></p>
+<h3>4.2. Ley de Anulación</h3>
+<p><strong>Concepto.</strong> El elemento absorbente fija el resultado sin importar el valor de la otra condición. Para OR es 1; para AND es 0. También se llama ley de dominación.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Formulación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primera</td>
+<td>A + 1 = 1</td>
+</tr>
+<tr>
+<td>Segunda</td>
+<td>A·0 = 0</td>
+</tr>
+</tbody></table></div>
+<p><strong>Explicación.</strong> Si una alternativa de OR ya es verdadera, el OR es verdadero. Si un requisito de AND ya es falso, el AND es falso. Esta ley permite detectar expresiones que aparentan depender de una variable, pero cuya salida en realidad es constante.</p>
+<p><strong>Ejemplo con valores.</strong> Si A = 0: 0 + 1 = 1 y 0·0 = 0. Si A = 1: 1 + 1 = 1 y 1·0 = 0.</p>
+<p><strong>Ejemplo algebraico.</strong> (A·B) + 1 = 1 y (A + B)·0 = 0, sin necesidad de evaluar A ni B para conocer el valor lógico.</p>
+<p><strong>En Python.</strong> Las dos impresiones comparan los lados de la identidad. Ambas deben indicar verdadero para los datos utilizados.</p>
+<pre><code class="language-python">A = True
+print((A or True) == True)
+print((A and False) == False)
+</code></pre>
+<p><strong>Error que evitar.</strong> No confundir una salida constante con una variable sin valor. La salida está perfectamente determinada.</p>
+<p><a id="ley-3"></a></p>
+<h3>4.3. Ley de Idempotencia</h3>
+<p><strong>Concepto.</strong> Repetir la misma condición mediante AND u OR no cambia su valor.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Formulación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primera</td>
+<td>A + A = A</td>
+</tr>
+<tr>
+<td>Segunda</td>
+<td>A·A = A</td>
+</tr>
+</tbody></table></div>
+<p><strong>Explicación.</strong> Preguntar dos veces si una credencial es válida no añade una alternativa diferente ni una restricción nueva, siempre que se esté usando el mismo valor. Si A es falsa, ambas copias son falsas; si A es verdadera, ambas son verdaderas.</p>
+<p><strong>Ejemplo con valores.</strong> Si A = 0: 0 + 0 = 0 y 0·0 = 0. Si A = 1: 1 + 1 = 1 y 1·1 = 1.</p>
+<p><strong>Ejemplo algebraico.</strong> (A + B) + (A + B) = A + B. Se repite la subexpresión completa, no solo una letra.</p>
+<p><strong>En Python.</strong> Las dos impresiones comparan los lados de la identidad. Ambas deben indicar verdadero para los datos utilizados.</p>
+<pre><code class="language-python">A = False
+print((A or A) == A)
+print((A and A) == A)
+</code></pre>
+<p><strong>Error que evitar.</strong> A + A no se convierte en 2A: + representa OR. Dos llamadas a una función no se consideran automáticamente el mismo valor estable.</p>
+<p><a id="ley-4"></a></p>
+<h3>4.4. Ley de Complemento</h3>
+<p><strong>Concepto.</strong> Una condición y su negación cubren todos los casos cuando se unen con OR y no pueden cumplirse simultáneamente cuando se combinan con AND.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Formulación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primera</td>
+<td>A + ¬A = 1</td>
+</tr>
+<tr>
+<td>Segunda</td>
+<td>A·¬A = 0</td>
+</tr>
+</tbody></table></div>
+<p><strong>Explicación.</strong> Si A es verdadera, ¬A es falsa; si A es falsa, ¬A es verdadera. Por eso siempre hay una alternativa verdadera en OR y siempre hay un requisito falso en AND. Los resultados son los valores absorbentes de esas operaciones: 1 para OR y 0 para AND.</p>
+<p><strong>Ejemplo con valores.</strong> Con A = 0: 0 + 1 = 1 y 0·1 = 0. Con A = 1: 1 + 0 = 1 y 1·0 = 0.</p>
+<p><strong>Ejemplo algebraico.</strong> (A + B) + ¬(A + B) = 1. La negación debe corresponder a toda la misma expresión.</p>
+<p><strong>En Python.</strong> Las dos impresiones comparan los lados de la identidad. Ambas deben indicar verdadero para los datos utilizados.</p>
+<pre><code class="language-python">A = True
+print((A or (not A)) == True)
+print((A and (not A)) == False)
+</code></pre>
+<p><strong>Error que evitar.</strong> En A + ¬A·B no se puede reemplazar A + ¬A por 1 directamente: ¬A está dentro del término ¬A·B. Primero se debe transformar la agrupación con distributividad.</p>
+<p><a id="ley-5"></a></p>
+<h3>4.5. Ley de Distributiva</h3>
+<p><strong>Concepto.</strong> Una operación se distribuye sobre la otra. En álgebra de Boole tanto AND distribuye sobre OR como OR distribuye sobre AND.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Formulación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primera</td>
+<td>A·(B + C) = A·B + A·C</td>
+</tr>
+<tr>
+<td>Segunda</td>
+<td>A + B·C = (A + B)·(A + C)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Explicación.</strong> En la primera forma, exigir A junto con alguna de las alternativas B o C equivale a ofrecer dos casos: A junto con B, o A junto con C. En la segunda, la alternativa A puede satisfacer por sí sola ambos factores; si A es falsa, se exige que B y C sean verdaderas. Esta segunda forma no es una regla de la aritmética usual.</p>
+<p><strong>Ejemplo con valores.</strong> Para A = 0, B = 1 y C = 1: A + B·C = 0 + 1 = 1 y (A + B)·(A + C) = 1·1 = 1. Es una comprobación; la ley se cumple en las ocho filas.</p>
+<p><strong>Ejemplo algebraico.</strong> A·B + A·¬B = A·(B + ¬B). Se usa la primera forma en sentido inverso para factorizar A.</p>
+<p><strong>En Python.</strong> Las dos impresiones comparan los lados de la identidad. Ambas deben indicar verdadero para los datos utilizados.</p>
+<pre><code class="language-python">A, B, C = False, True, True
+print((A and (B or C)) == ((A and B) or (A and C)))
+print((A or (B and C)) == ((A or B) and (A or C)))
+</code></pre>
+<p><strong>Error que evitar.</strong> Distribuir exige conservar ambos términos: A·(B + C) no se transforma en A·B + C. La transformación inversa solo puede extraer un factor realmente común.</p>
+<p><a id="ley-6"></a></p>
+<h3>4.6. Ley de De Morgan</h3>
+<p><strong>Concepto.</strong> Negar un grupo cambia AND por OR, u OR por AND, y niega cada operando del grupo.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Formulación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primera</td>
+<td>¬(A + B) = ¬A·¬B</td>
+</tr>
+<tr>
+<td>Segunda</td>
+<td>¬(A·B) = ¬A + ¬B</td>
+</tr>
+</tbody></table></div>
+<p><strong>Explicación.</strong> «No se cumple A o B» exige que no se cumpla ninguna: ¬A y ¬B. «No se cumplen A y B simultáneamente» requiere que falle al menos una: ¬A o ¬B. No se conserva el operador al repartir la negación. Para más operandos se aplica el mismo cambio a todo el grupo.</p>
+<p><strong>Ejemplo con valores.</strong> Con A = 1 y B = 0: ¬(1 + 0) = 0 y ¬1·¬0 = 0·1 = 0. También ¬(1·0) = 1 y ¬1 + ¬0 = 0 + 1 = 1.</p>
+<p><strong>Ejemplo algebraico.</strong> ¬(A·¬B) = ¬A + ¬(¬B) = ¬A + B. El último paso usa doble negación, no otra aplicación de De Morgan.</p>
+<p><strong>En Python.</strong> Las dos impresiones comparan los lados de la identidad. Ambas deben indicar verdadero para los datos utilizados.</p>
+<pre><code class="language-python">A, B = True, False
+print((not (A or B)) == ((not A) and (not B)))
+print((not (A and B)) == ((not A) or (not B)))
+</code></pre>
+<p><strong>Error que evitar.</strong> Negar ambas letras y mantener AND en ¬(A·B) es incorrecto. Con A = 1 y B = 0, la expresión correcta vale 1 y ¬A·¬B vale 0.</p>
+<p><a id="ley-7"></a></p>
+<h3>4.7. Ley de Absorción</h3>
+<p><strong>Concepto.</strong> Una condición absorbe un término que no aporta casos nuevos o una alternativa que no cambia su cumplimiento.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Formulación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primera</td>
+<td>A + A·B = A</td>
+</tr>
+<tr>
+<td>Segunda</td>
+<td>A·(A + B) = A</td>
+</tr>
+</tbody></table></div>
+<p><strong>Explicación.</strong> En A + A·B, el segundo término solo es verdadero cuando A ya lo es, de modo que no agrega filas verdaderas. En A·(A + B), si A es falsa, todo es falso; si A es verdadera, el paréntesis ya es verdadero. B no afecta el resultado final.</p>
+<p><strong>Ejemplo con valores.</strong> Con A = 0 y B = 1: 0 + 0·1 = 0 y 0·(0 + 1) = 0. Con A = 1 y B = 0: 1 + 1·0 = 1 y 1·(1 + 0) = 1.</p>
+<p><strong>Ejemplo algebraico.</strong> A + A·B = A·1 + A·B = A·(1 + B) = A·1 = A. Las justificaciones son identidad en sentido inverso, distributiva, anulación e identidad.</p>
+<p><strong>En Python.</strong> Las dos impresiones comparan los lados de la identidad. Ambas deben indicar verdadero para los datos utilizados.</p>
+<pre><code class="language-python">A, B = False, True
+print((A or (A and B)) == A)
+print((A and (A or B)) == A)
+</code></pre>
+<p><strong>Error que evitar.</strong> A + ¬A·B no se reduce a A mediante absorción básica. Por ejemplo, A = 0 y B = 1 produce 1, mientras que A produce 0.</p>
+<h3>4.8. Leyes auxiliares para ordenar y agrupar</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Ley</th>
-<th>Equivalencia</th>
+<th>Formulación</th>
+<th>Qué permite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Conmutativa de OR</td>
+<td>A + B = B + A</td>
+<td>Cambiar el orden de dos operandos de OR</td>
+</tr>
+<tr>
+<td>Conmutativa de AND</td>
+<td>A·B = B·A</td>
+<td>Cambiar el orden de dos operandos de AND</td>
+</tr>
+<tr>
+<td>Asociativa de OR</td>
+<td>(A + B) + C = A + (B + C)</td>
+<td>Reagrupar una cadena de OR</td>
+</tr>
+<tr>
+<td>Asociativa de AND</td>
+<td>(A·B)·C = A·(B·C)</td>
+<td>Reagrupar una cadena de AND</td>
+</tr>
+<tr>
+<td>Doble negación o involución</td>
+<td>¬(¬A) = A</td>
+<td>Eliminar dos negaciones consecutivas</td>
+</tr>
+<tr>
+<td>Negación de constantes</td>
+<td>¬0 = 1; ¬1 = 0</td>
+<td>Evaluar una negación conocida</td>
+</tr>
+</tbody></table></div>
+<p>La asociativa no permite mover paréntesis entre operadores diferentes. Por ejemplo, (A + B)·C no equivale en general a A + B·C. La conmutativa y la asociativa conservan valores booleanos; en código con funciones que modifican estado, cambiar el orden puede cambiar los efectos observables.</p>
+<h3>4.9. Absorción generalizada como identidad derivada</h3>
+<p>La expresión <strong>A + ¬A·B = A + B</strong> se denomina a veces absorción generalizada o ley de reducción. Para no memorizarla sin justificación, puede derivarse con las leyes anteriores:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Expresión</th>
+<th>Justificación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Inicial</td>
+<td>A + ¬A·B</td>
+<td>Expresión que se desea reducir</td>
+</tr>
+<tr>
+<td>1</td>
+<td>(A + ¬A)·(A + B)</td>
+<td>Distributiva de OR sobre AND</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1·(A + B)</td>
+<td>Complemento en A + ¬A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A + B</td>
+<td>Identidad de AND</td>
+</tr>
+</tbody></table></div>
+<p>Aquí sí se puede aplicar complemento en el paso 2, porque A + ¬A aparece como una subexpresión completa. No se están cancelando letras separadas por otras operaciones. La forma dual es <strong>A·(¬A + B) = A·B</strong>, que se obtiene distribuyendo y aplicando complemento e identidad.</p>
+<h3>4.10. Resumen de las siete leyes principales</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma con OR</th>
+<th>Forma con AND o forma dual</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Identidad</td>
-<td>p AND 1 = p; p OR 0 = p</td>
+<td>A + 0 = A</td>
+<td>A·1 = A</td>
+</tr>
+<tr>
+<td>Anulación</td>
+<td>A + 1 = 1</td>
+<td>A·0 = 0</td>
 </tr>
 <tr>
 <td>Idempotencia</td>
-<td>p AND p = p; p OR p = p</td>
+<td>A + A = A</td>
+<td>A·A = A</td>
 </tr>
 <tr>
 <td>Complemento</td>
-<td>p AND NOT p = 0; p OR NOT p = 1</td>
-</tr>
-<tr>
-<td>Absorción</td>
-<td>p OR (p AND q) = p</td>
+<td>A + ¬A = 1</td>
+<td>A·¬A = 0</td>
 </tr>
 <tr>
 <td>Distributiva</td>
-<td>p AND (q OR r) = (p AND q) OR (p AND r)</td>
+<td>A + B·C = (A + B)·(A + C)</td>
+<td>A·(B + C) = A·B + A·C</td>
 </tr>
 <tr>
 <td>De Morgan</td>
-<td>NOT (p OR q) = NOT p AND NOT q</td>
+<td>¬(A + B) = ¬A·¬B</td>
+<td>¬(A·B) = ¬A + ¬B</td>
+</tr>
+<tr>
+<td>Absorción</td>
+<td>A + A·B = A</td>
+<td>A·(A + B) = A</td>
 </tr>
 </tbody></table></div>
-<h3>Síntesis visual</h3>
-<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
+<p>La dualidad intercambia OR con AND y 0 con 1. Por ejemplo, de A + 0 = A se obtiene A·1 = A. No significa negar cada variable; es una correspondencia entre identidades del álgebra.</p>
 <p><a id="demostracion"></a></p>
-<h2>2. Demostración guiada</h2>
-<p><strong>Problema.</strong> Enumerar las cuatro combinaciones de credencial y reserva y autorizar únicamente cuando ambas sean verdaderas.</p>
-<p><strong>Contrato de esta demostración.</strong> Dos valores booleanos. No incluir todavía la autorización excepcional del contexto inicial; incorporarla en la PC. Mostrar credencial, reserva y permiso como 0 o 1. La tabla debe contener cuatro filas.</p>
-<p><strong>Fuente:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
-<!-- example: demo.py -->
-<pre><code class="language-python">for credencial in (False, True):
-    for reserva in (False, True):
-        permitido = credencial and reserva
-        print(int(credencial), int(reserva), int(permitido))
-</code></pre>
-<h3>Ejecutar</h3>
-<p>Abrir una terminal dentro de <code>01/1.1-algebra-boole/python/ejemplos/</code> y ejecutar:</p>
-<pre><code class="language-bash">python3 demo.py
-</code></pre>
-<p>En Windows, usar <code>py</code> en lugar de <code>python3</code> si esa es la instalación disponible. Comprobar primero su versión.</p>
-<h3>Salida esperada</h3>
-<pre><code class="language-text">0 0 0
-0 1 0
-1 0 0
-1 1 1
-</code></pre>
-<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
-<p><a id="pc"></a></p>
-<h2>3. PC1.1 · Práctica de clase</h2>
-<p>Formalizar la regla “permitir acceso con credencial y reserva, o con autorización del responsable”. Definir las tres proposiciones, completar las ocho filas de su tabla y expresar la negación mediante De Morgan. Usar Python o Java solo para contrastar la tabla manual, sin exigir todavía escribir bucles desde cero.</p>
-<h3>Requisitos y restricciones</h3>
-<ul>
-<li>Resolver en una sola versión, Python o Java.</li>
-<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
-<li>Aplicar únicamente los conceptos ya introducidos.</li>
-<li>Conservar las entradas cuando el enunciado lo exija.</li>
-<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
-</ul>
-<h3>Casos de aceptación de la PC</h3>
+<h2>5. Simplificación de expresiones: dos ejemplos resueltos</h2>
+<h3>Método de trabajo</h3>
+<ol>
+<li>Identificar operadores y alcance de cada negación.</li>
+<li>Buscar constantes, repeticiones, complementos y factores comunes.</li>
+<li>Aplicar una transformación justificada a una subexpresión completa.</li>
+<li>Escribir la expresión resultante y el nombre de la ley.</li>
+<li>Repetir hasta eliminar las redundancias identificadas.</li>
+<li>Comparar la tabla original con la simplificada para detectar errores.</li>
+</ol>
+<p>Simplificar no significa borrar letras por intuición. A veces conviene expandir temporalmente una expresión para que aparezca un complemento; otras veces conviene factorizar. Puede haber varias formas equivalentes y no toda secuencia conduce inmediatamente a una forma mínima.</p>
+<h3>5.1. Ejemplo 1: factor común y complemento</h3>
+<p><strong>Problema:</strong> reducir <strong>F = A·B + A·¬B + ¬A·B</strong>. La expresión es verdadera si ocurre alguna de estas alternativas: ambas condiciones, solo A o solo B. La reducción debe conservar las cuatro salidas.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Entrada / escenario</th>
-<th>Resultado esperado</th>
+<th>Paso</th>
+<th>Expresión equivalente</th>
+<th>Ley y subexpresión transformada</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>0, 0, 0</td>
+<td>Inicial</td>
+<td>A·B + A·¬B + ¬A·B</td>
+<td>Función original</td>
+</tr>
+<tr>
+<td>1</td>
+<td>(A·B + A·¬B) + ¬A·B</td>
+<td>Asociativa de OR: agrupar los dos primeros términos</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A·(B + ¬B) + ¬A·B</td>
+<td>Distributiva en sentido inverso: extraer A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A·1 + ¬A·B</td>
+<td>Complemento: B + ¬B = 1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A + ¬A·B</td>
+<td>Identidad: A·1 = A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>(A + ¬A)·(A + B)</td>
+<td>Distributiva de OR sobre AND</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1·(A + B)</td>
+<td>Complemento: A + ¬A = 1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>A + B</td>
+<td>Identidad: 1·X = X</td>
+</tr>
+</tbody></table></div>
+<p><strong>Resultado:</strong> F = A + B. No es XOR: la fila A = 1, B = 1 también produce 1. En el paso 4 no se puede sustituir directamente A + ¬A por 1 sin distribuir, porque ¬A pertenece al producto ¬A·B. Los pasos 5 a 7 explicitan la reducción generalizada.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A·B</th>
+<th>A·¬B</th>
+<th>¬A·B</th>
+<th>F original</th>
+<th>A + B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 <td>0</td>
 </tr>
 <tr>
-<td>1, 1, 0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>1</td>
 </tr>
 <tr>
-<td>0, 0, 1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
 <td>1</td>
 </tr>
 <tr>
-<td>1, 0, 0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+<p><strong>Traducción al lenguaje:</strong></p>
+<pre><code class="language-python">A, B = False, True
+original = (A and B) or (A and (not B)) or ((not A) and B)
+reducida = A or B
+print(original, reducida, original == reducida)  # True True True
+</code></pre>
+<h3>5.2. Ejemplo 2: De Morgan, doble negación y absorción</h3>
+<p><strong>Problema:</strong> reducir <strong>G = ¬((A + B)·(A + ¬B)) + ¬A·C</strong>. La negación inicial abarca todo el producto de los dos paréntesis. Se busca mostrar que ciertas variables dejan de influir en la salida.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Expresión equivalente</th>
+<th>Ley y subexpresión transformada</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Inicial</td>
+<td>¬((A + B)·(A + ¬B)) + ¬A·C</td>
+<td>Función original</td>
+</tr>
+<tr>
+<td>1</td>
+<td>¬(A + B) + ¬(A + ¬B) + ¬A·C</td>
+<td>De Morgan: negar el producto exterior produce OR de negaciones</td>
+</tr>
+<tr>
+<td>2</td>
+<td>¬A·¬B + ¬A·¬(¬B) + ¬A·C</td>
+<td>De Morgan en cada suma negada</td>
+</tr>
+<tr>
+<td>3</td>
+<td>¬A·¬B + ¬A·B + ¬A·C</td>
+<td>Doble negación: ¬(¬B) = B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>¬A·(¬B + B) + ¬A·C</td>
+<td>Distributiva en sentido inverso en los dos primeros términos</td>
+</tr>
+<tr>
+<td>5</td>
+<td>¬A·1 + ¬A·C</td>
+<td>Complemento: ¬B + B = 1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>¬A + ¬A·C</td>
+<td>Identidad: ¬A·1 = ¬A</td>
+</tr>
+<tr>
+<td>7</td>
+<td>¬A</td>
+<td>Absorción: X + X·C = X, con X = ¬A</td>
+</tr>
+</tbody></table></div>
+<p><strong>Resultado:</strong> G = ¬A. Las variables B y C desaparecen porque no alteran la salida, no porque se hayan fijado arbitrariamente. Si A = 0, G = 1 para cualquier combinación de B y C; si A = 1, G = 0.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>G original</th>
+<th>¬A</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
 <td>0</td>
 </tr>
 </tbody></table></div>
-<h3>Probar y registrar evidencia</h3>
-<p>Crear una carpeta personal <code>PC1.1</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Ejecutar <code>python3 solucion.py</code> desde esa carpeta. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
-<ul>
-<li>Registrar <code>evidencias/PC1.1.md</code> con comandos, versión real, salidas y explicación.</li>
-<li>Crear un commit funcional como <code>feat(pc1.1): implementar-regla-principal</code>.</li>
-<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
-<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
-<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
-</ul>
-<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p><strong>Traducción al lenguaje:</strong></p>
+<pre><code class="language-python">A, B, C = False, True, False
+original = (not ((A or B) and (A or (not B)))) or ((not A) and C)
+reducida = not A
+print(original, reducida, original == reducida)  # True True True
+</code></pre>
+<h3>5.3. Demostración completa: comprobación</h3>
+<p><strong>Contrato:</strong> enumerar las cuatro combinaciones del ejemplo 1 y las ocho del ejemplo 2. Mostrar las entradas, la salida original, la reducida y una columna IGUALES. Usar 0 para falso y 1 para verdadero. IGUALES debe ser 1 en todas las filas. Esta comprobación no resuelve los ejercicios propuestos ni la PC.</p>
+<p>Los ciclos solo automatizan la enumeración de la tabla. Se estudian después; ahora basta identificar qué expresiones se evalúan dentro de ellos y cómo se relacionan con cada fila. La demostración no recibe entradas de teclado ni necesita dependencias externas.</p>
+<p><strong>Fuente ejecutable:</strong> <a href="ejemplos/demo.py">ejemplos/demo.py</a>.</p>
+<!-- example: demo.py -->
+<pre><code class="language-python">print(&quot;A B ORIGINAL REDUCIDA IGUALES&quot;)
+for A in (False, True):
+    for B in (False, True):
+        original = (A and B) or (A and (not B)) or ((not A) and B)
+        reducida = A or B
+        print(int(A), int(B), int(original), int(reducida), int(original == reducida))
+
+print(&quot;A B C ORIGINAL REDUCIDA IGUALES&quot;)
+for A in (False, True):
+    for B in (False, True):
+        for C in (False, True):
+            original = (not ((A or B) and (A or (not B)))) or ((not A) and C)
+            reducida = not A
+            print(int(A), int(B), int(C), int(original), int(reducida), int(original == reducida))
+</code></pre>
+<p><strong>Ejecución:</strong> abrir una terminal dentro de la carpeta <code>python/ejemplos/</code>.</p>
+<pre><code class="language-bash">python3 demo.py
+</code></pre>
+<p>En Windows puede utilizarse <code>py demo.py</code>, según la instalación.</p>
+<p><strong>Salida esperada:</strong></p>
+<pre><code class="language-text">A B ORIGINAL REDUCIDA IGUALES
+0 0 0 0 1
+0 1 1 1 1
+1 0 1 1 1
+1 1 1 1 1
+A B C ORIGINAL REDUCIDA IGUALES
+0 0 0 1 1 1
+0 0 1 1 1 1
+0 1 0 1 1 1
+0 1 1 1 1 1
+1 0 0 0 0 1
+1 0 1 0 0 1
+1 1 0 0 0 1
+1 1 1 0 0 1
+</code></pre>
+<p>Si aparece un 0 en IGUALES, esa fila es un contraejemplo de la equivalencia programada. Revisar operadores, negaciones y agrupación antes de atribuir el fallo a la ley. Un error de sintaxis debe corregirse antes de comparar resultados.</p>
+<p><a id="pc"></a></p>
+<h2>6. Práctica: aplicación de leyes y simplificación</h2>
+<h3>6.1. Indicaciones comunes</h3>
+<p>Los siguientes ejercicios se entregan <strong>sin solución</strong>. En cada simplificación, registrar la expresión inicial, cada expresión equivalente y la ley aplicada. Una respuesta final sin justificación no permite revisar el procedimiento. Primero resolver algebraicamente y después contrastar con una tabla completa o con código.</p>
+<p>En los ejercicios de modelado, definir el significado de cada variable antes de formular la expresión. Si el enunciado permite dos interpretaciones, escribir la interpretación adoptada y un caso que permita distinguirlas.</p>
+<h3>6.2. Nivel 1: aplicación directa de una ley</h3>
+<p>Indicar qué ley permite reducir cada expresión. Cuando se indica la ley como pista, explicar por qué encaja su estructura.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>N.º</th>
+<th>Expresión</th>
+<th>Orientación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>A + 0</td>
+<td>Identidad</td>
+</tr>
+<tr>
+<td>2</td>
+<td>(A + B)·1</td>
+<td>Tratar el paréntesis como una sola condición</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A + 1</td>
+<td>Anulación</td>
+</tr>
+<tr>
+<td>4</td>
+<td>(A·B)·0</td>
+<td>Anulación</td>
+</tr>
+<tr>
+<td>5</td>
+<td>(A + B) + (A + B)</td>
+<td>Idempotencia</td>
+</tr>
+<tr>
+<td>6</td>
+<td>(A·B)·(A·B)</td>
+<td>Idempotencia</td>
+</tr>
+<tr>
+<td>7</td>
+<td>A + ¬A</td>
+<td>Complemento</td>
+</tr>
+<tr>
+<td>8</td>
+<td>(A + B)·¬(A + B)</td>
+<td>Identificar la expresión y su negación completa</td>
+</tr>
+<tr>
+<td>9</td>
+<td>A + A·B</td>
+<td>Absorción</td>
+</tr>
+<tr>
+<td>10</td>
+<td>A·(A + B)</td>
+<td>Absorción en su forma dual</td>
+</tr>
+<tr>
+<td>11</td>
+<td>¬(A + B)</td>
+<td>De Morgan; eliminar la negación del grupo</td>
+</tr>
+<tr>
+<td>12</td>
+<td>¬(A·B)</td>
+<td>De Morgan; comparar con el ejercicio anterior</td>
+</tr>
+</tbody></table></div>
+<h3>6.3. Nivel 2: combinar varias leyes</h3>
+<p>Simplificar sin asignar valores específicos a las variables. Cada fila puede requerir más de una transformación. Construir la tabla completa en los ejercicios 15, 18, 21 y 24.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>N.º</th>
+<th>Expresión inicial</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13</td>
+<td>(A + 0)·1</td>
+</tr>
+<tr>
+<td>14</td>
+<td>A·B + A·¬B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>(A + B)·(A + ¬B)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>A + ¬A·B</td>
+</tr>
+<tr>
+<td>17</td>
+<td>A·(¬A + B)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>¬(A + ¬B) + ¬A·B</td>
+</tr>
+<tr>
+<td>19</td>
+<td>(A + A·B)·(C + 0)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>(A + 1)·(B + B·C)</td>
+</tr>
+<tr>
+<td>21</td>
+<td>A·B + A·¬B + ¬A·B + ¬A·¬B</td>
+</tr>
+<tr>
+<td>22</td>
+<td>¬(¬(A + B))·(A + A·C)</td>
+</tr>
+<tr>
+<td>23</td>
+<td>(A·B + A·¬B) + A·C</td>
+</tr>
+<tr>
+<td>24</td>
+<td>¬(A·B)·A + A·B</td>
+</tr>
+</tbody></table></div>
+<h3>6.4. Nivel 3: modelado y aplicación</h3>
+<p><strong>25. Habilitación redundante.</strong> Un botón se habilita si la sesión está activa, o si la sesión está activa y el perfil está completo. Definir variables, formular la regla y simplificarla. Explicar si «perfil completo» influye realmente y qué redacción sería necesaria para exigirlo.</p>
+<p><strong>26. Alarma.</strong> La alarma se activa si hay humo o temperatura alta, siempre que no esté activo el modo de mantenimiento. Formular activación y desactivación. Aplicar De Morgan a la negación de la función completa y justificar el alcance del mantenimiento.</p>
+<p><strong>27. Selección exclusiva.</strong> Un formulario ofrece modalidad presencial y virtual. La selección es válida si se marca exactamente una. Construir su tabla y expresarla con NOT, AND y OR. Explicar por qué OR inclusivo no cumple el requisito.</p>
+<p><strong>28. Coincidencia de sensores.</strong> Dos sensores booleanos deben reportar el mismo estado. Construir una expresión para coincidencia y otra para discrepancia. Justificar cómo se relacionan XNOR y XOR, incluyendo el caso en que ambos sensores reportan falso.</p>
+<p><strong>29. Circuito.</strong> Para F = (A + B)·¬C, describir las operaciones en orden y construir las ocho filas. Identificar qué entradas fuerzan F = 0 sin conocer las restantes.</p>
+<p><strong>30. Filtro de registros.</strong> Un registro se incluye si está vigente y pertenece al grupo A, o si está vigente y pertenece al grupo B. Formular, factorizar y explicar en palabras la expresión resultante. No asumir que los grupos son excluyentes.</p>
+<h3>6.5. Detectar y corregir errores de razonamiento</h3>
+<p>Para cada afirmación, decidir si es válida. Si es falsa, dar un contraejemplo con valores concretos y escribir la transformación correcta.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>N.º</th>
+<th>Afirmación a revisar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>31</td>
+<td>A + ¬A·B = 1, porque A + ¬A = 1</td>
+</tr>
+<tr>
+<td>32</td>
+<td>¬(A·B) = ¬A·¬B</td>
+</tr>
+<tr>
+<td>33</td>
+<td>A + A·B = A + B</td>
+</tr>
+<tr>
+<td>34</td>
+<td>A XOR B equivale a A OR B para todos los valores</td>
+</tr>
+<tr>
+<td>35</td>
+<td>(A + B)·C = A + B·C, por asociatividad</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Dos expresiones que coinciden en una entrada son equivalentes</td>
+</tr>
+</tbody></table></div>
+<h3>6.6. PC1.1 · Formalización y comprobación de una política</h3>
+<p>Una sala permite acceso cuando la credencial está vigente y existe reserva, o cuando hay autorización del responsable. Una condición de bloqueo siempre impide entrar, incluso con autorización.</p>
+<p>Definir C = «credencial vigente», R = «reserva activa», A = «autorización del responsable» y B = «bloqueo activo». La redacción anterior es el contrato de la PC.</p>
+<p><strong>Trabajo solicitado:</strong></p>
+<ol>
+<li>Formular la expresión de permiso con agrupación explícita.</li>
+<li>Construir manualmente las 16 filas de C, R, A y B, indicando la salida.</li>
+<li>Derivar la expresión de denegación mediante De Morgan, identificando cada ley.</li>
+<li>Proponer una formulación equivalente del permiso y justificar la equivalencia. No asumir que toda expresión admite una reducción con menos variables.</li>
+<li>Traducir la formulación al lenguaje de esta lectura y contrastar las 16 filas. Se puede adaptar el enumerador suministrado o escribir casos explícitos; no se exige construir ciclos desde cero.</li>
+<li>Explicar un error de agrupación que permitiría entrar estando bloqueado y mostrar una entrada que lo detecte.</li>
+</ol>
+<p><strong>Restricciones:</strong> usar valores booleanos, no cadenas de texto como sustitutos; conservar el significado de cada variable; entregar una sola versión; no conectar el ejercicio a un sistema de acceso real. El dominio tiene dos valores por variable: una entrada textual desconocida se rechaza o se convierte explícitamente antes de evaluar, nunca se interpreta automáticamente como falso.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>C</th>
+<th>R</th>
+<th>A</th>
+<th>B</th>
+<th>Permiso esperado</th>
+<th>Qué comprueba</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>Ausencia de habilitación</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>Habilitación ordinaria</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>Autorización excepcional</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>Credencial insuficiente sin reserva</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>Prioridad del bloqueo</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>Bloqueo incluso con autorización</td>
+</tr>
+</tbody></table></div>
+<p>Estos son casos de aceptación de la PC, no su solución ni la tabla completa. Agregar las combinaciones restantes y comprobar que permiso y denegación siempre sean complementarios.</p>
+<p><strong>Evidencia:</strong> guardar el desarrollo algebraico, la tabla, el código, los comandos y las salidas reales en una carpeta personal <code>PC1.1</code>. Registrar la explicación en <code>evidencias/PC1.1.md</code>. Crear un commit funcional <code>feat(pc1.1): formalizar-y-verificar-politica</code>; obtener el hash real mediante <code>git rev-parse HEAD</code> y revisar el cambio con <code>git show HASH</code>. Para comparar avances usar <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>, sustituyendo los marcadores por hashes reales.</p>
+<p><strong>Comandos para la entrega personal:</strong></p>
+<pre><code class="language-bash">python3 solucion.py
+</code></pre>
+<p>No se requiere proyecto acumulativo ni rúbrica individual para esta PC.</p>
 <p><a id="esencial"></a></p>
-<h2>Lo esencial</h2>
+<h2>7. Lo esencial</h2>
 <ul>
-<li>Definir cada proposición antes de operar.</li>
-<li>Distinguir OR inclusivo de OR exclusivo.</li>
-<li>Probar equivalencia sobre todas las combinaciones.</li>
+<li>Definir el significado de las variables antes de formular una condición.</li>
+<li>Distinguir asignación, comparación e identidad algebraica.</li>
+<li>Interpretar + como OR y · como AND; sus leyes no son todas las de la aritmética.</li>
+<li>Usar XOR para diferencia y XNOR para coincidencia entre dos valores booleanos.</li>
+<li>Aplicar cada ley a una subexpresión completa y respetar paréntesis y negaciones.</li>
+<li>Distinguir absorción básica de la reducción A + ¬A·B = A + B.</li>
+<li>Comprobar equivalencia en todas las combinaciones, no solo en un ejemplo.</li>
+<li>Mantener condiciones sin efectos de estado cuando se trasladan identidades al código.</li>
 </ul>
-<h2>Referencias técnicas</h2>
+<h2>8. Referencias y lectura de apoyo</h2>
 <ul>
-<li><a href="https://docs.python.org/3.14/tutorial/">Tutorial oficial de Python</a></li>
-<li><a href="https://docs.python.org/3.14/library/">Biblioteca estándar de Python</a></li>
+<li>Pablo Torres P. <strong>Lógica Matemática</strong>, presentación de clase aportada por el docente, 42 páginas. <a href="../referencias/01.05-logica-matematica.pdf">Consultar PDF</a>. Variables y operadores: pp. 4–7; leyes: pp. 8–25; síntesis y aplicaciones: pp. 26–36; simplificación paso a paso: pp. 37–41. Esta lectura amplía la presentación y escribe cada negación y agrupación explícitamente.</li>
+<li>Python Software Foundation. <a href="https://docs.python.org/3.14/reference/expressions.html#boolean-operations">Expresiones y operaciones booleanas</a>, secciones 6.10–6.11. Referencia técnica para comparaciones, cortocircuito y precedencia.</li>
 </ul>
-<p><a href="../../../README.html">Índice del curso</a> · <a href="../java/material.html">Versión Java</a> · <a href="../presentacion.pptx">Presentación</a> · <a href="../../../02/2.1-algoritmos/python/material.html">Siguiente</a></p>
+<p><a href="../README.html">Volver al índice del tema</a></p>
 <nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="../presentacion.pptx" download>PPTX python</a><a href="../../../02/2.1-algoritmos/python/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"1.1-python"},'*');</script></body></html>

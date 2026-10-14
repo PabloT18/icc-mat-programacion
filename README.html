@@ -1,202 +1,128 @@
-<!doctype html>
-<html lang="es">
-
-<head>
-    <meta charset="utf-8">
-    <meta
-        name="viewport"
-        content="width=device-width,initial-scale=1"
-    >
-    <title>README · Programación</title>
-    <link
-        rel="stylesheet"
-        href="assets/css/styles.css"
-    >
-</head>
-
-<body>
-    <main class="page">
-        <nav class="article-nav"><a
-                href="index.html"
-                target="_top"
-            >Índice del curso</a><a
-                href="README.md"
-                download
-            >Descargar MD</a></nav>
-        <h1>Programación</h1>
-        <p><img
-                src="assets/logos/ups-computacion.png"
-                alt="UPS · Carrera de Computación"
-            ></p>
-        <p><strong>Asignatura:</strong> Programación · C-CT-ICO-101<br><strong>Nivel:</strong> 1 · Carrera de
-            Computación · Sede Cuenca<br><strong>Autor:</strong> Ing. Pablo Torres,
-            Mgtr.<br><strong>Repositorio:</strong> icc-pro-material</p>
-        <h2>Propósito y público</h2>
-        <p>Estudiar fundamentos de programación, diseñar algoritmos y desarrollar soluciones independientes. Utilizar
-            Python como lenguaje principal y Java como complemento. No desarrollar un proyecto acumulativo. El programa
-            oficial no especifica prerrequisitos formales; como preparación docente, manejar operaciones aritméticas,
-            archivos y terminal básica.</p>
-        <h2>Consultar el material</h2>
-        <p>Descomprimir el paquete y abrir <a href="index.html">index.html</a>. Seleccionar unidad y lenguaje, abrir una
-            lectura en el visor o en una página independiente y descargar MD o PPTX. Todas las PL se desarrollan en
-            Python. Las presentaciones de la Unidad 3 explican únicamente Python; las unidades 1 y 2 incluyen también
-            presentación Java.</p>
-        <p>Para servirlo por HTTP desde la raíz:</p>
-        <pre><code class="language-bash">python3 -m http.server 8000
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README · Programación</title><link rel="stylesheet" href="assets/css/styles.css"></head><body><main class="page"><nav class="article-nav"><a href="index.html" target="_top">Índice del curso</a><a href="README.md" download>Descargar MD</a></nav><h1>Programación</h1>
+<p><img src="assets/logos/ups-computacion.png" alt="UPS · Carrera de Computación"></p>
+<p><strong>Asignatura:</strong> Programación · C-CT-ICO-101<br><strong>Nivel:</strong> 1 · Carrera de Computación · Sede Cuenca<br><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Repositorio:</strong> icc-pro-material</p>
+<h2>Propósito y público</h2>
+<p>Estudiar fundamentos de programación, diseñar algoritmos y desarrollar soluciones independientes. Utilizar Python como lenguaje principal y Java como complemento. No desarrollar un proyecto acumulativo. El programa oficial no especifica prerrequisitos formales; como preparación docente, manejar operaciones aritméticas, archivos y terminal básica.</p>
+<h2>Consultar el material</h2>
+<p>Descomprimir el paquete y abrir <a href="index.html">index.html</a>. Seleccionar unidad y lenguaje, abrir una lectura en el visor o en una página independiente y descargar MD o PPTX. Todas las PL se desarrollan en Python. Las presentaciones de la Unidad 3 explican únicamente Python; las unidades 1 y 2 incluyen también presentación Java.</p>
+<p>Para servirlo por HTTP desde la raíz:</p>
+<pre><code class="language-bash">python3 -m http.server 8000
 </code></pre>
-        <p>Abrir <a href="http://localhost:8000">http://localhost:8000</a>. En Windows, utilizar <code>py</code> si
-            corresponde a la instalación disponible. La consulta utiliza HTML generado, fuentes, estilos y scripts
-            locales, sin CDN.</p>
-        <h2>Unidades</h2>
-        <div class="table-scroll">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Unidad</th>
-                        <th align="right">Segmentos</th>
-                        <th>Alcance</th>
-                        <th align="right">PL Python</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="01/README.html">1. Lógica Matemática</a></td>
-                        <td align="right">1</td>
-                        <td>Álgebra de Boole, con proposiciones como fundamento integrado</td>
-                        <td align="right">1</td>
-                    </tr>
-                    <tr>
-                        <td><a href="02/README.html">2. Algoritmos</a></td>
-                        <td align="right">1</td>
-                        <td>Representación, decisiones, repetición y pruebas de escritorio</td>
-                        <td align="right">1</td>
-                    </tr>
-                    <tr>
-                        <td><a href="03/README.html">3. Lenguaje de Programación</a></td>
-                        <td align="right">13</td>
-                        <td>Fundamentos, E/S, control, ciclos, funciones, cadenas, listas, recorridos, matrices, tuplas,
-                            archivos, módulos y entornos</td>
-                        <td align="right">4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p>Los códigos de segmentos son editoriales: el programa oficial no numera subtemas. Consultar la
-            correspondencia oficial en la documentación docente.</p>
-        <h2>Organización</h2>
-        <div class="table-scroll">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ruta</th>
-                        <th>Función</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>01/</code>, <code>02/</code>, <code>03/</code></td>
-                        <td>Unidades y segmentos</td>
-                    </tr>
-                    <tr>
-                        <td><code>python/material.md</code></td>
-                        <td>Lectura principal, demostración, ejercicios y PC</td>
-                    </tr>
-                    <tr>
-                        <td><code>java/material.md</code></td>
-                        <td>Versión complementaria con los mismos problemas y casos</td>
-                    </tr>
-                    <tr>
-                        <td><code>doc.md</code></td>
-                        <td>Correspondencia curricular del docente, separada de la lectura</td>
-                    </tr>
-                    <tr>
-                        <td><code>presentacion.pptx</code></td>
-                        <td>Presentación Python editable</td>
-                    </tr>
-                    <tr>
-                        <td><code>ejemplos/</code> de cada versión</td>
-                        <td>Demostración completa, datos y salida esperada</td>
-                    </tr>
-                    <tr>
-                        <td><code>assets/</code> de cada segmento</td>
-                        <td>Infografía SVG y PNG</td>
-                    </tr>
-                    <tr>
-                        <td><code>PLs/python/</code></td>
-                        <td>Guías autónomas con rúbrica y PPTX</td>
-                    </tr>
-                    <tr>
-                        <td><code>demostraciones/</code></td>
-                        <td>Lanzadores de los ejemplos sin duplicar sus fuentes</td>
-                    </tr>
-                    <tr>
-                        <td><code>plantillas/trabajo-estudiante/</code></td>
-                        <td>Inicio del repositorio personal de actividades</td>
-                    </tr>
-                    <tr>
-                        <td><code>docs/</code></td>
-                        <td>Mantenimiento y documentación docente</td>
-                    </tr>
-                    <tr>
-                        <td><code>scripts/</code></td>
-                        <td>Generación HTML y controles</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <h2>Trabajar con PC y PL</h2>
-        <ol>
-            <li>Leer conceptos y anticipar la salida de la demostración.</li>
-            <li>Ejecutar el ejemplo y comparar con <code>salida-esperada.txt</code>.</li>
-            <li>Resolver los ejercicios progresivos y la PC en una sola versión.</li>
-            <li>Crear una carpeta independiente por actividad y registrar evidencia en <code>evidencias/</code>.</li>
-            <li>Desarrollar las PL en Python, revisar su rúbrica y preparar defensa.</li>
-        </ol>
-        <p>No se incluyen soluciones de PC ni PL. Registrar commits reales, sin copiar hashes ficticios. Consultar <a
-                href="docs/guia-git.html"
-            >guía de Git</a> y <a href="docs/proyecto-estudiante.html">organización del trabajo</a>.</p>
-        <h2>Ejecutar demostraciones</h2>
-        <p>Desde la raíz:</p>
-        <pre><code class="language-bash">python3 demostraciones/python/ejecutar.py 3.09
+<p>Abrir <a href="http://localhost:8000">http://localhost:8000</a>. En Windows, utilizar <code>py</code> si corresponde a la instalación disponible. La consulta utiliza HTML generado, fuentes, estilos y scripts locales, sin CDN.</p>
+<h2>Unidades</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Unidad</th>
+<th align="right">Segmentos</th>
+<th>Alcance</th>
+<th align="right">PL Python</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="01/README.html">1. Lógica Matemática</a></td>
+<td align="right">1</td>
+<td>Álgebra de Boole, con proposiciones como fundamento integrado</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td><a href="02/README.html">2. Algoritmos</a></td>
+<td align="right">1</td>
+<td>Representación, decisiones, repetición y pruebas de escritorio</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td><a href="03/README.html">3. Lenguaje de Programación</a></td>
+<td align="right">13</td>
+<td>Fundamentos, E/S, control, ciclos, funciones, cadenas, listas, recorridos, matrices, tuplas, archivos, módulos y entornos</td>
+<td align="right">4</td>
+</tr>
+</tbody></table></div>
+<p>Los códigos de segmentos son editoriales: el programa oficial no numera subtemas. Consultar la correspondencia oficial en la documentación docente.</p>
+<h2>Organización</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ruta</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>01/</code>, <code>02/</code>, <code>03/</code></td>
+<td>Unidades y segmentos</td>
+</tr>
+<tr>
+<td><code>python/material.md</code></td>
+<td>Lectura principal, demostración, ejercicios y PC</td>
+</tr>
+<tr>
+<td><code>java/material.md</code></td>
+<td>Versión complementaria con los mismos problemas y casos</td>
+</tr>
+<tr>
+<td><code>doc.md</code></td>
+<td>Correspondencia curricular del docente, separada de la lectura</td>
+</tr>
+<tr>
+<td><code>presentacion.pptx</code></td>
+<td>Presentación Python editable</td>
+</tr>
+<tr>
+<td><code>ejemplos/</code> de cada versión</td>
+<td>Demostración completa, datos y salida esperada</td>
+</tr>
+<tr>
+<td><code>assets/</code> de cada segmento</td>
+<td>Infografía SVG y PNG</td>
+</tr>
+<tr>
+<td><code>PLs/python/</code></td>
+<td>Guías autónomas con rúbrica y PPTX</td>
+</tr>
+<tr>
+<td><code>demostraciones/</code></td>
+<td>Lanzadores de los ejemplos sin duplicar sus fuentes</td>
+</tr>
+<tr>
+<td><code>plantillas/trabajo-estudiante/</code></td>
+<td>Inicio del repositorio personal de actividades</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>Mantenimiento y documentación docente</td>
+</tr>
+<tr>
+<td><code>scripts/</code></td>
+<td>Generación HTML y controles</td>
+</tr>
+</tbody></table></div>
+<h2>Trabajar con PC y PL</h2>
+<ol>
+<li>Leer conceptos y anticipar la salida de la demostración.</li>
+<li>Ejecutar el ejemplo y comparar con <code>salida-esperada.txt</code>.</li>
+<li>Resolver los ejercicios progresivos y la PC en una sola versión.</li>
+<li>Crear una carpeta independiente por actividad y registrar evidencia en <code>evidencias/</code>.</li>
+<li>Desarrollar las PL en Python, revisar su rúbrica y preparar defensa.</li>
+</ol>
+<p>No se incluyen soluciones de PC ni PL. Registrar commits reales, sin copiar hashes ficticios. Consultar <a href="docs/guia-git.html">guía de Git</a> y <a href="docs/proyecto-estudiante.html">organización del trabajo</a>.</p>
+<h2>Ejecutar demostraciones</h2>
+<p>Desde la raíz:</p>
+<pre><code class="language-bash">python3 demostraciones/python/ejecutar.py 3.09
 python3 demostraciones/java/ejecutar.py 3.09
 </code></pre>
-        <p>El lanzador Java utiliza Python únicamente para localizar, compilar y ejecutar la demostración; los fuentes
-            Java no dependen de Python. También se puede entrar en su carpeta <code>ejemplos</code>, ejecutar
-            <code>javac -encoding UTF-8 -d build *.java</code> y <code>java -cp build Demo</code>. No utilizar Maven ni
-            Gradle. Los comandos específicos y entradas aparecen en cada lectura.</p>
-        <h2>Fuentes y tipografía</h2>
-        <p>Instalar <code>assets/fonts/DejaVuSans.ttf</code> y <code>assets/fonts/DejaVuSans-Bold.ttf</code> antes de
-            editar las presentaciones. Abrir cada archivo de fuente y seleccionar la opción de instalación del sistema.
-            La licencia está incluida. HTML y PPTX utilizan DejaVu Sans. El visor de GitHub controla la tipografía del
-            Markdown.</p>
-        <h2>Regenerar y comprobar</h2>
-        <p>Requerir Node.js &gt;=22. El parser Markdown está incluido; no ejecutar <code>npm install</code> para generar
-            HTML.</p>
-        <pre><code class="language-bash">node scripts/sync-examples.mjs --check
+<p>El lanzador Java utiliza Python únicamente para localizar, compilar y ejecutar la demostración; los fuentes Java no dependen de Python. También se puede entrar en su carpeta <code>ejemplos</code>, ejecutar <code>javac -encoding UTF-8 -d build *.java</code> y <code>java -cp build Demo</code>. No utilizar Maven ni Gradle. Los comandos específicos y entradas aparecen en cada lectura.</p>
+<h2>Fuentes y tipografía</h2>
+<p>Instalar <code>assets/fonts/DejaVuSans.ttf</code> y <code>assets/fonts/DejaVuSans-Bold.ttf</code> antes de editar las presentaciones. Abrir cada archivo de fuente y seleccionar la opción de instalación del sistema. La licencia está incluida. HTML y PPTX utilizan DejaVu Sans. El visor de GitHub controla la tipografía del Markdown.</p>
+<h2>Regenerar y comprobar</h2>
+<p>Requerir Node.js &gt;=22. El parser Markdown está incluido; no ejecutar <code>npm install</code> para generar HTML.</p>
+<pre><code class="language-bash">node scripts/sync-examples.mjs --check
 node scripts/build-site.mjs
 node scripts/check-links.mjs
 </code></pre>
-        <p>También ejecutar <code>npm run build:site</code> y <code>npm run check:links</code>. Editar
-            <code>material.md</code> como fuente de lectura y demostración. Tras cambiar bloques marcados, ejecutar
-            <code>node scripts/sync-examples.mjs</code> para actualizar fuentes. Regenerar sobrescribe HTML y
-            <code>course-data.js</code>; no modifica PPTX. Cambiar CSS no exige convertir Markdown otra vez. Agregar
-            contenidos requiere registrarlos en <code>assets/catalogo.json</code>.</p>
-        <h2>Publicación y mantenimiento</h2>
-        <p>Consultar <a href="docs/publicacion.html">publicación</a>, <a href="docs/catalogo.html">esquema del
-                catálogo</a>, <a href="docs/versiones.html">versiones</a> y <a
-                href="docs/verificacion.html">verificación</a>. No se ha publicado el sitio ni creado un repositorio
-            remoto. Preparar solo la carpeta <code>build/pages</code> mediante el script de staging antes de publicar.
-        </p>
-        <h2>Documentación docente</h2>
-        <p>Consultar <a href="docs/analisis-referencias.html">análisis de referencias</a>, <a
-                href="docs/mapa-curricular.html"
-            >mapa curricular</a> y <a href="programa-analitico.pdf">programa oficial</a>. Mantener esta correspondencia
-            al modificar contenidos. Los bancos Moodle están agrupados por unidad, tema, conceptos y trazas; consultar
-            <a href="docs/moodle.html">guía de importación</a>.</p>
-        <p>El inventario real está en <code>docs/arbol.txt</code>. Después de modificar y verificar la entrega, ejecutar
-            <code>python3 scripts/make-manifest.py</code> para actualizar inventario y <code>MANIFEST.sha256</code>. El
-            manifiesto excluye su propio hash y archivos temporales.</p>
-    </main>
-</body>
-
-</html>
+<p>También ejecutar <code>npm run build:site</code> y <code>npm run check:links</code>. Editar <code>material.md</code> como fuente de lectura y demostración. Tras cambiar bloques marcados, ejecutar <code>node scripts/sync-examples.mjs</code> para actualizar fuentes. Regenerar sobrescribe HTML y <code>course-data.js</code>; no modifica PPTX. Cambiar CSS no exige convertir Markdown otra vez. Agregar contenidos requiere registrarlos en <code>assets/catalogo.json</code>.</p>
+<h2>Publicación y mantenimiento</h2>
+<p>Consultar <a href="docs/publicacion.html">publicación</a>, <a href="docs/catalogo.html">esquema del catálogo</a>, <a href="docs/versiones.html">versiones</a> y <a href="docs/verificacion.html">verificación</a>. No se ha publicado el sitio ni creado un repositorio remoto. Preparar solo la carpeta <code>build/pages</code> mediante el script de staging antes de publicar.</p>
+<h2>Documentación docente</h2>
+<p>Consultar <a href="docs/analisis-referencias.html">análisis de referencias</a>, <a href="docs/mapa-curricular.html">mapa curricular</a> y <a href="programa-analitico.pdf">programa oficial</a>. Mantener esta correspondencia al modificar contenidos. Los bancos Moodle están agrupados por unidad, tema, conceptos y trazas; consultar <a href="docs/moodle.html">guía de importación</a>.</p>
+<p>El inventario real está en <code>docs/arbol.txt</code>. Después de modificar y verificar la entrega, ejecutar <code>python3 scripts/make-manifest.py</code> para actualizar inventario y <code>MANIFEST.sha256</code>. El manifiesto excluye su propio hash y archivos temporales.</p>
+</main></body></html>

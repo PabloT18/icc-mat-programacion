@@ -1,40 +1,38 @@
 # Documento docente · 1.1 · Álgebra de Boole
 
-## Fuente curricular
+## Fuentes y alcance
 
-Consultar [programa analítico](../../programa-analitico.pdf#page=2), página 1 para datos de identificación y página 2 para unidades, contenidos, resultados e indicadores. El programa tiene cuatro páginas. Las páginas 3 y 4 describen metodología, evaluación y bibliografía; no se trasladan aprobaciones ni normativa como validación nueva.
+El programa analítico de Programación leído para la entrega general identifica la Unidad 1 «Lógica Matemática», con 30 horas oficiales, en la página 2. Incluye Álgebra de Boole y Teoría de proposiciones. No establece horas por subtema ni códigos de subtema; 1.1 es numeración editorial. Esta actualización mantiene un único segmento y concentra las proposiciones necesarias dentro de las variables booleanas. Las 30 horas se registran como dato oficial, no como una propuesta de duración de esta lectura.
 
-**Asignatura:** Programación, C-CT-ICO-101, nivel 1. No constan prerrequisitos formales.
+Resultado oficial: «Diseña soluciones a problemas de lógica empleando álgebra de Boole y teoría de proposiciones.»
 
-**Unidad 1:** Lógica Matemática. **Horas oficiales de la unidad:** 30. No constan horas por subtema. Registrar las horas sin usarlas para distribuir este material, según la decisión del docente de concentrar trabajo en Unidad 3.
+Indicador oficial: «Aplica lógica matemática para resolver problemas.»
 
-**Numeración:** 1.1 es un código editorial; el programa no numera subtemas.
+La referencia de secuencia es la presentación del docente [Lógica Matemática](referencias/01.05-logica-matematica.pdf), 42 páginas. No se considera esta presentación un reemplazo del programa analítico. Las páginas 4–7 introducen álgebra, aplicaciones, variables y operadores; las páginas 10–25 desarrollan identidad, anulación, idempotencia, complemento, distributiva, De Morgan y absorción; las páginas 37–41 detallan una simplificación. Se adelantan las variables al inicio y se agrupan las aplicaciones antes de las leyes, siguiendo la solicitud de actualización.
 
-**Contenido correspondiente:** Álgebra de Boole; proposiciones como fundamento integrado.
+## Correspondencia docente
 
-## Resultado de aprendizaje oficial
-
-> Diseña soluciones a problemas de lógica empleando álgebra de Boole y teoría de proposiciones.
-
-## Indicadores oficiales
-
-> Aplica lógica matemática para resolver problemas.
-
-## Correspondencia con el material Python
-
-| Apartado exacto del MD con enlace | Aporte al resultado | Indicador | Evidencia observable |
+| Apartado exacto del material Python | Aporte al resultado | Indicador | Evidencia observable |
 |---|---|---|---|
-| [1.1. Proposiciones y valores de verdad](python/material.md#concepto-1) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Aplica lógica matemática para resolver problemas. | Explicar proposiciones y valores de verdad con un caso y un contraejemplo. |
-| [1.2. Negación, conjunción y disyunción](python/material.md#concepto-2) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Aplica lógica matemática para resolver problemas. | Explicar negación, conjunción y disyunción con un caso y un contraejemplo. |
-| [1.3. Equivalencia y leyes de De Morgan](python/material.md#concepto-3) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Aplica lógica matemática para resolver problemas. | Explicar equivalencia y leyes de de morgan con un caso y un contraejemplo. |
-| [1.4. Reglas, implicación y comprobación](python/material.md#concepto-4) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Aplica lógica matemática para resolver problemas. | Explicar reglas, implicación y comprobación con un caso y un contraejemplo. |
-| [2. Demostración guiada](python/material.md#demostracion) | Modelar una solución ejecutable. Reproducirla con apoyo no basta para acreditar autonomía. | Aplica lógica matemática para resolver problemas. | Ejecutar el ejemplo, anticipar salida y explicar una modificación. |
-| [3. PC1.1 · Práctica de clase](python/material.md#pc) | Observar resolución autónoma sobre un problema distinto. | Aplica lógica matemática para resolver problemas. | Revisar fuente, casos de aceptación, commit real y defensa. |
+| [1. Variables booleanas y expresiones](python/material.md#concepto-1) | Identificar el dominio y formular condiciones; aporte conceptual parcial | Aplica lógica matemática para resolver problemas | Define variables sin ambigüedad y enumera todas las combinaciones |
+| [2. Operadores lógicos](python/material.md#concepto-2) | Elegir operaciones acordes con un requisito | Mismo indicador oficial | Distingue OR, XOR y XNOR mediante filas que separan sus resultados |
+| [3. Aplicaciones generales del álgebra de Boole](python/material.md#concepto-3) | Traducir decisiones verbales a expresiones | Mismo indicador oficial | Explica el alcance de una condición de bloqueo y sus paréntesis |
+| [4. Leyes del álgebra de Boole](python/material.md#concepto-4) | Justificar transformaciones equivalentes | Mismo indicador oficial | Identifica la subexpresión y la ley aplicable; evita cancelar términos indebidamente |
+| [5. Simplificación de expresiones: dos ejemplos resueltos](python/material.md#demostracion) | Modelar una derivación y contrastarla exhaustivamente; lectura guiada, no evidencia suficiente de autonomía | Mismo indicador oficial | Explica cada paso y relaciona la tabla con las dos expresiones |
+| [6. Práctica: aplicación de leyes y simplificación](python/material.md#pc) | Evaluar transferencia y resolución autónoma | Mismo indicador oficial | Presenta desarrollo justificado, contraejemplos, tabla completa y defensa de PC1.1 |
 
-## Demostración y PC
+Java conserva los mismos problemas y evidencias, con operadores y estructura de ejecución propios. No se añaden resultados ni indicadores oficiales nuevos. El dominio de ciclos no se evalúa en esta unidad: el enumerador se suministra como herramienta de contraste.
 
-La demostración utiliza datos conocidos y guía la lectura del código. La PC cambia el problema y exige producir una solución, probar fronteras y explicar decisiones. No atribuir logro de implementación únicamente por leer teoría o copiar la demostración. Para las unidades 1 y 2, priorizar tabla de verdad y diseño algorítmico respectivamente; el código funciona como contraste.
+## Precisiones editoriales
 
-## Secuencia y alcance
+- La definición de complemento de las páginas 16 y 30 llama «neutro» al resultado. Se corrige a valores absorbentes: OR con el complemento produce 1; AND produce 0. Los neutros son 0 para OR y 1 para AND.
+- La segunda identidad de De Morgan de la tabla de la página 30 conserva AND en el lado derecho. Se corrige a ¬(A·B) = ¬A + ¬B, coherente con la explicación de la página 21.
+- En el ejemplo de absorción de la página 25 se conserva la evaluación correcta de 0·(0 + 1): el paréntesis vale 1. El resultado final sigue siendo 0.
+- Se escriben todas las negaciones con ¬ y agrupaciones explícitas, evitando pérdida de barras en la extracción del PDF.
+- «XAND» se interpreta como XNOR, nombre estándar de la equivalencia booleana; se distingue de NAND. Se añade como complemento conceptual solicitado.
+- Se desarrolla A + ¬A·B = A + B mediante distributiva, complemento e identidad, sin confundirla con la absorción básica A + A·B = A.
+- La PC ahora utiliza cuatro variables e incorpora bloqueo prioritario. Los casos parciales no sustituyen las 16 filas requeridas. No se publica su solución.
 
-Operaciones aritméticas y lectura de condiciones. Este segmento desarrolla contenido oficial. Las versiones Java comparten los contratos; esta correspondencia se centra en Python. Las prácticas son independientes y no amplían un proyecto acumulativo.
+## Uso y mantenimiento
+
+Los documentos MD son lecturas ampliadas. El PDF permanece como referencia original, sin modificaciones; por ello conserva las imprecisiones que se corrigen aquí. No se han generado PPTX ni actualizado bancos de evaluación con este paquete. Al integrarlo en el curso, revisar esos recursos según la nueva secuencia. El contenido estudiantil no incorpora resultados de aprendizaje ni tablas curriculares.
