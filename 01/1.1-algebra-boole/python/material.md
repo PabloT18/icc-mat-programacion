@@ -6,7 +6,7 @@
 
 **Autor:** Ing. Pablo Torres, Mgtr.  
 **Unidad 1:** Lógica Matemática  
-**Institución:** Universidad Politécnica Salesiana · Computación · Cuenca
+
 
 
 [1.1 · Álgebra de Boole](../README.md) 

@@ -6,7 +6,7 @@
 
 **Autor:** Ing. Pablo Torres, Mgtr.  
 **Unidad 2:** Algoritmos  
-**Institución:** Universidad Politécnica Salesiana · Computación · Cuenca
+
 
 [Índice del curso](../../../README.md) · [Versión Python](../python/material.md) · [Presentación](../presentacion-java.pptx) · [Anterior](../../../01/1.1-algebra-boole/java/material.md) · [Siguiente](../../../03/3.01-introduccion/java/material.md)
 

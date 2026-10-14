@@ -6,7 +6,7 @@
 
 **Autor:** Ing. Pablo Torres, Mgtr.  
 **Unidad 3:** Lenguaje de Programación  
-**Institución:** Universidad Politécnica Salesiana · Computación · Cuenca
+
 
 [Índice del curso](../../../README.md) · [Versión Python](../python/material.md) · [Presentación Python](../presentacion.pptx) · [Anterior](../../3.04-iteracion/java/material.md) · [Siguiente](../../3.06-cadenas/java/material.md)
 
