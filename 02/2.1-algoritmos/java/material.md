@@ -8,7 +8,7 @@
 **Unidad 2:** Algoritmos  
 
 
-[Índice del curso](../../../README.md) · [Versión Python](../python/material.md) · [Presentación](../presentacion-java.pptx) · [Anterior](../../../01/1.1-algebra-boole/java/material.md) · [Siguiente](../../../03/3.01-introduccion/java/material.md)
+[Índice del curso](../../../README.md) · [Versión Python](../python/material.md)
 
 [Conceptos](#concepto-1) · [Demostración](#demostracion) · [Práctica de clase](#pc) · [Lo esencial](#esencial)
 
@@ -188,4 +188,4 @@ No se requiere proyecto acumulativo ni rúbrica individual de esta PC.
 - [Aprender Java, sitio oficial](https://dev.java/learn/)
 - [API de Java SE 27](https://docs.oracle.com/en/java/javase/27/docs/api/)
 
-[Índice del curso](../../../README.md) · [Versión Python](../python/material.md) · [Presentación](../presentacion-java.pptx) · [Anterior](../../../01/1.1-algebra-boole/java/material.md) · [Siguiente](../../../03/3.01-introduccion/java/material.md)
+[Índice del curso](../../../README.md) · [Versión Python](../python/material.md) 

@@ -8,7 +8,7 @@
 **Unidad 2:** Algoritmos  
 
 
-[Índice del curso](../../../README.md) · [Versión Java](../java/material.md) · [Presentación](../presentacion.pptx) · [Anterior](../../../01/1.1-algebra-boole/python/material.md) · [Siguiente](../../../03/3.01-introduccion/python/material.md)
+[Índice del curso](../../../README.md) · [Versión Java](../java/material.md) 
 
 [Conceptos](#concepto-1) · [Demostración](#demostracion) · [Práctica de clase](#pc) · [Lo esencial](#esencial)
 
@@ -182,4 +182,4 @@ No se requiere proyecto acumulativo ni rúbrica individual de esta PC.
 - [Tutorial oficial de Python](https://docs.python.org/3.14/tutorial/)
 - [Biblioteca estándar de Python](https://docs.python.org/3.14/library/)
 
-[Índice del curso](../../../README.md) · [Versión Java](../java/material.md) · [Presentación](../presentacion.pptx) · [Anterior](../../../01/1.1-algebra-boole/python/material.md) · [Siguiente](../../../03/3.01-introduccion/python/material.md)
+[Índice del curso](../../../README.md) · [Versión Java](../java/material.md) 

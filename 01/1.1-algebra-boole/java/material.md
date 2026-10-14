@@ -4,9 +4,6 @@
 
 ## 1.1 · Álgebra de Boole · Java
 
-![UPS · Carrera de Computación](../../../assets/logos/ups-computacion.png)
-
-
 **Autor:** Ing. Pablo Torres, Mgtr.  
 **Unidad 1:** Lógica Matemática  
 
