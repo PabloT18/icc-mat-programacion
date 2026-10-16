@@ -21,7 +21,7 @@
 - [Leyes](#concepto-4) 
 - [Simplificaciones resueltas](#demostracion) 
 - [Práctica](#pc) 
-- [Lo esencial](#esencial)
+
 
 Este material desarrolla la teoría necesaria para estudiar el tema de forma autónoma. La presentación sirve como síntesis para la clase; aquí se explican la formulación, las decisiones de modelado y la justificación de cada transformación. Las aplicaciones iniciales contextualizan las leyes y los ejercicios finales permiten practicarlas.
 

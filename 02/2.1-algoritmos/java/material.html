@@ -1,140 +1,755 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2.1 · Representación y estructuras de algoritmos · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/java/index.html">Anterior</a><a href="../../../03/3.01-introduccion/java/index.html">Siguiente</a></nav><h1>Programación</h1>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2.1 · Representación y estructuras de algoritmos · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/java/index.html">Anterior</a><a href="../../2.2-algoritmos/java/index.html">Siguiente</a></nav><h1>Programación</h1>
 <p><img src="../../../assets/logos/ups-computacion.png" alt="UPS · Carrera de Computación"></p>
-<h2>2.1 · Representación y estructuras de algoritmos · Java</h2>
-<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 2:</strong> Algoritmos  </p>
-<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a></p>
-<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostración</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
-<p><strong>Contexto.</strong> Calcular el costo de un estacionamiento exige acordar qué significa una fracción de hora y qué ocurre con una duración inválida. El algoritmo debe resolver esas decisiones antes de elegir Python o Java.</p>
-<p><strong>Prerrequisitos.</strong> Álgebra de Boole y operaciones aritméticas.</p>
-<h2>1. Conceptos y ejemplos</h2>
+<h2>2.1 · Algoritmos, representaciones y decisiones · Java</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 2:</strong> Algoritmos · sección de organización didáctica<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../python/material.html">Versión Python</a> · <a href="../../2.2-algoritmos/java/material.html">Siguiente: bucles</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostraciones</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Describir un problema, definir sus datos y elegir los pasos que producen una respuesta. El foco está en el algoritmo y su representación gráfica; el lenguaje aparece solo como una conexión complementaria.</p>
+<p><strong>Prerrequisitos.</strong> Variables booleanas, AND, OR y NOT; operaciones aritméticas y comparación de valores.</p>
+<p><strong>Cómo estudiar.</strong> Leer la teoría, seguir cada diagrama con un lápiz o una traza y resolver los enunciados en un editor de diagramas. Las versiones Python y Java comparten los problemas, figuras y casos; estudiar una sola versión es suficiente. No se exige programar en esta unidad.</p>
 <p><a id="concepto-1"></a></p>
-<h3>1.1. Problema, contrato y datos</h3>
-<p>Un algoritmo describe pasos precisos para obtener un resultado a partir de entradas. Delimitar qué datos recibe, sus unidades y rangos, qué entrega y qué casos rechaza. Un contrato distingue precondiciones de postcondiciones. “Calcular un promedio” es incompleto si no se define qué ocurre con cero observaciones. Descomponer el problema en lectura, procesamiento y presentación evita mezclar reglas con mensajes.</p>
-<p><strong>Aplicar en Java.</strong> Usar variables con tipo explícito para representar entradas y resultados. Separar el algoritmo del contenedor public class y del punto de entrada main.</p>
-<pre><code class="language-java">int horas = 3;
-int tarifa = 2;
-int costo = horas * tarifa;
-</code></pre>
-<p><a id="concepto-2"></a></p>
-<h3>1.2. Pseudocódigo y diagramas de flujo</h3>
-<p>El pseudocódigo expresa el diseño con Leer, Escribir, Si y Mientras sin depender de un compilador. Un diagrama de flujo representa inicio y fin con terminales, entrada y salida con paralelogramos, procesos con rectángulos y decisiones con rombos. Rotular las ramas de una decisión. Un retorno de una flecha debe mostrar dónde se vuelve a comprobar la condición. Mantener correspondencia entre ambos formatos.</p>
-<p><strong>Aplicar en Java.</strong> Las llaves delimitan bloques. Indentar facilita la lectura, pero el compilador determina los bloques mediante llaves. No colocar un punto y coma inmediatamente después de la condición de un if.</p>
-<pre><code class="language-java">if (horas &gt; 0) {
-    System.out.println(costo);
-}
-</code></pre>
-<p><a id="concepto-3"></a></p>
-<h3>1.3. Decisión y repetición</h3>
-<p>Una decisión elige un camino y una repetición ejecuta un bloque varias veces. Definir primero si se conoce el número de repeticiones. Un ciclo necesita estado inicial, condición de permanencia y actualización que acerque al final. Un contador mide ocurrencias y un acumulador combina valores. En una suma, inicializar el acumulador en cero; en un producto, en uno.</p>
-<p><strong>Aplicar en Java.</strong> Usar if, while y for. Un for con tres componentes permite visualizar inicialización, condición y actualización. Respetar el límite inclusivo o exclusivo definido en el contrato.</p>
-<pre><code class="language-java">int total = 0;
-for (int numero = 1; numero &lt;= 3; numero++) {
-    total += numero;
-}
-</code></pre>
-<p><a id="concepto-4"></a></p>
-<h3>1.4. Prueba de escritorio y límites</h3>
-<p>Una prueba de escritorio registra paso, condición y valores después de cada instrucción relevante. Seleccionar un caso normal, el mínimo permitido, un valor fuera de dominio y un caso que tome la otra rama. La traza permite encontrar errores lógicos aun cuando el programa ejecuta. Terminar no demuestra que el resultado sea correcto; una prueba aislada tampoco cubre todas las entradas.</p>
-<p><strong>Aplicar en Java.</strong> Compilar comprueba parte de la sintaxis y de los tipos, pero no la corrección del algoritmo. Ejecutar los mismos datos utilizados en la traza y explicar cualquier diferencia.</p>
-<pre><code class="language-java">int minutos = -1;
-System.out.println(minutos &lt; 0 ? &quot;Duración inválida&quot; : &quot;Duración válida&quot;);
-</code></pre>
-<p>Los bloques breves anteriores ilustran una operación y pueden requerir variables o imports del contexto. Utilizar la demostración siguiente como programa completo.</p>
-<h3>Diagrama de la demostración</h3>
-<p><img src="../assets/diagrama-estacionamiento.svg" alt="Diagrama de flujo del estacionamiento"></p>
-<h3>Síntesis visual</h3>
-<p><img src="../assets/infografia.svg" alt="Infografía técnica del tema"></p>
-<p><a id="demostracion"></a></p>
-<h2>2. Demostración guiada</h2>
-<p><strong>Problema.</strong> Calcular las horas iniciadas y el costo de una estancia de 125 minutos a tarifa 2 por hora iniciada.</p>
-<p><strong>Contrato de esta demostración.</strong> Recibir minutos enteros no negativos. Para cero, obtener cero horas y costo cero. Rechazar negativos. La demostración fija 125; modificar esa asignación para probar 0, 60, 61 y -1.</p>
-<p><strong>Regla de estacionamiento.</strong> Cobrar 2 por cada hora iniciada. Una duración de cero minutos cuesta cero. Rechazar duraciones negativas. Para enteros no negativos, calcular horas como (minutos + 59) dividido enteramente por 60.</p>
-<pre><code class="language-text">Leer minutos
-Si minutos &lt; 0 Entonces
-    Escribir &quot;Duración inválida&quot;
-SiNo
-    horas &lt;- (minutos + 59) DIV 60
-    Escribir horas, horas * 2
-FinSi
-</code></pre>
-<p><strong>Fuente:</strong> <a href="ejemplos/Demo.java">ejemplos/Demo.java</a>.</p>
-<!-- example: Demo.java -->
-<pre><code class="language-java">public class Demo {
-    public static void main(String[] args) {
-        int minutos = 125;
-        if (minutos &lt; 0) {
-            System.out.println(&quot;Duración inválida&quot;);
-        } else {
-            int horas = (minutos + 59) / 60;
-            System.out.println(&quot;Horas: &quot; + horas);
-            System.out.println(&quot;Costo: &quot; + horas * 2);
-        }
-    }
-}
-</code></pre>
-<h3>Ejecutar</h3>
-<p>Abrir una terminal dentro de <code>02/2.1-algoritmos/java/ejemplos/</code> y ejecutar:</p>
-<pre><code class="language-bash">javac -encoding UTF-8 -d build *.java
-java -cp build Demo
-</code></pre>
-<h3>Salida esperada</h3>
-<pre><code class="language-text">Horas: 3
-Costo: 6
-</code></pre>
-<p><strong>Interpretación.</strong> Seguir las asignaciones y los bloques en orden, identificar qué instrucción produce cada línea y contrastar con el contrato. Modificar un dato por vez y anticipar el resultado antes de ejecutar. La salida de referencia es una expectativa; el registro de verificaciones indica qué ejecuciones se realizaron.</p>
-<p><a id="pc"></a></p>
-<h2>3. PC2.1 · Práctica de clase</h2>
-<p>Diseñar un algoritmo para sumar consumos enteros no negativos hasta recibir -1. Rechazar otros negativos sin acumularlos. Producir pseudocódigo, diagrama y prueba de escritorio. Mostrar cantidad y suma; no calcular promedio cuando no existan datos. Implementar en un lenguaje solo después de comprobar el diseño.</p>
-<h3>Requisitos y restricciones</h3>
-<ul>
-<li>Resolver en una sola versión, Python o Java.</li>
-<li>Mantener nombres y responsabilidades indicados; explicar cualquier adaptación idiomática.</li>
-<li>Aplicar únicamente los conceptos ya introducidos.</li>
-<li>Conservar las entradas cuando el enunciado lo exija.</li>
-<li>Distinguir valores fuera de contrato de errores que el programa debe gestionar.</li>
-</ul>
-<h3>Casos de aceptación de la PC</h3>
+<h2>1. Conceptos y ejemplos</h2>
+<h3>1.1. Problema, solución y algoritmo</h3>
+<p>Un <strong>problema</strong> expresa una situación que se desea resolver. Una <strong>solución</strong> describe el resultado que satisface esa necesidad. Un <strong>algoritmo</strong> organiza las operaciones y decisiones necesarias para obtener ese resultado a partir de unos datos. No basta con decir «calcular el pago»: es necesario precisar qué datos intervienen, cómo se combinan y qué debe comunicarse.</p>
+<p>Pensemos en una papelería: se conoce el precio de un cuaderno y la cantidad comprada. El resultado buscado es el importe. El procedimiento consiste en obtener ambos datos, multiplicarlos y comunicar el producto. La fórmula <code>importe = precio × cantidad</code> explica el cálculo, pero no representa por sí sola todo el recorrido de entrada, procesamiento y salida.</p>
+<p>Un algoritmo puede ejecutarlo una persona o una máquina capaz de realizar sus operaciones. No depende de Python ni de Java; la implementación en un lenguaje es una etapa posterior. En esta sección se diseñan procedimientos finitos para tareas delimitadas. Los servicios que permanecen activos continuamente se estudiarán en otros contextos.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Entrada / escenario</th>
+<th>Propiedad</th>
+<th>Significado operativo</th>
+<th>Cómo revisarla</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Precisión</td>
+<td>Cada instrucción tiene una interpretación suficiente para ejecutarse.</td>
+<td>Cambiar «dar un buen descuento» por una regla numérica.</td>
+</tr>
+<tr>
+<td>Orden</td>
+<td>El resultado de un paso está disponible cuando se necesita.</td>
+<td>Leer el precio antes de calcular el importe.</td>
+</tr>
+<tr>
+<td>Efectividad</td>
+<td>Las operaciones son realizables con los recursos previstos.</td>
+<td>Especificar una fórmula, no «adivinar el resultado».</td>
+</tr>
+<tr>
+<td>Terminación</td>
+<td>Para las entradas admitidas, el procedimiento alcanza su cierre.</td>
+<td>Comprobar que los caminos de esta sección llegan a Fin.</td>
+</tr>
+<tr>
+<td>Corrección</td>
+<td>El resultado satisface el problema y su contrato.</td>
+<td>Contrastar casos normales y de frontera.</td>
+</tr>
+<tr>
+<td>Generalidad</td>
+<td>Resuelve una clase de casos, no solamente un ejemplo.</td>
+<td>Usar precio y cantidad, no fijar siempre 2 y 5.</td>
+</tr>
+</tbody></table></div>
+<p>La precisión no obliga a detallar acciones irrelevantes. «Leer cantidad» es suficiente si ya se acordó qué cantidad se solicita; «procesar todo» no identifica una operación verificable. El nivel de detalle debe permitir que otra persona reproduzca la solución sin preguntar por reglas esenciales.</p>
+<h3>1.2. El contrato: entradas, proceso y salidas</h3>
+<p>Antes del dibujo, redactar el <strong>contrato del problema</strong>: qué recibe, qué supone sobre esos datos y qué garantiza al terminar. Una entrada válida cumple el dominio especificado. Una precondición es un requisito que se da por cumplido antes de ejecutar; una validación es una comprobación que el propio procedimiento debe realizar. No son intercambiables.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Ejemplo: importe de una compra</th>
+<th>Pregunta que resuelve</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Entradas</td>
+<td>precio real no negativo; cantidad entera positiva</td>
+<td>¿Qué información llega del exterior?</td>
+</tr>
+<tr>
+<td>Precondición</td>
+<td>Los datos recibidos cumplen esos dominios</td>
+<td>¿Qué puede suponerse?</td>
+</tr>
+<tr>
+<td>Proceso</td>
+<td>importe ← precio × cantidad</td>
+<td>¿Cómo se transforman los datos?</td>
+</tr>
+<tr>
+<td>Salida</td>
+<td>importe, expresado en dólares</td>
+<td>¿Qué resultado debe observarse?</td>
+</tr>
+<tr>
+<td>Poscondición</td>
+<td>El importe coincide con el producto de las entradas</td>
+<td>¿Qué se garantiza al terminar?</td>
+</tr>
+</tbody></table></div>
+<p>Si el enunciado exige rechazar cantidades negativas, esa situación debe tener un recorrido explícito. Si garantiza entradas positivas, se puede diseñar primero el cálculo sin validación y declarar esa limitación. No es correcto afirmar que un diagrama valida datos si únicamente calcula con ellos.</p>
+<p><strong>Ejemplo de análisis.</strong> Para convertir minutos a horas y minutos restantes, la entrada es un entero <code>m ≥ 0</code>; el proceso obtiene el cociente entero entre 60 y el resto de esa división; la salida son ambas cantidades. Para <code>m = 135</code>, se esperan 2 horas y 15 minutos. Es importante diferenciar esta salida de 2,25 horas: representan la misma duración con formatos distintos.</p>
+<h3>1.3. Variables, expresiones y estado</h3>
+<p>Una <strong>variable</strong> es un nombre asociado a un valor que puede cambiar durante el procedimiento. El <strong>estado</strong> es el conjunto de valores relevantes en un instante. Una expresión combina valores, variables y operaciones para producir un resultado; no siempre modifica el estado.</p>
+<p>En los diagramas usamos <code>←</code> para <strong>asignar</strong>: primero se calcula lo que está a la derecha y luego se guarda en el nombre de la izquierda. En <code>total ← precio × cantidad</code>, cambian los datos asociados a <code>total</code>; no cambian <code>precio</code> ni <code>cantidad</code>. En una condición, <code>=</code> significa comparar igualdad. Esta convención evita confundir una actualización con una pregunta.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Escritura conceptual</th>
+<th>Interpretación</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cantidad ← 3</code></td>
+<td>Guardar un valor</td>
+<td>cantidad pasa a valer 3</td>
+</tr>
+<tr>
+<td><code>importe ← precio × cantidad</code></td>
+<td>Evaluar y guardar</td>
+<td>Con precio 2,50 y cantidad 3, importe vale 7,50</td>
+</tr>
+<tr>
+<td><code>cantidad &gt; 0</code></td>
+<td>Preguntar por una relación</td>
+<td>Con cantidad 3, la respuesta es verdadera</td>
+</tr>
+<tr>
+<td><code>autorizada ← verdadero</code></td>
+<td>Guardar un valor booleano</td>
+<td>La condición autorizada queda satisfecha</td>
+</tr>
+<tr>
+<td><code>válida ← nota ≥ 0 AND nota ≤ 10</code></td>
+<td>Guardar el resultado de una condición</td>
+<td>Con nota 8, válida es verdadera</td>
+</tr>
+</tbody></table></div>
+<p>Una condición debe tener respuesta <strong>Sí/No</strong>, equivalente a verdadero/falso. «Nota del estudiante» no es una condición; «¿nota ≥ 7?» sí lo es. Cuando un dato puede ser desconocido, el contrato debe precisar cómo tratarlo; desconocido no significa automáticamente falso.</p>
+<p><a id="representaciones"></a></p>
+<h3>1.4. Formas de representar un algoritmo</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Qué muestra</th>
+<th>Ventaja</th>
+<th>Límite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Descripción narrativa</td>
+<td>Instrucciones en lenguaje cotidiano</td>
+<td>Facilita conversar con quien plantea el problema</td>
+<td>Puede esconder ambigüedades y saltos</td>
+</tr>
+<tr>
+<td>Pseudocódigo</td>
+<td>Pasos estructurados con palabras y expresiones</td>
+<td>Facilita revisar cálculos y orden</td>
+<td>No existe una única sintaxis universal</td>
+</tr>
+<tr>
+<td>Diagrama de flujo</td>
+<td>Operaciones y caminos conectados por flechas</td>
+<td>Hace visibles decisiones y retornos</td>
+<td>Los diagramas enormes son difíciles de leer</td>
+</tr>
+<tr>
+<td>Código fuente</td>
+<td>Instrucciones en un lenguaje ejecutable</td>
+<td>Permite automatizar la solución</td>
+<td>Exige sintaxis y decisiones de implementación</td>
+</tr>
+</tbody></table></div>
+<p><strong>Un mismo procedimiento, dos descripciones.</strong> Narrativa: obtener base y altura positivas, multiplicarlas, dividir entre dos y comunicar el área. Pseudocódigo conceptual:</p>
+<pre><code class="language-text">Inicio
+    Leer base, altura
+    área ← base × altura / 2
+    Mostrar área
+Fin
+</code></pre>
+<p>No son dos algoritmos distintos si conservan el mismo contrato y las mismas operaciones. Cambiar de representación no debe introducir nuevas reglas. El diagrama correspondiente aparece en la demostración D1.</p>
+<p><a id="figuras"></a></p>
+<h3>1.5. Qué es un diagrama de flujo y cómo se lee</h3>
+<p>Un <strong>diagrama de flujo</strong> representa gráficamente el orden de ejecución de un procedimiento. Los símbolos identifican clases de pasos; las flechas indican el siguiente paso. Para leerlo, se comienza en Inicio y se sigue una flecha cada vez. Un dibujo con figuras correctas y flechas ambiguas todavía no expresa un algoritmo preciso.</p>
+<p><img src="../assets/simbolos.svg" alt="Convenciones: terminal, entrada o salida, proceso, decisión y conector."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Figura</th>
+<th>Nombre y función</th>
+<th>Contenido apropiado</th>
+<th>Error frecuente</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Óvalo o rectángulo de esquinas muy redondeadas</td>
+<td>Terminal: inicio o fin</td>
+<td>Inicio; Fin</td>
+<td>Usarlo para cálculos</td>
+</tr>
+<tr>
+<td>Paralelogramo</td>
+<td>Entrada o salida de datos</td>
+<td>Leer edad; Mostrar importe</td>
+<td>Usar un rectángulo para toda lectura</td>
+</tr>
+<tr>
+<td>Rectángulo</td>
+<td>Proceso: cálculo o actualización</td>
+<td>importe ← precio × cantidad</td>
+<td>Colocar una pregunta sin ramificar</td>
+</tr>
+<tr>
+<td>Rombo</td>
+<td>Decisión: evaluar una condición</td>
+<td>¿edad ≥ 18?</td>
+<td>Dejar salidas sin identificar</td>
+</tr>
+<tr>
+<td>Flecha</td>
+<td>Línea de flujo: orden y dirección</td>
+<td>Conexión entre dos pasos</td>
+<td>Usar una línea sin dirección</td>
+</tr>
+<tr>
+<td>Círculo pequeño con etiqueta</td>
+<td>Conector dentro de una página</td>
+<td>A, emparejado con otro A</td>
+<td>Hacer desaparecer un camino sin destino</td>
+</tr>
+</tbody></table></div>
+<p>Estas son las convenciones adoptadas en el material, suficientes para los ejercicios. Otros documentos pueden incorporar símbolos de archivos, subprocesos o conectores entre páginas. Se deben explicar antes de usarlos; no se necesita memorizar un catálogo exhaustivo para diseñar los primeros algoritmos.</p>
+<p><strong>Reglas de dibujo y lectura.</strong> Usar preferentemente dirección de arriba hacia abajo. Cada operación tiene una salida de control. En este material, cada rombo tiene dos salidas rotuladas Sí y No; el texto del rombo explica exactamente qué se evalúa. Los caminos pueden reunirse antes de una operación común. Evitar cruces; si son inevitables, utilizar conectores identificados. Una unión debe ser deliberada y visible, no una superposición accidental de líneas.</p>
+<p>Una flecha no representa un dato viajando: representa <strong>qué paso sigue</strong>. Tampoco una bifurcación implica ejecutar dos ramas al mismo tiempo. En una decisión binaria, se toma solamente la rama que corresponde al resultado de la condición.</p>
+<h3>1.6. Secuencia: entrada, proceso y salida</h3>
+<p>Una <strong>secuencia</strong> ejecuta pasos en el orden establecido, sin elegir caminos. Puede haber varias lecturas y varios cálculos antes de una salida. La regla básica es que cada dato exista antes de utilizarse.</p>
+<p>Para un pago con recargo fijo, una posible secuencia es leer consumo, calcular recargo, obtener total y mostrar total. Si se muestra total antes de calcularlo, el diagrama no cumple el propósito aunque todas sus figuras estén bien elegidas. Separar un cálculo largo en pasos con nombres significativos ayuda a revisarlo.</p>
+<p>En los ejercicios iniciales, «Leer» supone recibir un valor del tipo acordado. Distinguir un dato numérico fuera del intervalo de una entrada de texto que no puede convertirse en número: esta segunda dificultad pertenece a la implementación y solo se exige cuando el enunciado la solicita.</p>
+<p><a id="decisiones"></a></p>
+<h3>1.7. Decisiones: acción opcional, alternativas y encadenamiento</h3>
+<p>Una <strong>decisión de acción opcional</strong> ejecuta una acción si se cumple una condición y continúa directamente si no se cumple. Ejemplo: mostrar una advertencia cuando la temperatura supera 30 °C. Ambas rutas se reúnen para registrar que la revisión terminó. No se necesita inventar una acción para la ruta No.</p>
+<p>Una <strong>decisión de dos alternativas</strong> elige entre dos acciones diferentes: mostrar «Par» cuando el resto entre dos es cero o mostrar «Impar» cuando no lo es. Las alternativas son excluyentes para una misma evaluación. La acción situada después de la unión pertenece a ambos recorridos.</p>
+<p>Un <strong>encadenamiento de decisiones</strong> plantea otra pregunta cuando la anterior no determinó el resultado. Para clasificar un número se puede preguntar si es mayor que cero; si no lo es, preguntar si es menor que cero. Si las dos respuestas son No, el número es cero. Esa conclusión utiliza las condiciones descartadas, no una suposición nueva.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Organización</th>
+<th>Cuándo resulta útil</th>
+<th>Cuidado principal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Acción opcional</td>
+<td>Agregar una advertencia o una tarea adicional</td>
+<td>Mantener la continuación del camino No</td>
+</tr>
+<tr>
+<td>Dos alternativas</td>
+<td>Elegir exactamente una de dos respuestas</td>
+<td>No ejecutar las dos acciones</td>
+</tr>
+<tr>
+<td>Decisiones encadenadas</td>
+<td>Clasificar en categorías excluyentes</td>
+<td>Ordenar los umbrales y cubrir las fronteras</td>
+</tr>
+<tr>
+<td>Decisión dentro de una rama</td>
+<td>Evaluar algo solo después de cumplir un requisito</td>
+<td>No omitir el requisito que permite llegar allí</td>
+</tr>
+<tr>
+<td>Decisiones independientes</td>
+<td>Varias acciones pueden aplicarse al mismo caso</td>
+<td>No confundirlas con una clasificación única</td>
+</tr>
+</tbody></table></div>
+<p><strong>Ejemplo de orden.</strong> Si se pregunta primero «¿nota ≥ 5?» y se asigna inmediatamente «Recuperación», una nota 9 también tomaría esa ruta. Para clasificar con umbrales superiores, se debe comenzar por el mayor o formular intervalos completos. Las reglas del problema determinan el orden; dibujar no corrige una regla mal expresada.</p>
+<p><a id="logica"></a></p>
+<h3>1.8. Condiciones compuestas: AND, OR y NOT</h3>
+<p>Una condición simple compara datos o consulta una variable booleana. Una condición compuesta combina proposiciones. AND exige que ambas sean verdaderas; OR es inclusivo y admite una o ambas; NOT invierte el valor de una condición. Los paréntesis expresan la agrupación. Es preferible escribirlos a depender de una prioridad que el lector podría interpretar mal.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>P</th>
+<th>Q</th>
+<th>P AND Q</th>
+<th>P OR Q</th>
+<th>NOT P</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Falso</td>
+<td>Falso</td>
+<td>Falso</td>
+<td>Falso</td>
+<td>Verdadero</td>
+</tr>
+<tr>
+<td>Falso</td>
+<td>Verdadero</td>
+<td>Falso</td>
+<td>Verdadero</td>
+<td>Verdadero</td>
+</tr>
+<tr>
+<td>Verdadero</td>
+<td>Falso</td>
+<td>Falso</td>
+<td>Verdadero</td>
+<td>Falso</td>
+</tr>
+<tr>
+<td>Verdadero</td>
+<td>Verdadero</td>
+<td>Verdadero</td>
+<td>Verdadero</td>
+<td>Falso</td>
+</tr>
+</tbody></table></div>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Necesidad</th>
+<th>Condición conceptual</th>
+<th>Caso que ayuda a revisar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Edad entre 18 y 65, incluidos</td>
+<td>edad ≥ 18 AND edad ≤ 65</td>
+<td>18 y 65 deben aceptarse</td>
+</tr>
+<tr>
+<td>Nota fuera de 0 a 10</td>
+<td>nota &lt; 0 OR nota &gt; 10</td>
+<td>−1 y 11 deben rechazarse</td>
+</tr>
+<tr>
+<td>Cuenta no bloqueada</td>
+<td>NOT bloqueada</td>
+<td>bloqueada = verdadero impide continuar</td>
+</tr>
+<tr>
+<td>Credencial y reserva, o autorización especial</td>
+<td>(credencial AND reserva) OR autorización</td>
+<td>La autorización permite pasar sin reserva</td>
+</tr>
+<tr>
+<td>Cualquiera de dos alertas</td>
+<td>alertaTemperatura OR alertaHumo</td>
+<td>Dos alertas simultáneas también activan la respuesta</td>
+</tr>
+</tbody></table></div>
+<p><strong>Dentro de un intervalo se usa conjunción; fuera, disyunción.</strong> La expresión <code>nota &lt; 0 AND nota &gt; 10</code> nunca es verdadera para un mismo número real. La expresión <code>edad ≥ 18 OR edad ≤ 65</code> resulta verdadera para cualquier edad real: no restringe al intervalo buscado. Esos errores se detectan con contraejemplos, no mirando únicamente la forma del rombo.</p>
+<p>Un rombo con <code>P AND Q</code> puede representarse también mediante dos decisiones: si P es falsa se toma la salida negativa; si P es verdadera se evalúa Q. Con <code>P OR Q</code>, si P es verdadera ya se conoce la respuesta afirmativa; en otro caso se evalúa Q. Esta equivalencia se estudia con condiciones sin efectos sobre el estado. Para la primera lectura, una condición compuesta breve es clara; si mezcla muchas reglas, conviene dividirla y explicar la política.</p>
+<p><strong>Negación y fronteras.</strong> NOT (edad ≥ 18) equivale a edad &lt; 18. No equivale a edad ≤ 18, porque esta última incluye 18. Las leyes de De Morgan permiten negar una regla compuesta: NOT (P AND Q) equivale a (NOT P) OR (NOT Q). Se conserva así la conexión con el álgebra de Boole de la unidad anterior.</p>
+<h3>1.9. Prueba de escritorio y revisión de caminos</h3>
+<p>Una <strong>prueba de escritorio</strong> ejecuta el algoritmo manualmente con datos concretos. Se anotan los valores, las respuestas de cada rombo y las salidas en el orden en que aparecen. No se cambia el dibujo para que coincida con el caso: si la traza contradice el contrato, se corrige el algoritmo y se repite la prueba.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tipo de caso</th>
+<th>Qué busca</th>
+<th>Ejemplo para nota válida entre 0 y 10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Normal</td>
+<td>Comportamiento habitual</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Frontera</td>
+<td>Inclusión exacta de un límite</td>
+<td>0 y 10</td>
+</tr>
+<tr>
+<td>Justo fuera</td>
+<td>Error de desigualdad o de operador</td>
+<td>−0,1 y 10,1</td>
+</tr>
+<tr>
+<td>Cada alternativa</td>
+<td>Que todas las salidas sean alcanzables cuando corresponde</td>
+<td>Aprobación, recuperación y refuerzo</td>
+</tr>
+<tr>
+<td>Combinación lógica</td>
+<td>Que AND, OR y NOT respeten la política</td>
+<td>Autorización especial con cuenta bloqueada</td>
+</tr>
+</tbody></table></div>
+<p>Probar un solo caso demuestra únicamente qué ocurrió en ese caso. Para condiciones booleanas pequeñas se pueden enumerar todas las combinaciones. Para dominios numéricos grandes se eligen clases y fronteras, y se razona sobre las reglas; una lista de ejemplos no constituye por sí sola una demostración general de corrección.</p>
+<h3>1.10. Conexión breve con Java — lectura complementaria</h3>
+<p>La teoría y los diagramas anteriores no dependen del lenguaje. Al estudiar implementación, Java utiliza el tipo <code>boolean</code>, los literales <code>true</code> y <code>false</code>, <code>=</code> para asignar y <code>==</code> para comparar igualdad. Los operadores lógicos se escriben <code>&amp;&amp;</code>, <code>||</code> y <code>!</code>. En los diagramas se mantiene <code>←</code> para distinguir asignación de comparación.</p>
+<pre><code class="language-java">int edad = 20;
+boolean bloqueada = false;
+boolean admitida = (edad &gt;= 18) &amp;&amp; (!bloqueada);
+</code></pre>
+<p>El fragmento guarda un resultado booleano y se ubicaría dentro de un método; no es un archivo ejecutable autónomo. Java exige expresiones booleanas para decidir; un entero no reemplaza una condición. No se pide usar sintaxis de Java para resolver la PC.</p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostraciones guiadas</h2>
+<p>Las salidas de las tablas son <strong>resultados esperados del modelo</strong>. La actividad consiste en recorrer los diagramas y reproducir las trazas, sin escribir todavía un programa ejecutable. Los dibujos están disponibles en SVG y PNG dentro de <code>../assets/</code>.</p>
+<h3>D1. Secuencia: área de un triángulo</h3>
+<p><strong>Problema y contrato.</strong> Recibir base y altura reales positivas, medidas en centímetros, y mostrar el área en centímetros cuadrados. Se supone que las entradas cumplen el contrato. No se valida en esta primera demostración.</p>
+<p><img src="../assets/d01-secuencia.svg" alt="Diagrama D1: leer base y altura, calcular área y mostrarla."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Operación</th>
+<th>Estado con base 8 y altura 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Leer base, altura</td>
+<td>base = 8; altura = 3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>área ← base × altura / 2</td>
+<td>área = 12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mostrar área</td>
+<td>Se comunica 12 cm²</td>
+</tr>
+</tbody></table></div>
+<p><strong>Interpretación.</strong> El paralelogramo obtiene o comunica información; el rectángulo la transforma. Cambiar el orden de los pasos 2 y 3 dejaría una salida sin calcular. Un área negativa revelaría una entrada fuera del contrato o un cálculo incorrecto. Una futura versión que deba aceptar cualquier número necesitará una decisión de validación.</p>
+<h3>D2. Decisión con acción opcional: temperatura</h3>
+<p><strong>Problema y contrato.</strong> Leer una temperatura real. Mostrar «Revisar» si es mayor que 30 y mostrar siempre «Registro listo». Es una regla didáctica de aviso, no una recomendación técnica de operación de equipos.</p>
+<p><img src="../assets/d02-decision-simple.svg" alt="Diagrama D2: la ruta afirmativa muestra una advertencia; ambas rutas muestran el cierre."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Temperatura</th>
+<th>¿temperatura &gt; 30?</th>
+<th>Salida, en orden</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>29</td>
+<td>No</td>
+<td>Registro listo</td>
+</tr>
+<tr>
+<td>30</td>
+<td>No</td>
+<td>Registro listo</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Sí</td>
+<td>Revisar; Registro listo</td>
+</tr>
+</tbody></table></div>
+<p>La ruta No evita únicamente la advertencia. La salida común se sitúa después de la reunión. Cambiar <code>&gt;</code> por <code>≥</code> modificaría el contrato para el valor 30.</p>
+<h3>D3. Dos alternativas: paridad</h3>
+<p><strong>Problema y contrato.</strong> Leer un entero y mostrar exactamente una clasificación: Par o Impar. <code>MOD</code> representa el resto de la división entera; un entero es par cuando su resto al dividir entre dos es cero. La comparación con cero funciona también con enteros negativos.</p>
+<p><img src="../assets/d03-dos-alternativas.svg" alt="Diagrama D3: decisión de paridad y dos salidas excluyentes."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Número</th>
+<th>¿número MOD 2 = 0?</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8</td>
+<td>Sí</td>
+<td>Par</td>
+</tr>
+<tr>
+<td>7</td>
+<td>No</td>
+<td>Impar</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Sí</td>
+<td>Par</td>
+</tr>
+<tr>
+<td>−4</td>
+<td>Sí</td>
+<td>Par</td>
+</tr>
+</tbody></table></div>
+<p>No se pregunta si un número es positivo: el signo y la paridad son propiedades diferentes. Un dato 2,5 queda fuera del contrato; no se debe clasificar como entero sin una regla adicional.</p>
+<h3>D4. Decisiones encadenadas: signo</h3>
+<p><strong>Problema y contrato.</strong> Recibir un número real finito y mostrar Positivo, Negativo o Cero. Las categorías son excluyentes y cubren todo el dominio.</p>
+<p><img src="../assets/d04-decisiones-encadenadas.svg" alt="Diagrama D4: comprobar mayor que cero, luego menor que cero y finalmente clasificar cero."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Número</th>
+<th>Primera decisión: &gt; 0</th>
+<th>Segunda decisión: &lt; 0</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4</td>
+<td>Sí</td>
+<td>No se evalúa</td>
+<td>Positivo</td>
+</tr>
+<tr>
+<td>−2</td>
+<td>No</td>
+<td>Sí</td>
+<td>Negativo</td>
+</tr>
+<tr>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>Cero</td>
+</tr>
+</tbody></table></div>
+<p><strong>Por qué funciona.</strong> Al llegar a la segunda pregunta se sabe que el número no es mayor que cero. Si tampoco es menor, solo queda la igualdad. «No se evalúa» no significa «Falso»: significa que el recorrido no visita ese rombo.</p>
+<h3>D5. Validación y categorías: nota</h3>
+<p><strong>Problema y contrato.</strong> Recibir una nota numérica. Si está fuera de [0, 10], mostrar Dato inválido. Si está dentro, clasificar: [7, 10] Aprobación; [5, 7) Recuperación; [0, 5) Refuerzo. Esta es una política ficticia para estudiar intervalos, no una norma de evaluación institucional.</p>
+<p><img src="../assets/d05-validacion-y-rangos.svg" alt="Diagrama D5: validar con OR y clasificar por umbrales descendentes."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nota</th>
+<th>¿Fuera de [0, 10]?</th>
+<th>¿≥ 7?</th>
+<th>¿≥ 5?</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>−0,1</td>
+<td>Sí</td>
+<td>No se evalúa</td>
+<td>No se evalúa</td>
+<td>Dato inválido</td>
+</tr>
+<tr>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Refuerzo</td>
+</tr>
+<tr>
+<td>5</td>
+<td>No</td>
+<td>No</td>
+<td>Sí</td>
+<td>Recuperación</td>
+</tr>
+<tr>
+<td>7</td>
+<td>No</td>
+<td>Sí</td>
+<td>No se evalúa</td>
+<td>Aprobación</td>
+</tr>
+<tr>
+<td>10</td>
+<td>No</td>
+<td>Sí</td>
+<td>No se evalúa</td>
+<td>Aprobación</td>
+</tr>
+<tr>
+<td>10,1</td>
+<td>Sí</td>
+<td>No se evalúa</td>
+<td>No se evalúa</td>
+<td>Dato inválido</td>
+</tr>
+</tbody></table></div>
+<p>La validación precede a la clasificación. La condición <code>nota ≥ 5</code> se evalúa solo después de descartar <code>nota ≥ 7</code>; por eso no necesita repetir <code>nota &lt; 7</code>. Si se cambia el orden de los rombos sin cambiar las condiciones, cambia el significado del diagrama.</p>
+<h3>D6. Política de acceso: AND, OR y NOT</h3>
+<p><strong>Problema y contrato.</strong> Una sala admite a quien tenga credencial y reserva, o autorización especial, siempre que no esté bloqueado. Se reciben cuatro booleanos ya determinados: C = credencial; R = reserva; A = autorización especial; B = bloqueo. No se verifica ninguna contraseña ni se consultan sistemas externos.</p>
+<p>La política es <code>((C AND R) OR A) AND NOT B</code>. El bloqueo tiene prioridad incluso frente a una autorización especial. Primero se explicita esa prioridad en lenguaje natural; luego se escribe la expresión y finalmente se dibuja.</p>
+<p><img src="../assets/d06-condicion-logica.svg" alt="Diagrama D6: condición compuesta de acceso con bloqueo prioritario."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>C</th>
+<th>R</th>
+<th>A</th>
+<th>B</th>
+<th>C AND R</th>
+<th>(C AND R) OR A</th>
+<th>NOT B</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>Permitir</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>Permitir</td>
+</tr>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>Denegar</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>Denegar</td>
+</tr>
+</tbody></table></div>
+<p><strong>Contraste.</strong> <code>C AND R OR (A AND NOT B)</code> no expresa la misma política: permitiría el primer camino aunque hubiese bloqueo. Los paréntesis de la formulación elegida ayudan a impedir esa interpretación. Estas cuatro filas ilustran situaciones relevantes; una comprobación exhaustiva requiere las 16 combinaciones.</p>
+<p><a id="pc"></a></p>
+<h2>3. PC2.1 · Diseñar, justificar y probar diagramas</h2>
+<h3>Forma de trabajo y evidencia</h3>
+<p>Construir los diagramas en un <strong>editor de diagramas</strong> que permita figuras, flechas conectadas y etiquetas. Entregar el archivo editable y una exportación SVG o PNG legible. No se exige implementar código. Trabajar en una sola versión del material: los problemas y los casos son iguales en Python y Java.</p>
+<p>Para cada ejercicio: (1) escribir entradas, dominios y salidas; (2) separar supuestos de validaciones exigidas; (3) dibujar el recorrido completo; (4) realizar al menos tres pruebas pertinentes, incluyendo una frontera cuando exista; (5) registrar valores, decisiones visitadas y resultados. Si el dominio es booleano y pequeño, enumerar todas sus combinaciones. No colocar respuestas ni capturas de las demostraciones como solución de un enunciado diferente.</p>
+<h3>Serie A · Secuencia y análisis del contrato</h3>
+<ol>
+<li><strong>Rectángulo.</strong> Leer largo y ancho positivos en metros. Mostrar área y perímetro con sus unidades. Probar largo 5 y ancho 3: área 15 m² y perímetro 16 m. Declarar que no se validan entradas en esta versión.</li>
+<li><strong>Compra de útiles.</strong> Leer precio unitario no negativo y cantidad entera positiva. Calcular subtotal, recargo didáctico del 8 % y total. Para precio 10 y cantidad 2, el total esperado es 21,60. El porcentaje es una regla del ejercicio, no un impuesto oficial.</li>
+<li><strong>Duración.</strong> Recibir minutos enteros no negativos. Mostrar horas completas y minutos restantes. Casos: 0 → 0 h, 0 min; 60 → 1 h, 0 min; 135 → 2 h, 15 min. Usar cociente entero y resto.</li>
+<li><strong>Transferencia estimada.</strong> Se recibe un tamaño positivo en MB y una tasa positiva en MB/s. Estimar segundos mediante tamaño/tasa, sin considerar sobrecarga. Identificar esta suposición y no mezclar MB con Mb. Caso: 120 MB y 10 MB/s → 12 s.</li>
+<li><strong>Respaldo local.</strong> Leer tamaño de tres carpetas, en GB, como valores no negativos. Calcular tamaño total y espacio requerido añadiendo 20 % de margen. Para 2, 3 y 5 GB, se esperan 12 GB. Es una estimación, no una operación real sobre archivos.</li>
+</ol>
+<h3>Serie B · Decisiones y clasificación</h3>
+<ol start="6">
+<li><strong>Advertencia opcional.</strong> Leer antigüedad de un respaldo, en días enteros no negativos. Mostrar «Revisar respaldo» solo si supera 7 y mostrar siempre «Evaluación terminada». Probar 6, 7 y 8.</li>
+<li><strong>Mayoría de edad.</strong> Recibir una edad entera entre 0 y 120, garantizada válida. Mostrar «Mayor de edad» desde 18 y «Menor de edad» en otro caso. Incluir 17 y 18.</li>
+<li><strong>Mayor de dos.</strong> Leer dos números reales. Mostrar el mayor cuando sean distintos y «Iguales» cuando coincidan. No imponer una precondición de valores diferentes para evitar resolver la igualdad.</li>
+<li><strong>Saldo de una compra.</strong> Leer saldo y precio no negativos. Si alcanza, calcular saldo restante y mostrar «Compra autorizada» junto al saldo nuevo. Si no alcanza, mostrar «Saldo insuficiente» y conservar el saldo original. Caso frontera: saldo igual al precio.</li>
+<li><strong>Clasificar una temperatura.</strong> Recibir un valor real. Menor que 10: Fría; desde 10 hasta menos de 25: Templada; desde 25: Cálida. Mostrar una sola categoría. Probar 9,9; 10; 24,9; 25.</li>
+<li><strong>División controlada.</strong> Leer numerador y denominador reales. Mostrar cociente si el denominador es distinto de cero; de lo contrario, mostrar «División no definida». Ningún camino inválido debe ejecutar la división.</li>
+<li><strong>Tarifa por peso.</strong> Una mensajería cobra 3 dólares para peso positivo hasta 1 kg; 5 dólares para más de 1 y hasta 5 kg; 8 dólares para más de 5 y hasta 10 kg. Rechazar peso ≤ 0 o &gt; 10. Dibujar validación y clasificación sin repetir categorías.</li>
+</ol>
+<h3>Serie C · Reglas con operadores lógicos</h3>
+<ol start="13">
+<li><strong>Intervalo permitido.</strong> Leer un número real y decidir si pertenece a [20, 80]. Elaborar dos formulaciones equivalentes: condición de aceptación con AND y condición de rechazo con OR. Entregar un diagrama para cada formulación y probar 19, 20, 80 y 81.</li>
+<li><strong>Aviso combinado.</strong> Se reciben dos booleanos: humo y temperaturaAlta. Mostrar «Alerta» si cualquiera es verdadero; mostrar «Sin alerta» en otro caso. Probar las cuatro combinaciones, incluida la activación simultánea.</li>
+<li><strong>Equipo habilitado.</strong> Recibir mantenimiento y licenciaVigente. Habilitar únicamente cuando no esté en mantenimiento y la licencia esté vigente. Formular con NOT y AND; no usar el texto de una variable como si fuera una instrucción.</li>
+<li><strong>Descuento con condición doble.</strong> Aplicar 10 % de descuento si una compra alcanza 50 dólares y la persona tiene membresía. Recibir importe no negativo y membresía booleana. Mostrar total; sin descuento debe conservarse el importe. Casos: (50,V) → 45; (49,V) → 49; (50,F) → 50.</li>
+<li><strong>Prioridad de atención.</strong> Se reciben urgencia, reserva y documentaciónCompleta. Dar prioridad si hay urgencia o si se tiene reserva y documentación completa. Escribir los paréntesis, dibujar y proponer un caso que distinga esa regla de «tener documentación completa en todos los casos».</li>
+<li><strong>Archivo permitido.</strong> Se recibe tamaño en MB, extensión y marcaSospechosa. Admitir solo tamaño entre 0 y 10, ambos incluidos; extensión PDF o TXT; y ausencia de marca sospechosa. Las cadenas se reciben normalizadas en mayúsculas. No se inspecciona realmente ningún archivo. Probar cada motivo de rechazo por separado.</li>
+</ol>
+<h3>Serie D · Requerimientos y contexto de ciberseguridad</h3>
+<ol start="19">
+<li><strong>Registro de una capacitación.</strong> Un área necesita clasificar solicitudes. La edad debe estar entre 16 y 80; hay dos modalidades, PRESENCIAL y VIRTUAL. Rechazar datos fuera de esos dominios. Si la modalidad es presencial se requiere cupo; si es virtual, conexión confirmada. Mostrar una respuesta única y su motivo. Cupo y conexión son booleanos. Construir casos que recorran cada rechazo.</li>
+<li><strong>Revisión simulada de una sesión.</strong> Recibir cuentaActiva, dispositivoConocido y segundoFactorConfirmado. Una cuenta inactiva siempre se rechaza. Para una cuenta activa, aceptar si el dispositivo es conocido o si el segundo factor está confirmado. Es una política ficticia simplificada; no solicitar credenciales. Definir las ocho combinaciones.</li>
+<li><strong>Alerta de capacidad.</strong> Un administrador solicita un diagnóstico único a partir de porcentaje de uso y respaldoVigente. Validar porcentaje en [0,100]. Si alcanza 90 y no hay respaldo vigente, mostrar «Atención prioritaria»; si alcanza 90 con respaldo vigente, «Revisar capacidad»; en otro caso, «Sin alerta de capacidad». Probar la frontera 90 y el dato inválido 101.</li>
+<li><strong>Permiso para modificar una configuración.</strong> Recibir rol, autorizaciónTemporal y cuentaSuspendida. Los roles admitidos son ADMIN, OPERADOR y VISITANTE; cualquier otro valor es inválido. Una cuenta suspendida se rechaza. ADMIN puede modificar; OPERADOR solo con autorización temporal; VISITANTE no puede modificar. Mostrar una única decisión y distinguir rol inválido de permiso denegado.</li>
+</ol>
+<h3>Actividad integradora de la PC: recepción de una solicitud</h3>
+<p>Un laboratorio recibe solicitudes de uso de un equipo. Se conocen <code>horas</code> (real), <code>capacitaciónVigente</code>, <code>equipoDisponible</code> y <code>bloqueoAdministrativo</code> (booleanos). La duración permitida está entre 0 y 4 horas, con 0 excluido y 4 incluido. Un bloqueo impide la solicitud; además se requieren capacitación vigente y disponibilidad. El sistema conceptual debe mostrar una sola respuesta: Dato inválido, Bloqueada, Capacitación requerida, Equipo no disponible o Aceptada. <strong>El orden de prioridad es exactamente el orden de esa lista.</strong></p>
+<p>Entregar análisis, diagrama con decisiones identificadas, pruebas de escritorio y justificación de una condición compuesta equivalente a la aceptación. La expresión no sustituye el diagrama con motivos. No hay bucles: se analiza una solicitud y se termina.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>horas</th>
+<th>capacitación</th>
+<th>disponible</th>
+<th>bloqueo</th>
 <th>Resultado esperado</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>5, 3, -1</td>
-<td>cantidad 2; suma 8</td>
+<td>0</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>Dato inválido</td>
 </tr>
 <tr>
-<td>-1</td>
-<td>cantidad 0; suma 0</td>
+<td>4</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>Aceptada</td>
 </tr>
 <tr>
-<td>-2, 4, -1</td>
-<td>rechazar -2; cantidad 1; suma 4</td>
+<td>4,1</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>Dato inválido</td>
+</tr>
+<tr>
+<td>2</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>Bloqueada</td>
+</tr>
+<tr>
+<td>2</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>Capacitación requerida</td>
+</tr>
+<tr>
+<td>2</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>Equipo no disponible</td>
+</tr>
+<tr>
+<td>−1</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>Dato inválido</td>
 </tr>
 </tbody></table></div>
-<h3>Probar y registrar evidencia</h3>
-<p>Crear una carpeta personal <code>PC2.1</code> separada de las demostraciones. Guardar cada caso con entrada, resultado esperado y resultado real. Compilar <code>javac -encoding UTF-8 -d build *.java</code> y ejecutar <code>java -cp build Solucion</code>; usar <code>Solucion.java</code> como entrada personal. Para entradas de teclado, guardar <code>casos/entrada-01.txt</code> y redirigirla con <code>&lt; casos/entrada-01.txt</code>. Para funciones, crear llamadas con los datos de la tabla.</p>
-<ul>
-<li>Registrar <code>evidencias/PC2.1.md</code> con comandos, versión real, salidas y explicación.</li>
-<li>Crear un commit funcional como <code>feat(pc2.1): implementar-regla-principal</code>.</li>
-<li>Obtener el hash real con <code>git rev-parse HEAD</code> y anotarlo en la evidencia.</li>
-<li>Revisar el cambio con <code>git show HASH</code> y comparar avances con <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. Sustituir los marcadores por hashes reales.</li>
-<li>Agregar una prueba de frontera distinta de las incluidas y justificar qué error detectaría.</li>
-</ul>
-<p>No se requiere proyecto acumulativo ni rúbrica individual de esta PC.</p>
+<p>Añadir un caso válido interior y justificar una frontera adicional. </p>
 <p><a id="esencial"></a></p>
 <h2>Lo esencial</h2>
 <ul>
-<li>Especificar entradas, salidas y restricciones.</li>
-<li>Dibujar la condición y el retorno de cada ciclo.</li>
-<li>Validar con trazas normales y de frontera.</li>
+<li>Un algoritmo necesita un contrato y pasos ejecutables; una fórmula aislada no describe todo el recorrido.</li>
+<li>Las figuras distinguen funciones, mientras que las flechas expresan el orden.</li>
+<li>Las decisiones deben cubrir el dominio y conservar una interpretación precisa de sus salidas.</li>
+<li>AND, OR y NOT permiten combinar reglas; las fronteras y los paréntesis cambian el resultado.</li>
+<li>Una prueba de escritorio registra los rombos realmente visitados y las salidas observadas en el modelo.</li>
 </ul>
-<h2>Referencias técnicas</h2>
+<h2>Referencias de preparación</h2>
 <ul>
-<li><a href="https://dev.java/learn/">Aprender Java, sitio oficial</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/27/docs/api/">API de Java SE 27</a></li>
+<li>Torres, Pablo. <em>02.01 Algoritmos</em>. Presentación proporcionada para esta asignatura: definición y entrada/proceso/salida, pp. 7–8; representaciones y figuras, pp. 12–16; situaciones de práctica, pp. 17–21. El presente material desarrolla y reorganiza esos contenidos; los diagramas y enunciados se elaboraron para esta revisión.</li>
+<li>Material de la asignatura, <em>1.1 · Álgebra de Boole</em>, versión proporcionada como referencia: variables booleanas, operadores y leyes. Las condiciones compuestas de esta sección aplican esos conceptos.</li>
+<li><a href="https://dev.java/learn/language-basics/using-operators/">Java: documentación oficial sobre operadores</a>.</li>
 </ul>
-<p><a href="../../../README.html">Índice del curso</a> · <a href="../python/material.html">Versión Python</a> </p>
-<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/java/index.html">Anterior</a><a href="../../../03/3.01-introduccion/java/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"2.1-java"},'*');</script></body></html>
+<p><a href="../python/material.html">Versión Python</a> · <a href="../../2.2-algoritmos/java/material.html">Siguiente: bucles</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/java/index.html">Anterior</a><a href="../../2.2-algoritmos/java/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"2.1-java"},'*');</script></body></html>

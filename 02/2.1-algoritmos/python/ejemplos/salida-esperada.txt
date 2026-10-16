@@ -1,2 +1,0 @@
-Horas: 3
-Costo: 6

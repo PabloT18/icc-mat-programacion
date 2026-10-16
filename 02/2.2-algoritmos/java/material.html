@@ -1,0 +1,692 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2.2 · Algoritmos con bucles · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/java/index.html">Anterior</a><a href="../../../03/3.01-introduccion/java/index.html">Siguiente</a></nav><h1>Programación</h1>
+<h2>2.2 · Algoritmos con bucles · Java</h2>
+<p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 2:</strong> Algoritmos · sección de organización didáctica<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
+<p><a href="../python/material.html">Versión Python</a> · <a href="../../2.1-algoritmos/java/material.html">Anterior: fundamentos y decisiones</a></p>
+<p><a href="#concepto-1">Conceptos</a> · <a href="#demostracion">Demostraciones</a> · <a href="#pc">Práctica de clase</a> · <a href="#esencial">Lo esencial</a></p>
+<p><strong>Contexto.</strong> Organizar acciones que se repiten sin perder el control de los datos, las condiciones ni el final del procedimiento. Los diagramas permiten estudiar la repetición antes de escribir código.</p>
+<p><strong>Prerrequisitos.</strong> Sección 2.1: contrato, asignación, figuras, decisiones, condiciones compuestas y pruebas de escritorio.</p>
+<p><strong>Cómo estudiar.</strong> Leer la teoría, seguir cada diagrama con un lápiz o una traza y resolver los enunciados en un editor de diagramas. Las versiones Python y Java comparten los problemas, figuras y casos; estudiar una sola versión es suficiente. No se exige programar en esta unidad.</p>
+<p><a id="concepto-1"></a></p>
+<h2>1. Conceptos y ejemplos</h2>
+<h3>1.1. De una decisión a una repetición</h3>
+<p>Una decisión permite elegir un camino; un <strong>bucle</strong> permite volver a ejecutar una parte del procedimiento. Cada recorrido completo del cuerpo se llama <strong>iteración</strong>. Revisar una sola solicitud requiere decisiones. Revisar varias solicitudes hasta recibir una señal de cierre requiere, además, una repetición.</p>
+<p>Repetir no significa copiar muchas veces los mismos rectángulos. Si se deben registrar cien mediciones, una cadena de cien lecturas sería difícil de mantener y no serviría para otra cantidad. Un bucle expresa la regla que organiza esas lecturas, el estado que cambia y el criterio que determina cuándo dejar de repetir.</p>
+<p>En un diagrama, el retorno se representa mediante una flecha que vuelve a un punto anterior. El retorno por sí solo no basta: debe existir una condición comprensible de continuación o salida, y alguna operación debe permitir que cambie. Las figuras conservan las funciones de la sección anterior: paralelogramo para entrada/salida, rectángulo para proceso y rombo para decisión.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Elemento del bucle</th>
+<th>Función</th>
+<th>Ejemplo al mostrar del 1 al 5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Preparación</td>
+<td>Establece el estado inicial</td>
+<td>i ← 1</td>
+</tr>
+<tr>
+<td>Condición</td>
+<td>Decide si se realiza otra iteración</td>
+<td>¿i ≤ 5?</td>
+</tr>
+<tr>
+<td>Cuerpo</td>
+<td>Trabajo que se repite</td>
+<td>Mostrar i</td>
+</tr>
+<tr>
+<td>Actualización</td>
+<td>Cambia el estado relevante</td>
+<td>i ← i + 1</td>
+</tr>
+<tr>
+<td>Salida</td>
+<td>Continuación cuando termina la repetición</td>
+<td>Mostrar resumen o Fin</td>
+</tr>
+</tbody></table></div>
+<p>La actualización puede ser una suma, una nueva lectura o el cambio de una bandera booleana. No todos los bucles tienen un contador. Lo importante es identificar qué permite que el recorrido avance hacia su terminación.</p>
+<h3>1.2. Estado y asignación: por qué i ← i + 1 es posible</h3>
+<p>La expresión <code>i ← i + 1</code> no es una igualdad matemática. Ordena tomar el valor anterior de i, sumarle uno y almacenar el resultado en i. Si antes valía 2, después vale 3. El valor anterior se usa en la evaluación y luego se reemplaza.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Antes</th>
+<th>Instrucción</th>
+<th>Después</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i = 2</td>
+<td>i ← i + 1</td>
+<td>i = 3</td>
+</tr>
+<tr>
+<td>total = 12; dato = 5</td>
+<td>total ← total + dato</td>
+<td>total = 17; dato = 5</td>
+</tr>
+<tr>
+<td>válida = falso</td>
+<td>válida ← resultado de una comprobación verdadera</td>
+<td>válida = verdadero</td>
+</tr>
+</tbody></table></div>
+<p>Un bucle puede depender de varios valores. Para entenderlo, no registrar únicamente el contador: también la suma, el dato leído o las banderas que intervienen en la condición. Un estado inicial omitido produce ambigüedad; un valor que «parece obvio» para el autor no necesariamente lo es para quien ejecuta el diagrama.</p>
+<p><a id="patrones"></a></p>
+<h3>1.3. Condición antes del cuerpo: cero o más iteraciones</h3>
+<p>Se prepara el estado y se pregunta si debe continuar. Si la respuesta es Sí, se ejecuta el cuerpo, se actualiza el estado y se vuelve a preguntar. Si es No desde el principio, el cuerpo no se ejecuta ninguna vez.</p>
+<p><img src="../assets/patron-previo.svg" alt="Patrón con decisión previa: evaluar, ejecutar, actualizar y volver a evaluar."></p>
+<p>Este patrón es apropiado cuando el trabajo podría no ser necesario: procesar solicitudes mientras queden, mostrar números hasta un límite o repetir mientras no se alcance una meta. La condición se vuelve a evaluar con el estado actualizado; no se decide una sola vez al inicio.</p>
+<p><strong>Ejemplo mental.</strong> Con <code>i ← 1</code> y condición <code>i ≤ N</code>, si N vale 0 no se muestra ningún número. Eso puede ser correcto si el contrato permite una cantidad cero. Cambiar a una condición posterior introduciría una ejecución no solicitada.</p>
+<h3>1.4. Condición después del cuerpo: una o más iteraciones</h3>
+<p>Se ejecuta el cuerpo al menos una vez y luego se evalúa si debe repetirse. Resulta natural para solicitar un dato que todavía no existe: primero leer una nota, después revisar si está dentro del intervalo permitido. El mínimo de una iteración describe el cuerpo del bucle, no cualquier operación del diagrama.</p>
+<p><img src="../assets/patron-posterior.svg" alt="Patrón con decisión posterior: ejecutar el cuerpo y decidir si se repite."></p>
+<p>Hay dos maneras equivalentes de formular la pregunta final, pero <strong>las etiquetas del retorno cambian</strong>:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Pregunta al final</th>
+<th>Volver al cuerpo cuando…</th>
+<th>Salir cuando…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>¿El dato es inválido?</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>¿El dato es válido?</td>
+<td>No</td>
+<td>Sí</td>
+</tr>
+</tbody></table></div>
+<p>No se debe copiar una flecha de retorno sin leer la pregunta del rombo. «Repetir mientras sea inválido» y «repetir hasta que sea válido» describen el mismo objetivo con condiciones opuestas. Para una nota de 0 a 10, la condición de invalidez es <code>nota &lt; 0 OR nota &gt; 10</code>; la de validez es <code>nota ≥ 0 AND nota ≤ 10</code>.</p>
+<h3>1.5. Repetición contada: cantidad conocida</h3>
+<p>Cuando se conoce la cantidad de repeticiones, se organiza un contador con inicio, límite y paso. Para mostrar del 1 al 5: iniciar i en 1; repetir si i ≤ 5; mostrar i; aumentar i en 1. La condición es previa y el valor 5 está incluido.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Recorrido</th>
+<th>Inicio</th>
+<th>Condición de continuación</th>
+<th>Actualización</th>
+<th>Valores visitados</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ascendente inclusivo</td>
+<td>i ← 1</td>
+<td>i ≤ 5</td>
+<td>i ← i + 1</td>
+<td>1, 2, 3, 4, 5</td>
+</tr>
+<tr>
+<td>Ascendente de dos en dos</td>
+<td>i ← 2</td>
+<td>i ≤ 8</td>
+<td>i ← i + 2</td>
+<td>2, 4, 6, 8</td>
+</tr>
+<tr>
+<td>Descendente inclusivo</td>
+<td>i ← 5</td>
+<td>i ≥ 1</td>
+<td>i ← i − 1</td>
+<td>5, 4, 3, 2, 1</td>
+</tr>
+<tr>
+<td>Cero tareas</td>
+<td>i ← 1</td>
+<td>i ≤ 0</td>
+<td>i ← i + 1</td>
+<td>Ninguno</td>
+</tr>
+</tbody></table></div>
+<p>Para enteros consecutivos desde a hasta b incluidos, con paso 1 y a ≤ b, hay <code>b − a + 1</code> valores. Si a &gt; b, el recorrido ascendente anterior no tiene iteraciones. No aplicar esa fórmula sin considerar el sentido y el paso. Si se requiere un paso positivo, un paso cero es un dato inválido porque impide avanzar.</p>
+<h3>1.6. Contadores, acumuladores y banderas</h3>
+<p>Un <strong>contador</strong> registra cuántas veces ocurre un evento. Un <strong>acumulador</strong> combina valores sucesivos. Una <strong>bandera</strong> es una variable booleana que registra un estado relevante. Sus nombres no los distinguen: los distingue su función.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Inicialización habitual</th>
+<th>Actualización</th>
+<th>Qué expresa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Contador de lecturas</td>
+<td>lecturas ← 0</td>
+<td>lecturas ← lecturas + 1 tras cada lectura</td>
+<td>Cuántos intentos se realizaron</td>
+</tr>
+<tr>
+<td>Contador de aceptados</td>
+<td>aceptados ← 0</td>
+<td>Aumentar solo si el dato es válido</td>
+<td>Cuántos datos se procesaron</td>
+</tr>
+<tr>
+<td>Acumulador de suma</td>
+<td>total ← 0</td>
+<td>total ← total + dato</td>
+<td>Suma de los valores admitidos</td>
+</tr>
+<tr>
+<td>Acumulador de producto</td>
+<td>producto ← 1</td>
+<td>producto ← producto × factor</td>
+<td>Producto de los factores</td>
+</tr>
+<tr>
+<td>Bandera de éxito</td>
+<td>logrado ← falso</td>
+<td>Cambiar a verdadero al alcanzar la meta</td>
+<td>Si ocurrió la condición buscada</td>
+</tr>
+</tbody></table></div>
+<p>Inicializar un producto en cero anula todos los factores. Inicializar una suma dentro del cuerpo borra el progreso anterior. Incrementar «aceptados» antes de validar cuenta datos que no debían contarse. Estas decisiones deben aparecer en la posición correcta del diagrama.</p>
+<p><strong>Promedio.</strong> El promedio de los datos aceptados es <code>total / aceptados</code>, pero solo si aceptados &gt; 0. Cuando no hay datos, se necesita una salida definida, por ejemplo «Sin datos». No se reemplaza automáticamente esa situación por promedio cero: cero podría ser un promedio legítimo de datos existentes.</p>
+<p><a id="validacion"></a></p>
+<h3>1.7. Validación, centinelas y menús</h3>
+<p><strong>Validación repetida.</strong> Si el dato es inválido, se solicita uno nuevo. El retorno debe alcanzar la lectura, no solamente el rombo: reevaluar el mismo valor no lo corrige. El contrato también debe indicar si los intentos están limitados o si se supone que eventualmente llegará un dato válido.</p>
+<p><strong>Dato centinela.</strong> Es un valor reservado que indica el final de las entradas. Para acumular cantidades no negativas, se puede reservar −1. Ese valor controla el recorrido y no se suma. Conviene comprobar primero si llegó el centinela y después validar los datos ordinarios. Si −1 fuera una cantidad legítima del dominio, ya no serviría como centinela sin una regla adicional.</p>
+<p><strong>Menú repetitivo.</strong> Se muestran opciones, se lee una elección, se realiza una acción y se vuelve a mostrar el menú, salvo que se haya elegido salir. Una opción inválida debe tener comportamiento definido. El menú no obliga a usar un rombo con muchas salidas: se puede representar mediante decisiones binarias encadenadas.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Motivo para repetir</th>
+<th>Salida prevista</th>
+<th>Caso crítico</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Validar una nota</td>
+<td>La nota no pertenece al dominio</td>
+<td>Llega una nota válida</td>
+<td>El retorno debe leer otra nota</td>
+</tr>
+<tr>
+<td>Recibir cantidades</td>
+<td>No ha llegado −1</td>
+<td>Llega el centinela</td>
+<td>−1 como primera entrada</td>
+</tr>
+<tr>
+<td>Consultar un menú</td>
+<td>No se eligió terminar</td>
+<td>Opción de salida</td>
+<td>Opción desconocida</td>
+</tr>
+<tr>
+<td>Intentos limitados</td>
+<td>No hay éxito y quedan intentos</td>
+<td>Éxito o límite alcanzado</td>
+<td>Éxito en el último intento</td>
+</tr>
+</tbody></table></div>
+<h3>1.8. Condiciones compuestas para controlar repeticiones</h3>
+<p>Si un procedimiento continúa solamente mientras quedan intentos <strong>y</strong> no ha tenido éxito, su condición es <code>intentos &lt; máximo AND NOT logrado</code>. La salida ocurre al alcanzar el máximo <strong>o</strong> al lograr el objetivo. La conjunción de continuación y la disyunción de salida son negaciones entre sí, según De Morgan.</p>
+<p>Usar OR en la continuación de ese ejemplo sería un error: aunque se hubiera alcanzado el máximo, «no logrado» seguiría siendo verdadero y permitiría más intentos. También podría continuar después de un éxito mientras quedaran intentos. Probar esos dos casos es más esclarecedor que memorizar una expresión.</p>
+<p>En una simulación de acceso, una entrada booleana puede representar que una verificación externa fue satisfactoria. El diagrama estudia el control de intentos; no demuestra que exista autenticación segura ni requiere contraseñas reales.</p>
+<p><a id="terminacion"></a></p>
+<h3>1.9. Terminación, errores de frontera e invariantes</h3>
+<p>Una repetición debe tener una explicación de su avance. En el conteo 1 a 5, i aumenta y supera un límite fijo. En la validación sin límite, el algoritmo solo termina si finalmente se recibe un dato válido: no se puede prometer terminación independientemente de la entrada. En un menú, se requiere que la persona elija salir. Limitar intentos transforma esa dependencia en una cota explícita para las lecturas.</p>
+<p>Un <strong>invariante de bucle</strong> es una propiedad que se conserva cada vez que se alcanza un punto acordado de la repetición. No significa que todas las variables permanezcan iguales. En la suma del 1 al 5, justo antes de evaluar <code>i ≤ 5</code>, la variable suma contiene la suma de los enteros desde 1 hasta i − 1. Al principio, i = 1 y suma = 0: todavía no se ha incluido ningún entero. Después de añadir i y aumentarlo en uno, la misma relación vuelve a cumplirse.</p>
+<p>Para justificar un bucle conviene revisar tres aspectos: la preparación establece la propiedad; el cuerpo la conserva al avanzar; y al salir, la propiedad junto con la condición falsa explica el resultado. En este nivel basta escribir ese razonamiento con palabras y una traza breve.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Consecuencia</th>
+<th>Cómo detectarlo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No actualizar i</td>
+<td>La condición podría no cambiar nunca</td>
+<td>Trazar dos iteraciones y comparar el estado</td>
+</tr>
+<tr>
+<td>Aumentar i cuando debería disminuir</td>
+<td>Se aleja del límite de salida</td>
+<td>Revisar sentido, condición y paso juntos</td>
+</tr>
+<tr>
+<td>Usar <code>&lt;</code> en lugar de <code>≤</code></td>
+<td>Se omite el extremo superior</td>
+<td>Probar el último valor esperado</td>
+</tr>
+<tr>
+<td>Actualizar antes de mostrar sin ajustar el diseño</td>
+<td>Se omite el primer valor o se agrega uno extra</td>
+<td>Trazar la primera y la última iteración</td>
+</tr>
+<tr>
+<td>Reiniciar total dentro del cuerpo</td>
+<td>Solo queda el último dato</td>
+<td>Probar al menos dos valores distintos</td>
+</tr>
+<tr>
+<td>Sumar antes de comprobar el centinela</td>
+<td>Se contamina el resultado</td>
+<td>Probar el centinela como primera entrada</td>
+</tr>
+<tr>
+<td>Dividir entre cero aceptados</td>
+<td>El resumen no está definido</td>
+<td>Probar una secuencia sin datos válidos</td>
+</tr>
+</tbody></table></div>
+<h3>1.10. Bucles anidados: una repetición dentro de otra</h3>
+<p>Un bucle puede contener otro. Si se recorren dos filas y, para cada una, tres columnas, el cuerpo interior se ejecuta seis veces. El contador de columna debe reiniciarse para cada nueva fila. Si no se reinicia, después de la primera fila puede quedar fuera de su límite y omitir las siguientes.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Fila exterior</th>
+<th>Valores de columna</th>
+<th>Pares producidos</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1, 2, 3</td>
+<td>(1,1), (1,2), (1,3)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1, 2, 3</td>
+<td>(2,1), (2,2), (2,3)</td>
+</tr>
+</tbody></table></div>
+<p>El producto de cantidades sirve cuando ambos límites son fijos e independientes. Si el interior depende de la fila o puede terminar antes, el número de ejecuciones se debe analizar de otra manera. El objetivo inicial es reconocer el reinicio, no introducir todavía estructuras de datos bidimensionales.</p>
+<h3>1.11. Conexión breve con Java — lectura complementaria</h3>
+<p>Las operaciones de actualización del diagrama se expresarán en Java con asignaciones sobre variables declaradas. Esta secuencia muestra un solo cambio de estado, no implementa todavía el bucle:</p>
+<pre><code class="language-java">int i = 1;
+int total = 0;
+total = total + i;
+i = i + 1;
+</code></pre>
+<p>Al terminar el fragmento, total vale 1 e i vale 2. Las instrucciones se ubicarían dentro de un método y no constituyen un archivo ejecutable autónomo. Al implementar el bucle se necesitará una estructura de control; por ahora la práctica exige diseñar y trazar diagramas.</p>
+<p><a id="demostracion"></a></p>
+<h2>2. Demostraciones guiadas</h2>
+<p>Los resultados son <strong>salidas esperadas del modelo</strong> y las tablas muestran pruebas de escritorio desarrolladas. No es necesario ejecutar Python o Java para verificar el razonamiento. Leer cada rombo antes de seguir su flecha de retorno.</p>
+<h3>D1. Repetición contada con acumulación</h3>
+<p><strong>Problema y contrato.</strong> Mostrar los enteros del 1 al 5 y, al terminar, mostrar su suma. No se reciben entradas. El contador comienza en 1 y el acumulador en 0; la suma se muestra una sola vez, fuera del bucle.</p>
+<p><img src="../assets/d01-conteo.svg" alt="Diagrama D1: contador de 1 a 5, acumulación y salida final."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Evaluación</th>
+<th>i antes</th>
+<th>suma antes</th>
+<th>¿i ≤ 5?</th>
+<th>Acción del cuerpo</th>
+<th>i después</th>
+<th>suma después</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>Sí</td>
+<td>Mostrar 1; sumar 1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>Sí</td>
+<td>Mostrar 2; sumar 2</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>Sí</td>
+<td>Mostrar 3; sumar 3</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>6</td>
+<td>Sí</td>
+<td>Mostrar 4; sumar 4</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>10</td>
+<td>Sí</td>
+<td>Mostrar 5; sumar 5</td>
+<td>6</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>15</td>
+<td>No</td>
+<td>No se ejecuta</td>
+<td>6</td>
+<td>15</td>
+</tr>
+</tbody></table></div>
+<p><strong>Resultado:</strong> se muestran 1, 2, 3, 4 y 5; después, suma = 15. Hay cinco ejecuciones del cuerpo y seis evaluaciones de la condición. El valor final i = 6 no se muestra como parte de la secuencia. Termina porque i aumenta en uno y el límite 5 no cambia.</p>
+<h3>D2. Validación con condición posterior</h3>
+<p><strong>Problema y contrato.</strong> Solicitar notas numéricas hasta recibir una en [0,10]. Las entradas ya son números; no se estudia aquí la conversión de texto. El procedimiento acepta 0 y 10. El único mensaje de resultado es la nota aceptada.</p>
+<p><img src="../assets/d02-validacion.svg" alt="Diagrama D2: leer una nota y volver a leer si está fuera del intervalo."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Lectura</th>
+<th>Nota</th>
+<th>¿nota &lt; 0 OR nota &gt; 10?</th>
+<th>Recorrido</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>−2</td>
+<td>Sí</td>
+<td>Volver a Leer nota</td>
+</tr>
+<tr>
+<td>2</td>
+<td>11</td>
+<td>Sí</td>
+<td>Volver a Leer nota</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>No</td>
+<td>Mostrar nota aceptada: 8; terminar</td>
+</tr>
+</tbody></table></div>
+<p>La lectura pertenece al cuerpo y se realiza al menos una vez. No existe un contador porque no se limita el número de intentos. Si nunca llega una nota válida, este modelo no termina. <strong>Positivo</strong> significa mayor que cero; <strong>no negativo</strong> significa mayor o igual que cero. Confundir esas expresiones cambia el contrato y el camino del cero.</p>
+<h3>D3. Menú con salida explícita</h3>
+<p><strong>Problema y contrato.</strong> Presentar dos opciones: 1 Consultar; 0 Salir. La opción 1 muestra «Disponible» y vuelve al menú. Cualquier otra opción entera muestra «Opción inválida» y vuelve al menú. La opción 0 termina sin ejecutar una consulta.</p>
+<p><img src="../assets/d03-menu.svg" alt="Diagrama D3: mostrar menú, leer opción, comprobar salida y realizar una consulta o aviso."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Opción leída</th>
+<th>¿opción = 0?</th>
+<th>¿opción = 1?</th>
+<th>Resultado antes del siguiente paso</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>No</td>
+<td>No</td>
+<td>Opción inválida; volver a mostrar menú</td>
+</tr>
+<tr>
+<td>1</td>
+<td>No</td>
+<td>Sí</td>
+<td>Disponible; volver a mostrar menú</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Sí</td>
+<td>No se evalúa</td>
+<td>Fin</td>
+</tr>
+</tbody></table></div>
+<p>El retorno incluye la presentación del menú y una nueva lectura. La condición de salida se prueba antes de ejecutar acciones. Este menú termina si se recibe 0; no existe un máximo de consultas en el contrato.</p>
+<h3>D4. Centinela, validación y acumulador</h3>
+<p><strong>Problema y contrato.</strong> Leer cantidades enteras no negativas y sumarlas. El valor −1 señala el final; otros negativos se rechazan con un mensaje y no alteran el total. Al terminar, mostrar total. Se supone que eventualmente se recibirá −1.</p>
+<p><img src="../assets/d04-centinela.svg" alt="Diagrama D4: comprobar el centinela, validar la cantidad y acumular solo datos admitidos."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Lectura</th>
+<th>Cantidad</th>
+<th>¿Es −1?</th>
+<th>¿Es negativa ordinaria?</th>
+<th>Total después</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>4</td>
+<td>No</td>
+<td>No</td>
+<td>4</td>
+<td>Acumular y leer otra</td>
+</tr>
+<tr>
+<td>2</td>
+<td>−3</td>
+<td>No</td>
+<td>Sí</td>
+<td>4</td>
+<td>Mostrar Dato inválido y leer otra</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>4</td>
+<td>Acumular y leer otra</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6</td>
+<td>No</td>
+<td>No</td>
+<td>10</td>
+<td>Acumular y leer otra</td>
+</tr>
+<tr>
+<td>5</td>
+<td>−1</td>
+<td>Sí</td>
+<td>No se evalúa</td>
+<td>10</td>
+<td>Mostrar total 10; terminar</td>
+</tr>
+</tbody></table></div>
+<p><strong>Caso vacío:</strong> si la primera entrada es −1, se muestra total 0. Ese cero procede del elemento neutro de la suma; no significa que se haya procesado un dato con valor cero. El orden de comprobación impide rechazar por error la señal de cierre o incluirla en la suma.</p>
+<h3>D5. Tres intentos de verificación simulada</h3>
+<p><strong>Problema y contrato.</strong> Recibir resultados booleanos de verificaciones simuladas, uno por intento. Permitir como máximo tres lecturas. Terminar al primer resultado verdadero o al agotarse los intentos. Mostrar «Acceso» si hubo éxito y «Límite» si no. El proceso representa control de flujo, no un mecanismo real de autenticación.</p>
+<p><img src="../assets/d05-intentos.svg" alt="Diagrama D5: repetir mientras quedan intentos y no hay un resultado válido."></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Estado antes del rombo</th>
+<th>¿intentos &lt; 3 AND NOT válida?</th>
+<th>Entrada si se repite</th>
+<th>Estado tras el cuerpo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>intentos = 0; válida = F</td>
+<td>Sí</td>
+<td>F</td>
+<td>intentos = 1; válida = F</td>
+</tr>
+<tr>
+<td>intentos = 1; válida = F</td>
+<td>Sí</td>
+<td>F</td>
+<td>intentos = 2; válida = F</td>
+</tr>
+<tr>
+<td>intentos = 2; válida = F</td>
+<td>Sí</td>
+<td>V</td>
+<td>intentos = 3; válida = V</td>
+</tr>
+<tr>
+<td>intentos = 3; válida = V</td>
+<td>No</td>
+<td>No se lee</td>
+<td>Mostrar Acceso</td>
+</tr>
+</tbody></table></div>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Secuencia disponible</th>
+<th>Entradas consumidas</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V</td>
+<td>1</td>
+<td>Acceso</td>
+</tr>
+<tr>
+<td>F, V</td>
+<td>2</td>
+<td>Acceso</td>
+</tr>
+<tr>
+<td>F, F, V</td>
+<td>3</td>
+<td>Acceso</td>
+</tr>
+<tr>
+<td>F, F, F, V</td>
+<td>3</td>
+<td>Límite; el cuarto valor no se lee</td>
+</tr>
+</tbody></table></div>
+<p>El éxito en el tercer intento es válido. Por eso, después de salir, se consulta la bandera válida; no se decide el éxito únicamente por <code>intentos &lt; 3</code>. El contador aumenta después de cada lectura, sea favorable o desfavorable. La terminación está acotada por tres lecturas.</p>
+<p><a id="pc"></a></p>
+<h2>3. PC2.2 · Construir y comprobar repeticiones</h2>
+<h3>Forma de trabajo y evidencia</h3>
+<p>Usar un editor de diagramas y entregar archivo editable más exportación SVG o PNG. No se exige código ni herramientas con una marca determinada. Cada diagrama debe incluir preparación, cuerpo, condición, actualización y salida reconocibles. Las flechas de retorno deben llegar al paso correcto y los rombos deben tener salidas Sí/No.</p>
+<p>Antes de dibujar, explicar si la cantidad de iteraciones es conocida, si puede ser cero y qué garantiza o condiciona la terminación. Después, hacer una traza que registre <strong>estado antes, condición, datos consumidos, estado después y salida</strong>. Un conjunto de valores de entrada se consume en orden; no se supone que todas las entradas se leen si el bucle termina antes.</p>
+<h3>Serie A · Conteos y límites</h3>
+<ol>
+<li><strong>Conteo ascendente.</strong> Mostrar del 1 al 8, incluidos. Registrar primera y última iteración y la evaluación que permite salir. No mostrar el 9.</li>
+<li><strong>Cuenta regresiva.</strong> Mostrar del 5 al 1 y luego «Inicio de actividad». Explicar por qué aumentar el contador impediría cumplir el contrato.</li>
+<li><strong>Pares.</strong> Mostrar 2, 4, 6, 8, 10 y 12 mediante un paso de dos. No usar una decisión de paridad dentro del cuerpo. Registrar el valor del contador al salir.</li>
+<li><strong>Límite variable.</strong> Recibir N entero no negativo, garantizado válido. Mostrar del 1 a N. Para N = 0 no mostrar números; para N = 1 mostrar solo 1. Explicar el mínimo de iteraciones.</li>
+<li><strong>Tabla de productos.</strong> Recibir un entero n y mostrar n × i para i de 1 a 10. Incluir multiplicador y producto en cada salida. Probar n = 0 y n = −2.</li>
+<li><strong>Intervalo descendente.</strong> Recibir enteros a y b con a ≥ b. Mostrar desde a hasta b, incluidos. Para a = b debe existir una sola salida. Formular la condición y el paso de manera coherente.</li>
+</ol>
+<h3>Serie B · Acumulación y conteos selectivos</h3>
+<ol start="7">
+<li><strong>Suma de N entradas.</strong> Recibir N entero no negativo y luego exactamente N números reales. Mostrar la suma. Caso N = 0 → suma 0; N = 3 y datos 2, −1, 4 → suma 5.</li>
+<li><strong>Promedio fijo.</strong> Leer cinco notas ya garantizadas en [0,10]. Mostrar el promedio. No validar en esta versión. Si todas son 7, se espera 7.</li>
+<li><strong>Positivos y no positivos.</strong> Leer seis enteros. Contar por separado los mayores que cero y los demás. Para 2, 0, −1, 5, 3, −7 se esperan tres en cada grupo. El cero pertenece a no positivos.</li>
+<li><strong>Producto.</strong> Recibir N entero no negativo y después N factores reales. Mostrar el producto; se acuerda producto 1 cuando N = 0. Probar N = 3 con 2, 3, 4 → 24 y otra secuencia que incluya cero.</li>
+<li><strong>Mayor de varias lecturas.</strong> Recibir N entero positivo y luego N reales, que pueden ser negativos. Mostrar el mayor. No inicializar el mayor en cero: proponer una inicialización basada en los datos. Casos: N = 1 con −8 → −8; N = 3 con −4, −9, −2 → −2.</li>
+<li><strong>Ahorro por aportes.</strong> Recibir aportes positivos hasta alcanzar o superar 100. Mostrar total y cantidad de aportes. Con 40, 35, 30 se esperan total 105 y tres aportes. Se supone que los aportes recibidos permiten llegar a la meta en un número finito de lecturas.</li>
+</ol>
+<h3>Serie C · Validación y finalización</h3>
+<ol start="13">
+<li><strong>Número estrictamente positivo.</strong> Leer enteros hasta obtener uno mayor que cero. Rechazar también el cero. Para −2, 0, 4, aceptar 4 después de tres lecturas. Mostrar el número de lecturas.</li>
+<li><strong>No negativo.</strong> Modificar el requisito anterior para aceptar cero. Para −2, 0, 4, aceptar 0 después de dos lecturas; el 4 no se consume. Explicar qué cambió en la condición.</li>
+<li><strong>Confirmación.</strong> Leer un texto hasta recibir SI o NO. Se garantiza que las entradas están en mayúsculas y sin espacios. Cualquier otro valor debe producir «Respuesta inválida» y una nueva lectura. Al terminar, mostrar la respuesta aceptada.</li>
+<li><strong>Tres notas válidas.</strong> Recibir entradas numéricas hasta reunir tres notas en [0,10]. Las inválidas no cuentan ni se suman. Mostrar promedio y cantidad total de lecturas. Para 11, 6, −1, 8, 10 se esperan promedio 8 y cinco lecturas.</li>
+<li><strong>Centinela textual.</strong> Leer cantidades enteras no negativas hasta recibir la señal textual FIN. Se garantiza que cada entrada es FIN o un entero no negativo. Mostrar cantidad de datos y suma. Con FIN como primera entrada, ambos resultados son cero. Explicar cómo se evita confundir la señal con un dato.</li>
+<li><strong>Temperaturas con centinela separado.</strong> Recibir primero un booleano hayDato. Mientras sea verdadero, leer una temperatura real, acumularla y volver a leer hayDato. Mostrar promedio si hubo temperaturas; en otro caso, «Sin datos». Las temperaturas negativas son válidas y no deben usarse como señal de cierre.</li>
+</ol>
+<h3>Serie D · Menús y requerimientos aplicados</h3>
+<ol start="19">
+<li><strong>Menú de conversión.</strong> Repetir un menú con 1 Convertir minutos a segundos y 0 Salir. Para opción 1, leer minutos no negativos garantizados y mostrar segundos. Otras opciones enteras muestran aviso. Con entradas de opciones 1, 7, 0 y minutos 2 para la primera acción, deben aparecer 120 segundos y un aviso; después terminar.</li>
+<li><strong>Conteo de solicitudes.</strong> Procesar estados APROBADA o RECHAZADA hasta recibir FIN. Otros textos muestran aviso y no cuentan. Mostrar total procesado y porcentaje de aprobadas cuando exista al menos una. Con FIN inicial, mostrar «Sin solicitudes» sin dividir entre cero.</li>
+<li><strong>Revisión simulada de alertas.</strong> Recibir N entero no negativo y luego N niveles ya válidos: BAJO, MEDIO o ALTO. Contar los ALTO y mostrar el resumen. N = 0 es válido. No se accede a equipos ni registros reales.</li>
+<li><strong>Comprobaciones con límite.</strong> Permitir hasta cuatro entradas booleanas de una verificación simulada y terminar al primer verdadero. Mostrar éxito o agotamiento junto al número de lecturas. Probar éxito en la primera, éxito en la cuarta y cuatro fallos. No solicitar claves reales.</li>
+<li><strong>Control de espacio de respaldo.</strong> Recibir capacidad positiva y luego tamaños positivos de archivos simulados; el valor 0 termina. Aceptar un tamaño solo si cabe en el espacio restante; si no cabe, avisar y continuar leyendo. Mostrar usados, restantes y cantidad de archivos aceptados. Con capacidad 10 y tamaños 4, 7, 6, 0: usados 10, restantes 0, aceptados 2. No dividir ni modificar archivos reales.</li>
+<li><strong>Rondas de revisión.</strong> Simular dos rondas de tres equipos. Mostrar todos los pares (ronda, equipo) en orden. Usar una repetición dentro de otra y señalar dónde se reinicia el contador de equipo. Escribir los seis pares esperados antes de dibujar.</li>
+</ol>
+<h3>Actividad integradora de la PC: recepción limitada de mediciones</h3>
+<p>Un laboratorio desea aceptar <strong>tres mediciones válidas</strong> de uso de disco expresadas como porcentajes en [0,100], pero permite <strong>como máximo cinco lecturas</strong> numéricas en total. Cada valor fuera del intervalo debe generar «Dato inválido», consumir un intento y no alterar la suma ni la cantidad de aceptados. Detenerse al reunir tres válidos o al realizar cinco lecturas. No usar centinela.</p>
+<p>Al terminar, mostrar lecturas realizadas, aceptados, cantidad de aceptados que alcanzan o superan 90, y promedio de los aceptados si hay alguno. Si no hay aceptados, mostrar «Sin datos válidos». Indicar además «Objetivo completo» si se reunieron tres o «Límite alcanzado» si no. Son mediciones simuladas, sin conexión con un sistema real.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Secuencia disponible</th>
+<th>Lecturas</th>
+<th>Aceptados</th>
+<th>Valores ≥ 90</th>
+<th>Promedio</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>20, 90, 100</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>70</td>
+<td>Objetivo completo</td>
+</tr>
+<tr>
+<td>−1, 20, 101, 40, 60</td>
+<td>5</td>
+<td>3</td>
+<td>0</td>
+<td>40</td>
+<td>Objetivo completo</td>
+</tr>
+<tr>
+<td>−1, 101, −2, 102, −3</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>Sin datos válidos</td>
+<td>Límite alcanzado</td>
+</tr>
+<tr>
+<td>90, −1, 100, 101, −2</td>
+<td>5</td>
+<td>2</td>
+<td>2</td>
+<td>95</td>
+<td>Límite alcanzado</td>
+</tr>
+<tr>
+<td>0, 0, 0, 100</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>Objetivo completo; no leer el cuarto valor</td>
+</tr>
+</tbody></table></div>
+<p><strong>Entregables.</strong> Análisis de entradas y salidas; diagrama editable; imagen; tabla de prueba para todos los casos; explicación de la condición compuesta y de la terminación. Distinguir contadores de lecturas y de aceptados. Proponer una propiedad que se conserve durante la repetición, por ejemplo una relación entre ambos contadores, y justificarla. No entregar una solución de código como sustitución del diagrama.</p>
+<p>Guardar <code>evidencias/PC2.2.md</code> en la carpeta personal. Si se usa Git, crear un commit identificable como <code>feat(pc2.2): diagramar-recepcion-limitada</code>, obtener el hash real con <code>git rev-parse HEAD</code> y registrar qué error se corrigió respecto de un avance anterior. Revisar el avance con <code>git show HASH</code> o <code>git diff HASH_ANTERIOR HASH_ACTUAL</code>. No se requiere proyecto acumulativo ni rúbrica individual.</p>
+<p><a id="esencial"></a></p>
+<h2>Lo esencial</h2>
+<ul>
+<li>Un bucle combina estado inicial, condición, cuerpo y cambio de estado.</li>
+<li>Una condición previa admite cero ejecuciones; una posterior exige al menos una.</li>
+<li>Contar lecturas no equivale a contar datos aceptados.</li>
+<li>Un centinela controla la terminación y debe excluirse de los datos procesados.</li>
+<li>La salida depende de la pregunta exacta del rombo; invertir la condición exige invertir sus rutas.</li>
+<li>Revisar la primera iteración, la última y el caso sin datos revela muchos errores.</li>
+<li>Explicar la terminación es parte del diseño, incluso si depende de futuras entradas.</li>
+</ul>
+<h2>Referencias de preparación</h2>
+<ul>
+<li>Torres, Pablo. <em>02.02 Algoritmos bucles</em>. Presentación proporcionada para la asignatura: repetición y patrones, pp. 3–9; validación, pp. 10–13; menú, pp. 14–15; conteos y ejercicios, pp. 16–20. Este material reorganiza los ejemplos y distingue expresamente la aceptación de cero, los contadores y las condiciones de salida.</li>
+<li>Torres, Pablo. <em>02.01 Algoritmos</em>. Presentación proporcionada: entrada/proceso/salida y figuras básicas, pp. 7–8 y 14. Se conservan sus objetivos conceptuales y se unifica la notación de los diagramas.</li>
+<li><a href="https://dev.java/learn/language-basics/using-operators/">Java: documentación oficial sobre operadores</a>.</li>
+</ul>
+<p><a href="../python/material.html">Versión Python</a> · <a href="../../2.1-algoritmos/java/material.html">Anterior: fundamentos y decisiones</a></p>
+<nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/java/index.html">Anterior</a><a href="../../../03/3.01-introduccion/java/index.html">Siguiente</a></nav></main><script>if(parent!==window)parent.postMessage({type:'course-resource',id:"2.2-java"},'*');</script></body></html>

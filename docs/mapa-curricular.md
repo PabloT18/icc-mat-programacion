@@ -15,7 +15,7 @@ No constan horas por subtema. No usar estas horas para inferir duración de cada
 | Código editorial | Segmento | Correspondencia | Naturaleza | Detalle |
 |---|---|---|---|---|
 | 1.1 | Álgebra de Boole | Álgebra de Boole; proposiciones como fundamento integrado | Oficial desarrollado | [Documento](../01/1.1-algebra-boole/doc.md) |
-| 2.1 | Representación y estructuras de algoritmos | Formas de representar algoritmos; Estructuras de Control (Decisión, Repetitivas) | Oficial desarrollado | [Documento](../02/2.1-algoritmos/doc.md) |
+| 2.1 | Representación y estructuras de algoritmos | Formas de representar algoritmos; Estructuras de Control (Decisión, Repetitivas) | Oficial desarrollado |  |
 | 3.01 | Fundamentos del lenguaje | Fundamentos: generalidades, tipos de datos, operadores, expresiones y variables | Oficial desarrollado | [Documento](../03/3.01-introduccion/doc.md) |
 | 3.02 | Entradas, salidas y conversiones | Fundamentos: datos, expresiones y variables aplicados a entrada/salida | Oficial desarrollado | [Documento](../03/3.02-entradas-salidas/doc.md) |
 | 3.03 | Decisiones y operadores lógicos | Aplicación de estructuras de control a fundamentos del lenguaje | Oficial desarrollado | [Documento](../03/3.03-estructuras-control/doc.md) |
