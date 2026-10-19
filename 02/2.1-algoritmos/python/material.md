@@ -345,6 +345,27 @@ Entregar análisis, diagrama con decisiones identificadas, pruebas de escritorio
 
 Añadir un caso válido interior y justificar una frontera adicional. 
 
+# Diagrama de flujo: recepción de solicitudes
+
+```mermaid
+flowchart TD
+    A([Inicio]) --> B[/Leer horas, capacitaciónVigente, equipoDisponible, bloqueoAdministrativo/]
+    B --> C{"D1: ¿horas <= 0 o horas > 4?"}
+    C -- Sí --> R1[/Mostrar Dato inválido/]
+    C -- No --> D{"D2: ¿bloqueoAdministrativo?"}
+    D -- Sí --> R2[/Mostrar Bloqueada/]
+    D -- No --> E{"D3: ¿capacitaciónVigente?"}
+    E -- No --> R3[/Mostrar Capacitación requerida/]
+    E -- Sí --> F{"D4: ¿equipoDisponible?"}
+    F -- No --> R4[/Mostrar Equipo no disponible/]
+    F -- Sí --> R5[/Mostrar Aceptada/]
+    R1 --> Z([Fin])
+    R2 --> Z
+    R3 --> Z
+    R4 --> Z
+    R5 --> Z
+```
+
 <a id="esencial"></a>
 
 ## Lo esencial

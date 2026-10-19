@@ -4,3 +4,5 @@ __pycache__/
 *.class
 build/
 .DS_Store
+
+solve.md
