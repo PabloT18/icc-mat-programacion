@@ -7,7 +7,30 @@ const data = JSON.parse(await fs.readFile(path.join(root, 'assets/catalogo.json'
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const rel = (base, target) => path.relative(path.join(root, base), path.join(root, target)).split(path.sep).join('/');
 async function write(p, s) { await fs.mkdir(path.dirname(path.join(root, p)), { recursive: true }); await fs.writeFile(path.join(root, p), s); }
-const head = (title, base) => `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} · Programación</title><link rel="stylesheet" href="${rel(base, 'assets/css/styles.css')}"></head>`;
+const head = (title, base) => `
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>${esc(title)} · Programación</title>
+
+  <link
+    rel="stylesheet"
+    href="${rel(base, 'assets/css/styles.css')}"
+  >
+
+  <script
+    defer
+    src="${rel(base, 'assets/js/vendor/mermaid.min.js')}"
+  ></script>
+
+  <script
+    defer
+    src="${rel(base, 'assets/js/mermaid-init.js')}"
+  ></script>
+</head>`;
 function render(md) { return marked.parse(md, { gfm: true }).replace(/href="([^"?#]*?)\.md(#[^"]*)?"/g, (_, url, hash) => `href="${url}.html${hash || ''}"`).replace(/<table>/g, '<div class="table-scroll"><table>').replace(/<\/table>/g, '</table></div>'); }
 // function nav(t) { return `<nav class="article-nav" aria-label="Recursos del contenido"><a href="${rel(t.path, 'index.html')}" target="_top">Índice del curso</a><a href="material.md" download>Descargar MD</a><a href="${rel(t.path, t.pptx)}" download>PPTX ${esc(t.deck_language)}</a>${t.prev ? `<a href="${rel(t.path, t.prev + '/index.html')}">Anterior</a>` : ''}${t.next ? `<a href="${rel(t.path, t.next + '/index.html')}">Siguiente</a>` : ''}</nav>`; }
 function nav(t) { return `<nav class="article-nav" aria-label="Recursos del contenido"><a href="${rel(t.path, 'index.html')}" target="_top">Índice del curso</a>${t.prev ? `<a href="${rel(t.path, t.prev + '/index.html')}">Anterior</a>` : ''}${t.next ? `<a href="${rel(t.path, t.next + '/index.html')}">Siguiente</a>` : ''}</nav>`; }

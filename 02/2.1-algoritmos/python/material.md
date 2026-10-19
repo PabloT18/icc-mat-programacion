@@ -345,7 +345,7 @@ Entregar análisis, diagrama con decisiones identificadas, pruebas de escritorio
 
 Añadir un caso válido interior y justificar una frontera adicional. 
 
-# Diagrama de flujo: recepción de solicitudes
+#### Diagrama de flujo: recepción de solicitudes
 
 ```mermaid
 flowchart TD

@@ -1,4 +1,27 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2.1 · Representación y estructuras de algoritmos · Programación</title><link rel="stylesheet" href="../../../assets/css/styles.css"></head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/python/index.html">Anterior</a><a href="../../2.2-algoritmos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>2.1 · Representación y estructuras de algoritmos · Programación</title>
+
+  <link
+    rel="stylesheet"
+    href="../../../assets/css/styles.css"
+  >
+
+  <script
+    defer
+    src="../../../assets/js/vendor/mermaid.min.js"
+  ></script>
+
+  <script
+    defer
+    src="../../../assets/js/mermaid-init.js"
+  ></script>
+</head><body><a class="skip" href="#contenido">Ir al material</a><main class="page" id="contenido"><nav class="article-nav" aria-label="Recursos del contenido"><a href="../../../index.html" target="_top">Índice del curso</a><a href="../../../01/1.1-algebra-boole/python/index.html">Anterior</a><a href="../../2.2-algoritmos/python/index.html">Siguiente</a></nav><h1>Programación</h1>
 <p><img src="../../../assets/logos/ups-computacion.png" alt="UPS · Carrera de Computación"></p>
 <h2>2.1 · Algoritmos, representaciones y decisiones · Python</h2>
 <p><strong>Autor:</strong> Ing. Pablo Torres, Mgtr.<br><strong>Unidad 2:</strong> Algoritmos · sección de organización didáctica<br><strong>Institución:</strong> Universidad Politécnica Salesiana · Computación · Cuenca</p>
@@ -664,6 +687,24 @@ admitida = (edad &gt;= 18) and (not bloqueada)
 </tr>
 </tbody></table></div>
 <p>Añadir un caso válido interior y justificar una frontera adicional. </p>
+<h4>Diagrama de flujo: recepción de solicitudes</h4>
+<pre><code class="language-mermaid">flowchart TD
+    A([Inicio]) --&gt; B[/Leer horas, capacitaciónVigente, equipoDisponible, bloqueoAdministrativo/]
+    B --&gt; C{&quot;D1: ¿horas &lt;= 0 o horas &gt; 4?&quot;}
+    C -- Sí --&gt; R1[/Mostrar Dato inválido/]
+    C -- No --&gt; D{&quot;D2: ¿bloqueoAdministrativo?&quot;}
+    D -- Sí --&gt; R2[/Mostrar Bloqueada/]
+    D -- No --&gt; E{&quot;D3: ¿capacitaciónVigente?&quot;}
+    E -- No --&gt; R3[/Mostrar Capacitación requerida/]
+    E -- Sí --&gt; F{&quot;D4: ¿equipoDisponible?&quot;}
+    F -- No --&gt; R4[/Mostrar Equipo no disponible/]
+    F -- Sí --&gt; R5[/Mostrar Aceptada/]
+    R1 --&gt; Z([Fin])
+    R2 --&gt; Z
+    R3 --&gt; Z
+    R4 --&gt; Z
+    R5 --&gt; Z
+</code></pre>
 <p><a id="esencial"></a></p>
 <h2>Lo esencial</h2>
 <ul>
