@@ -327,7 +327,6 @@ Al terminar, mostrar lecturas realizadas, aceptados, cantidad de aceptados que a
 
 **Entregables.** Análisis de entradas y salidas; diagrama editable; imagen; tabla de prueba para todos los casos; explicación de la condición compuesta y de la terminación. Distinguir contadores de lecturas y de aceptados. Proponer una propiedad que se conserve durante la repetición, por ejemplo una relación entre ambos contadores, y justificarla. No entregar una solución de código como sustitución del diagrama.
 
-Guardar `evidencias/PC2.2.md` en la carpeta personal. Si se usa Git, crear un commit identificable como `feat(pc2.2): diagramar-recepcion-limitada`, obtener el hash real con `git rev-parse HEAD` y registrar qué error se corrigió respecto de un avance anterior. Revisar el avance con `git show HASH` o `git diff HASH_ANTERIOR HASH_ACTUAL`. No se requiere proyecto acumulativo ni rúbrica individual.
 
 <a id="esencial"></a>
 
