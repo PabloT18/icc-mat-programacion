@@ -11,7 +11,7 @@
 
 [1.2 Algoritmos](../README.md)
 
-[Versión Java](../java/material.md)
+
 
 ## Indice de contenidos
 
@@ -382,4 +382,4 @@ flowchart TD
 - Material de la asignatura, *1.1 · Álgebra de Boole*, versión proporcionada como referencia: variables booleanas, operadores y leyes. Las condiciones compuestas de esta sección aplican esos conceptos.
 - [Python: referencia oficial de expresiones y operaciones booleanas](https://docs.python.org/3/reference/expressions.html#boolean-operations).
 
-[Versión Java](../java/material.md) · [Siguiente: bucles](../../2.2-algoritmos/python/material.md)
+ · [Siguiente: bucles](../../2.2-algoritmos/python/material.md)

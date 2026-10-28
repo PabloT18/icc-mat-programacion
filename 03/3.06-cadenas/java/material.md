@@ -8,7 +8,7 @@
 **Unidad 3:** Lenguaje de Programación  
 
 
-[Índice del curso](../../../README.md) · [Versión Python](../python/material.md) · [Presentación Python](../presentacion.pptx) · [Anterior](../../3.05-funciones/java/material.md) · [Siguiente](../../3.07-listas/java/material.md)
+[Versión Python](../python/material.md) · [Presentación Python](../presentacion.pptx) · [Anterior](../../3.05-funciones/java/material.md) · [Siguiente](../../3.07-listas/java/material.md)
 
 [Conceptos](#concepto-1) · [Demostración](#demostracion) · [Práctica de clase](#pc) · [Lo esencial](#esencial)
 
@@ -286,4 +286,4 @@ No se requiere proyecto acumulativo ni rúbrica individual de esta PC.
 - [Aprender Java, sitio oficial](https://dev.java/learn/)
 - [API de Java SE 27](https://docs.oracle.com/en/java/javase/27/docs/api/)
 
-[Índice del curso](../../../README.md) · [Versión Python](../python/material.md) · [Presentación Python](../presentacion.pptx) · [Anterior](../../3.05-funciones/java/material.md) · [Siguiente](../../3.07-listas/java/material.md)
+[Versión Python](../python/material.md) · [Presentación Python](../presentacion.pptx) · [Anterior](../../3.05-funciones/java/material.md) · [Siguiente](../../3.07-listas/java/material.md)

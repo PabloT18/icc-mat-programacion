@@ -11,7 +11,7 @@
 
 [1.1 · Álgebra de Boole](../README.md) 
 
-[Versión Java](../java/material.md)
+
 
 ## Indice de contenidos
 

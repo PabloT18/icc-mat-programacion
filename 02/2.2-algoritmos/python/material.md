@@ -6,7 +6,7 @@
 **Unidad 2:** Algoritmos · sección de organización didáctica  
 **Institución:** Universidad Politécnica Salesiana · Computación · Cuenca
 
-[Versión Java](../java/material.md) · [Anterior: fundamentos y decisiones](../../2.1-algoritmos/python/material.md)
+ · [Anterior: fundamentos y decisiones](../../2.1-algoritmos/python/material.md)
 
 [Conceptos](#concepto-1) · [Demostraciones](#demostracion) · [Práctica de clase](#pc) · [Lo esencial](#esencial)
 
@@ -346,4 +346,4 @@ Al terminar, mostrar lecturas realizadas, aceptados, cantidad de aceptados que a
 - Torres, Pablo. *02.01 Algoritmos*. Presentación proporcionada: entrada/proceso/salida y figuras básicas, pp. 7–8 y 14. Se conservan sus objetivos conceptuales y se unifica la notación de los diagramas.
 - [Python: referencia oficial de expresiones y operaciones booleanas](https://docs.python.org/3/reference/expressions.html#boolean-operations).
 
-[Versión Java](../java/material.md) · [Anterior: fundamentos y decisiones](../../2.1-algoritmos/python/material.md)
+ · [Anterior: fundamentos y decisiones](../../2.1-algoritmos/python/material.md)

@@ -8,7 +8,7 @@
 **Unidad 3:** Lenguaje de Programación  
 
 
-[Índice del curso](../../../README.md) · [Versión Java](../java/material.md) [Anterior](../../3.10-tuplas/python/material.md) · [Siguiente](../../3.12-main-modulos/python/material.md)
+ [Anterior](../../3.10-tuplas/python/material.md) · [Siguiente](../../3.12-main-modulos/python/material.md)
 
 [Conceptos](#concepto-1) · [Demostración](#demostracion) · [Práctica de clase](#pc) · [Lo esencial](#esencial)
 
@@ -281,4 +281,4 @@ No se requiere proyecto acumulativo ni rúbrica individual de esta PC.
 - [Tutorial oficial de Python](https://docs.python.org/3.14/tutorial/)
 - [Biblioteca estándar de Python](https://docs.python.org/3.14/library/)
 
-[Índice del curso](../../../README.md) · [Versión Java](../java/material.md) [Anterior](../../3.10-tuplas/python/material.md) · [Siguiente](../../3.12-main-modulos/python/material.md)
+ [Anterior](../../3.10-tuplas/python/material.md) · [Siguiente](../../3.12-main-modulos/python/material.md)
