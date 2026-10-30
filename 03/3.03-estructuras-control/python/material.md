@@ -28,8 +28,7 @@ Después de leer, convertir y presentar datos, un programa necesita decidir qué
 - [1.5 Orden de evaluación](#flujo)
 - [1.6 Decisiones independientes y anidadas](#anidadas)
 - [1.7 Operadores lógicos y cortocircuito](#logicos)
-- [1.8 Formato, dominio y números finitos](#validacion)
-- [1.9 Contrato y pruebas de frontera](#contrato)
+- [1.8 Contrato y pruebas de frontera](#contrato)
 - [2. Demostraciones](#demostracion)
 - [3. Ejercicios prácticos](#ejercicios)
 - [PC3.03: tarifa de envío](#pc)
@@ -360,45 +359,12 @@ La prioridad entre operadores lógicos es `not`, después `and` y finalmente `or
 
 En Python, `and` y `or` pueden devolver uno de sus operandos, no necesariamente un `bool`. La tabla anterior utiliza operandos booleanos. `not` sí produce un booleano. Para estos ejercicios se usan comparaciones o variables booleanas explícitas.
 
-<a id="validacion"></a>
-<a id="concepto-4"></a>
 
-### 1.8 Formato, dominio y números finitos
 
-**Formato** indica si el texto puede convertirse al tipo requerido. **Dominio** indica si el valor convertido está permitido. `int("abc")` falla por formato; `int("-2")` funciona, pero −2 puede estar prohibido para una edad.
-
-```python
-texto = input()
-try:
-    edad = int(texto)
-except ValueError:
-    print("Formato inválido")
-else:
-    if edad < 0:
-        print("Edad inválida")
-    else:
-        print(f"Edad aceptada: {edad}")
-```
-
-El `else` alineado con `try` se ejecuta si la conversión termina sin `ValueError`; no es una rama de `if`. Se introduce aquí para mantener separado el código de conversión del código de decisión. La entrada `abc` muestra `Formato inválido`; −2 muestra `Edad inválida`; 18 muestra `Edad aceptada: 18`.
-
-Captura el error esperado y conserva el bloque `try` pequeño. Un `except` sin tipo puede ocultar errores ajenos al formato. Este programa lee una sola vez: solicitar de nuevo se estudiará con los bucles.
-
-`float("nan")` y `float("inf")` son conversiones admitidas. Si el contrato exige un número finito, se debe comprobarlo expresamente:
-
-```python
-import math
-nota = float("nan")
-print(math.isfinite(nota))
-```
-
-**Salida:** `False`. `math` pertenece a la biblioteca estándar. `math.isfinite()` rechaza tanto infinitos como NaN. No basta comprobar `nota < 0 or nota > 10`: ambas comparaciones son falsas para NaN.
-
-Para normalizar opciones de texto se puede usar `input().strip().lower()`: `strip()` elimina espacios de los extremos y `lower()` convierte letras a minúsculas. No se debe normalizar indiscriminadamente un código cuyo contrato distingue mayúsculas.
 
 <a id="contrato"></a>
 
-### 1.9 Contrato y pruebas de frontera
+### 1.8 Contrato y pruebas de frontera
 
 Antes de escribir condiciones, define orden de entradas, tipo, dominio, salidas y prioridad de los errores. Si varias reglas fallan, el programa necesita saber cuál comunicar primero.
 

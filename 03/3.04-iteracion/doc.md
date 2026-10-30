@@ -27,7 +27,7 @@
 | [1.1. Repetición contada con for](python/material.md#concepto-1) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Identifica la sintaxis y semántica en un lenguaje de programación. | Explicar repetición contada con for con un caso y un contraejemplo. |
 | [1.2. Repetición condicionada con while](python/material.md#concepto-2) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Identifica la sintaxis y semántica en un lenguaje de programación. | Explicar repetición condicionada con while con un caso y un contraejemplo. |
 | [1.3. Contar, acumular y mantener invariantes](python/material.md#concepto-3) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Identifica la sintaxis y semántica en un lenguaje de programación. | Explicar contar, acumular y mantener invariantes con un caso y un contraejemplo. |
-| [1.4. Anidamiento, costo y pruebas](python/material.md#concepto-4) | Aporte conceptual parcial; exigir explicación y traza antes de atribuir implementación. | Identifica la sintaxis y semántica en un lenguaje de programación. | Explicar anidamiento, costo y pruebas con un caso y un contraejemplo. |
+
 | [2. Demostración guiada](python/material.md#demostracion) | Modelar una solución ejecutable. Reproducirla con apoyo no basta para acreditar autonomía. | Diseña e implementa programas en un lenguaje de programación. | Ejecutar el ejemplo, anticipar salida y explicar una modificación. |
 | [3. PC3.04 · Práctica de clase](python/material.md#pc) | Observar resolución autónoma sobre un problema distinto. | Diseña e implementa programas en un lenguaje de programación. | Revisar fuente, casos de aceptación, commit real y defensa. |
 

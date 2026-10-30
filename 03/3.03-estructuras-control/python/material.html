@@ -39,8 +39,7 @@
 <li><a href="#flujo">1.5 Orden de evaluación</a></li>
 <li><a href="#anidadas">1.6 Decisiones independientes y anidadas</a></li>
 <li><a href="#logicos">1.7 Operadores lógicos y cortocircuito</a></li>
-<li><a href="#validacion">1.8 Formato, dominio y números finitos</a></li>
-<li><a href="#contrato">1.9 Contrato y pruebas de frontera</a></li>
+<li><a href="#contrato">1.8 Contrato y pruebas de frontera</a></li>
 <li><a href="#demostracion">2. Demostraciones</a></li>
 <li><a href="#ejercicios">3. Ejercicios prácticos</a></li>
 <li><a href="#pc">PC3.03: tarifa de envío</a></li>
@@ -362,32 +361,8 @@ print(divisor != 0 and 10 / divisor &gt; 2)
 </tr>
 </tbody></table></div>
 <p>En Python, <code>and</code> y <code>or</code> pueden devolver uno de sus operandos, no necesariamente un <code>bool</code>. La tabla anterior utiliza operandos booleanos. <code>not</code> sí produce un booleano. Para estos ejercicios se usan comparaciones o variables booleanas explícitas.</p>
-<p><a id="validacion"></a>
-<a id="concepto-4"></a></p>
-<h3>1.8 Formato, dominio y números finitos</h3>
-<p><strong>Formato</strong> indica si el texto puede convertirse al tipo requerido. <strong>Dominio</strong> indica si el valor convertido está permitido. <code>int(&quot;abc&quot;)</code> falla por formato; <code>int(&quot;-2&quot;)</code> funciona, pero −2 puede estar prohibido para una edad.</p>
-<pre><code class="language-python">texto = input()
-try:
-    edad = int(texto)
-except ValueError:
-    print(&quot;Formato inválido&quot;)
-else:
-    if edad &lt; 0:
-        print(&quot;Edad inválida&quot;)
-    else:
-        print(f&quot;Edad aceptada: {edad}&quot;)
-</code></pre>
-<p>El <code>else</code> alineado con <code>try</code> se ejecuta si la conversión termina sin <code>ValueError</code>; no es una rama de <code>if</code>. Se introduce aquí para mantener separado el código de conversión del código de decisión. La entrada <code>abc</code> muestra <code>Formato inválido</code>; −2 muestra <code>Edad inválida</code>; 18 muestra <code>Edad aceptada: 18</code>.</p>
-<p>Captura el error esperado y conserva el bloque <code>try</code> pequeño. Un <code>except</code> sin tipo puede ocultar errores ajenos al formato. Este programa lee una sola vez: solicitar de nuevo se estudiará con los bucles.</p>
-<p><code>float(&quot;nan&quot;)</code> y <code>float(&quot;inf&quot;)</code> son conversiones admitidas. Si el contrato exige un número finito, se debe comprobarlo expresamente:</p>
-<pre><code class="language-python">import math
-nota = float(&quot;nan&quot;)
-print(math.isfinite(nota))
-</code></pre>
-<p><strong>Salida:</strong> <code>False</code>. <code>math</code> pertenece a la biblioteca estándar. <code>math.isfinite()</code> rechaza tanto infinitos como NaN. No basta comprobar <code>nota &lt; 0 or nota &gt; 10</code>: ambas comparaciones son falsas para NaN.</p>
-<p>Para normalizar opciones de texto se puede usar <code>input().strip().lower()</code>: <code>strip()</code> elimina espacios de los extremos y <code>lower()</code> convierte letras a minúsculas. No se debe normalizar indiscriminadamente un código cuyo contrato distingue mayúsculas.</p>
 <p><a id="contrato"></a></p>
-<h3>1.9 Contrato y pruebas de frontera</h3>
+<h3>1.8 Contrato y pruebas de frontera</h3>
 <p>Antes de escribir condiciones, define orden de entradas, tipo, dominio, salidas y prioridad de los errores. Si varias reglas fallan, el programa necesita saber cuál comunicar primero.</p>
 <p>Para una clasificación de notas, utiliza intervalos sin huecos: [9,10], [7,9), [5,7), [0,5). Escribir «7 a 8,9» deja fuera 8,95 si se admiten decimales arbitrarios. La notación [a,b) incluye a y excluye b.</p>
 <div class="table-scroll"><table>
